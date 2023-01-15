@@ -9,7 +9,7 @@
     <meta name="description" content="Interar Interior & Architecture HTML Template">
     <meta name="keywords"
         content="architecture, interior, decoration, design, corporate, modern, html, template, multipurpose, creative" />
-    <title>Interar - Interior & Architecture HTML Template</title>
+    <title>@yield('title')</title>
     <link href="{{asset('user_assets/images/favicon.png')}}" rel="shortcut icon" type="image/png">
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{asset('user_assets/css/style.css')}}">
@@ -24,13 +24,11 @@
                 <div class="animation-preloader">
                     <div class="spinner"></div>
                     <div class="txt-loading">
-                        <span data-text-preloader="I" class="letters-loading">I</span>
-                        <span data-text-preloader="N" class="letters-loading">N</span>
-                        <span data-text-preloader="T" class="letters-loading">T</span>
+                        <span data-text-preloader="S" class="letters-loading">S</span>
                         <span data-text-preloader="E" class="letters-loading">E</span>
-                        <span data-text-preloader="R" class="letters-loading">R</span>
-                        <span data-text-preloader="A" class="letters-loading">A</span>
-                        <span data-text-preloader="R" class="letters-loading">R</span>
+                        <span data-text-preloader="V" class="letters-loading">V</span>
+                        <span data-text-preloader="I" class="letters-loading">I</span>
+                        <span data-text-preloader="C" class="letters-loading">C</span>
                     </div>
                 </div>
                 <div class="loader-section section-left"></div>
@@ -73,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-lg-6">
+                    {{-- <div class="col-xl-2 col-lg-6">
                         <div class="widget footer-widget">
                             <h5 class="widget-title text-white mrb-30">Services</h5>
                             <ul class="footer-widget-list">
@@ -85,7 +83,7 @@
                                 <li><a href="service-exterior-design.html">Exterior Design</a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-xl-3 col-lg-6">
                         <div class="widget footer-widget mrr-30 mrr-md-0">
                             <h5 class="widget-title text-white mrb-30">Contact</h5>
