@@ -1,38 +1,9 @@
 $(document).ready(function () {
 
-    // if we the talbe_data_url exists this means we are at a table page.
-    if (typeof table_data_url !== 'undefined') {
+    // render The datatable if we are at a table page
+    if (table_data_url !== 'undefined') {
         renderDataTable();
     }
-
-    $(document).on('submit', 'form[name="create-member"]', function (e) {
-        e.preventDefault();
-        $.ajax({
-            url: $(this).attr('action'),
-            type: $(this).attr('method'),
-            data: $(this).serialize(),
-            success: function (response) {
-                if (response.status) {
-                    toastr.success(response.message);
-                } else {
-                    toastr.error(response.message);
-                }
-                if (response.reset_form) {
-                    $('button[type="reset"]').click();
-                }
-            }, error: function (response) {
-                if (response.status == 422) {
-                    $.each(response.responseJSON.errors, function (key, errorsArray) {
-                        $.each(errorsArray, function (item, error) {
-                            toastr.error(error);
-                        });
-                    });
-                } else {
-                    toastr.error(response.responseJSON.message);
-                }
-            }
-        });
-    });
 
 });
 
@@ -41,7 +12,6 @@ $(document).ready(function () {
     */
 function renderDataTable() {
     $('#myTable').DataTable({
-        language: language,
         processing: true,
         serverSide: true,
         ajax: table_data_url,
@@ -51,10 +21,8 @@ function renderDataTable() {
 
 function getTableColumns() {
     return [{
-        data: 'image',
-        name: 'image',
-        searchable: true,
-        orderable: true,
+        data: 'avatar',
+        name: 'avatar',
     }, {
         data: 'name',
         name: 'name',
@@ -79,12 +47,6 @@ function getTableColumns() {
         orderable: true,
     },
     {
-        data: 'show_in_home',
-        name: 'show_in_home',
-        searchable: true,
-        orderable: true,
-    },
-    {
         data: 'status',
         name: 'status',
         searchable: true,
@@ -99,30 +61,38 @@ function getTableColumns() {
     ];
 }
 
-
 /**
  * Project Info modal
  */
 
-$('#show-phase-modal').on('show.bs.modal', function (e) {
+$('#team-create-update-modal').on('show.bs.modal', function (e) {
     var btn = e.relatedTarget;
-    var phase = JSON.parse(btn.getAttribute('data-phase'));
-    var phasePaymentStatus = btn.getAttribute('data-payment-status');
-    var phaseProgressStatus = btn.getAttribute('data-progress-status');
-    console.log(phasePaymentStatus, phaseProgressStatus);
-    var subPhases = JSON.parse(btn.getAttribute('data-sub-phases'));
-    $(this).find('#modal-phase-title').text(phase.title);
-    $(this).find('#modal-project-no').text(phase.project.no);
-    $(this).find('#modal-project-name').text(phase.project.name);
-    $(this).find('#modal-project-budget').text(phase.project.budget);
-    $(this).find('#modal-phase-budget').text(phase.budget);
-    $(this).find('#modal-phase-budget-rate').text(phase.budget_rate);
-    $(this).find('#modal-phase-payment-status').text(phasePaymentStatus);
-    $(this).find('#modal-phase-progress-status').text(phaseProgressStatus);
-
-    subPhasesForHtml = getSubPhasesForTable(subPhases);
-    $(this).find('table .new-recored').remove();
-    $(this).find('table').append(subPhasesForHtml);
+    var action = btn.getAttribute('data-action');
+    var method = btn.getAttribute('data-method');
+    var is_create = btn.getAttribute('data-is-create');
+    var member = btn.getAttribute('data-member');
+    if (member != null) {
+        member = JSON.parse(member);
+    }
+    var avatarPath = btn.getAttribute('data-avatar');
+    $(this).find('form').attr('action', action);
+    $(this).find('form').attr('method', method);
+    if (is_create == 1) {
+        $(this).find('button[type="reset"]').click();
+    } else {
+        $('#name').val(member.name);
+        $('#email').val(member.email);
+        $('#phone').val(member.phone);
+        $('#title_position').val(member.title_position);
+        $('#status').val(member.status);
+        $('#address').val(member.address);
+        $('#instagram').val(member.instagram);
+        $('#twitter').val(member.twitter);
+        $('#facebook').val(member.facebook);
+        $('#linked_in').val(member.linked_in);
+        $('#cover_letter').text(member.cover_letter);
+        $('#personal_details').text(member.personal_details);
+    }
 
 });
 

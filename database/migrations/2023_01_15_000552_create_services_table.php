@@ -22,11 +22,10 @@ class CreateServicesTable extends Migration
             $table->string('pdf')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('service_categories')->onDelete('cascade');
-            $table->longText('features')->nullable()->comment('muliple features. this value is stored as a json encoded array');
             $table->string('outer_image');
             $table->string('internal_image');
-            $table->string('features_image')->nullable();
             $table->string('icon')->nullable();
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

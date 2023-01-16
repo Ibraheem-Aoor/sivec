@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         @include('admin.partials.page_header')
         <!-- Main content -->
-        <section class="content">
+        <section class="content" enc>
             <div class="card">
                 <div class="card-header">
                     <div class="row">
@@ -18,7 +18,8 @@
                         <div class="col-sm-2"></div>
                         <div class="col-sm-2">
                             <button class="btn btn-outline-primary" data-toggle="modal"
-                                data-target="#team-create-update-modal" data-action="{{route('admin.team-members.store')}}" data-method="POST" data-is-create="1">
+                                data-target="#service-category-create-update-modal"
+                                data-action="{{ route('admin.service-category.store') }}" data-method="POST" data-is-create="1">
                                 {{ __('custom.new') }}
                             </button>
                         </div>
@@ -29,11 +30,7 @@
                     <table id="myTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>{{ __('custom.image') }}</th>
                                 <th>{{ __('custom.name') }}</th>
-                                <th>{{ __('custom.title_position') }}</th>
-                                <th>{{ __('custom.email') }}</th>
-                                <th>{{ __('custom.phone') }}</th>
                                 <th>{{ __('custom.status') }}</th>
                                 <th>{{ __('custom.Actions') }}</th>
                             </tr>
@@ -48,7 +45,7 @@
     </div>
     <!-- /.content-wrapper -->
 
-    @include('admin.team_members.team-create-update-modal')
+    @include('admin.service_category.service-category-create-update-modal')
 @endsection
 
 
@@ -61,25 +58,5 @@
     <script>
         var table_data_url = "{{ $table_data_url }}"
     </script>
-    <script src="{{ asset('admin_assets/dist/js/custom/team_member.js') }}"></script>
-    <script>
-        // change image and preveiw
-        $('#uploadButton').on('click', function() {
-            $('#changeImg').click();
-        })
-
-        var file = null,
-            reader = null;
-        $('#changeImg').change(function() {
-            file = this.files[0];
-            reader = new FileReader();
-            reader.onloadend = function() {
-                $('.image-input-wrapper').css('background-image', 'url("' + reader.result + '")');
-            }
-            if (file) {
-                reader.readAsDataURL(file);
-                console.log(file);
-            }
-        });
-    </script>
+    <script src="{{ asset('admin_assets/dist/js/custom/service_category.js') }}"></script>
 @endpush

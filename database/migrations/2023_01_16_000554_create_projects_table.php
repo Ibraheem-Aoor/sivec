@@ -29,6 +29,7 @@ class CreateProjectsTable extends Migration
             $table->date('achieve_date');
             $table->unsignedBigInteger('client_id')->nullable();
             $table->foreign('client_id')->references('id')->on('clients');
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

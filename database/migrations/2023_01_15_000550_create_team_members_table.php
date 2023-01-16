@@ -15,10 +15,10 @@ class CreateTeamMembersTable extends Migration
     {
         Schema::create('team_members', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
+            $table->text('avatar');
             $table->string('name');
             $table->string('title_position');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->text('cover_letter')->nullable();
@@ -29,6 +29,7 @@ class CreateTeamMembersTable extends Migration
             $table->text('linked_in')->nullable();
             $table->boolean('status')->default(true)->comment('To determine wether to show the member on site or not.');
             $table->boolean('show_in_home')->default(false);
+            $table->timestamps();
         });
     }
 

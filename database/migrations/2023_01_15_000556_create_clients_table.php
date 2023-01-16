@@ -21,6 +21,7 @@ class CreateClientsTable extends Migration
             $table->string('email')->nullable()->unique();
             $table->string('image')->nullable();
             $table->string('phone')->nullable()->unique();
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

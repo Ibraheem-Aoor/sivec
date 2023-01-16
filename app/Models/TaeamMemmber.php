@@ -12,7 +12,7 @@ class TaeamMemmber extends Model
     protected $table = 'team_members';
 
     protected $fillable = [
-        'image',
+        'avatar',
         'name',
         'title_position',
         'email',

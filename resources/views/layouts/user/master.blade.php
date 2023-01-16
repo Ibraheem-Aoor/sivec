@@ -10,10 +10,10 @@
     <meta name="keywords"
         content="architecture, interior, decoration, design, corporate, modern, html, template, multipurpose, creative" />
     <title>@yield('title')</title>
-    <link href="{{asset('user_assets/images/favicon.png')}}" rel="shortcut icon" type="image/png">
+    <link href="{{ asset('user_assets/images/favicon.png') }}" rel="shortcut icon" type="image/png">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{{asset('user_assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('user_assets/css/responsive.css')}}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/responsive.css') }}">
 </head>
 
 <body>
@@ -47,10 +47,10 @@
     <footer class="footer bg-cover" data-background="https://via.placeholder.com/1920x1280" data-overlay-dark="98">
         <div class="footer-main-area">
             <div class="footer-section-obj1">
-                <img src="{{asset('user_assets/images/objects/footer-obj1.png')}}" alt="">
+                <img src="{{ asset('user_assets/images/objects/footer-obj1.png') }}" alt="">
             </div>
             <div class="footer-section-obj2">
-                <img src="{{asset('user_assets/images/objects/footer-obj2.png')}}" alt="">
+                <img src="{{ asset('user_assets/images/objects/footer-obj2.png') }}" alt="">
             </div>
             <div class="container">
                 <div class="row pdb-65">
@@ -101,7 +101,8 @@
                     <div class="col-xl-3 col-lg-6">
                         <div class="widget footer-widget mrr-60 mrr-md-0">
                             <div class="footer-logo">
-                                <img src="{{asset('user_assets/images/logo-light.svg')}}" alt="" class="mrb-25">
+                                <img src="{{ asset('user_assets/images/logo-light.svg') }}" alt=""
+                                    class="mrb-25">
                             </div>
                             <p class="mrb-25">There are many vari of pass but majority have suffered some injected of a
                                 humour</p>
@@ -135,7 +136,8 @@
             </a>
             <div class="logo-box">
                 <a href="index-2.html" aria-label="logo image">
-                    <img src="{{asset('user_assets/images/logo-light.svg')}}" width="165" height="72" alt="logo">
+                    <img src="{{ asset('user_assets/images/logo-light.svg') }}" width="165" height="72"
+                        alt="logo">
                 </a>
             </div>
             <div class="mobile-nav-container"></div>
@@ -177,18 +179,18 @@
     </div>
     <!-- Back to Top end -->
     <!-- Integrated important scripts here -->
-    <script src="{{asset('user_assets/js/jquery-3.6.0.min.js')}}"></script>
-    <script src="{{asset('user_assets/js/jquery.nice-select.min.js')}}"></script>
-    <script src="{{asset('user_assets/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('user_assets/js/jquery.appear.min.js')}}"></script>
-    <script src="{{asset('user_assets/js/wow.min.js')}}"></script>
-    <script src="{{asset('user_assets/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('user_assets/js/jquery.event.move.js')}}"></script>
-    <script src="{{asset('user_assets/js/jquery.twentytwenty.js')}}"></script>
-    <script src="{{asset('user_assets/js/tilt.jquery.min.js')}}"></script>
-    <script src="{{asset('user_assets/js/magnific-popup.min.js')}}"></script>
-    <script src="{{asset('user_assets/js/backtotop.js')}}"></script>
-    <script src="{{asset('user_assets/js/trigger.js')}}"></script>
+    <script src="{{ asset('user_assets/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('user_assets/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('user_assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('user_assets/js/jquery.appear.min.js') }}"></script>
+    <script src="{{ asset('user_assets/js/wow.min.js') }}"></script>
+    <script src="{{ asset('user_assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('user_assets/js/jquery.event.move.js') }}"></script>
+    <script src="{{ asset('user_assets/js/jquery.twentytwenty.js') }}"></script>
+    <script src="{{ asset('user_assets/js/tilt.jquery.min.js') }}"></script>
+    <script src="{{ asset('user_assets/js/magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('user_assets/js/backtotop.js') }}"></script>
+    <script src="{{ asset('user_assets/js/trigger.js') }}"></script>
 </body>
 
 </html>
