@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\ProjectCategoryController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TeamMemmberController;
+use App\Models\ProjectCategory;
 use App\Models\ServiceCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -41,7 +44,21 @@ Route::group(['prefix' => 'backoffice' ], function () {
 
         // Services
         Route::resource('service', ServiceController::class);
+        Route::post('service/{id}/update', [ServiceCategoryController::class , 'update'])->name('service.custom_update');
         Route::get('service-table-data', [ServiceController::class, 'getTableData'])->name('service.table_data');
+
+
+        // Clients
+        Route::resource('client', ClientController::class);
+        Route::post('client/{id}/update', [ClientController::class , 'update'])->name('client.custom_update');
+        Route::get('client-table-data', [ClientController::class, 'getTableData'])->name('client.table_data');
+
+
+           // Service Category
+        Route::resource('project-category', ProjectCategoryController::class);
+        Route::post('project-category/{id}/update', [ProjectCategoryController::class , 'update'])->name('project-category.custom_update');
+        Route::get('project-category-table-data', [ProjectCategoryController::class, 'getTableData'])->name('project-category.table_data');
+
 
     });
     ########## END  AUTH ADMIN #############

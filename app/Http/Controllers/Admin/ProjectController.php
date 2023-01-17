@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Enums\BaseShowStatusEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateServiceRequest;
+use App\Models\Project;
+use App\Models\ProjectCategory;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Transformers\Admin\ServiceTransformer;
@@ -25,8 +27,8 @@ class ServiceController extends Controller
     {
         $data['table_data_url'] = route('admin.service.table_data');
         $data['show_statuses'] = BaseShowStatusEnum::getInstances();
-        $data['categories'] = ServiceCategory::query()->get();
-        return view('admin.service.index' , $data);
+        $data['categories'] = ProjectCategory::query()->get();
+        return view('admin.project.index' , $data);
     }
 
 
@@ -47,7 +49,7 @@ class ServiceController extends Controller
             {
                 $data['pdf']    =   encrypt(time()).'.'.$pdf_file_content->getClientOriginalExtension();
             }
-            $service = Service::query()->create($data);
+            $service = Project::query()->create($data);
             $image_file_content->storeAs('public/services/'.$service->id.'/main'.'/' , $data['image']);
             if(@$data['pdf'])
             {
@@ -100,7 +102,7 @@ class ServiceController extends Controller
     public function update(CreateServiceRequest $request, $id)
     {
         try{
-            $service_cateogry = Service::query()->find($id);
+            $service_cateogry = Project::query()->find($id);
             $data = $request->toArray();
             $service_cateogry->update($data);
             $response_data['status'] = true;
@@ -128,7 +130,7 @@ class ServiceController extends Controller
     {
         try
         {
-            $service  =   Service::query()->find($id);
+            $service  =   Project::query()->find($id);
             Storage::disk('public')->deleteDirectory('services/'.$service->id.'/');
             Storage::disk('public')->deleteDirectory('services/'.$service->id.'/');
 
@@ -151,7 +153,7 @@ class ServiceController extends Controller
 
     public function getTableData()
     {
-        return DataTables::of(Service::query()->with('category')->orderByDesc('services.created_at'))
+        return DataTables::of(Project::query()->with('category')->orderByDesc('services.created_at'))
                     ->setTransformer(ServiceTransformer::class)
                     ->make(true);
     }

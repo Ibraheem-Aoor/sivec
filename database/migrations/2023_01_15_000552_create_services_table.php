@@ -22,8 +22,8 @@ class CreateServicesTable extends Migration
             $table->string('pdf')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('service_categories')->onDelete('cascade');
-            $table->string('outer_image');
-            $table->string('internal_image');
+            $table->string('image');
+            $table->string('status')->default(true);
             $table->string('icon')->nullable();
             $table->timestamps();
         });

@@ -27,12 +27,6 @@ function getTableColumns() {
         orderable: true,
     },
     {
-        data: 'category',
-        name: 'category.name',
-        searchable: true,
-        orderable: true,
-    },
-    {
         data: 'status',
         name: 'status',
         searchable: true,
@@ -51,14 +45,14 @@ function getTableColumns() {
  * Project Info modal
  */
 
-$('#service-create-update-modal').on('show.bs.modal', function (e) {
+$('#project-category-create-update-modal').on('show.bs.modal', function (e) {
     var btn = e.relatedTarget;
     var action = btn.getAttribute('data-action');
     var method = btn.getAttribute('data-method');
     var isCreate = btn.getAttribute('data-is-create');
-    var service = btn.getAttribute('data-service');
-    if (service != null) {
-        service = JSON.parse(service);
+    var projectCategory = btn.getAttribute('data-project-category');
+    if (projectCategory != null) {
+        projectCategory = JSON.parse(projectCategory);
     }
     var avatarPath = btn.getAttribute('data-avatar');
     $(this).find('form').attr('action', action);
@@ -66,9 +60,9 @@ $('#service-create-update-modal').on('show.bs.modal', function (e) {
     if (isCreate == 1) {
         $(this).find('button[type="reset"]').click();
     } else {
-        console.log(service);
-        $('#name').val(service.name);
-        $('#status').val(service.status);
+        console.log(projectCategory);
+        $('#name').val(projectCategory.name);
+        $('#status').val(projectCategory.status);
     }
 
 });

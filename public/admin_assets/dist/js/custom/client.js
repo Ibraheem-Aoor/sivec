@@ -21,20 +21,26 @@ function renderDataTable() {
 
 function getTableColumns() {
     return [{
+        data: 'image',
+        name: 'image',
+        searchable: false,
+        orderable: false,
+    },
+    {
         data: 'name',
         name: 'name',
         searchable: true,
         orderable: true,
     },
     {
-        data: 'category',
-        name: 'category.name',
+        data: 'email',
+        name: 'email',
         searchable: true,
         orderable: true,
     },
     {
-        data: 'status',
-        name: 'status',
+        data: 'phone',
+        name: 'phone',
         searchable: true,
         orderable: true,
     },
@@ -51,24 +57,25 @@ function getTableColumns() {
  * Project Info modal
  */
 
-$('#service-create-update-modal').on('show.bs.modal', function (e) {
+$('#client-create-update-modal').on('show.bs.modal', function (e) {
     var btn = e.relatedTarget;
     var action = btn.getAttribute('data-action');
     var method = btn.getAttribute('data-method');
     var isCreate = btn.getAttribute('data-is-create');
-    var service = btn.getAttribute('data-service');
-    if (service != null) {
-        service = JSON.parse(service);
-    }
-    var avatarPath = btn.getAttribute('data-avatar');
     $(this).find('form').attr('action', action);
     $(this).find('form').attr('method', method);
+    var client = btn.getAttribute('data-client');
+    if (client != null) {
+        client = JSON.parse(client);
+    }
+    var imagePath = btn.getAttribute('data-image');
     if (isCreate == 1) {
         $(this).find('button[type="reset"]').click();
     } else {
-        console.log(service);
-        $('#name').val(service.name);
-        $('#status').val(service.status);
+        console.log(client);
+        $('#name').val(client.name);
+        $('#email').val(client.email);
+        $('#phone').val(client.phone);
     }
 
 });

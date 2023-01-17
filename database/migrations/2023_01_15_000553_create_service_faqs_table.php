@@ -21,7 +21,7 @@ class CreateServiceFaqsTable extends Migration
             $table->longText('answer');
             $table->unsignedBigInteger('service_id');
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
-            $table->timestamps();
+            $table->timestamps();   
         });
 
         Schema::enableForeignKeyConstraints();

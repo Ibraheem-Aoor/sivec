@@ -1,4 +1,4 @@
-<div class="modal fade" id="service-create-update-modal">
+<div class="modal fade" id="client-create-update-modal">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form>
@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="text-center">
 
-                                    <span class="text-danger text-center">775*450</span>
+                                    <span class="text-danger text-center">80*80</span>
                                 </div>
                             </div>
                         </div>
@@ -44,43 +44,18 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <label for="category_id">{{ __('custom.category') }}</label>
-                                <select name="category_id" id="category_id" class="form-control">
-                                    <option value="">--{{ __('custom.select') }}--</option>
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                    @endforeach
-                                </select>
+                                <label for="email">{{ __('custom.email') }}</label>
+                                <input type="text" name="email" id="email" class="form-control">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="pdf">{{ __('custom.pdf') }}</label>
-                                    <input type="file" name="pdf" id="pdf" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="status">{{ __('custom.status') }}</label>
-                                    <select name="status" id="status" class="form-control">
-                                        <option value="">--{{ __('custom.select') }}--</option>
-                                        @foreach ($show_statuses as $key => $object)
-                                            <option value="{{ $object->value }}">{{ $key }}</option>
-                                        @endforeach
-                                    </select>
+                                    <label for="phone">{{ __('custom.phone') }}</label>
+                                    <input type="text" name="phone" id="phone" class="form-control">
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label for="status">{{ __('custom.detials') }}</label>
-                                    <textarea name="details" id="details" cols="30" rows="10" class="form-control"></textarea>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
                 </div>

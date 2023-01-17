@@ -99,8 +99,8 @@
                         <div class="col-sm-2"></div>
                         <div class="col-sm-2">
                             <button class="btn btn-outline-primary" data-toggle="modal"
-                                data-target="#service-create-update-modal"
-                                data-action="{{ route('admin.service.store') }}" data-method="POST"
+                                data-target="#client-create-update-modal"
+                                data-action="{{ route('admin.client.store') }}" data-method="POST"
                                 data-is-create="1">
                                 {{ __('custom.new') }}
                             </button>
@@ -112,9 +112,10 @@
                     <table id="myTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th>{{__('custom.image')}}</th>
                                 <th>{{ __('custom.name') }}</th>
-                                <th>{{ __('custom.category') }}</th>
-                                <th>{{ __('custom.status') }}</th>
+                                <th>{{ __('custom.email') }}</th>
+                                <th>{{ __('custom.phone') }}</th>
                                 <th>{{ __('custom.Actions') }}</th>
                             </tr>
                         </thead>
@@ -128,7 +129,7 @@
     </div>
     <!-- /.content-wrapper -->
 
-    @include('admin.service.service-create-update-modal')
+    @include('admin.client.client-create-update-modal')
 @endsection
 
 
@@ -141,7 +142,7 @@
     <script>
         var table_data_url = "{{ $table_data_url }}"
     </script>
-    <script src="{{ asset('admin_assets/dist/js/custom/service.js') }}"></script>
+    <script src="{{ asset('admin_assets/dist/js/custom/client.js') }}"></script>
     <script>
         // change image and preveiw
         $('#uploadButton').on('click', function() {

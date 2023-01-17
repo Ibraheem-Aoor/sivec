@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class CreateServiceRequest extends FormRequest
+class CreateProjectCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +25,7 @@ class CreateServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  =>  'required|unique:services,name',
-            'details'  => 'required',
-            'pdf'   =>  'nullable|file|mimes:pdf',
-            'category_id'   =>  'required',
-            'image'   =>  'required|image|mimes:jpeg,png,jpg,gif|dimensions:min_width=775,min_height=450,max_width=775,max_height=450',
+            'name'  =>  'required|unique:project_categories,name',
             'status'    =>  'required'
         ];
     }

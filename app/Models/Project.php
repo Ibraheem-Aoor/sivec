@@ -6,25 +6,31 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Service extends Model
+class Project extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'details',
-        'category_id',
         'image',
-        'icon',
-        'status'
+        'home_image',
+        'name',
+        'features',
+        'budget',
+        'basic_info',
+        'challenge',
+        'result',
+        'achieve_date',
+        'category_id',
+        'client_id',
     ];
 
 
 
     public function category() : BelongsTo
     {
-        return $this->belongsTo(ServiceCategory::class , 'category_id');
+        return $this->belongsTo(ProjectCategory::class , 'category_id');
     }
 
-
 }
+
+

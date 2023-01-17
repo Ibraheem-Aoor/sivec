@@ -4,18 +4,25 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enums\BaseShowStatusEnum;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CreateServiceRequest;
-use App\Models\Service;
+use App\Http\Requests\Admin\CreateProjectCategoryRequest;
+use App\Http\Requests\Admin\CreateServiceCategoryRequest;
+use App\Http\Requests\Admin\CreateTeamMemberRequest;
+use App\Http\Requests\Admin\UpdateProjectCategoryRequest;
+use App\Http\Requests\Admin\UpdateServiceCategoryRequest;
+use App\Http\Requests\Admin\UpdateTeamMemberRequest;
+use App\Models\ProjectCategory;
 use App\Models\ServiceCategory;
-use App\Transformers\Admin\ServiceTransformer;
+use App\Models\TaeamMemmber;
+use App\Transformers\Admin\TeamMemberTransformer;
+use App\Transformers\ProjectCategoryTransformer;
+use App\Transformers\ServiceCategoryTransformer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Throwable;
-use Yajra\DataTables\DataTables;
+use Yajra\DataTables\Facades\DataTables;
 
-class ServiceController extends Controller
+class ProjectCategoryController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -23,12 +30,20 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $data['table_data_url'] = route('admin.service.table_data');
+        $data['table_data_url'] = route('admin.project-category.table_data');
         $data['show_statuses'] = BaseShowStatusEnum::getInstances();
-        $data['categories'] = ServiceCategory::query()->get();
-        return view('admin.service.index' , $data);
+        return view('admin.project_category.index' , $data);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -36,33 +51,21 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateServiceRequest $request)
+    public function store(CreateProjectCategoryRequest $request)
     {
         try{
             $data = $request->toArray();
-            $image_file_content =   $request->file('image');
-            $pdf_file_content = $request->file('pdf');
-            $data['image'] = encrypt(time()) . '.' . $image_file_content->getClientOriginalExtension();
-            if($pdf_file_content)
-            {
-                $data['pdf']    =   encrypt(time()).'.'.$pdf_file_content->getClientOriginalExtension();
-            }
-            $service = Service::query()->create($data);
-            $image_file_content->storeAs('public/services/'.$service->id.'/main'.'/' , $data['image']);
-            if(@$data['pdf'])
-            {
-                $pdf_file_content->storeAs('public/services/'.$service->id.'/pdf'.'/' , $data['pdf']);
-            }
+            ProjectCategory::query()->create($data);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.create_successs');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
-            $response_data['modal_to_hiode'] = '#service-category-create-update-modal';
+            $response_data['modal_to_hiode'] = '#project-category-create-update-modal';
             $error_no = 200;
         }catch(Throwable $e)
         {
             $response_data['status'] = false;
-            $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
+            $response_data['message'] = $e->getMessage();
             $error_no = 500;
         }
         return response()->json($response_data , $error_no);
@@ -97,17 +100,17 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CreateServiceRequest $request, $id)
+    public function update(UpdateProjectCategoryRequest $request, $id)
     {
         try{
-            $service_cateogry = Service::query()->find($id);
+            $service_cateogry = ProjectCategory::query()->find($id);
             $data = $request->toArray();
             $service_cateogry->update($data);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.updated_successs');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
-            $response_data['modal_to_hiode'] = '#service-category-create-update-modal';
+            $response_data['modal_to_hiode'] = '#project-category-create-update-modal';
             $error_no = 200;
         }catch(Throwable $e)
         {
@@ -128,11 +131,8 @@ class ServiceController extends Controller
     {
         try
         {
-            $service  =   Service::query()->find($id);
-            Storage::disk('public')->deleteDirectory('services/'.$service->id.'/');
-            Storage::disk('public')->deleteDirectory('services/'.$service->id.'/');
-
-            $service->delete();
+            $service_category  =   ProjectCategory::query()->find($id);
+            $service_category->delete();
             $respnse_data['status'] = true;
             $respnse_data['is_deleted'] = true;
             $respnse_data['message'] = __('custom.deleted_successflly');
@@ -151,8 +151,9 @@ class ServiceController extends Controller
 
     public function getTableData()
     {
-        return DataTables::of(Service::query()->with('category')->orderByDesc('services.created_at'))
-                    ->setTransformer(ServiceTransformer::class)
+        return DataTables::of(ProjectCategory::query()->orderByDesc('created_at'))
+                    ->setTransformer(ProjectCategoryTransformer::class)
                     ->make(true);
     }
+
 }
