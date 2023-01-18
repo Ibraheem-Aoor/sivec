@@ -60,8 +60,7 @@
                     <div class="col-xl-4 col-lg-6">
                         <div class="widget footer-widget mrr-60 mrr-md-0">
                             <h5 class="widget-title text-white mrb-30">Newsletter</h5>
-                            <p class="mrb-30">Seamlessly visualize quality intellectual ideal without collaboration
-                                superior montes soon maecenas capita idea listically</p>
+                            <p class="mrb-30">Join Our Community And Start Receiving Our News And Updates</p>
                             <div class="newsletter-from">
                                 <div class="email">
                                     <input type="email" name="EMAIL" placeholder="Enter your email" required="">
@@ -92,9 +91,12 @@
                             <h5 class="widget-title text-white mrb-30">Contact</h5>
                             <address class="mrb-0">
                                 <p>{{ $site_settings['main_address'] }}</p>
-                                <div class="mrb-10"><a href="#"><i class="fas fa-phone-alt mrr-10"></i>{{ $site_settings['phone_number'] }}</a></div>
                                 <div class="mrb-10"><a href="#"><i
-                                            class="fas fa-envelope mrr-10"></i>{{ $site_settings['company_email'] }}</a></div>
+                                            class="fas fa-phone-alt mrr-10"></i>{{ $site_settings['phone_number'] }}</a>
+                                </div>
+                                <div class="mrb-10"><a href="#"><i
+                                            class="fas fa-envelope mrr-10"></i>{{ $site_settings['company_email'] }}</a>
+                                </div>
                                 <div class="mrb-0"><a href="#"><i
                                             class="fas fa-globe mrr-10"></i>www.sevic.ae</a></div>
                             </address>
@@ -108,10 +110,13 @@
                             </div>
                             <p class="mrb-25"></p>
                             <ul class="social-list">
-                                <li><a href="{{ $site_settings['facebook'] }}"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="{{ $site_settings['facebook'] }}"><i class="fab fa-facebook-f"></i></a>
+                                </li>
                                 <li><a href="{{ $site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="{{ $site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="{{ $site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a href="{{ $site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a>
+                                </li>
+                                <li><a href="{{ $site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -119,7 +124,8 @@
                 <div class="row pdt-30 pdb-30 footer-copyright-area">
                     <div class="col-xl-12">
                         <div class="text-center">
-
+                            Copyright &copy; 2023 <a href="{{ route('site.home') }}">SIVEC</a>
+                            All rights reserved.
                         </div>
                     </div>
                 </div>
