@@ -7,7 +7,7 @@
     <meta name="csrf" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="SEVIC Interior & Architecture">
+    <meta name="description" content="SIVECInterior & Architecture">
     <meta name="keywords"
         content="architecture, interior, decoration, design, corporate, modern, html, template, multipurpose, creative" />
     <title>{{ $page_title }}</title>
@@ -28,9 +28,9 @@
                     <div class="spinner"></div>
                     <div class="txt-loading">
                         <span data-text-preloader="S" class="letters-loading">S</span>
-                        <span data-text-preloader="E" class="letters-loading">E</span>
-                        <span data-text-preloader="V" class="letters-loading">V</span>
                         <span data-text-preloader="I" class="letters-loading">I</span>
+                        <span data-text-preloader="V" class="letters-loading">V</span>
+                        <span data-text-preloader="E" class="letters-loading">E</span>
                         <span data-text-preloader="C" class="letters-loading">C</span>
                     </div>
                 </div>
@@ -91,13 +91,12 @@
                         <div class="widget footer-widget mrr-30 mrr-md-0">
                             <h5 class="widget-title text-white mrb-30">Contact</h5>
                             <address class="mrb-0">
-                                <p>32 Dora Creek, tuntable creek, New South Wales 2480, Australia</p>
-                                <div class="mrb-10"><a href="#"><i class="fas fa-phone-alt mrr-10"></i>+088 234
-                                        432 15565</a></div>
+                                <p>{{ $site_settings['main_address'] }}</p>
+                                <div class="mrb-10"><a href="#"><i class="fas fa-phone-alt mrr-10"></i>{{ $site_settings['phone_number'] }}</a></div>
                                 <div class="mrb-10"><a href="#"><i
-                                            class="fas fa-envelope mrr-10"></i>sample@yourdomain.com</a></div>
+                                            class="fas fa-envelope mrr-10"></i>{{ $site_settings['company_email'] }}</a></div>
                                 <div class="mrb-0"><a href="#"><i
-                                            class="fas fa-globe mrr-10"></i>www.domainname.com</a></div>
+                                            class="fas fa-globe mrr-10"></i>www.sevic.ae</a></div>
                             </address>
                         </div>
                     </div>
@@ -107,13 +106,12 @@
                                 <img src="{{ asset('user_assets/images/logo-light.svg') }}" alt=""
                                     class="mrb-25">
                             </div>
-                            <p class="mrb-25">There are many vari of pass but majority have suffered some injected of a
-                                humour</p>
+                            <p class="mrb-25"></p>
                             <ul class="social-list">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="{{ $site_settings['facebook'] }}"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="{{ $site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="{{ $site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="{{ $site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -145,17 +143,20 @@
             </div>
             <div class="mobile-nav-container"></div>
             <ul class="list-items mobile-sidebar-contact">
-                <li><span class="fa fa-map-marker-alt mrr-10 text-primary-color"></span>121 King Street, Australia</li>
+                <li><span
+                        class="fa fa-map-marker-alt mrr-10 text-primary-color"></span>{{ $site_settings['main_address'] }}
+                </li>
                 <li><span class="fas fa-envelope mrr-10 text-primary-color"></span><a
-                        href="mailto:example@gmail.com">example@gmail.com</a></li>
-                <li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span><a href="tel:123456789">+972
-                        0598298969</a></li>
+                        href="mailto:{{ $site_settings['company_email'] }}">{{ $site_settings['company_email'] }}</a>
+                </li>
+                <li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span><a
+                        href="tel:{{ $site_settings['phone_number'] }}">{{ $site_settings['phone_number'] }}</a></li>
             </ul>
             <ul class="social-list list-primary-color">
-                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                <li><a href="{{ $site_settings['facebook'] }}"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="{{ $site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="{{ $site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="{{ $site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a></li>
             </ul>
         </div>
     </div>

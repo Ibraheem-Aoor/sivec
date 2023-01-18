@@ -3,22 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Site\ContactFormRequest;
+use App\Models\BusinessSetting;
 use App\Models\Contact;
 use App\Models\Project;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\View;
+use Termwind\Components\Dd;
 use Throwable;
 
 class HomeController extends Controller
 {
 
     public $services;
+    public $contact_page_settings;
+    public $about_page_settings;
+    public $site_settings;
 
     public function __construct()
     {
         $this->services = $this->getHomeServices();
+        $this->contact_page_settings = $this->getPageSettings('contact');
+        $this->about_page_settings = $this->getPageSettings('about');
+        $this->site_settings = $this->getPageSettings('site');
+        View::share(['site_settings' => $this->site_settings , 'about_page_settings' => $this->about_page_settings]);
     }
 
 
@@ -30,19 +40,29 @@ class HomeController extends Controller
     public function home()
     {
         $data['services'] = $this->services;
-        $data['page_title'] = "SEVIC - Interior & Architecture";
+        $data['page_title'] = "SIVEC- Interior & Architecture";
         return view('site.home' , $data);
     }
 
     public function about()
     {
-        $data['page_title'] = "SEVIC - About us";
+        $data['page_title'] = "SIVEC- About us";
+        $data['page_settings'] =  BusinessSetting::query()->wherePage('about')->pluck('value' , 'key');
         return view('site.about' , $data);
     }
 
     public function contact()
     {
-        $data['page_title'] = "SEVIC - Contact Us";
+        $data['page_title'] = "SIVEC- Contact Us";
+        $data['page_settings'] = $this->contact_page_settings;
+        $addres_titles =    json_decode( @$data['page_settings']['address_titles'] , true) ?? [];
+        $addres_values = json_decode(@$data['page_settings']['address_values'] , true);
+        $data['addresses'] =    [];
+        $i = 0;
+        foreach($addres_titles as $address)
+        {
+            array_push($data['addresses'], ['title' => $address, 'value' => @$addres_values[$i++]]);
+        }
         return view('site.contact' , $data);
     }
 
@@ -131,6 +151,18 @@ class HomeController extends Controller
         return $services;
     }
 
+
+    public function getPageSettings($page = null)
+    {
+        if(Cache::has("{$page}_settings"))
+        {
+            $settings = Cache::get("{$page}_settings");
+        }else{
+            $page_settings = BusinessSetting::query()->wherePage($page)->pluck('value' , 'key');
+            $settings = Cache::put("{$page}_settings" , $page_settings);
+        }
+        return $settings;
+    }
 
 
 }

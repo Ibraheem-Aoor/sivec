@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProjectCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TeamMemmberController;
 use App\Models\ProjectCategory;
 use App\Models\ServiceCategory;
@@ -31,6 +33,9 @@ Route::group(['prefix' => 'backoffice' ], function () {
     ########## START AUTH ADMIN #############
     Route::group(['middleware' => 'auth' , 'as' => 'admin.'], function () {
         Route::get('/',  [DashboardController::class , 'index'])->name('dashboard');
+        Route::get('contacts' , [DashboardController::class , 'contacts'])->name('contact.index');
+        Route::get('contact-table-data', [DashboardController::class, 'getContactTableData'])->name('contact.table_data');
+
         // Team Members
         Route::resource('team-members', TeamMemmberController::class);
         Route::post('team-members/{id}/update', [TeamMemmberController::class , 'update'])->name('team-members.custom_update');
@@ -65,6 +70,17 @@ Route::group(['prefix' => 'backoffice' ], function () {
           Route::post('project/{id}/update', [ProjectController::class , 'update'])->name('project.custom_update');
           Route::get('project-table-data', [ProjectController::class, 'getTableData'])->name('project.table_data');
 
+
+        Route::group(['controller' =>  PageController::class , 'prefix' => 'page',  'as' => 'page.' ], function () {
+            Route::get('about' ,    'aboutPage')->name('about');
+            Route::post('about/update' ,    'updateAboutPageSettings')->name('about.update');
+            Route::get('contact' ,    'contactPage')->name('contact');
+            Route::post('contact/update' ,    'updateContactPage')->name('contact.update');
+        });
+        Route::group(['controller' =>  SettingController::class , 'prefix' => 'settings',  'as' => 'settings.' ], function () {
+            Route::get('general' ,    'generalSettings')->name('general');
+            Route::post('general' ,    'updateGeneralSettings')->name('general.update');
+        });
     });
     ########## END  AUTH ADMIN #############
 });

@@ -53,7 +53,7 @@ class ServiceCategoryController extends Controller
             $data = $request->toArray();
             ServiceCategory::query()->create($data);
             $response_data['status'] = true;
-            $response_data['message'] = __('custom.create_successs');
+            $response_data['message'] = __('custom.create_success');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
             $response_data['modal_to_hiode'] = '#service-category-create-update-modal';

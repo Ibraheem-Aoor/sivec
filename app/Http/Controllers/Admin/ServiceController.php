@@ -55,7 +55,7 @@ class ServiceController extends Controller
                 $pdf_file_content->storeAs('public/services/'.$service->id.'/pdf'.'/' , $data['pdf']);
             }
             $response_data['status'] = true;
-            $response_data['message'] = __('custom.create_successs');
+            $response_data['message'] = __('custom.create_success');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
             $response_data['modal_to_hiode'] = '#service-create-update-modal';

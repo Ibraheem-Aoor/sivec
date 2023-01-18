@@ -4,7 +4,7 @@
         <div class="main-menu-wrapper">
             <div class="main-menu-logo">
                 <a href="{{route('site.home')}}">
-                    <img src="{{ asset('user_assets/images/logo-light.svg') }}" width="165" height="72"
+                    <img src="{{ asset('user_assets/images/logo.png') }}" width="165" height="72"
                         alt="logo">
                 </a>
             </div>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="header-contact-info-text">
                         <p class="call-text">Call Anytime</p>
-                        <h5 class="phone-no"><a href="tel:123456789">+972 0598298969</a></h5>
+                        <h5 class="phone-no"><a href="tel:123456789">{{$site_settings['phone_number']}}</a></h5>
                     </div>
                 </div>
             </div>

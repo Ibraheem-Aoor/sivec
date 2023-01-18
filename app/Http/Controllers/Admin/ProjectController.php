@@ -55,7 +55,7 @@ class ProjectController extends Controller
             $image_file_content->storeAs('public/projects/'.$project->id.'/main'.'/' , $data['image']);
             $home_image_file_content->storeAs('public/projects/'.$project->id.'/home'.'/' , $data['home_image']);
             $response_data['status'] = true;
-            $response_data['message'] = __('custom.create_successs');
+            $response_data['message'] = __('custom.create_success');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
             $response_data['modal_to_hiode'] = '#project-create-update-modal';

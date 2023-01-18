@@ -47,6 +47,7 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
             data: formData,
+            enctype: "multipart/form-data",
             success: function (response) {
                 console.log(response);
                 if (response.status) {

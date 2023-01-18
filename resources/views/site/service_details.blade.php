@@ -1,6 +1,8 @@
 @extends('layouts.user.master')
-@section('tiite', 'SEVIC - Inerior Design Services')
+@section('tiite', 'SIVEC- Inerior Design Services')
 @section('content')
+    @include('site.partials.page-title')
+
     <!-- Service Details Section Start -->
     <section class="service-details-page pdt-110 pdb-110 pdb-lg-75">
         <div class="container">
@@ -108,7 +110,7 @@
                             <div class="brochure-download">
                                 <h4 class="mrb-40 widget-title">Brochure Download</h4>
                                 <p>Please click download button for getting brochure file</p>
-                                <a href="{{ route('site.service.pdf' , $service->getEncId())}}" class="cs-btn-one"><span
+                                <a href="{{ route('site.service.pdf', $service->getEncId()) }}" class="cs-btn-one"><span
                                         class="far fa-file-pdf mrr-10"></span> Download
                                     PDF</a>
                             </div>

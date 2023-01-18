@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="call-to-action-btn-box mrt-md-30">
-                        <a href="page-contact-us.html" class="animate-btn-style4">Contact With Us</a>
+                        <a href="{{ route('site.contact')}}" class="animate-btn-style4">Contact With Us</a>
                     </div>
                 </div>
             </div>

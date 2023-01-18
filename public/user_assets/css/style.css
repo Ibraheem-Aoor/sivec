@@ -83,7 +83,7 @@
 @import url("../css/custom-animation.css");
 @import url("../css/kursor.css");
 :root {
-  --primary-color: #B98E75;
+  --primary-color: #F25F29;
   --primary-color-rgb: 185, 142, 117;
   --primary-color2: #111;
   --primary-color2-rgb: 17, 17, 17;
@@ -91,18 +91,18 @@
   --primary-color3-rgb: 51, 214, 135;
   --primary-color4: #FAB758;
   --primary-color4-rgb: 250, 183, 88;
-  --secondary-color: #252531;
+  --secondary-color: #F2CCB6;
   --secondary-color-rgb: 37, 37, 49;
   --secondary-color2: #353666;
   --secondary-color2-rgb: 37, 37, 49;
   --text-white: #ffffff;
   --text-black: #303031;
-  --text-gray: #8b827d;
+  --text-gray: #7A7A7A;
   --text-blue: #447BDE;
   --text-light-gray: #a7a8b4;
   --text-silver: #f5f3f1;
-  --text-gray-light: #CCCCCC;
-  --text-dark-light: #808093;
+  --text-gray-light: #fff;
+  --text-dark-light: #c3c3c3;
   --bg-white: #ffffff;
   --bg-light-pink: #faf3f3;
   --bg-silver: #fbf6f3;
@@ -145,7 +145,7 @@
   --header2-nav--child-font-weight: 500;
   --box-shadow: 6px 6px 25px 0px rgba(0, 0, 0, 0.08);
   --text-categories: #b5b5b5;
-  --footer-text-color: #bbb7c2;
+  --footer-text-color: #fff;
 }
 
 /*========================================*/
@@ -1025,7 +1025,7 @@ div[class*='kursor'].kursor--1.kursor--down {
   margin-left: 27px;
 }
 .header-style-01 .main-menu {
-  background: transparent;
+  background: #F2CCB6;
   position: absolute;
   top: 0;
   left: 0;
@@ -3621,7 +3621,7 @@ div[class*='kursor'].kursor--1.kursor--down {
 /*========================================*/
 .page-title-section {
   background-position: center;
-  background-color: #f8f8f8;
+  background-color: #595959;
   background-image: url(../images/bg/2.jpg);
   display: flex;
   align-items: end;

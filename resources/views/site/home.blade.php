@@ -1,5 +1,5 @@
 @extends('layouts.user.master')
-@section('tiite', 'SEVIC - Inerior Design Services')
+@section('tiite', 'SIVEC- Inerior Design Services')
 @section('content')
     <!-- Home Slider Start -->
     <section class="home_banner_01">
@@ -16,7 +16,7 @@
                                 <p class="home-carousel-text">We have almost 20+ years of experience for providing interior
                                     & Architectural services solutions</p>
                                 <div class="btn-box">
-                                    <a href="page-contact-us.html" class="animate-btn-style3">Get In Touch</a>
+                                    <a href="{{ route('site.contact') }}" class="animate-btn-style3">Get In Touch</a>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
     <section class="feature-style1-section">
         <div class="custom-md-container">
             <div class="feature-box-area-style1 bg-no-repeat bg-cover bg-pos-cc mrt-sm-110"
-                data-background="images/bg/feature-obj1.png">
+                data-background="{{ asset('user_assets/images/bg/feature-obj1.png') }}">
                 <div class="row">
                     <div class="col-xl-2 col-lg-4 col-md-6">
                         <div class="feature-box-style1">
@@ -140,8 +140,8 @@
     </section>
     <!-- Features Style1 Section End -->
     <!-- About Section Start -->
-    <section class="about-section pdt-110 pdb-105 bg-no-repeat bg-cover bg-pos-cb" data-background="images/bg/abs-bg3.png"
-        data-overlay-light="4">
+    <section class="about-section pdt-110 pdb-105 bg-no-repeat bg-cover bg-pos-cb"
+        data-background="{{ asset('user_assets/images/bg/abs-bg3.png') }}" data-overlay-light="4">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-8 col-xl-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
@@ -159,21 +159,34 @@
                     <h5 class="side-line-left subtitle text-primary-color">About Our Company</h5>
                     <h2 class="mrb-45 mrb-lg-35">Providing the best <span class="text-primary-color">architecture</span> &
                         interior design services</h2>
-                    <p class="about-text-block mrb-40">Lorem ipsum dolor sit amet consectetur convallis ultrices sociis
-                        fermentum orci nasceture convallis ultrices sociis</p>
+                    <p class="about-text-block mrb-40">{{ @$about_page_settings['about_us_text'] }}</p>
                     <div class="row mrb-30 mrb-lg-40">
-                        <div class="col-xl-6 col-lg-6 col-md-12">
-                            <ul class="order-list primary-color">
-                                <li>business applications through</li>
-                                <li>procedures whereas processes</li>
-                            </ul>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-12">
-                            <ul class="order-list primary-color">
-                                <li>revolutionary catalysts for chang</li>
-                                <li>catalysts for chang the Seamlessly</li>
-                            </ul>
-                        </div>
+                        @php
+                            if (@$about_page_settings['about_us_features']) {
+                                $features = json_decode($about_page_settings['about_us_features'], true);
+                            } else {
+                                $features = [null];
+                            }
+                            $i = 1;
+                        @endphp
+                        @foreach ($features as $feature)
+                            @if ($i % 2 != 0)
+                                <div class="col-xl-6 col-lg-6 col-md-12">
+                                    <ul class="order-list primary-color">
+                                        <li>{{ $feature }}</li>
+                                    </ul>
+                                </div>
+                            @else
+                                <div class="col-xl-6 col-lg-6 col-md-12">
+                                    <ul class="order-list primary-color">
+                                        <li>{{ $feature }}</li>
+                                    </ul>
+                                </div>
+                            @endif
+                            @php
+                                ++$i;
+                            @endphp
+                        @endforeach
                     </div>
                     <div class="row no-gutters">
                         <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6">
@@ -183,8 +196,7 @@
                                 </div>
                                 <div class="featured-content">
                                     <h4 class="featured-title">Exclusive Design</h4>
-                                    <p class="featured-desc">Quickly productivate just in time strategic theme lacus mirina
-                                        magna</p>
+                                    <p class="featured-desc">{{ @$about_page_settings['pro_team_description'] }}</p>
                                 </div>
                             </div>
                             <div class="featured-icon-box mrb-sm-40">
@@ -193,8 +205,9 @@
                                 </div>
                                 <div class="featured-content">
                                     <h4 class="featured-title">Professional Team</h4>
-                                    <p class="featured-desc mrb-0">Quickly productivate just in time strategic theme lacus
-                                        mirina magna</p>
+                                    <p class="featured-desc mrb-0">
+                                        {{ @$about_page_settings['exclusive_design_description'] }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -213,9 +226,9 @@
 
     <!-- Service Section Title Area Start -->
     <section class="service-title-section bg-silver bg-no-repeat bg-cover bg-pos-cb pdt-105 pdb-200"
-        data-background="images/bg/abs-bg2.png">
+        data-background="{{ asset('user_assets/images/bg/abs-bg2.png') }}">
         <div class="service-title-section-obj1">
-            <img src="images/objects/3.png" alt="">
+            <img src="{{ asset('user_assets/images/objects/3.png') }}" alt="">
         </div>
         <div class="section-title mrb-55 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
             <div class="container">
@@ -228,9 +241,15 @@
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-5 col-md-12">
-                        <p class="mrb-0 mrb-md-40">Lorem ipsum dolor sit amet consectetur adipiscing, elit augue curae duis
-                            pellentesque proin, quam faucibus sem netus ante. Nisi vitae lacinia platea eleifend accumsan
-                            facilisis viverra habitant arcu feugiat donec aliquet</p>
+                        <p class="mrb-0 mrb-md-40">We assist our clients at every stage: from the design to the 3D
+                            renderings, from the submission of detailed quotations to the attention given to ensure the best
+                            value money can buy, from the building site to logistics management, the assembly process and
+                            the after-sales service.
+
+                            Our aim is to become the exclusive partner of professional architects who wish to enjoy the
+                            support and security of one single partner when developing their projects.
+
+                        </p>
                     </div>
                 </div>
             </div>
@@ -238,7 +257,8 @@
     </section>
     <!-- Service Section Title Area End -->
     <!-- Service Section Area Start -->
-    <section class="service-section-style1 bg-no-repeat bg-cover bg-pos-cb" data-background="images/bg/abs-bg7.png">
+    <section class="service-section-style1 bg-no-repeat bg-cover bg-pos-cb"
+        data-background="{{ asset('user_assets/images/bg/abs-bg7.png') }}">
         <div class="section-content">
             <div class="container">
                 <div class="row">
@@ -247,11 +267,13 @@
                             <div class="service-style1">
                                 <div class="service-inner">
                                     <i class="service-icon webextheme-icon-003-staircase"></i>
-                                    <h4 class="service-title">{{$service->name}}</h4>
+                                    <h4 class="service-title">{{ $service->name }}</h4>
                                     <div class="services-count"></div>
-                                    <p class="service-description">{{Str::limit($service->details , 70 , '...')}}</p>
+                                    <p class="service-description">{{ Str::limit($service->details, 70, '...') }}</p>
                                     <div class="services-link">
-                                        <a class="text-btn"  href="{{route('site.service.details' , encrypt($service->id))}}">Read More</a>
+                                        <a class="text-btn"
+                                            href="{{ route('site.service.details', encrypt($service->id)) }}">Read
+                                            More</a>
                                     </div>
                                     <div class="service-inner-obj"></div>
                                 </div>
@@ -263,12 +285,13 @@
                     <div class="col-xl-12 text-center">
                         <div class="service-load-more">
                             <h5 class="text">Do You Want To explore more services just <span><a
-                                        href="page-all-services.html" class="text-underline text-primary-color">click
+                                        href="{{ route('site.services') }}"
+                                        class="text-underline text-primary-color">click
                                         here</a></span></h5>
                         </div>
                     </div>
                 </div>
-                <div class="row mrt-110">
+                {{-- <div class="row mrt-110">
                     <div class="col-xl-12">
                         <div class="before-after-slider1">
                             <!-- The before image is first -->
@@ -277,7 +300,7 @@
                             <img src="https://via.placeholder.com/1320x600" alt="img1">
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -288,13 +311,13 @@
     <!-- Funfact Section Start -->
     <section class="funfact-section pdt-50 pdb-25 pdt-sm-80 pdb-sm-65">
         <div class="funfact-section-obj1">
-            <img src="images/objects/funfact-obj1.png" alt="">
+            <img src="{{ asset('user_assets/images/objects/funfact-obj1.png') }}" alt="">
         </div>
         <div class="funfact-section-obj2">
-            <img src="images/objects/funfact-obj2.png" alt="">
+            <img src="{{ asset('user_assets/images/objects/funfact-obj2.png') }}" alt="">
         </div>
         <div class="funfact-section-obj3">
-            <img src="images/objects/funfact-obj3.png" alt="">
+            <img src="{{ asset('user_assets/images/objects/funfact-obj3.png') }}" alt="">
         </div>
         <div class="section-content">
             <div class="container">
