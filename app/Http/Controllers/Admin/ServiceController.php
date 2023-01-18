@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Enums\BaseShowStatusEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateServiceRequest;
+use App\Http\Requests\Admin\UpdateServiceRequest;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Transformers\Admin\ServiceTransformer;
@@ -57,7 +58,7 @@ class ServiceController extends Controller
             $response_data['message'] = __('custom.create_successs');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
-            $response_data['modal_to_hiode'] = '#service-category-create-update-modal';
+            $response_data['modal_to_hiode'] = '#service-create-update-modal';
             $error_no = 200;
         }catch(Throwable $e)
         {
@@ -97,17 +98,34 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CreateServiceRequest $request, $id)
+    public function update(UpdateServiceRequest $request, $id)
     {
         try{
-            $service_cateogry = Service::query()->find($id);
+            $service = Service::query()->find($id);
             $data = $request->toArray();
-            $service_cateogry->update($data);
+            $image_file_content =   $request->file('image');
+            $pdf_file_content = $request->file('pdf');
+            if($image_file_content)
+            {
+                $data['image'] = encrypt(time()) . '.' . $image_file_content->getClientOriginalExtension();
+                $image_file_content->storeAs('public/services/'.$service->id.'/main'.'/' , $data['image']);
+                Storage::disk('public')->delete('services/' . $service->id . '/main' . '/', $service->image);
+            }
+            if($pdf_file_content)
+            {
+                $data['pdf']    =   encrypt(time()).'.'.$pdf_file_content->getClientOriginalExtension();
+                $pdf_file_content->storeAs('public/services/'.$service->id.'/pdf'.'/' , $data['pdf']);
+                if($service->pdf)
+                {
+                    Storage::disk('public')->delete('services/' . $service->id . '/pdf' . '/', $service->pdf);
+                }
+            }
+            $service->update($data);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.updated_successs');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
-            $response_data['modal_to_hiode'] = '#service-category-create-update-modal';
+            $response_data['modal_to_hiode'] = '#service-create-update-modal';
             $error_no = 200;
         }catch(Throwable $e)
         {
@@ -130,8 +148,6 @@ class ServiceController extends Controller
         {
             $service  =   Service::query()->find($id);
             Storage::disk('public')->deleteDirectory('services/'.$service->id.'/');
-            Storage::disk('public')->deleteDirectory('services/'.$service->id.'/');
-
             $service->delete();
             $respnse_data['status'] = true;
             $respnse_data['is_deleted'] = true;

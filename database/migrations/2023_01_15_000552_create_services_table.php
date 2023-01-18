@@ -23,7 +23,7 @@ class CreateServicesTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('service_categories')->onDelete('cascade');
             $table->string('image');
-            $table->string('status')->default(true);
+            $table->string('status');
             $table->string('icon')->nullable();
             $table->timestamps();
         });

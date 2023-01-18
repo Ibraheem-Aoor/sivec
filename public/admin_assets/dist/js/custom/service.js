@@ -60,15 +60,18 @@ $('#service-create-update-modal').on('show.bs.modal', function (e) {
     if (service != null) {
         service = JSON.parse(service);
     }
-    var avatarPath = btn.getAttribute('data-avatar');
+    var imagePath = btn.getAttribute('data-image');
     $(this).find('form').attr('action', action);
     $(this).find('form').attr('method', method);
     if (isCreate == 1) {
         $(this).find('button[type="reset"]').click();
     } else {
-        console.log(service);
+        document.getElementById('image-input-wrapper').style.backgroundImage = "url(" + imagePath + ")";
         $('#name').val(service.name);
+        $('#category_id').val(service.category_id);
         $('#status').val(service.status);
+        $('#pdf').val(service.pdf);
+        $('#details').text(service.details);
     }
 
 });

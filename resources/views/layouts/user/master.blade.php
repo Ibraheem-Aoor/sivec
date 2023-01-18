@@ -3,17 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Interar">
+    <meta name="author" content="Sevic">
+    <meta name="csrf" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="SEVIC Interior & Architecture HTML Template">
+    <meta name="description" content="SEVIC Interior & Architecture">
     <meta name="keywords"
         content="architecture, interior, decoration, design, corporate, modern, html, template, multipurpose, creative" />
-    <title>@yield('title')</title>
+    <title>{{ $page_title }}</title>
     <link href="{{ asset('user_assets/images/favicon.png') }}" rel="shortcut icon" type="image/png">
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ asset('user_assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('user_assets/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin_assets/plugins/toastr/toastr.min.css') }}">
+    @stack('css')
 </head>
 
 <body>
@@ -191,6 +194,59 @@
     <script src="{{ asset('user_assets/js/magnific-popup.min.js') }}"></script>
     <script src="{{ asset('user_assets/js/backtotop.js') }}"></script>
     <script src="{{ asset('user_assets/js/trigger.js') }}"></script>
+    <script src="{{ asset('admin_assets/plugins/toastr/toastr.min.js') }}"></script>
+    @if ($errors->any())
+        @foreach ($errors as $error)
+            <script>
+                toastr.error("{{ $error }}");
+            </script>
+        @endforeach
+    @endif
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf"]').attr('content'),
+            },
+        });
+    </script>
+    <script>
+        $(document).on('submit', 'form', function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                url: $(this).attr('action'),
+                type: $(this).attr('method'),
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function(response) {
+                    if (response.status) {
+                        toastr.success(response.message);
+                    } else {
+                        toastr.error(response.message);
+                    }
+                    if (response.reset_form) {
+                        $('button[type="reset"]').click();
+                    }
+                },
+                error: function(response) {
+                    console.log(response);
+                    if (response.status == 422) {
+                        $.each(response.responseJSON.errors, function(key, errorsArray) {
+                            $.each(errorsArray, function(item, error) {
+                                toastr.error(error);
+                            });
+                        });
+                    } else if (response.responseJSON && response.responseJSON.message) {
+                        toastr.error(response.responseJSON.message);
+                    } else {
+                        toastr.error(response.message);
+                    }
+                }
+            });
+        });
+    </script>
+    @stack('js')
 </body>
 
 </html>

@@ -99,9 +99,8 @@
                         <div class="col-sm-2"></div>
                         <div class="col-sm-2">
                             <button class="btn btn-outline-primary" data-toggle="modal"
-                                data-target="#service-create-update-modal"
-                                data-action="{{ route('admin.service.store') }}" data-method="POST"
-                                data-is-create="1">
+                                data-target="#project-create-update-modal" data-action="{{ route('admin.project.store') }}"
+                                data-method="POST" data-is-create="1">
                                 {{ __('custom.new') }}
                             </button>
                         </div>
@@ -114,6 +113,9 @@
                             <tr>
                                 <th>{{ __('custom.name') }}</th>
                                 <th>{{ __('custom.category') }}</th>
+                                <th>{{ __('custom.client') }}</th>
+                                <th>{{ __('custom.budget') }}</th>
+                                <th>{{ __('custom.achieve_date') }}</th>
                                 <th>{{ __('custom.status') }}</th>
                                 <th>{{ __('custom.Actions') }}</th>
                             </tr>
@@ -128,7 +130,7 @@
     </div>
     <!-- /.content-wrapper -->
 
-    @include('admin.service.service-create-update-modal')
+    @include('admin.project.project-create-update-modal')
 @endsection
 
 
@@ -141,20 +143,38 @@
     <script>
         var table_data_url = "{{ $table_data_url }}"
     </script>
-    <script src="{{ asset('admin_assets/dist/js/custom/service.js') }}"></script>
+    <script src="{{ asset('admin_assets/dist/js/custom/project.js') }}"></script>
     <script>
         // change image and preveiw
-        $('#uploadButton').on('click', function() {
-            $('#changeImg').click();
+        $('#uploadButton_1').on('click', function() {
+            $('#changeImg_1').click();
         })
 
         var file = null,
             reader = null;
-        $('#changeImg').change(function() {
+        $('#changeImg_1').change(function() {
             file = this.files[0];
             reader = new FileReader();
             reader.onloadend = function() {
-                $('.image-input-wrapper').css('background-image', 'url("' + reader.result + '")');
+                $('#image-input-wrapper-1').css('background-image', 'url("' + reader.result + '")');
+            }
+            if (file) {
+                reader.readAsDataURL(file);
+                console.log(file);
+            }
+        });
+        // change image and preveiw
+        $('#uploadButton_2').on('click', function() {
+            $('#changeImg_2').click();
+        })
+
+        var file = null,
+            reader = null;
+        $('#changeImg_2').change(function() {
+            file = this.files[0];
+            reader = new FileReader();
+            reader.onloadend = function() {
+                $('#image-input-wrapper-2').css('background-image', 'url("' + reader.result + '")');
             }
             if (file) {
                 reader.readAsDataURL(file);

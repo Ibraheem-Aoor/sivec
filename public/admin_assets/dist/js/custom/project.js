@@ -33,6 +33,24 @@ function getTableColumns() {
         orderable: true,
     },
     {
+        data: 'client',
+        name: 'client.name',
+        searchable: true,
+        orderable: true,
+    },
+    {
+        data: 'budget',
+        name: 'budget',
+        searchable: true,
+        orderable: true,
+    },
+    {
+        data: 'achieve_date',
+        name: 'achieve_date',
+        searchable: true,
+        orderable: true,
+    },
+    {
         data: 'status',
         name: 'status',
         searchable: true,
@@ -51,24 +69,31 @@ function getTableColumns() {
  * Project Info modal
  */
 
-$('#service-create-update-modal').on('show.bs.modal', function (e) {
+$('#project-create-update-modal').on('show.bs.modal', function (e) {
     var btn = e.relatedTarget;
     var action = btn.getAttribute('data-action');
     var method = btn.getAttribute('data-method');
     var isCreate = btn.getAttribute('data-is-create');
-    var service = btn.getAttribute('data-service');
-    if (service != null) {
-        service = JSON.parse(service);
+    var project = btn.getAttribute('data-project');
+    var homeImagePath = btn.getAttribute('data-home-image');
+    var mainImagePath = btn.getAttribute('data-main-image');
+    if (project != null) {
+        project = JSON.parse(project);
     }
-    var avatarPath = btn.getAttribute('data-avatar');
     $(this).find('form').attr('action', action);
     $(this).find('form').attr('method', method);
     if (isCreate == 1) {
         $(this).find('button[type="reset"]').click();
     } else {
-        console.log(service);
-        $('#name').val(service.name);
-        $('#status').val(service.status);
+        document.getElementById('image-input-wrapper-1').style.backgroundImage =  "url(" + homeImagePath + ")";
+        document.getElementById('image-input-wrapper-2').style.backgroundImage =  "url(" +  mainImagePath + ")";
+        $('#name').val(project.name);
+        $('#category_id').val(project.category_id);
+        $('#client_id').val(project.client_id);
+        $('#budget').val(project.budget);
+        $('#achieve_date').val(project.achieve_date);
+        $('#basic_info').text(project.basic_info);
+        $('#status').val(project.status);
     }
 
 });

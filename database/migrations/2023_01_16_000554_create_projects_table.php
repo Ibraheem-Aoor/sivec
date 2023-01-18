@@ -18,6 +18,7 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('image');
+            $table->string('home_image');
             $table->string('name');
             $table->longText('features')->nullable();
             $table->double('budget')->nullable();
@@ -29,6 +30,7 @@ class CreateProjectsTable extends Migration
             $table->date('achieve_date');
             $table->unsignedBigInteger('client_id')->nullable();
             $table->foreign('client_id')->references('id')->on('clients');
+            $table->string('status');
             $table->timestamps();
         });
 

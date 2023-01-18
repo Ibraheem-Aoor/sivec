@@ -23,7 +23,7 @@
                                     <select name="status" id="status" class="form-control">
                                         <option value="">--{{ __('custom.select') }}--</option>
                                         @foreach ($show_statuses as $key => $object)
-                                            <option value="{{ $object->value }}">{{ $key }}</option>
+                                            <option value="{{ $key }}">{{ $key }}</option>
                                         @endforeach
                                     </select>
                                 </div>

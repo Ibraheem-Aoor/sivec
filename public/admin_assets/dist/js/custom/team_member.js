@@ -80,6 +80,7 @@ $('#team-create-update-modal').on('show.bs.modal', function (e) {
     if (is_create == 1) {
         $(this).find('button[type="reset"]').click();
     } else {
+        document.getElementById('image-input-wrapper').style.backgroundImage =  "url(" + avatarPath + ")";
         $('#name').val(member.name);
         $('#email').val(member.email);
         $('#phone').val(member.phone);

@@ -4,18 +4,22 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enums\BaseShowStatusEnum;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CreateProjectRequest;
 use App\Http\Requests\Admin\CreateServiceRequest;
+use App\Models\Client;
 use App\Models\Project;
 use App\Models\ProjectCategory;
 use App\Models\Service;
 use App\Models\ServiceCategory;
+use App\Transformers\Admin\ProjectTransformer;
 use App\Transformers\Admin\ServiceTransformer;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Throwable;
 use Yajra\DataTables\DataTables;
 
-class ServiceController extends Controller
+class ProjectController extends Controller
 {
 
     /**
@@ -25,9 +29,10 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $data['table_data_url'] = route('admin.service.table_data');
+        $data['table_data_url'] = route('admin.project.table_data');
         $data['show_statuses'] = BaseShowStatusEnum::getInstances();
         $data['categories'] = ProjectCategory::query()->get();
+        $data['clients'] = Client::query()->get();
         return view('admin.project.index' , $data);
     }
 
@@ -38,28 +43,22 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateServiceRequest $request)
+    public function store(CreateProjectRequest $request)
     {
         try{
             $data = $request->toArray();
             $image_file_content =   $request->file('image');
-            $pdf_file_content = $request->file('pdf');
+            $home_image_file_content = $request->file('home_image');
             $data['image'] = encrypt(time()) . '.' . $image_file_content->getClientOriginalExtension();
-            if($pdf_file_content)
-            {
-                $data['pdf']    =   encrypt(time()).'.'.$pdf_file_content->getClientOriginalExtension();
-            }
-            $service = Project::query()->create($data);
-            $image_file_content->storeAs('public/services/'.$service->id.'/main'.'/' , $data['image']);
-            if(@$data['pdf'])
-            {
-                $pdf_file_content->storeAs('public/services/'.$service->id.'/pdf'.'/' , $data['pdf']);
-            }
+            $data['home_image']    =   encrypt(time()).'.'.$home_image_file_content->getClientOriginalExtension();
+            $project = Project::query()->create($data);
+            $image_file_content->storeAs('public/projects/'.$project->id.'/main'.'/' , $data['image']);
+            $home_image_file_content->storeAs('public/projects/'.$project->id.'/home'.'/' , $data['home_image']);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.create_successs');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
-            $response_data['modal_to_hiode'] = '#service-category-create-update-modal';
+            $response_data['modal_to_hiode'] = '#project-create-update-modal';
             $error_no = 200;
         }catch(Throwable $e)
         {
@@ -99,17 +98,31 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CreateServiceRequest $request, $id)
+    public function update(CreateProjectRequest $request, $id)
     {
         try{
-            $service_cateogry = Project::query()->find($id);
+            $project = Project::query()->find($id);
             $data = $request->toArray();
-            $service_cateogry->update($data);
+            $image_file_content =   $request->file('image');
+            $home_image_file_content = $request->file('home_image');
+            if($image_file_content)
+            {
+                $data['image'] = encrypt(time()) . '.' . $image_file_content->getClientOriginalExtension();
+                $image_file_content->storeAs('public/projects/'.$project->id.'/main'.'/' , $data['image']);
+            }
+            if($home_image_file_content)
+            {
+                $data['home_image']    =   encrypt(time()).'.'.$home_image_file_content->getClientOriginalExtension();
+                $home_image_file_content->storeAs('public/projects/'.$project->id.'/home'.'/' , $data['home_image']);
+            }
+            Storage::disk('public')->delete("projects/{$project->id}/home/{$project->home_image}");
+            Storage::disk('public')->delete("projects/{$project->id}/main/{$project->image}");
+            $project->update($data);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.updated_successs');
             $response_data['refresh_table'] = true;
-            $response_data['reset_form'] = true;
-            $response_data['modal_to_hiode'] = '#service-category-create-update-modal';
+            $response_data['reset_form'] = false;
+            $response_data['modal_to_hiode'] = '#project-create-update-modal';
             $error_no = 200;
         }catch(Throwable $e)
         {
@@ -130,11 +143,9 @@ class ServiceController extends Controller
     {
         try
         {
-            $service  =   Project::query()->find($id);
-            Storage::disk('public')->deleteDirectory('services/'.$service->id.'/');
-            Storage::disk('public')->deleteDirectory('services/'.$service->id.'/');
-
-            $service->delete();
+            $project  =   Project::query()->find($id);
+            Storage::disk('public')->deleteDirectory('projects/'.$project->id.'/');
+            $project->delete();
             $respnse_data['status'] = true;
             $respnse_data['is_deleted'] = true;
             $respnse_data['message'] = __('custom.deleted_successflly');
@@ -153,8 +164,8 @@ class ServiceController extends Controller
 
     public function getTableData()
     {
-        return DataTables::of(Project::query()->with('category')->orderByDesc('services.created_at'))
-                    ->setTransformer(ServiceTransformer::class)
+        return DataTables::of(Project::query()->with(['category' , 'client'])->orderByDesc('projects.created_at'))
+                    ->setTransformer(ProjectTransformer::class)
                     ->make(true);
     }
 }

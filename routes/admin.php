@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectCategoryController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TeamMemmberController;
@@ -9,6 +11,7 @@ use App\Models\ProjectCategory;
 use App\Models\ServiceCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +30,7 @@ Route::group(['prefix' => 'backoffice' ], function () {
 
     ########## START AUTH ADMIN #############
     Route::group(['middleware' => 'auth' , 'as' => 'admin.'], function () {
-        Route::get('/', function () {
-            return view('welcome');
-
-        });
+        Route::get('/',  [DashboardController::class , 'index'])->name('dashboard');
         // Team Members
         Route::resource('team-members', TeamMemmberController::class);
         Route::post('team-members/{id}/update', [TeamMemmberController::class , 'update'])->name('team-members.custom_update');
@@ -44,7 +44,7 @@ Route::group(['prefix' => 'backoffice' ], function () {
 
         // Services
         Route::resource('service', ServiceController::class);
-        Route::post('service/{id}/update', [ServiceCategoryController::class , 'update'])->name('service.custom_update');
+        Route::post('service/{id}/update', [ServiceController::class , 'update'])->name('service.custom_update');
         Route::get('service-table-data', [ServiceController::class, 'getTableData'])->name('service.table_data');
 
 
@@ -54,11 +54,16 @@ Route::group(['prefix' => 'backoffice' ], function () {
         Route::get('client-table-data', [ClientController::class, 'getTableData'])->name('client.table_data');
 
 
-           // Service Category
+           // Proejct Category
         Route::resource('project-category', ProjectCategoryController::class);
         Route::post('project-category/{id}/update', [ProjectCategoryController::class , 'update'])->name('project-category.custom_update');
         Route::get('project-category-table-data', [ProjectCategoryController::class, 'getTableData'])->name('project-category.table_data');
 
+
+          // Project
+          Route::resource('project', ProjectController::class);
+          Route::post('project/{id}/update', [ProjectController::class , 'update'])->name('project.custom_update');
+          Route::get('project-table-data', [ProjectController::class, 'getTableData'])->name('project.table_data');
 
     });
     ########## END  AUTH ADMIN #############

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,27 +14,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('site.home');
-})->name('site.home');
 
-Route::get('about', function () {
-    return view('site.about');
+Route::group(['controller' => HomeController::class , 'as' => 'site.'] , function () {
 
-})->name('site.about');
+    Route::get('/' , 'home')->name('home');
 
-Route::get('contact', function () {
-    return view('site.contact');
+    Route::get('about', 'about')->name('about');
 
-})->name('site.contact');
+    Route::get('contact' , 'contact')->name('contact');
+    Route::post('contact/submit', 'submitContact')->name('contact.submit');
 
+    //Servicses Routes
+    Route::get('services'  , 'services')->name('services');
+    Route::get('service/{id}', 'serviceDetails')->name('service.details');
+    Route::get('service/{id}/pdf', 'servicePdf')->name('service.pdf');
 
-Route::get('services', function () {
-    return view('site.services');
-
-})->name('site.services');
-
+    // Proeject Routes
+    Route::get('projecst', 'projects')->name('projects');
+    Route::get('project/{id}', 'projectDetails')->name('project.details');
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+});
+
+
+

@@ -4,9 +4,11 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class CreateProjectRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,10 +26,10 @@ class CreateProjectRequest extends FormRequest
      */
     public function rules()
     {
+        $images_required = Route::currentRouteName() == 'admin.project.custom_update' ? 'nullable' : 'required';
         return [
-            'image'   =>  'required|image|mimes:jpeg,png,jpg,gif|dimensions:min_width=1280,min_height=640,max_width=1340,max_height=720',
-            'imhome_imageage'   =>  'required|image|mimes:jpeg,png,jpg,gif|dimensions:min_width=400,min_height=475,max_width=400,max_height=475',
-            'home_image' => 'required',
+            'image'   =>  $images_required.'|image|mimes:jpeg,png,jpg,gif|dimensions:min_width=1280,min_height=640,max_width=1340,max_height=720',
+            'home_image'   =>  $images_required.'|image|mimes:jpeg,png,jpg,gif|dimensions:min_width=400,min_height=475,max_width=400,max_height=475',
             'budget'  => 'nullable',
             'basic_info'    =>  'required',
             'challenge'    =>  'nullable',

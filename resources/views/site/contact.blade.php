@@ -85,31 +85,32 @@
 			<div class="row">
 				<div class="col-xl-6">
 					<div class="contact-form">
-						<form action="#">
+						<form name="contact-form" action="{{route('site.contact.submit')}}" method="POST">
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="form-group mrb-25">
-										<input type="text" placeholder="Name" class="form-control">
+										<input required type="text" name="name" placeholder="name" class="form-control">
 									</div>
 								</div>
 								<div class="col-lg-6">
 									<div class="form-group mrb-25">
-										<input type="text" placeholder="Phone" class="form-control">
+										<input required type="text" name="phone" placeholder="phone" class="form-control">
 									</div>
 								</div>
 								<div class="col-lg-12">
 									<div class="form-group mrb-25">
-										<input type="email" placeholder="Email" class="form-control">
+										<input required type="email" name="email" placeholder="email" class="form-control">
 									</div>
 								</div>
 								<div class="col-lg-12">
 									<div class="form-group mrb-25">
-										<textarea rows="5" placeholder="Messages" class="form-control"></textarea>
+										<textarea rows="5" name="message" placeholder="message"  class="form-control"></textarea>
 									</div>
 								</div>
 								<div class="col-lg-8">
 									<div class="form-group">
 										<button type="submit" class="animate-btn-style3 btn-md mrb-lg-60">Submit Now</button>
+										<button type="reset" hidden class="animate-btn-style3 btn-md mrb-lg-60"></button>
 									</div>
 								</div>
 							</div>
@@ -121,7 +122,6 @@
 					<div class="mapouter fixed-height">
 						<div class="gmap_canvas">
 							<iframe id="gmap_canvas" src="https://maps.google.com/maps?q=Graz&t=&z=11&ie=UTF8&iwloc=&output=embed"></iframe>
-							<a href="https://www.whatismyip-address.com"></a>
 						</div>
 					</div>
 					<!-- Google Map End -->

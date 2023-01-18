@@ -1,4 +1,4 @@
-<div class="modal fade" id="service-create-update-modal">
+<div class="modal fade" id="project-create-update-modal">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form>
@@ -12,20 +12,46 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12">
+                                <label for="">{{ __('custom.home_image') }}</label>
                                 <div class="avatar-picture">
                                     <div class="image-input image-input-outline" id="imgUserProfile">
-                                        <div class="image-input-wrapper"
+                                        <div class="image-input-wrapper" id="image-input-wrapper-1"
                                             style="background-image: url('{{ asset('admin_assets/dist/img/image_placeholder.jpg') }}');">
                                         </div>
-
                                         <label class="btn">
                                             <i>
                                                 <img src="{{ asset('admin_assets/dist/img/edit.svg') }}" alt=""
                                                     class="img-fluid">
                                             </i>
-                                            <input type="file" name="image" id="changeImg"
+                                            <input type="file" name="home_image" id="changeImg_1"
                                                 accept=".png, .jpg, .jpeg">
-                                            <input type="button" value="Upload" id="uploadButton">
+                                            <input type="button" value="Upload" id="uploadButton_1">
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <div class="text-center">
+
+                                    <span class="text-danger text-center">400*475</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label for="">{{ __('custom.main_image') }}</label>
+                                <div class="avatar-picture">
+                                    <div class="image-input image-input-outline" id="imgUserProfile">
+                                        <div class="image-input-wrapper" id="image-input-wrapper-2"
+                                            style="background-image: url('{{ asset('admin_assets/dist/img/image_placeholder.jpg') }}');">
+                                        </div>
+                                        <label class="btn">
+                                            <i>
+                                                <img src="{{ asset('admin_assets/dist/img/edit.svg') }}" alt=""
+                                                    class="img-fluid">
+                                            </i>
+                                            <input type="file" name="image" id="changeImg_2"
+                                                accept=".png, .jpg, .jpeg">
+                                            <input type="button" value="Upload" id="uploadButton_2">
                                         </label>
 
                                     </div>
@@ -56,8 +82,27 @@
                         <div class="row mb-2">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="pdf">{{ __('custom.pdf') }}</label>
-                                    <input type="file" name="pdf" id="pdf" class="form-control">
+                                    <label for="category_id">{{ __('custom.client') }}</label>
+                                    <select name="client_id" id="client_id" class="form-control">
+                                        <option value="">--{{ __('custom.select') }}--</option>
+                                        @foreach ($clients as $client)
+                                            <option value="{{ $client->id }}">{{ $client->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="category_id">{{ __('custom.budget') }}</label>
+                                    <input type="text" name="budget" id="budget" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="category_id">{{ __('custom.achieve_date') }}</label>
+                                    <input type="date" name="achieve_date" id="achieve_date" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -66,7 +111,7 @@
                                     <select name="status" id="status" class="form-control">
                                         <option value="">--{{ __('custom.select') }}--</option>
                                         @foreach ($show_statuses as $key => $object)
-                                            <option value="{{ $object->value }}">{{ $key }}</option>
+                                            <option value="{{ $key }}">{{ $key }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -75,12 +120,11 @@
                         <div class="row mb-2">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="status">{{ __('custom.detials') }}</label>
-                                    <textarea name="details" id="details" cols="30" rows="10" class="form-control"></textarea>
+                                    <label for="basic_info">{{ __('cutom.description') }}</label>
+                                    <textarea name="basic_info" id="basic_info" name="basic_info" cols="30" rows="10" class="form-control"></textarea>
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                 </div>

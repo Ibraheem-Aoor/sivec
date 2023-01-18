@@ -14,7 +14,7 @@
                             <div class="col-sm-12">
                                 <div class="avatar-picture">
                                     <div class="image-input image-input-outline" id="imgUserProfile">
-                                        <div class="image-input-wrapper"
+                                        <div class="image-input-wrapper" id="image-input-wrapper"
                                             style="background-image: url('{{ asset('admin_assets/dist/img/user.webp') }}');">
                                         </div>
 
@@ -72,7 +72,7 @@
                                     <select name="status" id="status" class="form-control">
                                         <option value="">--{{ __('custom.select') }}--</option>
                                         @foreach ($show_statuses as $key => $object)
-                                            <option value="{{ $object->value }}">{{ $key }}</option>
+                                            <option value="{{ $key }}">{{ $key }}</option>
                                         @endforeach
                                     </select>
                                 </div>

@@ -14,7 +14,7 @@
                             <div class="col-sm-12">
                                 <div class="avatar-picture">
                                     <div class="image-input image-input-outline" id="imgUserProfile">
-                                        <div class="image-input-wrapper"
+                                        <div class="image-input-wrapper" id="image-input-wrapper"
                                             style="background-image: url('{{ asset('admin_assets/dist/img/image_placeholder.jpg') }}');">
                                         </div>
 
@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="text-center">
 
-                                    <span class="text-danger text-center">775*450</span>
+                                    <span class="text-danger text-center">400*475</span>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                                     <select name="status" id="status" class="form-control">
                                         <option value="">--{{ __('custom.select') }}--</option>
                                         @foreach ($show_statuses as $key => $object)
-                                            <option value="{{ $object->value }}">{{ $key }}</option>
+                                            <option value="{{ $key }}">{{ $key }}</option>
                                         @endforeach
                                     </select>
                                 </div>

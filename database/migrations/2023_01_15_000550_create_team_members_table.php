@@ -27,7 +27,7 @@ class CreateTeamMembersTable extends Migration
             $table->text('instagram')->nullable();
             $table->text('twitter')->nullable();
             $table->text('linked_in')->nullable();
-            $table->boolean('status')->default(true)->comment('To determine wether to show the member on site or not.');
+            $table->string('status');
             $table->boolean('show_in_home')->default(false);
             $table->timestamps();
         });

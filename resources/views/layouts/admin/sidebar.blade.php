@@ -25,17 +25,28 @@
                   data-accordion="false">
                   <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                  <li class="nav-item has-treeview menu-open">
-                      <a href="#" class="nav-link active">
+
+                  <li class="nav-item">
+                      <a href="{{ route('admin.dashboard') }}"
+                          class="nav-link @if (Route::currentRouteName() == 'admin.dashboard') active @endif">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
-                              {{ __('custom.dashboard.pages') }}
+                              {{ __('custom.dashboard.dashboard') }}
                               <i class="right fas fa-angle-left"></i>
                           </p>
                       </a>
                   </li>
+
+                  {{-- Start services --}}
                   <li class="nav-item has-treeview menu-open">
-                      <a href="#" class="nav-link active">
+                      <a href="#" class="nav-link @if (Route::currentRouteName() == 'admin.service.index' ||
+                              Route::currentRouteName() == 'admin.service.create' ||
+                              Route::currentRouteName() == 'admin.service.custom_update' ||
+                              Route::currentRouteName() == 'admin.service.destroy' ||
+                              Route::currentRouteName() == 'admin.service-category.index' ||
+                              Route::currentRouteName() == 'admin.service-category.create' ||
+                              Route::currentRouteName() == 'admin.service-category.custom_update' ||
+                              Route::currentRouteName() == 'admin.service-category.destroy') active @endif">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
                               {{ __('custom.dashboard.services') }}
@@ -44,38 +55,76 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="{{ route('admin.service-category.index') }}" class="nav-link active">
-                                  <i class="far fa-circle nav-icon"></i>
+                              <a href="{{ route('admin.service-category.index') }}"
+                                  class="nav-link  @if (Route::currentRouteName() == 'admin.service-category.index' ||
+                                          Route::currentRouteName() == 'admin.service-category.create' ||
+                                          Route::currentRouteName() == 'admin.service-category.custom_update' ||
+                                          Route::currentRouteName() == 'admin.service-category.destroy') active @endif">
+                                  <i class="nav-icon fas fa-th"></i>
+
                                   <p>{{ __('custom.dashboard.service_category') }}</p>
                               </a>
                           </li>
-                          <li class="nav-item">
-                              <a href="{{ route('admin.service.index') }}" class="nav-link active">
+                          <li class="nav-item ">
+                              <a href="{{ route('admin.service.index') }}"
+                                  class="nav-link @if (Route::currentRouteName() == 'admin.service.index' ||
+                                          Route::currentRouteName() == 'admin.service.create' ||
+                                          Route::currentRouteName() == 'admin.service.custom_update' ||
+                                          Route::currentRouteName() == 'admin.service.destroy') active @endif">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>{{ __('custom.dashboard.services') }}</p>
                               </a>
                           </li>
                       </ul>
                   </li>
+                  {{-- End services --}}
+
                   <li class="nav-item has-treeview menu-open">
-                      <a href="#" class="nav-link active">
+                      <a href="#" class="nav-link @if (Route::currentRouteName() == 'admin.project.index' ||
+                              Route::currentRouteName() == 'admin.project.create' ||
+                              Route::currentRouteName() == 'admin.project.custom_update' ||
+                              Route::currentRouteName() == 'admin.project.destroy' ||
+                              Route::currentRouteName() == 'admin.project-category.index' ||
+                              Route::currentRouteName() == 'admin.project-category.create' ||
+                              Route::currentRouteName() == 'admin.project-category.custom_update' ||
+                              Route::currentRouteName() == 'admin.project-category.destroy') active @endif">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
-                              {{ __('custom.dashboard.services') }}
+                              {{ __('custom.dashboard.projects') }}
                               <i class="right fas fa-angle-left"></i>
                           </p>
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="{{ route('admin.project-category.index') }}" class="nav-link active">
-                                  <i class="far fa-circle nav-icon"></i>
+                              <a href="{{ route('admin.project-category.index') }}"
+                                  class="nav-link @if (Route::currentRouteName() == 'admin.project-category.index' ||
+                                          Route::currentRouteName() == 'admin.project-category.create' ||
+                                          Route::currentRouteName() == 'admin.project-category.custom_update' ||
+                                          Route::currentRouteName() == 'admin.project-category.destroy') active @endif">
+                                  <i class="nav-icon fas fa-th"></i>
+
                                   <p>{{ __('custom.dashboard.project_category') }}</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ route('admin.project.index') }}"
+                                  class="nav-link @if (Route::currentRouteName() == 'admin.project.index' ||
+                                          Route::currentRouteName() == 'admin.project.create' ||
+                                          Route::currentRouteName() == 'admin.project.custom_update' ||
+                                          Route::currentRouteName() == 'admin.project.destroy') active @endif">
+                                  <i class="nav-icon fas fa-cubes"></i>
+                                  <p>
+                                      {{ __('custom.dashboard.projects') }}
+                                      <span class="right badge badge-danger">New</span>
+                                  </p>
                               </a>
                           </li>
                       </ul>
                   </li>
+
                   <li class="nav-item">
-                      <a href="{{ route('admin.team-members.index') }}" class="nav-link">
+                      <a href="{{ route('admin.team-members.index') }}"
+                          class="nav-link @if (Route::currentRouteName() == 'admin.team-members.index') active @endif ">
                           <i class="nav-icon fas fa-th"></i>
                           <p>
                               {{ __('custom.dashboard.team_members') }}
@@ -84,7 +133,8 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="{{ route('admin.client.index') }}" class="nav-link">
+                      <a href="{{ route('admin.client.index') }}"
+                          class="nav-link @if (Route::currentRouteName() == 'admin.client.index') active @endif ">
                           <i class="nav-icon fas fa-users"></i>
                           <p>
                               {{ __('custom.dashboard.clients') }}
@@ -92,6 +142,7 @@
                           </p>
                       </a>
                   </li>
+
 
               </ul>
           </nav>

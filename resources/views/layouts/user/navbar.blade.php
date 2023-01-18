@@ -3,23 +3,26 @@
     <nav class="main-menu sticky-header">
         <div class="main-menu-wrapper">
             <div class="main-menu-logo">
-                <a href="index.html">
-                    <img src="{{asset('user_assets/images/logo-light.svg')}}" width="165" height="72" alt="logo">
+                <a href="{{route('site.home')}}">
+                    <img src="{{ asset('user_assets/images/logo-light.svg') }}" width="165" height="72"
+                        alt="logo">
                 </a>
             </div>
             <ul class="main-nav-menu">
                 <li class="">
-                    <a href="{{route('site.home')}}">HOME</a>
-                </li>
-
-                <li class="">
-                    <a href="{{route('site.about')}}">ABOUT</a>
+                    <a href="{{ route('site.home') }}">HOME</a>
                 </li>
                 <li class="">
-                    <a href="{{route('site.services')}}">SERVICES</a>
+                    <a href="{{ route('site.services') }}">SERVICES</a>
                 </li>
                 <li class="">
-                    <a href="{{route('site.contact')}}">CONTACT</a>
+                    <a href="{{ route('site.projects') }}">PROJECTS</a>
+                </li>
+                <li class="">
+                    <a href="{{ route('site.about') }}">ABOUT</a>
+                </li>
+                <li class="">
+                    <a href="{{ route('site.contact') }}">CONTACT</a>
                 </li>
 
             </ul>
