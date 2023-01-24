@@ -20,6 +20,8 @@ return [
         'settings' =>  'Settings',
         'general'   =>  'General',
         'contacts'  => 'Contacts',
+        'jobs'  => 'Jobs',
+        'job_titles'  => 'Job Titles',
     ],
 
     'image' =>  'Image',
@@ -62,4 +64,13 @@ return [
     'message'   =>  'Message',
     'home_slide_images'     => 'Home Slide Images',
     'home_bottom_image'     => 'Home Bottom Image',
+    'delete'        =>  'Delete',
+    'Caution'        => 'Attention📢',
+    'confirm_delete'    =>  'Are You Sure to delete ',
+    'deleted_successflly'  => 'Deleted Successfully',
+    'vacancy'   =>  'vacancy',
+    'salary'   =>   'Salary',
+    'requirements'  =>  'Requirements',
+    'hide_salary'   => 'Hide Salary',
+    'select'    =>  'Select',
 ];

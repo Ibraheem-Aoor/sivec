@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\JobPositionController;
+use App\Http\Controllers\Admin\JobTitleController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProjectCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
@@ -81,6 +83,17 @@ Route::group(['prefix' => 'backoffice' ], function () {
             Route::get('general' ,    'generalSettings')->name('general');
             Route::post('general' ,    'updateGeneralSettings')->name('general.update');
         });
+
+
+        // Job Titles
+        Route::resource('job-title', JobTitleController::class);
+        Route::post('job-title/{id}/update', [JobTitleController::class , 'update'])->name('job-title.custom_update');
+        Route::get('job-title-table-data', [JobTitleController::class, 'getTableData'])->name('job-title.table_data');
+
+        // Job Positions
+        Route::resource('job-position', JobPositionController::class);
+        Route::post('job-position/{id}/update', [JobPositionController::class , 'update'])->name('job-position.custom_update');
+        Route::get('job-position-table-data', [JobPositionController::class, 'getTableData'])->name('job-position.table_data');
     });
     ########## END  AUTH ADMIN #############
 });

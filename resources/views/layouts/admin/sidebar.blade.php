@@ -2,8 +2,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link" style="background">
-          <img src="{{asset('user_assets/images/logo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-              style="opacity: .8">
+          <img src="{{ asset('user_assets/images/logo.png') }}" alt="AdminLTE Logo"
+              class="brand-image img-circle elevation-3" style="opacity: .8">
           <span class="brand-text font-weight-light">SEVIC</span>
       </a>
 
@@ -204,6 +204,40 @@
                   </li>
                   {{-- End pages --}}
 
+                  {{-- Start services --}}
+                  <li class="nav-item has-treeview menu-open">
+                      <a href="#" class="nav-link @if (Route::currentRouteName() == 'admin.job-title.index' ||
+                              Route::currentRouteName() == 'admin.job-title.create' ||
+                              Route::currentRouteName() == 'admin.job-position.create' ||
+                              Route::currentRouteName() == 'admin.service-category.destroy') active @endif">
+                          <i class="nav-icon fas fa-tachometer-alt"></i>
+                          <p>
+                              {{ __('custom.dashboard.jobs') }}
+                              <i class="right fas fa-angle-left"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="{{ route('admin.job-position.index') }}"
+                                  class="nav-link  @if (Route::currentRouteName() == 'admin.job-position.index') active @endif">
+                                  <i class="nav-icon fas fa-th"></i>
+
+                                  <p>{{ __('custom.dashboard.jobs') }}</p>
+                              </a>
+                          </li>
+                          <li class="nav-item ">
+                              <a href="{{ route('admin.job-title.index') }}"
+                                  class="nav-link @if (Route::currentRouteName() == 'admin.job-title.index' ||
+                                          Route::currentRouteName() == 'admin.job-titlereate' ||
+                                          Route::currentRouteName() == 'admin.service.custom_update' ||
+                                          Route::currentRouteName() == 'admin.service.destroy') active @endif">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>{{ __('custom.dashboard.job_titles') }}</p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                  {{-- End services --}}
               </ul>
           </nav>
           <!-- /.sidebar-menu -->
