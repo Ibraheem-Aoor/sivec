@@ -22,6 +22,7 @@ return [
         'contacts'  => 'Contacts',
         'jobs'  => 'Jobs',
         'job_titles'  => 'Job Titles',
+        'applications'              =>  'Applications',
     ],
 
     'image' =>  'Image',
@@ -73,4 +74,6 @@ return [
     'requirements'  =>  'Requirements',
     'hide_salary'   => 'Hide Salary',
     'select'    =>  'Select',
+    'applicaion_success_message'    =>  'You Applied Successfully',
+    'date'              =>  'Date',
 ];

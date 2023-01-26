@@ -15,7 +15,6 @@
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ asset('user_assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('user_assets/css/responsive.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin_assets/plugins/toastr/toastr.min.css') }}">
     @stack('css')
 </head>
 
@@ -73,19 +72,18 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="col-xl-2 col-lg-6">
+                    <div class="col-xl-2 col-lg-6">
                         <div class="widget footer-widget">
-                            <h5 class="widget-title text-white mrb-30">Services</h5>
+                            <h5 class="widget-title text-white mrb-30">Quick Links</h5>
                             <ul class="footer-widget-list">
-                                <li><a href="service-architecture.html">Architecture</a></li>
-                                <li><a href="service-interior-work.html">Interior Work</a></li>
-                                <li><a href="service-kitchen-design.html">Kitchen Design</a></li>
-                                <li><a href="service-decoration-art.html">Decoration Art</a></li>
-                                <li><a href="service-renovation.html">Renovation</a></li>
-                                <li><a href="service-exterior-design.html">Exterior Design</a></li>
+                                <li><a href="{{route('site.services')}}">Services</a></li>
+                                <li><a href="{{route('site.projects')}}">Projects</a></li>
+                                <li><a href="{{route('site.contact')}}">Contact</a></li>
+                                <li><a href="{{route('site.about')}}">About</a></li>
+                                <li><a href="{{route('site.jobs')}}">Jobs</a></li>
                             </ul>
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="col-xl-3 col-lg-6">
                         <div class="widget footer-widget mrr-30 mrr-md-0">
                             <h5 class="widget-title text-white mrb-30">Contact</h5>
@@ -105,7 +103,7 @@
                     <div class="col-xl-3 col-lg-6">
                         <div class="widget footer-widget mrr-60 mrr-md-0">
                             <div class="footer-logo">
-                                <img src="{{ asset('user_assets/images/logo-light.svg') }}" alt=""
+                                <img src="{{ asset('user_assets/images/logo.png') }}" alt=""
                                     class="mrb-25">
                             </div>
                             <p class="mrb-25"></p>
@@ -143,7 +141,7 @@
             </a>
             <div class="logo-box">
                 <a href="index-2.html" aria-label="logo image">
-                    <img src="{{ asset('user_assets/images/logo-light.svg') }}" width="165" height="72"
+                    <img src="{{ asset('user_assets/images/logo.png') }}" width="165" height="72"
                         alt="logo">
                 </a>
             </div>
@@ -201,7 +199,6 @@
     <script src="{{ asset('user_assets/js/magnific-popup.min.js') }}"></script>
     <script src="{{ asset('user_assets/js/backtotop.js') }}"></script>
     <script src="{{ asset('user_assets/js/trigger.js') }}"></script>
-    <script src="{{ asset('admin_assets/plugins/toastr/toastr.min.js') }}"></script>
     @if ($errors->any())
         @foreach ($errors as $error)
             <script>

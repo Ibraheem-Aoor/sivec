@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Site\ContactFormRequest;
+use App\Http\Requests\Site\CreateJobApplicationRequest;
 use App\Models\BusinessSetting;
 use App\Models\Contact;
+use App\Models\JobApplication;
+use App\Models\JobPosition;
 use App\Models\Project;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
+use PDO;
 use Termwind\Components\Dd;
 use Throwable;
 
@@ -89,7 +93,7 @@ class HomeController extends Controller
 
     public function services()
     {
-        $data['page_title'] = "Services";
+        $data['page_title'] = "SIVEC - Services";
         $data['services'] = Service::query()
             ->whereStatus('ACTIVE')
             ->with('category')
@@ -123,7 +127,7 @@ class HomeController extends Controller
             ->with('category')
             ->orderByDesc('projects.created_at')
             ->paginate(12);
-        $data['page_title'] = "Projects";
+        $data['page_title'] = "SIVEC - Projects";
         return view('site.projects', $data);
     }
 
@@ -137,6 +141,54 @@ class HomeController extends Controller
 
 
     ####### End Projects #####
+
+
+
+
+
+    ####### Start Jobs #####
+    public function jobs()
+    {
+        $data['jobs'] = JobPosition::query()->
+                        whereStatus('ACTIVE')->paginate(50);
+        $data['page_title'] = "SIVEC - Jobs";
+        return view('site.jobs' , $data);
+    }
+
+    public function jobDetails($id)
+    {
+        $data['job']    =   JobPosition::query()
+                                ->with('title')
+                                ->findOrFail(decrypt($id));
+        $data['page_title'] = "SIVEC - Jobs | ".$data['job']->title->name;
+        $data['related_jobs'] = $data['job']->getRleatedJobs();
+        return view('site.job_details' , $data);
+    }
+    public function submitJobApplication(CreateJobApplicationRequest $request)
+    {
+        try{
+            $data = $request->toArray();
+            $cv_file_content = $request->file('cv');
+            $cv_file_name = time() . '.' . $cv_file_content->getClientOriginalExtension();
+            $data['cv'] = $cv_file_name;
+            $application = JobApplication::query()->create($data);
+            $cv_file_content->storeAs("public/cv/{$application->id}/", $cv_file_name);
+            $respnse_data['status'] = true;
+            $respnse_data['reset_form'] = true;
+            $respnse_data['message'] = __('custom.applicaion_success_message');
+            $error_no = 200;
+        }catch(Throwable $e)
+        {
+            $respnse_data['status'] = false;
+            $respnse_data['reset_form'] = false;
+            $respnse_data['message'] = __('custom.smthing_wrong');
+            $error_no = 500;
+        }
+        return response()->json($respnse_data, $error_no);
+    }
+    ####### End Jobs #####
+
+
 
 
     protected function getHomeServices()
@@ -163,6 +215,8 @@ class HomeController extends Controller
         }
         return $settings;
     }
+
+
 
 
 }

@@ -9,69 +9,115 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-lg-3 col-6">
+                    <div class="col-lg-4 col-4">
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>150</h3>
-
-                                <p>New Orders</p>
+                                <h3>{{ $project_categories_count }}</h3>
+                                <p>{{ __('custom.dashboard.project_category') }}</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-grid"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-4">
+                        <!-- small box -->
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3>{{ $projects_count }}</h3>
+                                <p>{{ __('custom.dashboard.projects') }}</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-cube"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-4">
+                        <!-- small box -->
+                        <div class="small-box bg-primary">
+                            <div class="inner">
+                                <h3>{{ $service_categories_count }}</h3>
+                                <p>{{ __('custom.dashboard.service_category') }}</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-grid"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-4">
+                        <!-- small box -->
+                        <div class="small-box bg-primary">
+                            <div class="inner">
+                                <h3>{{ $services_count }}</h3>
+                                <p>{{ __('custom.dashboard.services') }}</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-cube"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-4">
+                        <!-- small box -->
+                        <div class="small-box bg-secondary">
+                            <div class="inner">
+                                <h3>{{ $team_members_count }}</h3>
+                                <p>{{ __('custom.dashboard.team_members') }}</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-4">
+                        <!-- small box -->
+                        <div class="small-box bg-secondary">
+                            <div class="inner">
+                                <h3>{{ $clients_count }}</h3>
+                                <p>{{ __('custom.dashboard.clients') }}</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-users"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-4">
+                        <!-- small box -->
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3>{{ $jobs_positions_count }}</h3>
+                                <p>{{ __('custom.dashboard.jobs') }}</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
+                    <div class="col-lg-4 col-4">
+                        <!-- small box -->
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3>{{ $job_applications_count }}</h3>
+                                <p>{{ __('custom.dashboard.applications') }}</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-document"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-4">
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                                <p>Bounce Rate</p>
+                                <h3>{{ $contacts_count }}</h3>
+                                <p>{{ __('custom.dashboard.contacts') }}</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-stats-bars"></i>
+                                <i class="fa fa-envelope"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-warning">
-                            <div class="inner">
-                                <h3>44</h3>
-
-                                <p>User Registrations</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-person-add"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-danger">
-                            <div class="inner">
-                                <h3>65</h3>
-
-                                <p>Unique Visitors</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
                     <!-- ./col -->
                 </div>
                 <!-- /.row -->

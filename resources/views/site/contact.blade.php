@@ -1,7 +1,9 @@
 	@extends('layouts.user.master')
     @section('title' , 'Contact Us')
+    @push('css')
+        <link rel="stylesheet" href="{{ asset('admin_assets/plugins/toastr/toastr.min.css') }}">
+    @endpush
     @section('content')
-
     <!-- Page Title Start -->
     @include('site.partials.page-title')
 	<!-- Page Title End -->
@@ -86,3 +88,7 @@
 	</section>
 	<!-- Contact Section End -->
 @endsection
+
+@push('js')
+    <script src="{{ asset('admin_assets/plugins/toastr/toastr.min.js') }}"></script>
+@endpush

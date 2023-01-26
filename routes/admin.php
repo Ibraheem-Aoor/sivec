@@ -35,8 +35,16 @@ Route::group(['prefix' => 'backoffice' ], function () {
     ########## START AUTH ADMIN #############
     Route::group(['middleware' => 'auth' , 'as' => 'admin.'], function () {
         Route::get('/',  [DashboardController::class , 'index'])->name('dashboard');
+
+        // Site Contact Messages
         Route::get('contacts' , [DashboardController::class , 'contacts'])->name('contact.index');
         Route::get('contact-table-data', [DashboardController::class, 'getContactTableData'])->name('contact.table_data');
+
+        // Site Job Applications
+        Route::get('job-application' , [DashboardController::class , 'jobApplications'])->name('job_application.index');
+        Route::get('job-application-table-data', [DashboardController::class, 'getJobApplicationsTableData'])->name('job_application.table_data');
+        Route::get('job-application/{id}/download' , [DashboardController::class , 'downloadJobApplicationCv'])->name('job_application.cv');
+
 
         // Team Members
         Route::resource('team-members', TeamMemmberController::class);

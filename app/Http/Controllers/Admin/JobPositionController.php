@@ -15,7 +15,7 @@ use App\Models\JobTitle;
 use App\Models\ServiceCategory;
 use App\Models\TaeamMemmber;
 use App\Transformers\Admin\TeamMemberTransformer;
-use App\Transformers\JobTitleTransformer;
+use App\Transformers\JobPositionTransformer;
 use App\Transformers\ServiceCategoryTransformer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -57,6 +57,7 @@ class JobPositionController extends Controller
     {
         try{
             $data = $request->toArray();
+            $data['is_salary_visible'] = @$data['is_salary_visible'] == 'on' ? true : false;
             $data['requirements'] = json_encode($data['requirements'] ?? []);
             $data['benefits'] = json_encode($data['benefits'] ?? []);
             JobPosition::query()->create($data);
@@ -107,11 +108,12 @@ class JobPositionController extends Controller
     public function update(CreateJobPositionRequest $request, $id)
     {
         try{
-            $service_cateogry = JobPosition::query()->find($id);
+            $job_position = JobPosition::query()->find($id);
             $data = $request->toArray();
+            $data['is_salary_visible'] = @$data['is_salary_visible'] == 'on' ? true : false;
             $data['requirements'] = json_encode($data['requirements'] ?? []);
             $data['benefits'] = json_encode($data['benefits'] ?? []);
-            $service_cateogry->update($data);
+            $job_position->update($data);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.updated_successs');
             $response_data['refresh_table'] = true;
@@ -137,8 +139,8 @@ class JobPositionController extends Controller
     {
         try
         {
-            $service_category  =   JobPosition::query()->find($id);
-            $service_category->delete();
+            $job_position  =   JobPosition::query()->find($id);
+            $job_position->delete();
             $respnse_data['status'] = true;
             $respnse_data['is_deleted'] = true;
             $respnse_data['message'] = __('custom.deleted_successflly');
@@ -160,7 +162,7 @@ class JobPositionController extends Controller
         return DataTables::of(JobPosition::query()
                         ->with('title')
                         ->orderByDesc('job_positions.created_at'))
-                    ->setTransformer(JobTitleTransformer::class)
+                    ->setTransformer(JobPositionTransformer::class)
                     ->make(true);
     }
 

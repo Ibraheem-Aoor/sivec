@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('is_salary_visible')->default(false);
             $table->unsignedBigInteger('job_title_id');
             $table->foreign('job_title_id')->references('id')->on('job_titles')->onDelete('cascade');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -33,8 +33,10 @@ Route::group(['controller' => HomeController::class , 'as' => 'site.'] , functio
     Route::get('projecst', 'projects')->name('projects');
     Route::get('project/{id}', 'projectDetails')->name('project.details');
 
-
-
+    // Jobs
+    Route::get('jobs', 'jobs')->name('jobs');
+    Route::get('job/{id}', 'jobDetails')->name('job_details');
+    Route::post('job/apply', 'submitJobApplication')->name('job.apply');
 
 });
 

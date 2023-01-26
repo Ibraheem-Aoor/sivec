@@ -28,7 +28,8 @@ class CreateJobPositionRequest extends FormRequest
         return [
             'vacancy'  =>  'required',
             'description'  =>  'required',
-            'requirements'  =>  'required',
+            'requirements'  =>  'required|array',
+            'requirements.*'  =>  'required',
             'benefits'  =>  'nullable',
             'salary'  =>  'nullable',
             'job_title_id'  =>  'required',

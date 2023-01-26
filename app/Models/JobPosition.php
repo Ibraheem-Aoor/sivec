@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class JobPosition extends Model
 {
     use HasFactory;
+
+    protected $table = 'job_positions';
     protected $fillable = [
         'vacancy',
         'description',
@@ -16,8 +18,8 @@ class JobPosition extends Model
         'benefits',
         'salary',
         'is_salary_visible',
-        // 'job_title_id',
-        // 'status'
+        'job_title_id',
+        'status'
     ];
 
 
@@ -28,4 +30,21 @@ class JobPosition extends Model
         return $this->belongsTo(JobTitle::class, 'job_title_id');
     }
     ######### END REALTIONS ############
+
+    public function getRoute()
+    {
+        return route('site.job_details', encrypt($this->id));
+    }
+
+    public function getRleatedJobs()
+    {
+        $related_jobs = self::query()->where('job_title_id', $this->job_title_id)->limit(4)->get();
+        return $related_jobs;
+    }
+
+    public function getRequirements()
+    {
+        $requirments = json_decode($this->requirements , true);
+        return $requirments ?? [];
+    }
 }

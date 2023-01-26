@@ -14,7 +14,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">{{ __('custom.title_position') }}</label>
-                                    <select name="title_id" id="title_id" class="form-control">
+                                    <select name="job_title_id" id="job_title_id" class="form-control">
                                         <option value="">--{{ __('custom.select') }}--</option>
                                         @foreach ($job_titles as $title)
                                             <option value="{{ $title->id }}">{{ $title->name }}</option>
@@ -25,7 +25,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">{{ __('custom.vacancy') }}</label>
-                                    <input type="text" class="form-control" name="vacancy">
+                                    <input type="text" class="form-control" name="vacancy" id="vacancy">
                                 </div>
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">{{ __('custom.salary') }}</label>
-                                    <input type="number" class="form-control" name="salary">
+                                    <input type="number" class="form-control" name="salary"  id="salary">
                                 </div>
                             </div>
                             <div class="col-sm-3">
@@ -50,7 +50,7 @@
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="name">{{ __('custom.hide_salary') }}</label>
-                                    <input type="checkbox" name="is_salary_visible" id="hide_salary" class="form-control">
+                                    <input type="checkbox" name="is_salary_visible" id="is_salary_visible" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -70,13 +70,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-2">
-                        <div class="col-sm-12">
+                    <div class="row mb-2" id="requirment-container">
+                        <div class="col-sm-12" >
                             <div class="form-group d-flex">
                                 ✔️ &nbsp; &nbsp;
-                                <input type="text" name="requirements[]" value="" class="form-control d-flex">
+                                <input required type="text" name="requirements[]" value="" class="form-control d-flex">
                                 &nbsp;
-                                <button type="button" class="add_feature btn-xs btn-primary"
+                                <button type="button" class="add_feature btn-xs btn-primary" id="new-requirments-btn"
                                     onclick="addNewRequirmeent($(this));"><i class="fa fa-plus"></i></button>&nbsp;
                                 <button type="button" class="remove_feature btn-xs btn-danger"
                                     onclick="deleteRequirment($(this));"><i class="fa fa-trash"></i></button>
