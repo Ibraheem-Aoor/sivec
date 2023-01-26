@@ -5,7 +5,7 @@
     <section class="home_banner_01">
         <div class="home-carousel owl-theme owl-carousel">
             <div class="slide-item">
-                <div class="image-layer" data-background="https://via.placeholder.com/1921x1280"></div>
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slide_image_2.jpg') }}"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <div class="col-xl-8 col-lg-12 col-md-12 content-column">
@@ -24,8 +24,7 @@
                 </div>
             </div>
             <div class="slide-item">
-                <div class="image-layer"
-                    data-background="https://images.unsplash.com/photo-1556702571-3e11dd2b1a92?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60">
+                <div class="image-layer" data-background="{{ asset('user_assets/images/bedroom-2.jpg') }}">
                 </div>
                 <div class="auto-container">
                     <div class="row clearfix">
@@ -38,27 +37,6 @@
                                     & Architectural services solutions</p>
                                 <div class="btn-box">
                                     <a href="page-services-style1.html" class="animate-btn-style3">Our Services</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slide-item">
-                <div class="image-layer"
-                    data-background="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60">
-                </div>
-                <div class="auto-container">
-                    <div class="row clearfix">
-                        <div class="col-xl-8 col-lg-12 col-md-12 content-column">
-                            <div class="content-box">
-                                <h1 class="home-carousel-title">World class <span class="text-primary-color">interior</span>
-                                    <span class="text-obj1">design</span>
-                                </h1>
-                                <p class="home-carousel-text">We have almost 20+ years of experience for providing interior
-                                    & Architectural services solutions</p>
-                                <div class="btn-box">
-                                    <a href="page-about.html" class="animate-btn-style3">Read More</a>
                                 </div>
                             </div>
                         </div>
@@ -154,8 +132,7 @@
                         </figure>
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInRight" data-wow-delay="0ms"
-                    data-wow-duration="1500ms">
+                <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <h5 class="side-line-left subtitle text-primary-color">About Our Company</h5>
                     <h2 class="mrb-45 mrb-lg-35">Providing the best <span class="text-primary-color">architecture</span> &
                         interior design services</h2>
