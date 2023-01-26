@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Throwable;
 use Yajra\DataTables\DataTables;
+use Analytics;
+use Spatie\Analytics\Period;
 
 class DashboardController extends Controller
 {
