@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="featured-content">
                                     <h4 class="featured-title">Exclusive Design</h4>
-                                    <p class="featured-desc">{{ $page_settings['exclusive_design_description'] }}</p>
+                                    <p class="featured-desc">{{ @$page_settings['exclusive_design_description'] }}</p>
                                 </div>
                             </div>
                             <div class="featured-icon-box mrb-sm-40">
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="featured-content">
                                     <h4 class="featured-title">Professional Team</h4>
-                                    <p class="featured-desc mrb-0">{{ $page_settings['pro_team_description'] }}</p>
+                                    <p class="featured-desc mrb-0">{{ @$page_settings['pro_team_description'] }}</p>
                                 </div>
                             </div>
                         </div>
