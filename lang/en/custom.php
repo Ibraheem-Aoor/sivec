@@ -76,4 +76,8 @@ return [
     'select'    =>  'Select',
     'applicaion_success_message'    =>  'You Applied Successfully',
     'date'              =>  'Date',
+    'main_address'  =>  'Main Address',
+    'phone_number'  =>  'Phone Number',
+    'company_email' =>  'Company Email',
+    'short_description' =>  'Short Description',
 ];
