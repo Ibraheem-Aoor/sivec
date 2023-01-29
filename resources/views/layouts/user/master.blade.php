@@ -88,12 +88,12 @@
                         <div class="widget footer-widget mrr-30 mrr-md-0">
                             <h5 class="widget-title text-white mrb-30">Contact</h5>
                             <address class="mrb-0">
-                                <p>{{ $site_settings['main_address'] }}</p>
+                                <p>{{ @$site_settings['main_address'] }}</p>
                                 <div class="mrb-10"><a href="#"><i
-                                            class="fas fa-phone-alt mrr-10"></i>{{ $site_settings['phone_number'] }}</a>
+                                            class="fas fa-phone-alt mrr-10"></i>{{ @$site_settings['phone_number'] }}</a>
                                 </div>
                                 <div class="mrb-10"><a href="#"><i
-                                            class="fas fa-envelope mrr-10"></i>{{ $site_settings['company_email'] }}</a>
+                                            class="fas fa-envelope mrr-10"></i>{{ @$site_settings['company_email'] }}</a>
                                 </div>
                                 <div class="mrb-0"><a href="#"><i
                                             class="fas fa-globe mrr-10"></i>www.sevic.ae</a></div>
@@ -108,12 +108,12 @@
                             </div>
                             <p class="mrb-25"></p>
                             <ul class="social-list">
-                                <li><a href="{{ $site_settings['facebook'] }}"><i class="fab fa-facebook-f"></i></a>
+                                <li><a href="{{ @$site_settings['facebook'] }}"><i class="fab fa-facebook-f"></i></a>
                                 </li>
-                                <li><a href="{{ $site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="{{ $site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a>
+                                <li><a href="{{ @$site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="{{ @$site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a>
                                 </li>
-                                <li><a href="{{ $site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a>
+                                <li><a href="{{ @$site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -148,19 +148,19 @@
             <div class="mobile-nav-container"></div>
             <ul class="list-items mobile-sidebar-contact">
                 <li><span
-                        class="fa fa-map-marker-alt mrr-10 text-primary-color"></span>{{ $site_settings['main_address'] }}
+                        class="fa fa-map-marker-alt mrr-10 text-primary-color"></span>{{ @$site_settings['main_address'] }}
                 </li>
                 <li><span class="fas fa-envelope mrr-10 text-primary-color"></span><a
-                        href="mailto:{{ $site_settings['company_email'] }}">{{ $site_settings['company_email'] }}</a>
+                        href="mailto:{{ @$site_settings['company_email'] }}">{{ @$site_settings['company_email'] }}</a>
                 </li>
                 <li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span><a
-                        href="tel:{{ $site_settings['phone_number'] }}">{{ $site_settings['phone_number'] }}</a></li>
+                        href="tel:{{ @$site_settings['phone_number'] }}">{{ @$site_settings['phone_number'] }}</a></li>
             </ul>
             <ul class="social-list list-primary-color">
-                <li><a href="{{ $site_settings['facebook'] }}"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="{{ $site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="{{ $site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="{{ $site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="{{ @$site_settings['facebook'] }}"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="{{ @$site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="{{ @$site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="{{ @$site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a></li>
             </ul>
         </div>
     </div>
