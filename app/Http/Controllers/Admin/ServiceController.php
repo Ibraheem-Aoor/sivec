@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Throwable;
 use Yajra\DataTables\DataTables;
+use Str;
 
 class ServiceController extends Controller
 {
@@ -43,10 +44,10 @@ class ServiceController extends Controller
             $data = $request->toArray();
             $image_file_content =   $request->file('image');
             $pdf_file_content = $request->file('pdf');
-            $data['image'] = encrypt(time()) . '.' . $image_file_content->getClientOriginalExtension();
+            $data['image'] = Str::limit(encrypt(time()) , 40 , 'abc') . '.' . $image_file_content->getClientOriginalExtension();
             if($pdf_file_content)
             {
-                $data['pdf']    =   encrypt(time()).'.'.$pdf_file_content->getClientOriginalExtension();
+                $data['pdf']    =   Str::limit(encrypt(time()) , 40 , 'abc').'.'.$pdf_file_content->getClientOriginalExtension();
             }
             $service = Service::query()->create($data);
             $image_file_content->storeAs('public/services/'.$service->id.'/main'.'/' , $data['image']);
@@ -107,13 +108,13 @@ class ServiceController extends Controller
             $pdf_file_content = $request->file('pdf');
             if($image_file_content)
             {
-                $data['image'] = encrypt(time()) . '.' . $image_file_content->getClientOriginalExtension();
+                $data['image'] = Str::limit(encrypt(time()) , 40 , 'abc') . '.' . $image_file_content->getClientOriginalExtension();
                 $image_file_content->storeAs('public/services/'.$service->id.'/main'.'/' , $data['image']);
                 Storage::disk('public')->delete('services/' . $service->id . '/main' . '/', $service->image);
             }
             if($pdf_file_content)
             {
-                $data['pdf']    =   encrypt(time()).'.'.$pdf_file_content->getClientOriginalExtension();
+                $data['pdf']    =   Str::limit(encrypt(time()) , 40 , 'abc').'.'.$pdf_file_content->getClientOriginalExtension();
                 $pdf_file_content->storeAs('public/services/'.$service->id.'/pdf'.'/' , $data['pdf']);
                 if($service->pdf)
                 {
