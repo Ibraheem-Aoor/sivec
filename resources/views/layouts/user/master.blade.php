@@ -103,7 +103,7 @@
                     <div class="col-xl-3 col-lg-6">
                         <div class="widget footer-widget mrr-60 mrr-md-0">
                             <div class="footer-logo">
-                                <img src="{{ asset('user_assets/images/logo.png') }}" alt=""
+                                <img src="{{ asset('user_assets/images/logo/logo.png') }}" alt=""
                                     class="mrb-25">
                             </div>
                             <p class="mrb-25"></p>
@@ -141,7 +141,7 @@
             </a>
             <div class="logo-box">
                 <a href="index-2.html" aria-label="logo image">
-                    <img src="{{ asset('user_assets/images/logo.png') }}" width="165" height="72"
+                    <img src="{{ asset('user_assets/images/logo/logo.png') }}" width="165" height="72"
                         alt="logo">
                 </a>
             </div>
