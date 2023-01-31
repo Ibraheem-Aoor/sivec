@@ -68,8 +68,8 @@ class PageController extends Controller
         try{
 
             $data['page_settings'] =  BusinessSetting::query()->wherePage('contact')->pluck('value' , 'key');
-            $addres_titles =    json_decode( @$data['page_settings']['address_titles'] , true);
-            $addres_values = json_decode(@$data['page_settings']['address_values'] , true);
+            $addres_titles =    json_decode( @$data['page_settings']['address_titles'] , true) ?? [];
+            $addres_values = json_decode(@$data['page_settings']['address_values'] , true) ?? [];
             $data['addresses'] =    [];
             $i = 0;
             foreach($addres_titles as $address)
@@ -79,7 +79,7 @@ class PageController extends Controller
             return view('admin.pages.contact' , $data);
         }catch(Throwable $e)
         {
-            return back();
+            dd($e);
         }
     }
 
