@@ -93,6 +93,12 @@
                                             class="fas fa-phone-alt mrr-10"></i>{{ @$site_settings['phone_number'] }}</a>
                                 </div>
                                 <div class="mrb-10"><a href="#"><i
+                                            class="fas fa-phone-alt mrr-10"></i>{{ @$site_settings['phone_number_2'] }}</a>
+                                </div>
+                                <div class="mrb-10"><a href="https://wa.me/971{{@$site_settings['whatsaap_number']}}"><i
+                                            class="fab fa-whatsapp mrr-10"></i>{{ @$site_settings['whatsaap_number'] }}</a>
+                                </div>
+                                <div class="mrb-10"><a href="#"><i
                                             class="fas fa-envelope mrr-10"></i>{{ @$site_settings['company_email'] }}</a>
                                 </div>
                                 <div class="mrb-0"><a href="#"><i
@@ -114,6 +120,10 @@
                                 <li><a href="{{ @$site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a>
                                 </li>
                                 <li><a href="{{ @$site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a>
+                                </li>
+                                <li><a href="{{ @$site_settings['snapchat'] }}"><i class="fab fa-snapchat"></i></a>
+                                </li>
+                                <li><a href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -155,12 +165,18 @@
                 </li>
                 <li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span><a
                         href="tel:{{ @$site_settings['phone_number'] }}">{{ @$site_settings['phone_number'] }}</a></li>
+                <li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span><a
+                        href="tel:{{ @$site_settings['phone_number_2'] }}">{{ @$site_settings['phone_number_2'] }}</a></li>
+                <li><span class="fas fa-whatsapp mrr-10 text-primary-color"></span><a
+                        href="https://wa.me/971{{ @$site_settings['whatsaap_number'] }}">{{ @$site_settings['whatsaap_number'] }}</a></li>
             </ul>
             <ul class="social-list list-primary-color">
                 <li><a href="{{ @$site_settings['facebook'] }}"><i class="fab fa-facebook"></i></a></li>
                 <li><a href="{{ @$site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
                 <li><a href="{{ @$site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a></li>
                 <li><a href="{{ @$site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="{{ @$site_settings['snapchat'] }}"><i class="fab fa-snapchat"></i></a></li>
+                <li><a href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a></li>
             </ul>
         </div>
     </div>

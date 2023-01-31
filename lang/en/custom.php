@@ -80,4 +80,9 @@ return [
     'phone_number'  =>  'Phone Number',
     'company_email' =>  'Company Email',
     'short_description' =>  'Short Description',
+    'phone_2'   =>  'Phone 2',
+    'phone_3'   =>  'Phone 3',
+    'whatsaap_number'   =>  'Whatsapp Number',
+    'snapchat'  =>  'Snapchat',
+    'youtube'   =>  'Youtube',
 ];

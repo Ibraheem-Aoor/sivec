@@ -119,6 +119,22 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">{{ __('custom.phone_2') }}</label>
+                                    <input type="text" name="phone_number_2" class="form-control"
+                                    value="{{ @$general_settings['phone_number_2'] }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">{{ __('custom.whatsaap_number') }}</label>
+                                    <input type="text" name="whatsaap_number" class="form-control"
+                                        value="{{ @$general_settings['whatsaap_number'] }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="">{{ __('custom.company_email') }}</label>
@@ -165,6 +181,22 @@
                                     <label for="">{{ __('custom.linked_in') }}</label>
                                     <input type="text" name="linked_in" class="form-control"
                                         value="{{ @$general_settings['linked_in'] }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">{{ __('custom.snapchat') }}</label>
+                                    <input type="text" name="snapchat" class="form-control"
+                                        value="{{ @$general_settings['snapchat'] }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">{{ __('custom.youtube') }}</label>
+                                    <input type="text" name="youtube" class="form-control"
+                                        value="{{ @$general_settings['youtube'] }}">
                                 </div>
                             </div>
                         </div>

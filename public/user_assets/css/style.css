@@ -5768,13 +5768,13 @@ select {
 }
 .social-list li a {
   background: #323c5b;
-  height: 42px;
-  width: 42px;
+  height: 32px;
+  width: 32px;
   display: inline-block;
   color: #fff;
   text-align: center;
   border-radius: 50%;
-  line-height: 42px;
+  line-height: 32px;
   font-size: 16px;
 }
 .social-list li a:hover {
