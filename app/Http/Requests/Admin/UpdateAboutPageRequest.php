@@ -25,8 +25,8 @@ class UpdateAboutPageRequest extends FormRequest
     public function rules()
     {
         return [
-            'about_image_1' =>  'sometimes|image|mimes:jpeg,png,jpg,gif|dimensions:min_width=480,min_height=565,max_width=480,max_height=565',
-            'about_image_2' =>  'sometimes|image|mimes:jpeg,png,jpg,gif|dimensions:min_width=425,min_height=300,max_width=425,max_height=300',
+            'about_image_1' =>  'sometimes|image|mimes:jpeg,png,jpg,gif|',
+            'about_image_2' =>  'sometimes|image|mimes:jpeg,png,jpg,gif|',
             'about_us_text' => 'required',
             'exclusive_design_description'  =>  'required',
             'pro_team_description'  =>  'required',

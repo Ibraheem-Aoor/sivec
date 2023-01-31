@@ -10,11 +10,10 @@
                     <div class="row clearfix">
                         <div class="col-xl-8 col-lg-12 col-md-12 content-column">
                             <div class="content-box">
-                                <h1 class="home-carousel-title">Providing Best <span class="text-primary-color">Home</span>
-                                    <span class="text-obj1">Decore</span>
+                                <h1 class="home-carousel-title">Consultant<span class="text-primary-color"> Worth</span>
+                                    <span class="text-obj1">Your Trust</span>
                                 </h1>
-                                <p class="home-carousel-text">We have almost 20+ years of experience for providing interior
-                                    & Architectural services solutions</p>
+                                <p class="home-carousel-text"></p>
                                 <div class="btn-box">
                                     <a href="{{ route('site.contact') }}" class="animate-btn-style3">Get In Touch</a>
                                 </div>
@@ -125,10 +124,16 @@
                 <div class="col-md-12 col-lg-8 col-xl-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="about-image-box-style1 about-side-line mrr-60 mrr-lg-0">
                         <figure class="about-image1 js-tilt d-none d-md-block d-lg-block d-xl-block">
-                            <img class="img-full" src="https://via.placeholder.com/425x300" alt="">
+                            @if (@$about_page_settings['about_image_2'])
+                                <img class="img-full"
+                                    src="{{ Storage::url("site/about/{$about_page_settings['about_image_2']}") }}" alt="">
+                            @endif
                         </figure>
                         <figure class="about-image2">
-                            <img class=" img-full" src="https://via.placeholder.com/480x565" alt="">
+                            @if (@$about_page_settings['about_image_1'])
+                                <img class="img-full"
+                                    src="{{ Storage::url("site/about/{$about_page_settings['about_image_1']}") }}" alt="">
+                            @endif
                         </figure>
                     </div>
                 </div>
@@ -173,7 +178,8 @@
                                 </div>
                                 <div class="featured-content">
                                     <h4 class="featured-title">Exclusive Design</h4>
-                                    <p class="featured-desc">{{ @$about_page_settings['pro_team_description'] }}</p>
+                                    <p class="featured-desc">{{ @$about_page_settings['exclusive_design_description'] }}
+                                    </p>
                                 </div>
                             </div>
                             <div class="featured-icon-box mrb-sm-40">
@@ -183,7 +189,7 @@
                                 <div class="featured-content">
                                     <h4 class="featured-title">Professional Team</h4>
                                     <p class="featured-desc mrb-0">
-                                        {{ @$about_page_settings['exclusive_design_description'] }}
+                                        {{ @$about_page_settings['pro_team_description'] }}
                                     </p>
                                 </div>
                             </div>
