@@ -40,6 +40,8 @@ $(document).ready(function () {
 
     $(document).on('submit', 'form:not(#confirm-delete-form)', function (e) {
         e.preventDefault();
+        var submitBtn = $(this).find('button[type="submit"]');
+        submitBtn.prop('disabled',true);
         var formData = new FormData(this);
         $.ajax({
             url: $(this).attr('action'),
@@ -49,7 +51,6 @@ $(document).ready(function () {
             data: formData,
             enctype: "multipart/form-data",
             success: function (response) {
-                console.log(response);
                 if (response.status) {
                     toastr.success(response.message);
                 } else {
@@ -61,12 +62,11 @@ $(document).ready(function () {
                 if (response.refresh_table) {
                     $('#myTable').DataTable().ajax.reload();
                 }
-                if(response.modal_to_hiode)
-                {
+                if (response.modal_to_hiode) {
+                    submitBtn.prop('disabled', false);
                     $(response.modal_to_hiode).modal('hide');
                 }
             }, error: function (response) {
-                console.log(response);
                 if (response.status == 422) {
                     $.each(response.responseJSON.errors, function (key, errorsArray) {
                         $.each(errorsArray, function (item, error) {
@@ -78,6 +78,7 @@ $(document).ready(function () {
                 } else {
                     toastr.error(response.message);
                 }
+                submitBtn.prop('disabled', false);
             }
         });
     });

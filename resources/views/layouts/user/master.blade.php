@@ -76,11 +76,11 @@
                         <div class="widget footer-widget">
                             <h5 class="widget-title text-white mrb-30">Quick Links</h5>
                             <ul class="footer-widget-list">
-                                <li><a href="{{route('site.services')}}">Services</a></li>
-                                <li><a href="{{route('site.projects')}}">Projects</a></li>
-                                <li><a href="{{route('site.contact')}}">Contact</a></li>
-                                <li><a href="{{route('site.about')}}">About</a></li>
-                                <li><a href="{{route('site.jobs')}}">Jobs</a></li>
+                                <li><a href="{{ route('site.services') }}">Services</a></li>
+                                <li><a href="{{ route('site.projects') }}">Projects</a></li>
+                                <li><a href="{{ route('site.contact') }}">Contact</a></li>
+                                <li><a href="{{ route('site.about') }}">About</a></li>
+                                <li><a href="{{ route('site.jobs') }}">Jobs</a></li>
                             </ul>
                         </div>
                     </div>
@@ -95,7 +95,8 @@
                                 <div class="mrb-10"><a href="#"><i
                                             class="fas fa-phone-alt mrr-10"></i>{{ @$site_settings['phone_number_2'] }}</a>
                                 </div>
-                                <div class="mrb-10"><a href="https://wa.me/971{{@$site_settings['whatsaap_number']}}"><i
+                                <div class="mrb-10"><a
+                                        href="https://wa.me/971{{ @$site_settings['whatsaap_number'] }}"><i
                                             class="fab fa-whatsapp mrr-10"></i>{{ @$site_settings['whatsaap_number'] }}</a>
                                 </div>
                                 <div class="mrb-10"><a href="#"><i
@@ -116,7 +117,8 @@
                             <ul class="social-list">
                                 <li><a href="{{ @$site_settings['facebook'] }}"><i class="fab fa-facebook-f"></i></a>
                                 </li>
-                                <li><a href="{{ @$site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="{{ @$site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a>
+                                </li>
                                 <li><a href="{{ @$site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a>
                                 </li>
                                 <li><a href="{{ @$site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a>
@@ -164,11 +166,14 @@
                         href="mailto:{{ @$site_settings['company_email'] }}">{{ @$site_settings['company_email'] }}</a>
                 </li>
                 <li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span><a
-                        href="tel:{{ @$site_settings['phone_number'] }}">{{ @$site_settings['phone_number'] }}</a></li>
+                        href="tel:{{ @$site_settings['phone_number'] }}">{{ @$site_settings['phone_number'] }}</a>
+                </li>
                 <li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span><a
-                        href="tel:{{ @$site_settings['phone_number_2'] }}">{{ @$site_settings['phone_number_2'] }}</a></li>
+                        href="tel:{{ @$site_settings['phone_number_2'] }}">{{ @$site_settings['phone_number_2'] }}</a>
+                </li>
                 <li><span class="fas fa-whatsapp mrr-10 text-primary-color"></span><a
-                        href="https://wa.me/971{{ @$site_settings['whatsaap_number'] }}">{{ @$site_settings['whatsaap_number'] }}</a></li>
+                        href="https://wa.me/971{{ @$site_settings['whatsaap_number'] }}">{{ @$site_settings['whatsaap_number'] }}</a>
+                </li>
             </ul>
             <ul class="social-list list-primary-color">
                 <li><a href="{{ @$site_settings['facebook'] }}"><i class="fab fa-facebook"></i></a></li>
@@ -215,13 +220,6 @@
     <script src="{{ asset('user_assets/js/magnific-popup.min.js') }}"></script>
     <script src="{{ asset('user_assets/js/backtotop.js') }}"></script>
     <script src="{{ asset('user_assets/js/trigger.js') }}"></script>
-    @if ($errors->any())
-        @foreach ($errors as $error)
-            <script>
-                toastr.error("{{ $error }}");
-            </script>
-        @endforeach
-    @endif
     <script>
         $.ajaxSetup({
             headers: {
@@ -233,6 +231,8 @@
         $(document).on('submit', 'form', function(e) {
             e.preventDefault();
             var formData = new FormData(this);
+            var submitBtn = $(this).find('button[type="submit"]');
+            submitBtn.prop('disabled', true);
             $.ajax({
                 url: $(this).attr('action'),
                 type: $(this).attr('method'),
@@ -248,6 +248,7 @@
                     if (response.reset_form) {
                         $('button[type="reset"]').click();
                     }
+                    submitBtn.prop('disabled', false);
                 },
                 error: function(response) {
                     console.log(response);
@@ -262,6 +263,7 @@
                     } else {
                         toastr.error(response.message);
                     }
+                    submitBtn.prop('disabled', false);
                 }
             });
         });
