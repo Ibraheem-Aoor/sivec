@@ -219,7 +219,7 @@
                     <div class="col-xl-6 col-lg-7 col-md-12">
                         <div class="title-box-center">
                             <h5 class="side-line-left text-primary-color mrb-10">Our Services</h5>
-                            <h2 class="mrb-25">We Provide <span class="text-primary-color">Interior</span> Design Services
+                            <h2 class="mrb-25">We Provide <span class="text-primary-color">All</span> Services You Need
                             </h2>
                         </div>
                     </div>
@@ -246,7 +246,7 @@
             <div class="container">
                 <div class="row">
                     @foreach ($services as $service)
-                        <div class="col-xl-3 col-lg-6 col-md-6">
+                        <div class="col-xl-4 col-lg-6 col-md-6">
                             <div class="service-style1">
                                 <div class="service-inner">
                                     <i class="service-icon webextheme-icon-003-staircase"></i>

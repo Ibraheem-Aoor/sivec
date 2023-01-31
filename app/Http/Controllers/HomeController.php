@@ -197,7 +197,7 @@ class HomeController extends Controller
         {
             $services = Cache::get('home_page_services');
         }else{
-            $home_page_services =   Service::query()->orderByDesc('created_at')->limit(4)->get();
+            $home_page_services =   Service::query()->orderByDesc('created_at')->limit(6)->get();
             $services = Cache::put('home_page_services' , $home_page_services);
         }
         return $services;
