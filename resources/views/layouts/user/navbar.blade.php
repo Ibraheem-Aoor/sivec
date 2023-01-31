@@ -1,7 +1,7 @@
 <!-- Header Area Start -->
-<header class="header-style-01">
-    <nav class="main-menu sticky-header">
-        <div class="main-menu-wrapper">
+<header class="header-style-01" >
+    <nav class="main-menu sticky-header" >
+        <div class="main-menu-wrapper" style="background: #3E3D47 !important;">
             <div class="main-menu-logo">
                 <a href="{{route('site.home')}}">
                     <img src="{{ asset('user_assets/images/logo.png') }}" width="165" height="72"
