@@ -20,7 +20,7 @@ class CreateServiceRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, mixed>
+     * @return array<string, mixed>SS
      */
     public function rules()
     {
@@ -29,7 +29,7 @@ class CreateServiceRequest extends FormRequest
             'details'  => 'required',
             'pdf'   =>  'nullable|file|mimes:pdf',
             'category_id'   =>  'required',
-            'image'   =>  'required|image|mimes:jpeg,png,jpg,gif|dimensions:min_width=775,min_height=450,max_width=775,max_height=450',
+            'image'   =>  'required|image|mimes:jpeg,png,jpg,gif',
             'status'    =>  'required'
         ];
     }

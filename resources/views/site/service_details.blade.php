@@ -12,7 +12,7 @@
                         <div class="blog-standared-img slider-blog mrb-40">
                             <img class="img-full" src="{{ $service->getImage() }}" alt="">
                         </div>
-                        <h3 class="mrb-15">Service Details</h3>
+                        <h3 class="mrb-15">{{$service->name}}</h3>
                         <p class="about-text-block mrb-40">{{ $service->details }}</p>
 
                         {{-- <div class="service-details-content">

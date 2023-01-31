@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="row">
                     @foreach ($services as $service)
-                        <div class="col-xl-3 col-lg-6 col-md-6">
+                        <div class="col-xl-4 col-lg-6 col-md-6">
                             <div class="service-style1">
                                 <div class="service-inner">
                                     <i class="service-icon webextheme-icon-003-staircase"></i>
