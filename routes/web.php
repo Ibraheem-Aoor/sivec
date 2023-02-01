@@ -38,6 +38,8 @@ Route::group(['controller' => HomeController::class , 'as' => 'site.'] , functio
     Route::get('job/{id}', 'jobDetails')->name('job_details');
     Route::post('job/apply', 'submitJobApplication')->name('job.apply');
 
+    Route::get('set-icons', 'setIcons');
+
 });
 
 

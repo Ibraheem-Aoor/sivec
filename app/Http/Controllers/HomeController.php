@@ -217,6 +217,23 @@ class HomeController extends Controller
     }
 
 
-
+    public function setIcons()
+    {
+        $servies = Service::query()->orderByDesc('created_at')->get();
+        $icons  =   [
+            'webextheme-icon-003-staircase',
+            'fa fa-briefcase',
+            'fa fa-certificate',
+            'webextheme-icon-architect',
+            'fa fa-city',
+            'webextheme-icon-measure',
+        ];
+        for($i = 0; $i < count($servies) ;$i++)
+        {
+            $servies[$i]->icon = $icons[$i];
+            $servies[$i]->save();
+        }
+        dd($servies);
+    }
 
 }
