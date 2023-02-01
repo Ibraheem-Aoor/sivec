@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    
+
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('admin_assets/dist/css/adminlte.min.css') }}">
     <!-- Google Font: Source Sans Pro -->
@@ -172,7 +172,7 @@
         });
     </script>
 
-    <script src="{{ asset('admin_assets/dist/js/custom/master.js?v=0.01') }}"></script>
+    <script src="{{ asset('admin_assets/dist/js/custom/master.js?v=0.02') }}"></script>
     @stack('js')
 
 </body>
