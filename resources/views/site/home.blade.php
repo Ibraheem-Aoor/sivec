@@ -32,7 +32,7 @@
                                 <h1 class="home-carousel-title">We Provide <span class="text-primary-color">Kitchen</span>
                                     <span class="text-obj1">design</span>
                                 </h1>
-                                <p class="home-carousel-text">We have almost 20+ years of experience for providing interior
+                                <p class="home-carousel-text">We have almost 10+ years of experience for providing Consulting , interior
                                     & Architectural services solutions</p>
                                 <div class="btn-box">
                                     <a href="page-services-style1.html" class="animate-btn-style3">Our Services</a>
@@ -197,7 +197,7 @@
                         <div class="col-xl-5 col-lg-5 col-md-6 col-sm-6">
                             <div class="experience">
                                 <p class="experience-text">We have more than years of experience</p>
-                                <h4 class="experience-year">14+</h4>
+                                <h4 class="experience-year">10+</h4>
                             </div>
                         </div>
                     </div>
@@ -344,7 +344,7 @@
                                 <span class="webexflaticon base-icon-037-creativity"></span>
                             </div>
                             <h2 class="count-box">
-                                <span data-stop="14" data-speed="2500" class="count-text">00</span>
+                                <span data-stop="10" data-speed="2500" class="count-text">00</span>
                             </h2>
                             <h5 class="title">Year Of Experience</h5>
                         </div>

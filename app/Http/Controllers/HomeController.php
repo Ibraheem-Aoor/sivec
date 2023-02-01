@@ -44,7 +44,7 @@ class HomeController extends Controller
     public function home()
     {
         $data['services'] = $this->services;
-        $data['page_title'] = "SIVEC- Interior & Architecture";
+        $data['page_title'] = "SIVEC - Engineering  & Architecture";
         return view('site.home' , $data);
     }
 
