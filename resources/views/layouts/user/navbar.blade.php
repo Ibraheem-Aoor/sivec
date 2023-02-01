@@ -24,7 +24,9 @@
                 <li class="">
                     <a href="{{ route('site.contact') }}">CONTACT</a>
                 </li>
-
+                <li class="">
+                    <a href="{{ route('site.branches') }}">BRANCHES</a>
+                </li>
             </ul>
             <div class="main-menu-right">
                 <a href="#" class="mobile-nav-toggler">

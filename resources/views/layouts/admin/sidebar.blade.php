@@ -179,6 +179,13 @@
                                   <p>{{ __('custom.dashboard.contacts') }}</p>
                               </a>
                           </li>
+                          <li class="nav-item ">
+                              <a href="{{ route('admin.page.branches') }}"
+                                  class="nav-link @if (Route::currentRouteName() == 'admin.page.branches') active @endif">
+                                  <i class="far fa-file nav-icon"></i>
+                                  <p>{{ __('custom.dashboard.branches') }}</p>
+                              </a>
+                          </li>
                       </ul>
                   </li>
                   {{-- End pages --}}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UpdateAboutPageRequest;
+use App\Http\Requests\Admin\UpdateBranhesPageRequest;
 use App\Http\Requests\Admin\UpdateContactPageRequest;
 use App\Models\BusinessSetting;
 use Illuminate\Http\Request;
@@ -84,6 +85,7 @@ class PageController extends Controller
     }
 
 
+
     public function updateContactPage(UpdateContactPageRequest $request)
     {
         try{
@@ -91,6 +93,49 @@ class PageController extends Controller
             $data['address_titles'] = $request->has('address_titles') ? $request->address_titles : [];
             $data['address_values'] = $request->has('address_values') ? $request->address_values : [];
             $this->saveSetting($data , 'contact');
+            $response_data['status'] = true;
+            $response_data['message'] = __('custom.create_success');
+            $error_no = 200;
+        }catch(Throwable $e)
+        {
+            $response_data['status'] = false;
+            $response_data['message'] = __('custom.smthing_wrong');
+            $error_no = 500;
+        }
+        return response()->json($response_data , $error_no);
+    }
+
+
+
+
+
+    public function branchesPage()
+    {
+        try{
+
+            $data['page_settings'] =  BusinessSetting::query()->wherePage('branches')->pluck('value' , 'key');
+            $addres_titles =    json_decode( @$data['page_settings']['address_titles'] , true) ?? [];
+            $addres_values = json_decode(@$data['page_settings']['address_values'] , true) ?? [];
+            $data['addresses'] =    [];
+            $i = 0;
+            foreach($addres_titles as $address)
+            {
+                array_push($data['addresses'], ['title' => $address, 'value' => @$addres_values[$i++]]);
+            }
+            return view('admin.pages.branches' , $data);
+        }catch(Throwable $e)
+        {
+            dd($e);
+        }
+    }
+
+    public function updatebranchesPage(UpdateBranhesPageRequest $request)
+    {
+        try{
+            $data = $request->toArray();
+            $data['address_titles'] = $request->has('address_titles') ? $request->address_titles : [];
+            $data['address_values'] = $request->has('address_values') ? $request->address_values : [];
+            $this->saveSetting($data , 'branches');
             $response_data['status'] = true;
             $response_data['message'] = __('custom.create_success');
             $error_no = 200;

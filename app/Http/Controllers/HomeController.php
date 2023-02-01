@@ -24,13 +24,14 @@ class HomeController extends Controller
     public $services;
     public $contact_page_settings;
     public $about_page_settings;
-    public $site_settings;
+    public $site_settings , $branches_page_settings;
 
     public function __construct()
     {
         $this->services = $this->getHomeServices();
         $this->contact_page_settings = $this->getPageSettings('contact');
         $this->about_page_settings = $this->getPageSettings('about');
+        $this->branches_page_settings = $this->getPageSettings('branches');
         $this->site_settings = $this->getPageSettings('site');
         View::share(['site_settings' => $this->site_settings , 'about_page_settings' => $this->about_page_settings]);
     }
@@ -187,6 +188,28 @@ class HomeController extends Controller
         return response()->json($respnse_data, $error_no);
     }
     ####### End Jobs #####
+
+
+
+
+
+    ####### Start Branches #####
+    public function branches()
+    {
+        $data['page_title'] = "SIVEC - Branches";
+        $data['page_settings']  =   $this->branches_page_settings;
+        $addres_titles =    json_decode( @$data['page_settings']['address_titles'] , true) ?? [];
+        $addres_values = json_decode(@$data['page_settings']['address_values'] , true);
+        $data['addresses'] =    [];
+        $i = 0;
+        foreach($addres_titles as $address)
+        {
+            array_push($data['addresses'], ['title' => $address, 'value' => @$addres_values[$i++]]);
+        }
+        return view('site.branches' , $data);
+    }
+    ####### End Branches #####
+
 
 
 

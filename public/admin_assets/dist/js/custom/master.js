@@ -63,9 +63,9 @@ $(document).ready(function () {
                     $('#myTable').DataTable().ajax.reload();
                 }
                 if (response.modal_to_hiode) {
-                    submitBtn.prop('disabled', false);
                     $(response.modal_to_hiode).modal('hide');
                 }
+                submitBtn.prop('disabled', false);
             }, error: function (response) {
                 if (response.status == 422) {
                     $.each(response.responseJSON.errors, function (key, errorsArray) {

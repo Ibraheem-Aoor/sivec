@@ -86,6 +86,8 @@ Route::group(['prefix' => 'backoffice' ], function () {
             Route::post('about/update' ,    'updateAboutPageSettings')->name('about.update');
             Route::get('contact' ,    'contactPage')->name('contact');
             Route::post('contact/update' ,    'updateContactPage')->name('contact.update');
+            Route::get('branches' ,    'branchesPage')->name('branches');
+            Route::post('branches/update' ,    'updatebranchesPage')->name('branches.update');
         });
         Route::group(['controller' =>  SettingController::class , 'prefix' => 'settings',  'as' => 'settings.' ], function () {
             Route::get('general' ,    'generalSettings')->name('general');

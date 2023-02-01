@@ -172,7 +172,7 @@
         });
     </script>
 
-    <script src="{{ asset('admin_assets/dist/js/custom/master.js?v=0.02') }}"></script>
+    <script src="{{ asset('admin_assets/dist/js/custom/master.js?v=0.03') }}"></script>
     @stack('js')
 
 </body>

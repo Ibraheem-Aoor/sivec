@@ -23,6 +23,7 @@ return [
         'jobs'  => 'Jobs',
         'job_titles'  => 'Job Titles',
         'applications'              =>  'Applications',
+        'branches'   =>  'Branches',
     ],
 
     'image' =>  'Image',
