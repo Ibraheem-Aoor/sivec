@@ -48,6 +48,7 @@
                         <span data-text-preloader="T" class="letters-loading">T</span>
                         <span data-text-preloader="A" class="letters-loading">A</span>
                         <span data-text-preloader="K" class="letters-loading">K</span>
+                        <span data-text-preloader="A" class="letters-loading">A</span>
                         <span data-text-preloader="M" class="letters-loading">M</span>
                         <span data-text-preloader="E" class="letters-loading">E</span>
                         <span data-text-preloader="L" class="letters-loading">L</span>

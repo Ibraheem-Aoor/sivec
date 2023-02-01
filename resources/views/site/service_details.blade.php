@@ -12,7 +12,7 @@
                         <div class="blog-standared-img slider-blog mrb-40">
                             <img class="img-full" src="{{ $service->getImage() }}" alt="">
                         </div>
-                        <h3 class="mrb-15">{{$service->name}}</h3>
+                        <h3 class="mrb-15">{{ $service->name }}</h3>
                         <p class="about-text-block mrb-40">{{ $service->details }}</p>
 
                         {{-- <div class="service-details-content">
@@ -95,16 +95,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="sidebar-widget-need-help">
-                        <div class="need-help-icon">
-                            <span class="webexflaticon base-icon-phone-call"></span>
-                        </div>
-                        <h4 class="need-help-title">Get Easy Interior Solution <br> From Us</h4>
-                        <div class="need-help-contact">
-                            <p class="mrb-5">Please Contact With Us</p>
-                            <a href="tel:00214255415">00 214 255415</a>
-                        </div>
-                    </div>
+                    @include('site.partials.get_solutions_section')
+
                     @if ($service->pdf)
                         <div class="sidebar-widget">
                             <div class="brochure-download">

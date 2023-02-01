@@ -41,7 +41,7 @@
                     </div>
                     <div class="header-contact-info-text">
                         <p class="call-text">Call Anytime</p>
-                        <h5 class="phone-no"><a href="tel:123456789">{{$site_settings['phone_number']}}</a></h5>
+                        <h5 class="phone-no"><a href="tel:{{$site_settings['phone_number']}}">{{$site_settings['phone_number']}}</a></h5>
                     </div>
                 </div>
             </div>

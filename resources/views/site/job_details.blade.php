@@ -65,16 +65,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="sidebar-widget-need-help">
-                        <div class="need-help-icon">
-                            <span class="webexflaticon base-icon-phone-call"></span>
-                        </div>
-                        <h4 class="need-help-title">Get Easy Interior Solution <br> From Us</h4>
-                        <div class="need-help-contact">
-                            <p class="mrb-5">Please Contact With Us</p>
-                            <a href="tel:00214255415">00 214 255415</a>
-                        </div>
-                    </div>
+                    @include('site.partials.get_solutions_section')
                 </div>
             </div>
         </div>
