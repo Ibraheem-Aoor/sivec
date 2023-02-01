@@ -11,7 +11,7 @@
                         <div class="col-xl-4 col-lg-6 col-md-6">
                             <div class="service-style1">
                                 <div class="service-inner">
-                                    <i class="service-icon webextheme-icon-003-staircase"></i>
+                                    <i class="service-icon {{$service->icon}}"></i>
                                     <h4 class="service-title">{{ $service->name }}</h4>
                                     <div class="services-count"></div>
                                     <p class="service-description">{{Str::limit($service->details , 70 , '...')}}</p>
