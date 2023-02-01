@@ -32,6 +32,27 @@
                         <span data-text-preloader="E" class="letters-loading">E</span>
                         <span data-text-preloader="C" class="letters-loading">C</span>
                     </div>
+                    <div class="txt-loading preloader-text">
+                        <span data-text-preloader="A" class="letters-loading">A</span>
+                        <span data-text-preloader="L" class="letters-loading">L</span>
+                        <span data-text-preloader="R" class="letters-loading">R</span>
+                        <span data-text-preloader="O" class="letters-loading">O</span>
+                        <span data-text-preloader="U" class="letters-loading">U</span>
+                        <span data-text-preloader="Y" class="letters-loading">Y</span>
+                        <span data-text-preloader="A" class="letters-loading">A</span>
+                        &nbsp;
+                        <span data-text-preloader="A" class="letters-loading">A</span>
+                        <span data-text-preloader="L" class="letters-loading">L</span>
+                        <span data-text-preloader="M" class="letters-loading">M</span>
+                        <span data-text-preloader="O" class="letters-loading">O</span>
+                        <span data-text-preloader="T" class="letters-loading">T</span>
+                        <span data-text-preloader="A" class="letters-loading">A</span>
+                        <span data-text-preloader="K" class="letters-loading">K</span>
+                        <span data-text-preloader="M" class="letters-loading">M</span>
+                        <span data-text-preloader="E" class="letters-loading">E</span>
+                        <span data-text-preloader="L" class="letters-loading">L</span>
+                        <span data-text-preloader="A" class="letters-loading">A</span>
+                    </div>
                 </div>
                 <div class="loader-section section-left"></div>
                 <div class="loader-section section-right"></div>
@@ -103,7 +124,7 @@
                                             class="fas fa-envelope mrr-10"></i>{{ @$site_settings['company_email'] }}</a>
                                 </div>
                                 <div class="mrb-0"><a href="#"><i
-                                            class="fas fa-globe mrr-10"></i>www.sevic.ae</a></div>
+                                            class="fas fa-globe mrr-10"></i>www.sivec.ae</a></div>
                             </address>
                         </div>
                     </div>

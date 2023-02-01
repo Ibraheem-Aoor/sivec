@@ -670,6 +670,12 @@ div[class*='kursor'].kursor--1.kursor--down {
   color: var(--primary-color);
 }
 
+.ctn-preloader .animation-preloader .preloader-text {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
 #curve {
   position: absolute;
   top: 0;
