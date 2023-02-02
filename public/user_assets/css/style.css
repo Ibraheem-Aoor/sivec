@@ -5055,7 +5055,7 @@ select {
 /*------------- [_Features] --------------*/
 /*========================================*/
 .feature-box-area-style1 {
-  background: var(--primary-color);
+  background: #3E3D47;
   padding: 45px 45px 25px 45px;
   margin-top: -80px;
   z-index: 1;
@@ -5063,11 +5063,16 @@ select {
 }
 
 .feature-box-style1 {
-  position: relative;
-  background: #3E3D47;
-  padding: 30px 30px 25px 30px;
-  margin-bottom: 20px;
-  overflow: hidden;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    position: relative;
+    background: #F5F5F5;
+    color: orange;
+    padding: 30px 30px 25px 30px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 50%;
 }
 .feature-box-style1 .inner-box {
   position: relative;
@@ -5078,13 +5083,13 @@ select {
   color: var(--primary-color);
   font-size: 48px;
   display: inline-block;
-  background: #fff;
+  background: transparent;
   padding: 15px;
 }
 .feature-box-style1 .inner-box .title {
   position: relative;
   margin-top: 15px;
-  color: #fff;
+  color: var(--primary-color);
   text-transform: uppercase;
   font-family: var(--body-font);
   font-weight: 500;
