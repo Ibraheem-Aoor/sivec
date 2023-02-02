@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Sevic">
+    <meta name="author" content="Sivec">
     <meta name="csrf" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -193,7 +193,7 @@
                 <li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span><a
                         href="tel:{{ @$site_settings['phone_number_2'] }}">{{ @$site_settings['phone_number_2'] }}</a>
                 </li>
-                <li><span class="fas fa-whatsapp mrr-10 text-primary-color"></span><a
+                <li><span class="fab fa-whatsapp mrr-10 text-primary-color"></span><a
                         href="https://wa.me/971{{ @$site_settings['whatsaap_number'] }}">{{ @$site_settings['whatsaap_number'] }}</a>
                 </li>
             </ul>
