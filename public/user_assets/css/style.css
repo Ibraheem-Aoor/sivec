@@ -5070,6 +5070,7 @@ select {
     background: #F5F5F5;
     color: orange;
     padding: 30px 30px 25px 30px;
+    margin: auto;
     margin-bottom: 20px;
     overflow: hidden;
     border-radius: 50%;
