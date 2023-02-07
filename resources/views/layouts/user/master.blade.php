@@ -134,7 +134,7 @@
                     <div class="col-xl-3 col-lg-6">
                         <div class="widget footer-widget mrr-60 mrr-md-0">
                             <div class="footer-logo">
-                                <img src="{{ asset('user_assets/images/logo/logo.png') }}" alt=""
+                                <img src="{{ asset('user_assets/images/logo/white_logo.png') }}" alt=""
                                     class="mrb-25">
                             </div>
                             <p class="mrb-25"></p>

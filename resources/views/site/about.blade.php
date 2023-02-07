@@ -91,11 +91,11 @@
     </section>
     <!-- About Section End -->
     <!-- Offer Section Start -->
-    <section class="bg-secondary-color bg-no-repeat bg-cover bg-pos-cb pdt-110 pdb-85"
-        data-background="images/bg/abs-bg4.png" data-overlay-dark="4">
+    <section class="bg-no-repeat bg-cover bg-pos-cb pdt-110 pdb-85"
+        data-background="images/bg/abs-bg4.png" >
         <div class="section-content">
             <div class="container">
-                <div class="row mrt-110">
+                <div class="row">
                     <div class="col-xl-2 col-lg-4 col-md-6">
                         <div class="feature-box-style2 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="800ms">
                             <div class="inner-box">
