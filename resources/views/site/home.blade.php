@@ -32,7 +32,8 @@
                                 <h1 class="home-carousel-title">We Provide <span class="text-primary-color">Kitchen</span>
                                     <span class="text-obj1">design</span>
                                 </h1>
-                                <p class="home-carousel-text">We have almost 10+ years of experience for providing Consulting , interior
+                                <p class="home-carousel-text">We have almost 10+ years of experience for providing
+                                    Consulting , interior
                                     & Architectural services solutions</p>
                                 <div class="btn-box">
                                     <a href="page-services-style1.html" class="animate-btn-style3">Our Services</a>
@@ -46,75 +47,75 @@
     </section>
     <!-- Home Slider End -->
     <!-- Features Style1 Section Start -->
-    <section class="feature-style1-section">
-        <div class="custom-md-container">
-            <div class="feature-box-area-style1 bg-no-repeat bg-cover bg-pos-cc mrt-sm-110"
-                data-background="{{ asset('user_assets/images/bg/feature-obj1.png') }}">
-                <div class="row">
-                    <div class="col-xl-2 col-lg-4 col-md-6">
-                        <div class="feature-box-style1">
-                            <div class="inner-box">
-                                <div class="feature-box-icon">
-                                    <span class="webextheme-icon-interior-design-1"></span>
+        <section class="bg-no-repeat bg-cover bg-pos-cb pdt-110 pdb-85"
+            data-background="images/bg/abs-bg4.png" >
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-4 col-md-4">
+                            <div class="feature-box-style2 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="800ms">
+                                <div class="inner-box">
+                                    <div class="feature-box-icon">
+                                        <span class="webextheme-icon-interior-design-1"></span>
+                                    </div>
+                                    <h6 class="title">Interior Design</h6>
                                 </div>
-                                <h6 class="title">Interior Design</h6>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-4 col-md-6">
-                        <div class="feature-box-style1">
-                            <div class="inner-box">
-                                <div class="feature-box-icon">
-                                    <span class="webextheme-icon-kitchen"></span>
+                        <div class="col-sm-6 col-lg-4 col-md-4">
+                            <div class="feature-box-style2 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="800ms">
+                                <div class="inner-box">
+                                    <div class="feature-box-icon">
+                                        <span class="webextheme-icon-kitchen"></span>
+                                    </div>
+                                    <h6 class="title">Kitchen Interior</h6>
                                 </div>
-                                <h6 class="title">Kitchen Interior</h6>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-4 col-md-6">
-                        <div class="feature-box-style1">
-                            <div class="inner-box">
-                                <div class="feature-box-icon">
-                                    <span class="webextheme-icon-architect-4"></span>
+                        <div class="col-sm-6 col-lg-4 col-md-4">
+                            <div class="feature-box-style2 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="800ms">
+                                <div class="inner-box">
+                                    <div class="feature-box-icon">
+                                        <span class="webextheme-icon-architect-4"></span>
+                                    </div>
+                                    <h6 class="title">Skilled Team</h6>
                                 </div>
-                                <h6 class="title">Skilled Team</h6>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-4 col-md-6">
-                        <div class="feature-box-style1">
-                            <div class="inner-box">
-                                <div class="feature-box-icon">
-                                    <span class="base-icon-071-guarantee"></span>
+                        <div class="col-sm-6 col-lg-4 col-md-4">
+                            <div class="feature-box-style2 wow fadeInUp" data-wow-delay="500ms" data-wow-duration="800ms">
+                                <div class="inner-box">
+                                    <div class="feature-box-icon">
+                                        <span class="base-icon-071-guarantee"></span>
+                                    </div>
+                                    <h6 class="title">Trusted Work</h6>
                                 </div>
-                                <h6 class="title">Trusted Work</h6>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-4 col-md-6">
-                        <div class="feature-box-style1">
-                            <div class="inner-box">
-                                <div class="feature-box-icon">
-                                    <span class="base-icon-166-money"></span>
+                        <div class="col-sm-6 col-lg-4 col-md-4">
+                            <div class="feature-box-style2 wow fadeInUp" data-wow-delay="600ms" data-wow-duration="800ms">
+                                <div class="inner-box">
+                                    <div class="feature-box-icon">
+                                        <span class="base-icon-166-money"></span>
+                                    </div>
+                                    <h6 class="title">Low Cost</h6>
                                 </div>
-                                <h6 class="title">Low Cost</h6>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-4 col-md-6">
-                        <div class="feature-box-style1">
-                            <div class="inner-box">
-                                <div class="feature-box-icon">
-                                    <span class="base-icon-135-quality"></span>
+                        <div class="col-sm-6 col-lg-4 col-md-4 col-sm-6">
+                            <div class="feature-box-style2 wow fadeInUp" data-wow-delay="700ms" data-wow-duration="800ms">
+                                <div class="inner-box">
+                                    <div class="feature-box-icon">
+                                        <span class="base-icon-135-quality"></span>
+                                    </div>
+                                    <h6 class="title">Award Winner</h6>
                                 </div>
-                                <h6 class="title">Award Winner</h6>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     <!-- Features Style1 Section End -->
     <!-- About Section Start -->
     <section class="about-section pdt-110 pdb-105 bg-no-repeat bg-cover bg-pos-cb"
@@ -126,18 +127,21 @@
                         <figure class="about-image1 js-tilt d-none d-md-block d-lg-block d-xl-block">
                             @if (@$about_page_settings['about_image_2'])
                                 <img class="img-full"
-                                    src="{{ Storage::url("site/about/{$about_page_settings['about_image_2']}") }}" alt="">
+                                    src="{{ Storage::url("site/about/{$about_page_settings['about_image_2']}") }}"
+                                    alt="">
                             @endif
                         </figure>
                         <figure class="about-image2">
                             @if (@$about_page_settings['about_image_1'])
                                 <img class="img-full"
-                                    src="{{ Storage::url("site/about/{$about_page_settings['about_image_1']}") }}" alt="">
+                                    src="{{ Storage::url("site/about/{$about_page_settings['about_image_1']}") }}"
+                                    alt="">
                             @endif
                         </figure>
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInRight" data-wow-delay="0ms"
+                    data-wow-duration="1500ms">
                     <h5 class="side-line-left subtitle text-primary-color">About Our Company</h5>
                     <h2 class="mrb-45 mrb-lg-35">Providing the best <span class="text-primary-color">architecture</span> &
                         interior design services</h2>
@@ -246,10 +250,10 @@
             <div class="container">
                 <div class="row">
                     @foreach ($services as $service)
-                        <div class="col-xl-4 col-lg-6 col-md-6">
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
                             <div class="service-style1">
                                 <div class="service-inner">
-                                    <i class="service-icon {{$service->icon}}"></i>
+                                    <i class="service-icon {{ $service->icon }}"></i>
                                     <h4 class="service-title">{{ $service->name }}</h4>
                                     <div class="services-count"></div>
                                     <p class="service-description">{{ Str::limit($service->details, 70, '...') }}</p>

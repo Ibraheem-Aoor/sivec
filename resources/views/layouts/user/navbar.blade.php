@@ -1,32 +1,32 @@
 <!-- Header Area Start -->
 <header class="header-style-01">
     <nav class="main-menu sticky-header">
-        <div class="main-menu-wrapper" style="background: #3E3D47 !important;">
+        <div class="main-menu-wrapper" style="background: #fff !important;">
             <div class="main-menu-logo">
                 <a href="{{ route('site.home') }}">
                     <img src="{{ asset('user_assets/images/logo/logo.png') }}" width="165" height="72" alt="logo">
                 </a>
             </div>
             <ul class="main-nav-menu">
-                <li class="">
+                <li class="@if(Route::currentRouteName() == 'site.home') current @endif">
                     <a href="{{ route('site.home') }}">HOME</a>
                 </li>
-                <li class="">
+                <li class="@if(Route::currentRouteName() == 'site.services' || Route::currentRouteName() == 'site.service.details') current @endif">
                     <a href="{{ route('site.services') }}">SERVICES</a>
                 </li>
-                <li class="">
+                <li class="@if(Route::currentRouteName() == 'site.projects' || Route::currentRouteName() == 'site.project.details') current @endif">
                     <a href="{{ route('site.projects') }}">PROJECTS</a>
                 </li>
-                <li class="">
+                <li class="@if(Route::currentRouteName() == 'site.about') current @endif">
                     <a href="{{ route('site.about') }}">ABOUT</a>
                 </li>
-                <li class="">
+                <li class="@if(Route::currentRouteName() == 'site.contact') current @endif">
                     <a href="{{ route('site.contact') }}">CONTACT</a>
                 </li>
-                <li class="">
+                <li class="@if(Route::currentRouteName() == 'site.branches') current @endif">
                     <a href="{{ route('site.branches') }}">BRANCHES</a>
                 </li>
-                <li class="menu-has-sub">
+                <li class="menu-has-sub @if(Route::currentRouteName() == 'site.gallery') current @endif">
                     <a href="#">DESINGS</a>
                     <ul>
                         @foreach ($image_categories as $image_category)

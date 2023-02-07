@@ -27,7 +27,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12 text-center">
-                        <button class="animate-btn-style4" style="background: #b98e75;">Show More</button>
+                        <button class="animate-btn-style4" style="background: #F25F29;color:#fff;">Show More</button>
                     </div>
                 </div>
             </div>
