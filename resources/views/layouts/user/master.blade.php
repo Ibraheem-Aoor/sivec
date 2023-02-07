@@ -177,7 +177,7 @@
                 <span></span>
             </a>
             <div class="logo-box">
-                <a href="index-2.html" aria-label="logo image">
+                <a href="{{route('site.home')}}" aria-label="logo image">
                     <img src="{{ asset('user_assets/images/logo/logo.png') }}" width="165" height="72"
                         alt="logo">
                 </a>
