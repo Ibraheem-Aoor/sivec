@@ -279,7 +279,7 @@ class HomeController extends Controller
     public function gallery($category_id)
     {
         $category = ImageCategory::query()->findOrFail(decrypt($category_id));
-        $data['page_title'] =   "Gallery - {$category->getFullTitle()}";
+        $data['page_title'] =   "DESIGNS - {$category->getFullTitle()}";
         $data['page_settings'] =  BusinessSetting::query()->wherePage('about')->pluck('value' , 'key');
         $data['images'] = Image::query()->where('image_category_id' , $category->id)->get();
         $data['footer_disabled'] = true;
