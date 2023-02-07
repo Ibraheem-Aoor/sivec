@@ -1375,7 +1375,7 @@ div[class*='kursor'].kursor--1.kursor--down {
 }
 
 .header-style-01 .main-menu .main-menu-wrapper .main-menu-right .header-contact-info .header-contact-info-text .phone-no a {
-    color: #fff;
+    color: var(--text-black);
     -webkit-transition: all 500ms ease;
     transition: all 500ms ease;
 }
