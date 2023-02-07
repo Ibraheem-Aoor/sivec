@@ -178,7 +178,7 @@
             </a>
             <div class="logo-box">
                 <a href="{{route('site.home')}}" aria-label="logo image">
-                    <img src="{{ asset('user_assets/images/logo/logo.png') }}" width="165" height="72"
+                    <img src="{{ asset('user_assets/images/logo/black_logo.png') }}" width="165" height="72"
                         alt="logo">
                 </a>
             </div>
