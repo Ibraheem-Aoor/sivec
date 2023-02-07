@@ -2677,11 +2677,11 @@ div[class*='kursor'].kursor--1.kursor--down {
 }
 
 .mobile-sidebar-contact li {
-    color: #fff;
+    color: #3E3D47;
 }
 
 .mobile-sidebar-contact li a {
-    color: #fff;
+    color: #3E3D47;
 }
 
 .mobile-sidebar-contact li a:hover {
@@ -2701,7 +2701,7 @@ div[class*='kursor'].kursor--1.kursor--down {
     width: 2px;
     height: 100%;
     display: block;
-    background-color: #fff;
+    background-color: #3E3D47;
     position: absolute;
     top: 50%;
     left: 50%;
