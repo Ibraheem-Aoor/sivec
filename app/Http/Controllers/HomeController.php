@@ -6,6 +6,8 @@ use App\Http\Requests\Site\ContactFormRequest;
 use App\Http\Requests\Site\CreateJobApplicationRequest;
 use App\Models\BusinessSetting;
 use App\Models\Contact;
+use App\Models\Image;
+use App\Models\ImageCategory;
 use App\Models\JobApplication;
 use App\Models\JobPosition;
 use App\Models\Project;
@@ -24,7 +26,7 @@ class HomeController extends Controller
     public $services;
     public $contact_page_settings;
     public $about_page_settings;
-    public $site_settings , $branches_page_settings;
+    public $site_settings , $branches_page_settings , $image_categories;
 
     public function __construct()
     {
@@ -33,7 +35,10 @@ class HomeController extends Controller
         $this->about_page_settings = $this->getPageSettings('about');
         $this->branches_page_settings = $this->getPageSettings('branches');
         $this->site_settings = $this->getPageSettings('site');
-        View::share(['site_settings' => $this->site_settings , 'about_page_settings' => $this->about_page_settings]);
+        $this->image_categories = $this->setImageCategorires();
+        View::share(['site_settings' => $this->site_settings ,
+                    'about_page_settings' => $this->about_page_settings ,
+                    'image_categories' =>  $this->image_categories]);
     }
 
 
@@ -239,6 +244,17 @@ class HomeController extends Controller
         return $settings;
     }
 
+    public function setImageCategorires()
+    {
+        if(Cache::has('image_categories'))
+        {
+            $image_categories = Cache::get('image_categories');
+        }else{
+            $image_categories = Cache::put('image_categories',  ImageCategory::query()->whereNull('parent_id')->get());
+        }
+        return $image_categories;
+    }
+
 
     public function setIcons()
     {
@@ -258,5 +274,20 @@ class HomeController extends Controller
         }
         dd($servies);
     }
+
+
+    public function gallery($category_id)
+    {
+        $category = ImageCategory::query()->findOrFail(decrypt($category_id));
+        $data['page_title'] =   "Gallery - {$category->getFullTitle()}";
+        $data['page_settings'] =  BusinessSetting::query()->wherePage('about')->pluck('value' , 'key');
+        $data['images'] = Image::query()->where('image_category_id' , $category->id)->get();
+        $data['footer_disabled'] = true;
+        $data['modal_width']    =
+        $view   =   view('site.gallery' , $data)->render();
+        return $view;
+    }
+
+
 
 }

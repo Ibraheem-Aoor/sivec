@@ -76,6 +76,7 @@ class Project extends Model
         return encrypt($this->id);
     }
 
+    
 
 }
 

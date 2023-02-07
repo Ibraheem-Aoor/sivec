@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Models\Image;
+use App\Models\ImageCategory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +41,7 @@ Route::group(['controller' => HomeController::class , 'as' => 'site.'] , functio
     Route::post('job/apply', 'submitJobApplication')->name('job.apply');
 
     Route::get('branches', 'branches')->name('branches');
+    Route::get('gallery/{id}', 'gallery')->name('gallery');
 });
 
 

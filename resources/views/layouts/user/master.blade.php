@@ -67,6 +67,8 @@
     @yield('content')
 
 
+
+    @if(!isset($footer_disabled))
     <!-- Footer Area Start -->
     <footer class="footer bg-cover" data-background="https://via.placeholder.com/1920x1280" data-overlay-dark="98">
         <div class="footer-main-area">
@@ -164,6 +166,7 @@
             </div>
         </div>
     </footer>
+    @endif
     <!-- Footer Area End -->
     <!-- Mobile Nav Sidebar Content Start -->
     <div class="mobile-nav-wrapper">
