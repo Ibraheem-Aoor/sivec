@@ -27,7 +27,7 @@
                     <a href="{{ route('site.branches') }}">BRANCHES</a>
                 </li>
                 <li class="menu-has-sub">
-                    <a href="#">GALLERY</a>
+                    <a href="#">DESINGS</a>
                     <ul>
                         @foreach ($image_categories as $image_category)
                             <li @if ($image_category->hasSubCategories()) class="menu-has-sub has-sub-child" @endif><a
