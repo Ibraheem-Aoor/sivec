@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rt">
 
 <head>
     <meta charset="UTF-8">
@@ -32,28 +32,34 @@
                         <span data-text-preloader="E" class="letters-loading">E</span>
                         <span data-text-preloader="C" class="letters-loading">C</span>
                     </div>
-                    <div class="txt-loading preloader-text">
-                        <span data-text-preloader="A" class="letters-loading">A</span>
-                        <span data-text-preloader="L" class="letters-loading">L</span>
-                        <span data-text-preloader="R" class="letters-loading">R</span>
-                        <span data-text-preloader="O" class="letters-loading">O</span>
-                        <span data-text-preloader="U" class="letters-loading">U</span>
-                        <span data-text-preloader="Y" class="letters-loading">Y</span>
-                        <span data-text-preloader="A" class="letters-loading">A</span>
-                        &nbsp;
-                        <span data-text-preloader="A" class="letters-loading">A</span>
-                        <span data-text-preloader="L" class="letters-loading">L</span>
-                        <span data-text-preloader="M" class="letters-loading">M</span>
-                        <span data-text-preloader="O" class="letters-loading">O</span>
-                        <span data-text-preloader="T" class="letters-loading">T</span>
-                        <span data-text-preloader="A" class="letters-loading">A</span>
-                        <span data-text-preloader="K" class="letters-loading">K</span>
-                        <span data-text-preloader="A" class="letters-loading">A</span>
-                        <span data-text-preloader="M" class="letters-loading">M</span>
-                        <span data-text-preloader="E" class="letters-loading">E</span>
-                        <span data-text-preloader="L" class="letters-loading">L</span>
-                        <span data-text-preloader="A" class="letters-loading">A</span>
-                    </div>
+                    @if ($locale == 'en')
+                        <div class="txt-loading preloader-text">
+                            <span data-text-preloader="A" class="letters-loading">A</span>
+                            <span data-text-preloader="L" class="letters-loading">L</span>
+                            <span data-text-preloader="R" class="letters-loading">R</span>
+                            <span data-text-preloader="O" class="letters-loading">O</span>
+                            <span data-text-preloader="U" class="letters-loading">U</span>
+                            <span data-text-preloader="Y" class="letters-loading">Y</span>
+                            <span data-text-preloader="A" class="letters-loading">A</span>
+                            &nbsp;
+                            <span data-text-preloader="A" class="letters-loading">A</span>
+                            <span data-text-preloader="L" class="letters-loading">L</span>
+                            <span data-text-preloader="M" class="letters-loading">M</span>
+                            <span data-text-preloader="O" class="letters-loading">O</span>
+                            <span data-text-preloader="T" class="letters-loading">T</span>
+                            <span data-text-preloader="A" class="letters-loading">A</span>
+                            <span data-text-preloader="K" class="letters-loading">K</span>
+                            <span data-text-preloader="A" class="letters-loading">A</span>
+                            <span data-text-preloader="M" class="letters-loading">M</span>
+                            <span data-text-preloader="E" class="letters-loading">E</span>
+                            <span data-text-preloader="L" class="letters-loading">L</span>
+                            <span data-text-preloader="A" class="letters-loading">A</span>
+                        </div>
+                    @else
+                        <div class="txt-loading preloader-text">
+                            <span data-text-preloader="الرؤية المتكاملة" class="letters-loading">الرؤية المتكاملة</span>
+                        </div>
+                    @endif
                 </div>
                 <div class="loader-section section-left"></div>
                 <div class="loader-section section-right"></div>
@@ -68,104 +74,114 @@
 
 
 
-    @if(!isset($footer_disabled))
-    <!-- Footer Area Start -->
-    <footer class="footer bg-cover" data-background="https://via.placeholder.com/1920x1280" data-overlay-dark="98">
-        <div class="footer-main-area">
-            <div class="footer-section-obj1">
-                <img src="{{ asset('user_assets/images/objects/footer-obj1.png') }}" alt="">
-            </div>
-            <div class="footer-section-obj2">
-                <img src="{{ asset('user_assets/images/objects/footer-obj2.png') }}" alt="">
-            </div>
-            <div class="container">
-                <div class="row pdb-65">
-                    <div class="col-xl-4 col-lg-6">
-                        <div class="widget footer-widget mrr-60 mrr-md-0">
-                            <h5 class="widget-title text-white mrb-30">Newsletter</h5>
-                            <p class="mrb-30">Join Our Community And Start Receiving Our News And Updates</p>
-                            <div class="newsletter-from">
-                                <div class="email">
-                                    <input type="email" name="EMAIL" placeholder="Enter your email" required="">
-                                </div>
-                                <div class="submit">
-                                    <button type="submit">
-                                        <i class="base-icon-arrow-right"></i>
-                                    </button>
+    @if (!isset($footer_disabled))
+        <!-- Footer Area Start -->
+        <footer class="footer bg-cover" data-background="https://via.placeholder.com/1920x1280"
+            data-overlay-dark="98">
+            <div class="footer-main-area">
+                <div class="footer-section-obj1">
+                    <img src="{{ asset('user_assets/images/objects/footer-obj1.png') }}" alt="">
+                </div>
+                <div class="footer-section-obj2">
+                    <img src="{{ asset('user_assets/images/objects/footer-obj2.png') }}" alt="">
+                </div>
+                <div class="container">
+                    <div class="row pdb-65">
+                        <div class="col-xl-4 col-lg-6">
+                            <div class="widget footer-widget mrr-60 mrr-md-0">
+                                <h5 class="widget-title text-white mrb-30">{{ __('custom.site.Newsletter') }}</h5>
+                                <p class="mrb-30">{{ __('custom.site.newsletter_text') }}</p>
+                                <div class="newsletter-from">
+                                    <div class="email">
+                                        <input type="email" name="EMAIL" placeholder="Enter your email"
+                                            required="">
+                                    </div>
+                                    <div class="submit">
+                                        <button type="submit">
+                                            <i class="base-icon-arrow-right"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-6">
-                        <div class="widget footer-widget">
-                            <h5 class="widget-title text-white mrb-30">Quick Links</h5>
-                            <ul class="footer-widget-list">
-                                <li><a href="{{ route('site.services') }}">Services</a></li>
-                                <li><a href="{{ route('site.projects') }}">Projects</a></li>
-                                <li><a href="{{ route('site.contact') }}">Contact</a></li>
-                                <li><a href="{{ route('site.about') }}">About</a></li>
-                                <li><a href="{{ route('site.jobs') }}">Jobs</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6">
-                        <div class="widget footer-widget mrr-30 mrr-md-0">
-                            <h5 class="widget-title text-white mrb-30">Contact</h5>
-                            <address class="mrb-0">
-                                <p>{{ @$site_settings['main_address'] }}</p>
-                                <div class="mrb-10"><a href="#"><i
-                                            class="fas fa-phone-alt mrr-10"></i>{{ @$site_settings['phone_number'] }}</a>
-                                </div>
-                                <div class="mrb-10"><a href="#"><i
-                                            class="fas fa-phone-alt mrr-10"></i>{{ @$site_settings['phone_number_2'] }}</a>
-                                </div>
-                                <div class="mrb-10"><a
-                                        href="https://wa.me/971{{ @$site_settings['whatsaap_number'] }}"><i
-                                            class="fab fa-whatsapp mrr-10"></i>{{ @$site_settings['whatsaap_number'] }}</a>
-                                </div>
-                                <div class="mrb-10"><a href="#"><i
-                                            class="fas fa-envelope mrr-10"></i>{{ @$site_settings['company_email'] }}</a>
-                                </div>
-                                <div class="mrb-0"><a href="#"><i
-                                            class="fas fa-globe mrr-10"></i>www.sivec.ae</a></div>
-                            </address>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6">
-                        <div class="widget footer-widget mrr-60 mrr-md-0">
-                            <div class="footer-logo">
-                                <img src="{{ asset('user_assets/images/logo/white_logo.png') }}" alt=""
-                                    class="mrb-25">
+                        <div class="col-xl-2 col-lg-6">
+                            <div class="widget footer-widget">
+                                <h5 class="widget-title text-white mrb-30">{{ __('custom.site.Quick Links') }}</h5>
+                                <ul class="footer-widget-list">
+                                    <li><a href="{{ route('site.services') }}"
+                                            class="capitlized">{{ __('custom.site.SERVICES') }}</a></li>
+                                    <li><a href="{{ route('site.projects') }}"
+                                            class="capitlized">{{ __('custom.site.PROJECTS') }}</a></li>
+                                    <li><a href="{{ route('site.contact') }}"
+                                            class="capitlized">{{ __('custom.site.CONTACT') }}</a></li>
+                                    <li><a href="{{ route('site.about') }}"
+                                            class="capitlized">{{ __('custom.site.ABOUT') }}</a></li>
+                                    <li><a href="{{ route('site.jobs') }}"
+                                            class="capitlized">{{ __('custom.site.JOBS') }}</a></li>
+                                </ul>
                             </div>
-                            <p class="mrb-25"></p>
-                            <ul class="social-list">
-                                <li><a href="{{ @$site_settings['facebook'] }}"><i class="fab fa-facebook-f"></i></a>
-                                </li>
-                                <li><a href="{{ @$site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a>
-                                </li>
-                                <li><a href="{{ @$site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a>
-                                </li>
-                                <li><a href="{{ @$site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a>
-                                </li>
-                                <li><a href="{{ @$site_settings['snapchat'] }}"><i class="fab fa-snapchat"></i></a>
-                                </li>
-                                <li><a href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a>
-                                </li>
-                            </ul>
+                        </div>
+                        <div class="col-xl-3 col-lg-6">
+                            <div class="widget footer-widget mrr-30 mrr-md-0">
+                                <h5 class="widget-title text-white mrb-30">{{ __('custom.site.CONTACT') }}</h5>
+                                <address class="mrb-0">
+                                    <p>{{ @$site_settings['main_address'] }}</p>
+                                    <div class="mrb-10"><a href="#"><i
+                                                class="fas fa-phone-alt mrr-10"></i>{{ @$site_settings['phone_number'] }}</a>
+                                    </div>
+                                    <div class="mrb-10"><a href="#"><i
+                                                class="fas fa-phone-alt mrr-10"></i>{{ @$site_settings['phone_number_2'] }}</a>
+                                    </div>
+                                    <div class="mrb-10"><a
+                                            href="https://wa.me/971{{ @$site_settings['whatsaap_number'] }}"><i
+                                                class="fab fa-whatsapp mrr-10"></i>{{ @$site_settings['whatsaap_number'] }}</a>
+                                    </div>
+                                    <div class="mrb-10"><a href="#"><i
+                                                class="fas fa-envelope mrr-10"></i>{{ @$site_settings['company_email'] }}</a>
+                                    </div>
+                                    <div class="mrb-0"><a href="#"><i
+                                                class="fas fa-globe mrr-10"></i>www.sivec.ae</a></div>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6">
+                            <div class="widget footer-widget mrr-60 mrr-md-0">
+                                <div class="footer-logo">
+                                    <img src="{{ asset('user_assets/images/logo/white_logo.png') }}" alt=""
+                                        class="mrb-25">
+                                </div>
+                                <p class="mrb-25"></p>
+                                <ul class="social-list">
+                                    <li><a href="{{ @$site_settings['facebook'] }}"><i
+                                                class="fab fa-facebook-f"></i></a>
+                                    </li>
+                                    <li><a href="{{ @$site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a>
+                                    </li>
+                                    <li><a href="{{ @$site_settings['instagram'] }}"><i
+                                                class="fab fa-instagram"></i></a>
+                                    </li>
+                                    <li><a href="{{ @$site_settings['linked_in'] }}"><i
+                                                class="fab fa-linkedin"></i></a>
+                                    </li>
+                                    <li><a href="{{ @$site_settings['snapchat'] }}"><i
+                                                class="fab fa-snapchat"></i></a>
+                                    </li>
+                                    <li><a href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row pdt-30 pdb-30 footer-copyright-area">
-                    <div class="col-xl-12">
-                        <div class="text-center">
-                            Copyright &copy; 2023 <a href="{{ route('site.home') }}">SIVEC</a>
-                            All rights reserved.
+                    <div class="row pdt-30 pdb-30 footer-copyright-area">
+                        <div class="col-xl-12">
+                            <div class="text-center">
+                                {!! __('custom.site.copy_rights') !!}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
     @endif
     <!-- Footer Area End -->
     <!-- Mobile Nav Sidebar Content Start -->
@@ -177,7 +193,7 @@
                 <span></span>
             </a>
             <div class="logo-box">
-                <a href="{{route('site.home')}}" aria-label="logo image">
+                <a href="{{ route('site.home') }}" aria-label="logo image">
                     <img src="{{ asset('user_assets/images/logo/black_logo.png') }}" width="165" height="72"
                         alt="logo">
                 </a>
@@ -236,6 +252,7 @@
     <script src="{{ asset('user_assets/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('user_assets/js/jquery.nice-select.min.js') }}"></script>
     <script src="{{ asset('user_assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('user_assets/js/bootstrap.rtl.min.js') }}"></script>
     <script src="{{ asset('user_assets/js/jquery.appear.min.js') }}"></script>
     <script src="{{ asset('user_assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('user_assets/js/owl.carousel.min.js') }}"></script>

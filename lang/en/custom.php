@@ -86,4 +86,56 @@ return [
     'whatsaap_number'   =>  'Whatsapp Number',
     'snapchat'  =>  'Snapchat',
     'youtube'   =>  'Youtube',
+    'site'  =>  [
+        'SERVICES'  =>  'SERVICES',
+        'HOME'  =>  'HOME',
+        'PROJECTS'  =>  'PROJECTS',
+        'ABOUT'  =>  'ABOUT',
+        'CONTACT'  =>  'CONTACT',
+        'BRANCHES'  =>  'BRANCHES',
+        'DESINGS'  =>  'DESINGS',
+        'JOBS'  =>  'JOBS',
+        'Call Anytime'  =>  'Call Anytime',
+        'newsletter_text'  =>  'Join Our Community And Start Receiving Our News And Updates',
+        'copy_rights'   =>  "  Copyright &copy; 2023 <a href='".route('site.home')."'>SIVEC</a>
+        All rights reserved.",
+        'Quick Links'   =>  'Quick Links',
+        'Interior Design'           =>      'Interior Design',
+        'Engineering Consulting'           =>      'Engineering Consulting',
+        'Skilled Team'           =>      'Skilled Team',
+        'Low Cost'           =>      'Low Cost',
+        'Award Winner'           =>      'Award Winner',
+        'Trusted Work'           =>      'Trusted Work',
+        'about_sivec'           =>          'About Our Company',
+        'about_we_provide_text_1'     =>      'Providing the best',
+        'about_we_provide_text_2'     =>      '&interior design services',
+        'Exclusive Design'          =>      'Exclusive Design' ,
+        'Professional Team'          =>      'Professional Team' ,
+        'We have more than years of experience'     =>  'We have more than years of experience',
+        'our_services'      =>  'Our Services',
+        'We Provide'    =>  'We Provide' ,
+        'All'    =>  'All' ,
+        'services_you_need'      =>      'Services You Need',
+        'sivec' =>  'SIVEC',
+        'our_services_text'       =>    'We assist our clients at every stage: from the design to the 3D
+                            renderings, from the submission of detailed quotations to the attention given to ensure the best
+                            value money can buy, from the building site to logistics management, the assembly process and
+                            the after-sales service.
+
+                            Our aim is to become the exclusive partner of professional architects who wish to enjoy the
+                            support and security of one single partner when developing their projects.',
+
+        'Design'        =>  'Design',
+        'Contact With Us'       =>  'Contact With Us',
+        'We are ready to help you'       =>  'We are ready to help you',
+        'Need Any Interior Design Help?'       =>  'Need Any Interior Design Help?',
+        'get_in_touch'      =>              'Get In Touch',
+        'have_question'     =>                'Have Any Questions?',
+        'our_branches'      =>          'Our Company Branches',
+        'Branches'      =>          'Branches',
+        'we_have_mutli'          =>          'We Have Multiple',
+        'UAE'               =>     'In United Arab Emirates',
+
+    ],
+
 ];

@@ -5,15 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BusinessSetting extends Model
+class ServiceTranslation extends Model
 {
     use HasFactory;
-
-
-    protected $fillable = [
-        'key',
-        'value',
-        'page',
-        'lang',
-    ];
+    protected $gaurded = [];
 }

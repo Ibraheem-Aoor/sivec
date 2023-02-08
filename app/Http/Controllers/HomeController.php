@@ -13,6 +13,8 @@ use App\Models\JobPosition;
 use App\Models\Project;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
@@ -38,7 +40,10 @@ class HomeController extends Controller
         $this->image_categories = $this->setImageCategorires();
         View::share(['site_settings' => $this->site_settings ,
                     'about_page_settings' => $this->about_page_settings ,
-                    'image_categories' =>  $this->image_categories]);
+                    'image_categories' =>  $this->image_categories,
+                    'locale'    =>  app()->getLocale(),
+                ]);
+        $prev_lang   =   explode("/" , url()->previous())[3];
     }
 
 
@@ -50,23 +55,24 @@ class HomeController extends Controller
     public function home()
     {
         $data['services'] = $this->services;
-        $data['page_title'] = "SIVEC - Engineering  & Architecture";
+        $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.Engineering Consulting');
         return view('site.home' , $data);
     }
 
     public function about()
     {
-        $data['page_title'] = "SIVEC- About us";
-        $data['page_settings'] =  BusinessSetting::query()->wherePage('about')->pluck('value' , 'key');
+        $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.ABOUT');
+        $data['page_settings'] =  BusinessSetting::query()->whereLang(app()->getLocale())->wherePage('about')->pluck('value' , 'key');
         return view('site.about' , $data);
     }
 
     public function contact()
     {
-        $data['page_title'] = "SIVEC- Contact Us";
+        $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.CONTACT');
         $data['page_settings'] = $this->contact_page_settings;
         $addres_titles =    json_decode( @$data['page_settings']['address_titles'] , true) ?? [];
         $addres_values = json_decode(@$data['page_settings']['address_values'] , true);
+        $data['branches'] = json_decode($this->branches_page_settings['address_values'] , true);
         $data['addresses'] =    [];
         $i = 0;
         foreach($addres_titles as $address)
@@ -99,7 +105,7 @@ class HomeController extends Controller
 
     public function services()
     {
-        $data['page_title'] = "SIVEC - Services";
+        $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.SERVICES');
         $data['services'] = Service::query()
             ->whereStatus('ACTIVE')
             ->with('category')
@@ -133,7 +139,7 @@ class HomeController extends Controller
             ->with('category')
             ->orderByDesc('projects.created_at')
             ->paginate(12);
-        $data['page_title'] = "SIVEC - Projects";
+        $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.PROJECTS');
         return view('site.projects', $data);
     }
 
@@ -157,7 +163,7 @@ class HomeController extends Controller
     {
         $data['jobs'] = JobPosition::query()->
                         whereStatus('ACTIVE')->paginate(50);
-        $data['page_title'] = "SIVEC - Jobs";
+        $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.JOBS');
         return view('site.jobs' , $data);
     }
 
@@ -201,7 +207,7 @@ class HomeController extends Controller
     ####### Start Branches #####
     public function branches()
     {
-        $data['page_title'] = "SIVEC - Branches";
+        $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.BRANCHES');
         $data['page_settings']  =   $this->branches_page_settings;
         $addres_titles =    json_decode( @$data['page_settings']['address_titles'] , true) ?? [];
         $addres_values = json_decode(@$data['page_settings']['address_values'] , true);
@@ -279,7 +285,7 @@ class HomeController extends Controller
     public function gallery($category_id)
     {
         $category = ImageCategory::query()->findOrFail(decrypt($category_id));
-        $data['page_title'] =   "DESIGNS - {$category->getFullTitle()}";
+        $data['page_title'] =   __('custom.site.sivec'). ' - '. __('custom.site.DESINGS');" - {$category->getFullTitle()}";
         $data['page_settings'] =  BusinessSetting::query()->wherePage('about')->pluck('value' , 'key');
         $data['images'] = Image::query()->where('image_category_id' , $category->id)->get();
         $data['footer_disabled'] = true;
@@ -287,6 +293,7 @@ class HomeController extends Controller
         $view   =   view('site.gallery' , $data)->render();
         return $view;
     }
+
 
 
 

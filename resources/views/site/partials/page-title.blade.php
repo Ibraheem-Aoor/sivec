@@ -6,7 +6,7 @@
                 <div class="breadcrumb-area">
                     <h2 class="page-title capitlize">{{ $page_title }}</h2>
                     <ul class="breadcrumbs-link">
-                        <li><a href="{{ route('site.home') }}">Home</a></li>
+                        <li><a href="{{ route('site.home') }}">{{__('custom.site.HOME')}}</a></li>
                         <li class="active capitlize">{{ $page_title }}</li>
                     </ul>
                 </div>
@@ -14,11 +14,5 @@
         </div>
     </div>
 </section>
-
-
-
-
-
-
 <!-- Page Title End -->
 

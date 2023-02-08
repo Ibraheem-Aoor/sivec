@@ -7,9 +7,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <h5 class="side-line-left subtitle text-primary-color">Our Company Branches</h5>
-                    <h2 class="mrb-45 mrb-lg-35">We Have Multiple <span class="text-primary-color">Branches</span> In United
-                        Arab Emirates</h2>
+                    <h5 class="side-line-left subtitle text-primary-color">{{__('custom.site.our_branches')}}</h5>
+                    <h2 class="mrb-45 mrb-lg-35">{{__('custom.site.we_have_mutli')}} <span class="text-primary-color"> {{__('custom.site.Branches')}} </span>{{__('custom.site.UAE')}}</h2>
                     <p class="about-text-block" style="padding: 0 !important;"></p>
                 </div>
             </div>

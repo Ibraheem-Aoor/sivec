@@ -12,8 +12,8 @@
 		<div class="container">
 			<div class="row mrb-80">
 				<div class="col-md-12 col-lg-12 col-xl-4">
-					<h5 class="side-line-left text-primary-color mrt-0 mrb-5">Get In Touch</h5>
-					<h2 class="faq-title mrb-30">Have Any Questions?</h2>
+					<h5 class="side-line-left text-primary-color mrt-0 mrb-5">{{__('custom.site.get_in_touch')}}</h5>
+					<h2 class="faq-title mrb-30">{{__('custom.site.have_question')}}</h2>
 					<ul class="social-list list-lg list-primary-color list-flat mrb-lg-60 clearfix">
 						<li><a href="{{ $site_settings['facebook'] }}"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a href="{{ $site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
@@ -40,7 +40,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xl-6">
+				<div class="col-xl-6 col-xs-6">
 					<div class="contact-form">
 						<form name="contact-form" action="{{route('site.contact.submit')}}" method="POST">
 							<div class="row">
@@ -74,7 +74,7 @@
 						</form>
 					</div>
 				</div>
-				<div class="col-xl-6">
+				<div class="col-xl-6 col-xs-6 mb-3">
 					<!-- Google Map Start -->
 					<div class="mapouter fixed-height">
 						<div class="gmap_canvas">
@@ -83,6 +83,17 @@
 					</div>
 					<!-- Google Map End -->
 				</div>
+                @foreach($branches as $branch)
+				<div class="col-xl-6 col-xs-6 mb-3">
+					<!-- Google Map Start -->
+					<div class="mapouter fixed-height">
+						<div class="gmap_canvas">
+							<iframe id="gmap_canvas" src="{{@$branch}}"></iframe>
+						</div>
+					</div>
+					<!-- Google Map End -->
+				</div>
+                @endforeach
 			</div>
 		</div>
 	</section>

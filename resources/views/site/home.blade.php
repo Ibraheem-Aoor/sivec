@@ -47,76 +47,58 @@
     </section>
     <!-- Home Slider End -->
     <!-- Features Style1 Section Start -->
-        <section class="bg-no-repeat bg-cover bg-pos-cb pdt-110 pdb-85"
-            data-background="images/bg/abs-bg4.png" >
-            <div class="section-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6 col-lg-4 col-md-4">
-                            <div class="feature-box-style2 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="800ms">
-                                <div class="inner-box">
-                                    <div class="feature-box-icon">
-                                        <span class="webextheme-icon-interior-design-1"></span>
-                                    </div>
-                                    <h6 class="title">Interior Design</h6>
+    <section class="bg-no-repeat bg-cover bg-pos-cb pdt-110 pdb-85" data-background="images/bg/abs-bg4.png">
+        <div class="section-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6  col-xs-6 ol-lg-6 col-md-6">
+                        <div class="feature-box-style2 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="800ms">
+                            <div class="inner-box">
+                                <div class="feature-box-icon">
+                                    <span class="webextheme-icon-interior-design-1"></span>
                                 </div>
+                                <h6 class="title">{{ __('custom.site.Design') }}</h6>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-lg-4 col-md-4">
-                            <div class="feature-box-style2 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="800ms">
-                                <div class="inner-box">
-                                    <div class="feature-box-icon">
-                                        <span class="webextheme-icon-kitchen"></span>
-                                    </div>
-                                    <h6 class="title">Kitchen Interior</h6>
+                    </div>
+                    <div class="col-sm-6  col-xs-6 col-s-6 col-lg-6 col-md-6">
+                        <div class="feature-box-style2 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="800ms">
+                            <div class="inner-box">
+                                <div class="feature-box-icon">
+                                    <span class="webextheme-icon-kitchen"></span>
                                 </div>
+                                <h6 class="title">{{ __('custom.site.Engineering Consulting') }}</h6>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-lg-4 col-md-4">
-                            <div class="feature-box-style2 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="800ms">
-                                <div class="inner-box">
-                                    <div class="feature-box-icon">
-                                        <span class="webextheme-icon-architect-4"></span>
-                                    </div>
-                                    <h6 class="title">Skilled Team</h6>
+                    </div>
+                    <div class="col-sm-6  col-xs-6 col-s-6 col-lg-6 col-md-6">
+                        <div class="feature-box-style2 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="800ms">
+                            <div class="inner-box">
+                                <div class="feature-box-icon">
+                                    <span class="webextheme-icon-architect-4"></span>
                                 </div>
+                                <h6 class="title">{{ __('custom.site.Skilled Team') }}</h6>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-lg-4 col-md-4">
-                            <div class="feature-box-style2 wow fadeInUp" data-wow-delay="500ms" data-wow-duration="800ms">
-                                <div class="inner-box">
-                                    <div class="feature-box-icon">
-                                        <span class="base-icon-071-guarantee"></span>
-                                    </div>
-                                    <h6 class="title">Trusted Work</h6>
+                    </div>
+                    <div class="col-sm-6  col-xs-6 col-s-6 col-lg-6 col-md-6">
+                        <div class="feature-box-style2 wow fadeInUp" data-wow-delay="500ms" data-wow-duration="800ms">
+                            <div class="inner-box">
+                                <div class="feature-box-icon">
+                                    <span class="base-icon-071-guarantee"></span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4 col-md-4">
-                            <div class="feature-box-style2 wow fadeInUp" data-wow-delay="600ms" data-wow-duration="800ms">
-                                <div class="inner-box">
-                                    <div class="feature-box-icon">
-                                        <span class="base-icon-166-money"></span>
-                                    </div>
-                                    <h6 class="title">Low Cost</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4 col-md-4 col-sm-6">
-                            <div class="feature-box-style2 wow fadeInUp" data-wow-delay="700ms" data-wow-duration="800ms">
-                                <div class="inner-box">
-                                    <div class="feature-box-icon">
-                                        <span class="base-icon-135-quality"></span>
-                                    </div>
-                                    <h6 class="title">Award Winner</h6>
-                                </div>
+                                <h6 class="title">{{ __('custom.site.Trusted Work') }}</h6>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     <!-- Features Style1 Section End -->
+
+
+
     <!-- About Section Start -->
     <section class="about-section pdt-110 pdb-105 bg-no-repeat bg-cover bg-pos-cb"
         data-background="{{ asset('user_assets/images/bg/abs-bg3.png') }}" data-overlay-light="4">
@@ -140,11 +122,11 @@
                         </figure>
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInRight" data-wow-delay="0ms"
-                    data-wow-duration="1500ms">
-                    <h5 class="side-line-left subtitle text-primary-color">About Our Company</h5>
-                    <h2 class="mrb-45 mrb-lg-35">Providing the best <span class="text-primary-color">architecture</span> &
-                        interior design services</h2>
+                <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <h5 class="side-line-left subtitle text-primary-color">{{ __('custom.site.about_sivec') }}</h5>
+                    <h2 class="mrb-45 mrb-lg-35">{{ __('custom.site.about_we_provide_text_1') }} <span
+                            class="text-primary-color">{{ __('custom.site.Engineering Consulting') }}</span>
+                        {{ __('custom.site.about_we_provide_text_2') }} </h2>
                     <p class="about-text-block mrb-40">{{ @$about_page_settings['about_us_text'] }}</p>
                     <div class="row mrb-30 mrb-lg-40">
                         @php
@@ -157,13 +139,13 @@
                         @endphp
                         @foreach ($features as $feature)
                             @if ($i % 2 != 0)
-                                <div class="col-xl-6 col-lg-6 col-md-12">
+                                <div class="col-xl-6 col-xs-6 col-sm-6 col-lg-6 col-md-12">
                                     <ul class="order-list primary-color">
                                         <li>{{ $feature }}</li>
                                     </ul>
                                 </div>
                             @else
-                                <div class="col-xl-6 col-lg-6 col-md-12">
+                                <div class="col-xl-6 col-xs-6 col-sm-6 col-lg-6 col-md-12">
                                     <ul class="order-list primary-color">
                                         <li>{{ $feature }}</li>
                                     </ul>
@@ -175,13 +157,13 @@
                         @endforeach
                     </div>
                     <div class="row no-gutters">
-                        <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6">
+                        <div class="col-xl-7 col-lg-7 col-md-6">
                             <div class="featured-icon-box mrb-15">
                                 <div class="featured-icon">
                                     <i class="webexflaticon webextheme-icon-003-staircase"></i>
                                 </div>
                                 <div class="featured-content">
-                                    <h4 class="featured-title">Exclusive Design</h4>
+                                    <h4 class="featured-title">{{ __('custom.site.Exclusive Design') }}</h4>
                                     <p class="featured-desc">{{ @$about_page_settings['exclusive_design_description'] }}
                                     </p>
                                 </div>
@@ -191,16 +173,16 @@
                                     <i class="webexflaticon base-icon-158-employee-2"></i>
                                 </div>
                                 <div class="featured-content">
-                                    <h4 class="featured-title">Professional Team</h4>
+                                    <h4 class="featured-title">{{ __('custom.site.Professional Team') }}</h4>
                                     <p class="featured-desc mrb-0">
                                         {{ @$about_page_settings['pro_team_description'] }}
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-5 col-lg-5 col-md-6 col-sm-6">
+                        <div class="col-xl-5 col-lg-5 col-md-6">
                             <div class="experience">
-                                <p class="experience-text">We have more than years of experience</p>
+                                <p class="experience-text">{{ __('custom.site.our_experince') }}</p>
                                 <h4 class="experience-year">10+</h4>
                             </div>
                         </div>
@@ -210,6 +192,7 @@
         </div>
     </section>
     <!-- About Section End -->
+
 
     <!-- Service Section Title Area Start -->
     <section class="service-title-section bg-silver bg-no-repeat bg-cover bg-pos-cb pdt-105 pdb-200"
@@ -222,20 +205,15 @@
                 <div class="row align-items-center">
                     <div class="col-xl-6 col-lg-7 col-md-12">
                         <div class="title-box-center">
-                            <h5 class="side-line-left text-primary-color mrb-10">Our Services</h5>
-                            <h2 class="mrb-25">We Provide <span class="text-primary-color">All</span> Services You Need
+                            <h5 class="side-line-left text-primary-color mrb-10">{{ __('custom.site.our_services') }}</h5>
+                            <h2 class="mrb-25">{{ __('custom.site.We Provide') }} <span class="text-primary-color">
+                                    {{ __('custom.site.All') }} </span> {{ __('custom.site.services_you_need') }}
                             </h2>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-5 col-md-12">
-                        <p class="mrb-0 mrb-md-40">We assist our clients at every stage: from the design to the 3D
-                            renderings, from the submission of detailed quotations to the attention given to ensure the best
-                            value money can buy, from the building site to logistics management, the assembly process and
-                            the after-sales service.
-
-                            Our aim is to become the exclusive partner of professional architects who wish to enjoy the
-                            support and security of one single partner when developing their projects.
-
+                        <p class="mrb-0 mrb-md-40">
+                            {{ __('custom.site.our_services_text') }}
                         </p>
                     </div>
                 </div>
@@ -250,7 +228,7 @@
             <div class="container">
                 <div class="row">
                     @foreach ($services as $service)
-                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="service-style1">
                                 <div class="service-inner">
                                     <i class="service-icon {{ $service->icon }}"></i>
