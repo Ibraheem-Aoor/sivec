@@ -146,7 +146,7 @@
                                     {{ __('custom.site.slide_8') }}
                                 </h1>
                                 <div class="btn-box">
-                                    <a href="{{ route('site.gallery' , encrypt(2)) }}"
+                                    <a href="{{ route('site.gallery', encrypt(2)) }}"
                                         class="animate-btn-style3">{{ __('custom.site.DESINGS') }}</a>
                                 </div>
                             </div>
@@ -349,24 +349,15 @@
                                     <p class="service-description">{{ Str::limit($service->details, 70, '...') }}</p>
                                     <div class="services-link">
                                         <a class="text-btn"
-                                            href="{{ route('site.service.details', encrypt($service->id)) }}">Read
-                                            More</a>
+                                            href="{{ route('site.service.details', encrypt($service->id)) }}">
+                                            {{__('custom.site.read_more')}}
+                                        </a>
                                     </div>
                                     <div class="service-inner-obj"></div>
                                 </div>
                             </div>
                         </div>
                     @endforeach
-                </div>
-                <div class="row mrt-30">
-                    <div class="col-xl-12 text-center">
-                        <div class="service-load-more">
-                            <h5 class="text">Do You Want To explore more services just <span><a
-                                        href="{{ route('site.services') }}"
-                                        class="text-underline text-primary-color">click
-                                        here</a></span></h5>
-                        </div>
-                    </div>
                 </div>
                 {{-- <div class="row mrt-110">
                     <div class="col-xl-12">
@@ -386,66 +377,5 @@
 
 
     <!-- Funfact Section Start -->
-    <section class="funfact-section pdt-50 pdb-25 pdt-sm-80 pdb-sm-65">
-        <div class="funfact-section-obj1">
-            <img src="{{ asset('user_assets/images/objects/funfact-obj1.png') }}" alt="">
-        </div>
-        <div class="funfact-section-obj2">
-            <img src="{{ asset('user_assets/images/objects/funfact-obj2.png') }}" alt="">
-        </div>
-        <div class="funfact-section-obj3">
-            <img src="{{ asset('user_assets/images/objects/funfact-obj3.png') }}" alt="">
-        </div>
-        <div class="section-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="800ms">
-                        <div class="funfact">
-                            <div class="funfact-icon">
-                                <span class="webexflaticon base-icon-162-briefcase-2"></span>
-                            </div>
-                            <h2 class="count-box">
-                                <span data-stop="864" data-speed="2500" class="count-text">00</span>
-                            </h2>
-                            <h5 class="title">Projects Succeed</h5>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="800ms">
-                        <div class="funfact">
-                            <div class="funfact-icon">
-                                <span class="webexflaticon base-icon-101-like-1"></span>
-                            </div>
-                            <h2 class="count-box">
-                                <span data-stop="3450" data-speed="2500" class="count-text">00</span>
-                            </h2>
-                            <h5 class="title">Satisfied Clients</h5>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="800ms">
-                        <div class="funfact">
-                            <div class="funfact-icon">
-                                <span class="webexflaticon webextheme-icon-architect-4"></span>
-                            </div>
-                            <h2 class="count-box">
-                                <span data-stop="84" data-speed="2500" class="count-text">00</span>
-                            </h2>
-                            <h5 class="title">Professional Engineers</h5>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="800ms">
-                        <div class="funfact">
-                            <div class="funfact-icon">
-                                <span class="webexflaticon base-icon-037-creativity"></span>
-                            </div>
-                            <h2 class="count-box">
-                                <span data-stop="10" data-speed="2500" class="count-text">00</span>
-                            </h2>
-                            <h5 class="title">Year Of Experience</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- Funfact Section End -->
 @endsection

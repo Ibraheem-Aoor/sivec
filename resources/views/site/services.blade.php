@@ -16,7 +16,7 @@
                                     <div class="services-count"></div>
                                     <p class="service-description">{{Str::limit($service->details , 70 , '...')}}</p>
                                     <div class="services-link">
-                                        <a class="text-btn" href="{{route('site.service.details' , encrypt($service->id))}}">Read More</a>
+                                        <a class="text-btn" href="{{route('site.service.details' , encrypt($service->id))}}">{{__('custom.site.read_more')}}</a>
                                     </div>
                                     <div class="service-inner-obj"></div>
                                 </div>
@@ -28,27 +28,6 @@
         </div>
     </section>
     <!-- Price Section End -->
-    <!-- Call to Action Start -->
-    <section>
-        <div class="call-to-action">
-            <div class="container">
-                <div class="call-to-action-inner">
-                    <div class="call-to-action-left">
-                        <div class="call-to-action-icon">
-                            <span class="webexflaticon flaticon-email-1"></span>
-                        </div>
-                        <div class="call-to-action-content">
-                            <p class="call-to-action-sub-title">We are ready to help you</p>
-                            <h3 class="call-to-action-title">Need Any Interior Design Help?</h3>
-                        </div>
-                    </div>
-                    <div class="call-to-action-btn-box mrt-md-30">
-                        <a href="{{ route('site.contact')}}" class="animate-btn-style4">Contact With Us</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Call to Action End -->
-    <!-- Price Section End -->
+
+    @include('site.partials.call_section')
 @endsection

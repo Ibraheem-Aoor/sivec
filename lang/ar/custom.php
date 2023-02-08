@@ -43,13 +43,7 @@ return [
         'All'    =>  'كافة' ,
         'services_you_need'      =>      'الخدمات التي تحتاجها',
         'sivec' =>  'الرؤية المتكاملة',
-        'our_services_text'       =>    'We assist our clients at every stage: from the design to the 3D
-        renderings, from the submission of detailed quotations to the attention given to ensure the best
-        value money can buy, from the building site to logistics management, the assembly process and
-        the after-sales service.
-
-        Our aim is to become the exclusive partner of professional architects who wish to enjoy the
-        support and security of one single partner when developing their projects.',
+        'our_services_text'       =>    'التحديات الصعبة شغفنا لذلك قررنا التوسع واالمساعدة في البناء والتطوير والتي بالفعل عكست أثارها بشكل ايجابي على المواطن كما حرصنا على توسيع اعمالها في الامارات وحملت على عاتقها المشاريع الخدماتية والبنائية بشكل اساسي وذلك بإستخدام احدث الوسائل وبأسعار تنافسية تناسب امكانيات أبناء الإمارات',
 
         'Design'            =>      'تصاميم',
         'Contact With Us'       =>  'تواصل معنا',
@@ -70,6 +64,10 @@ return [
         'slide_6'     =>  ' ليكن بيتك لوحة ابداعية',
         'slide_7'     =>  'في كل تصميم حكاية',
         'slide_8'     =>  'باقة متنوعة من أجمل التصاميم',
+        'read_more'     =>  'قراءة المزيد',
+        'get_solutions'     =>  'احصل على استشارة',
+        'enter_email'       =>  'ادخل البريد الالكتروني',
+
     ],
 
 ];

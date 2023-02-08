@@ -117,13 +117,7 @@ return [
         'All'    =>  'All' ,
         'services_you_need'      =>      'Services You Need',
         'sivec' =>  'SIVEC',
-        'our_services_text'       =>    'We assist our clients at every stage: from the design to the 3D
-                            renderings, from the submission of detailed quotations to the attention given to ensure the best
-                            value money can buy, from the building site to logistics management, the assembly process and
-                            the after-sales service.
-
-                            Our aim is to become the exclusive partner of professional architects who wish to enjoy the
-                            support and security of one single partner when developing their projects.',
+        'our_services_text'       =>    'Difficult challenges are our passion, so we decided to expand and assist in construction and development, which has already reflected its effects positively on the citizen. We were also keen to expand its business in the Emirates and carried on it mainly service and construction projects, using the latest means and competitive prices that suit the capabilities of the people of the Emirates',
 
         'Design'        =>  'Design',
         'Contact With Us'       =>  'Contact With Us',
@@ -152,6 +146,10 @@ return [
         'slide_7'     =>  'Every Design Has a Story',
 
         'slide_8'     =>  "You Can Find Variety of the Best Designs",
+        'read_more'     =>  'Read More',
+        'enter_email'       =>  'Enter your email',
+
+
     ],
 
 ];

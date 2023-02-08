@@ -93,7 +93,7 @@
                                 <p class="mrb-30">{{ __('custom.site.newsletter_text') }}</p>
                                 <div class="newsletter-from">
                                     <div class="email">
-                                        <input type="email" name="EMAIL" placeholder="Enter your email"
+                                        <input type="email" name="EMAIL" placeholder="{{__('custom.site.enter_email')}}"
                                             required="">
                                     </div>
                                     <div class="submit">
