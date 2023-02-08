@@ -2,15 +2,18 @@
 
 namespace App\Models;
 
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ImageCategory extends Model
 {
 
-    use HasFactory;
+    use HasFactory , Translatable;
 
     protected $table = 'image_categories';
+    public $translatedAttributes = ['name'];
+
 
     protected $fillable = [
         'name',
@@ -42,10 +45,10 @@ class ImageCategory extends Model
 
     public function getFullPath()
     {
-        $full_path  =   $this->name;
-        if(!is_null($this->getParentCategoryName()))
+        $full_path  =   $this->id;
+        if(!is_null($this->parent_id))
         {
-            return $this->getParentCategoryName() .  '/' .  $full_path  ;
+            return $this->parent_id .  '/' .  $full_path  ;
         }
         return $full_path;
     }

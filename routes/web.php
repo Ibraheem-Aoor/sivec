@@ -104,3 +104,8 @@ Route::get('fill-about-data', function () {
 
 
 });
+
+Route::get('ss', function () {
+    $s = ImageCategory::first();
+    dd($s->translations);
+});
