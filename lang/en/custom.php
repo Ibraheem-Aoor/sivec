@@ -128,14 +128,30 @@ return [
         'Design'        =>  'Design',
         'Contact With Us'       =>  'Contact With Us',
         'We are ready to help you'       =>  'We are ready to help you',
-        'Need Any Interior Design Help?'       =>  'Need Any Interior Design Help?',
+        'need_help'       =>  'Need Any Interior Design Help?',
         'get_in_touch'      =>              'Get In Touch',
         'have_question'     =>                'Have Any Questions?',
         'our_branches'      =>          'Our Company Branches',
         'Branches'      =>          'Branches',
         'we_have_mutli'          =>          'We Have Multiple',
         'UAE'               =>     'In United Arab Emirates',
+        'UAE'               =>     'In United Arab Emirates',
 
+        'slide_1'     =>  'Welcome to Fascinating world of Design ',
+
+        'slide_2'     =>  'Every Detail is Magnificent',
+
+        'slide_3'     =>  'Your Luxury House in Modern',
+
+        'slide_4'     =>  'Add your Magic touch in your house',
+
+        'slide_5'     =>  "Not just Building .. we're being creative for you",
+
+        'slide_6'     =>  "Let's Make your house a wonderful painting",
+
+        'slide_7'     =>  'Every Design Has a Story',
+
+        'slide_8'     =>  "You Can Find Variety of the Best Designs",
     ],
 
 ];

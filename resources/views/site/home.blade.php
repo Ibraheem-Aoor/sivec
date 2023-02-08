@@ -10,12 +10,12 @@
                     <div class="row clearfix">
                         <div class="col-xl-8 col-lg-12 col-md-12 content-column">
                             <div class="content-box">
-                                <h1 class="home-carousel-title">Consultant<span class="text-primary-color"> Worth</span>
-                                    <span class="text-obj1">Your Trust</span>
+                                <h1 class="home-carousel-title">{{ __('custom.site.slide_1') }}
                                 </h1>
                                 <p class="home-carousel-text"></p>
                                 <div class="btn-box">
-                                    <a href="{{ route('site.contact') }}" class="animate-btn-style3">Get In Touch</a>
+                                    <a href="{{ route('site.contact') }}"
+                                        class="animate-btn-style3">{{ __('custom.site.Contact With Us') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -23,20 +23,131 @@
                 </div>
             </div>
             <div class="slide-item">
-                <div class="image-layer" data-background="{{ asset('user_assets/images/bedroom-2.jpg') }}">
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/392.png') }}"></div>
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-xl-8 col-lg-12 col-md-12 content-column">
+                            <div class="content-box">
+                                <h1 class="home-carousel-title">{{ __('custom.site.slide_2') }}
+                                </h1>
+                                <p class="home-carousel-text"></p>
+                                <div class="btn-box">
+                                    <a href="{{ route('site.contact') }}"
+                                        class="animate-btn-style3">{{ __('custom.site.Contact With Us') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-item">
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/762.png') }}">
                 </div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <div class="col-xl-8 col-lg-12 col-md-12 content-column">
                             <div class="content-box">
-                                <h1 class="home-carousel-title">We Provide <span class="text-primary-color">Kitchen</span>
-                                    <span class="text-obj1">design</span>
+                                <h1 class="home-carousel-title">
+                                    {{ __('custom.site.slide_3') }}
                                 </h1>
-                                <p class="home-carousel-text">We have almost 10+ years of experience for providing
-                                    Consulting , interior
-                                    & Architectural services solutions</p>
                                 <div class="btn-box">
-                                    <a href="page-services-style1.html" class="animate-btn-style3">Our Services</a>
+                                    <a href="{{ route('site.services') }}"
+                                        class="animate-btn-style3">{{ __('custom.site.SERVICES') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-item">
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/880.png') }}">
+                </div>
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-xl-8 col-lg-12 col-md-12 content-column">
+                            <div class="content-box">
+                                <h1 class="home-carousel-title">
+                                    {{ __('custom.site.slide_4') }}
+                                </h1>
+                                <div class="btn-box">
+                                    <a href="{{ route('site.services') }}"
+                                        class="animate-btn-style3">{{ __('custom.site.SERVICES') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-item">
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/710.png') }}">
+                </div>
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-xl-8 col-lg-12 col-md-12 content-column">
+                            <div class="content-box">
+                                <h1 class="home-carousel-title">
+                                    {{ __('custom.site.slide_5') }}
+                                </h1>
+                                <div class="btn-box">
+                                    <a href="{{ route('site.services') }}"
+                                        class="animate-btn-style3">{{ __('custom.site.SERVICES') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-item">
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/171.png') }}">
+                </div>
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-xl-8 col-lg-12 col-md-12 content-column">
+                            <div class="content-box">
+                                <h1 class="home-carousel-title">
+                                    {{ __('custom.site.slide_6') }}
+                                </h1>
+                                <div class="btn-box">
+                                    <a href="{{ route('site.services') }}"
+                                        class="animate-btn-style3">{{ __('custom.site.SERVICES') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-item">
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/356.png') }}">
+                </div>
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-xl-8 col-lg-12 col-md-12 content-column">
+                            <div class="content-box">
+                                <h1 class="home-carousel-title">
+                                    {{ __('custom.site.slide_7') }}
+                                </h1>
+                                <div class="btn-box">
+                                    <a href="{{ route('site.services') }}"
+                                        class="animate-btn-style3">{{ __('custom.site.SERVICES') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-item">
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/355.jpeg') }}">
+                </div>
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-xl-8 col-lg-12 col-md-12 content-column">
+                            <div class="content-box">
+                                <h1 class="home-carousel-title">
+                                    {{ __('custom.site.slide_8') }}
+                                </h1>
+                                <div class="btn-box">
+                                    <a href="{{ route('site.gallery' , encrypt(2)) }}"
+                                        class="animate-btn-style3">{{ __('custom.site.DESINGS') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +233,8 @@
                         </figure>
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInRight" data-wow-delay="0ms"
+                    data-wow-duration="1500ms">
                     <h5 class="side-line-left subtitle text-primary-color">{{ __('custom.site.about_sivec') }}</h5>
                     <h2 class="mrb-45 mrb-lg-35">{{ __('custom.site.about_we_provide_text_1') }} <span
                             class="text-primary-color">{{ __('custom.site.Engineering Consulting') }}</span>
