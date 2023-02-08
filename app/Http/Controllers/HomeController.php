@@ -43,7 +43,6 @@ class HomeController extends Controller
                     'image_categories' =>  $this->image_categories,
                     'locale'    =>  app()->getLocale(),
                 ]);
-        $prev_lang   =   explode("/" , url()->previous())[3];
     }
 
 
@@ -62,7 +61,7 @@ class HomeController extends Controller
     public function about()
     {
         $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.ABOUT');
-        $data['page_settings'] =  BusinessSetting::query()->whereLang(app()->getLocale())->wherePage('about')->pluck('value' , 'key');
+        $data['page_settings'] =  BusinessSetting::query()->wherePage('about')->pluck('value' , 'key');
         return view('site.about' , $data);
     }
 
@@ -240,14 +239,7 @@ class HomeController extends Controller
 
     public function getPageSettings($page = null)
     {
-        if(Cache::has("{$page}_settings"))
-        {
-            $settings = Cache::get("{$page}_settings");
-        }else{
-            $page_settings = BusinessSetting::query()->wherePage($page)->pluck('value' , 'key');
-            $settings = Cache::put("{$page}_settings" , $page_settings);
-        }
-        return $settings;
+        return BusinessSetting::query()->wherePage($page)->whereLang(app()->getLocale())->pluck('value' , 'key');
     }
 
     public function setImageCategorires()

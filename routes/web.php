@@ -54,6 +54,11 @@ Route::group(
         Route::get('gallery/{id}', 'gallery')->name('gallery');
 
     });
+
+Route::get('trans-test', function () {
+    $s = BusinessSetting::query()->find(11);
+    dd($s->value);
+});
 });
 
 
@@ -88,14 +93,7 @@ Route::get('fill-about-data', function () {
         ]);
     }
     dd('Done');
-});
 
 
-Route::get('trans-test', function () {
-    $service = Service::find(5);
-    dd($service);
-    $service->translateOrNew('ar')->name    =  'االتصميم';
-    $service->translateOrNew('ar')->details    =  ' لعبتنااالتصميم';
-    $service->save();
-    dd('DONE');
+
 });

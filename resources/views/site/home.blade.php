@@ -5,7 +5,7 @@
     <section class="home_banner_01">
         <div class="home-carousel owl-theme owl-carousel">
             <div class="slide-item">
-                <div class="image-layer" data-background="{{ asset('user_assets/images/slide_image_2.jpg') }}"></div>
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/400.png') }}"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <div class="col-xl-8 col-lg-12 col-md-12 content-column">
