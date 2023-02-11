@@ -82,7 +82,7 @@
                         <div class="col-xl-5 col-lg-5 col-md-6 col-sm-6">
                             <div class="experience">
                                 <p class="experience-text">{{ __('custom.site.our_experince') }}</p>
-                                <h4 class="experience-year">10+</h4>
+                                <h4 class="experience-year">8+</h4>
                             </div>
                         </div>
                     </div>

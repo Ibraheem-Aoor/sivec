@@ -96,6 +96,7 @@ return [
         'DESINGS'  =>  'DESINGS',
         'JOBS'  =>  'JOBS',
         'Call Anytime'  =>  'Call Anytime',
+        'Newsletter'    =>  'Newsletter',
         'newsletter_text'  =>  'Join Our Community And Start Receiving Our News And Updates',
         'copy_rights'   =>  "  Copyright &copy; 2023 <a href='".route('site.home')."'>SIVEC</a>
         All rights reserved.",
@@ -148,7 +149,8 @@ return [
         'slide_8'     =>  "You Can Find Variety of the Best Designs",
         'read_more'     =>  'Read More',
         'enter_email'       =>  'Enter your email',
-
+        'our_experince'     =>          'We Have Experince',
+        'get_solutions'     =>  'Get Easy Solutions',
 
     ],
 

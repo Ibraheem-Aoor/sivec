@@ -2,7 +2,7 @@
 @section('tiite', 'SIVEC- Inerior Design Services')
 @section('content')
     <!-- Home Slider Start -->
-    <section class="home_banner_01">
+    <section class="home_banner_01" >
         <div class="home-carousel owl-theme owl-carousel">
             <div class="slide-item">
                 <div class="image-layer" data-background="{{ asset('user_assets/images/slider/400.png') }}"></div>
@@ -166,9 +166,9 @@
                         <div class="feature-box-style2 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="800ms">
                             <div class="inner-box">
                                 <div class="feature-box-icon">
-                                    <span class="webextheme-icon-interior-design-1"></span>
+                                    <span class="webextheme-icon-light-interior-design-1"></span>
                                 </div>
-                                <h6 class="title">{{ __('custom.site.Design') }}</h6>
+                                <h6 class="title" style="padding-right:10px !important;">{{ __('custom.site.Design') }}</h6>
                             </div>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                         <div class="feature-box-style2 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="800ms">
                             <div class="inner-box">
                                 <div class="feature-box-icon">
-                                    <span class="webextheme-icon-kitchen"></span>
+                                    <span class="service-icon webextheme-icon-light-measure"></span>
                                 </div>
                                 <h6 class="title">{{ __('custom.site.Engineering Consulting') }}</h6>
                             </div>
@@ -186,7 +186,7 @@
                         <div class="feature-box-style2 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="800ms">
                             <div class="inner-box">
                                 <div class="feature-box-icon">
-                                    <span class="webextheme-icon-architect-4"></span>
+                                    <span class="webextheme-icon-light-architect-4"></span>
                                 </div>
                                 <h6 class="title">{{ __('custom.site.Skilled Team') }}</h6>
                             </div>
@@ -295,7 +295,7 @@
                         <div class="col-xl-5 col-lg-5 col-md-6">
                             <div class="experience">
                                 <p class="experience-text">{{ __('custom.site.our_experince') }}</p>
-                                <h4 class="experience-year">10+</h4>
+                                <h4 class="experience-year">8+</h4>
                             </div>
                         </div>
                     </div>

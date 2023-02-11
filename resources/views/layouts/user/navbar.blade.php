@@ -66,12 +66,12 @@
 
                                     <a rel="alternate" hreflang="{{ $localeCode }}"
                                         href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                        @if($localeCode == 'en')
-                                        <i class="fa fa-globe"></i>
+                                        @if ($localeCode == 'en')
+                                            <i class="fa fa-globe"></i>
                                         @endif
                                         {{ $properties['native'] }}
-                                        @if($localeCode == 'ar')
-                                        <i class="fa fa-globe"></i>
+                                        @if ($localeCode == 'ar')
+                                            <i class="fa fa-globe"></i>
                                         @endif
                                     </a>
                                 </li>
@@ -81,13 +81,11 @@
                 </div>
                 <div class="header-contact-info">
                     <div class="header-contact-info-icon">
-                        <i class="base-icon-011-phone-1"></i>
+                        <i class="base-icon-011-phone-1"></i> &nbsp;&nbsp;
+                        <h5 class="phone-no" ><a style="color:#fff !important;" href="tel:0553133348">0553133348</a>
+                        </h5>
                     </div>
                     <div class="header-contact-info-text">
-                        <p class="call-text">{{ __('custom.site.Call Anytime') }}</p>
-                        <h5 class="phone-no"><a
-                                href="tel:{{ $site_settings['phone_number'] }}">{{ $site_settings['phone_number'] }}</a>
-                        </h5>
                     </div>
                 </div>
             </div>
