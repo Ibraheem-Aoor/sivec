@@ -272,7 +272,7 @@
                         <div class="col-xl-7 col-lg-7 col-md-6">
                             <div class="featured-icon-box mrb-15">
                                 <div class="featured-icon">
-                                    <i class="webexflaticon webextheme-icon-003-staircase"></i>
+                                    <i class="webexflaticon webextheme-icon-light-003-staircase"></i>
                                 </div>
                                 <div class="featured-content">
                                     <h4 class="featured-title">{{ __('custom.site.Exclusive Design') }}</h4>
