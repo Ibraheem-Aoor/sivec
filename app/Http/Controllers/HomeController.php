@@ -61,7 +61,7 @@ class HomeController extends Controller
     public function about()
     {
         $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.ABOUT');
-        $data['page_settings'] =  BusinessSetting::query()->wherePage('about')->pluck('value' , 'key');
+        $data['page_settings'] =  BusinessSetting::query()->wherePage('about')->whereLang(app()->getLocale())->pluck('value' , 'key');
         return view('site.about' , $data);
     }
 
