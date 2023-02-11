@@ -366,6 +366,9 @@
     content: "\f160";
     text-shadow: -1px 0 #F25F29, 0 1px #F25F29, 1px 0 #F25F29, 0 -1px #F25F29;
 }
+.webextheme-icon-light-003-staircase:before {
+    content: "\f160";
+}
 
 .webextheme-icon-004-blueprint:before {
     content: "\f112";

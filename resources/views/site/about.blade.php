@@ -101,9 +101,10 @@
                         <div class="feature-box-style2 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="800ms">
                             <div class="inner-box">
                                 <div class="feature-box-icon">
-                                    <span class="webextheme-icon-interior-design-1"></span>
+                                    <span class="webextheme-icon-light-interior-design-1"></span>
                                 </div>
-                                <h6 class="title">{{ __('custom.site.Design') }}</h6>
+                                <h6 class="title" style="padding-right:10px !important;">{{ __('custom.site.Design') }}
+                                </h6>
                             </div>
                         </div>
                     </div>
@@ -111,7 +112,7 @@
                         <div class="feature-box-style2 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="800ms">
                             <div class="inner-box">
                                 <div class="feature-box-icon">
-                                    <span class="webextheme-icon-kitchen"></span>
+                                    <span class="service-icon webextheme-icon-light-measure"></span>
                                 </div>
                                 <h6 class="title">{{ __('custom.site.Engineering Consulting') }}</h6>
                             </div>
@@ -121,7 +122,7 @@
                         <div class="feature-box-style2 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="800ms">
                             <div class="inner-box">
                                 <div class="feature-box-icon">
-                                    <span class="webextheme-icon-architect-4"></span>
+                                    <span class="webextheme-icon-light-architect-4"></span>
                                 </div>
                                 <h6 class="title">{{ __('custom.site.Skilled Team') }}</h6>
                             </div>
@@ -142,6 +143,7 @@
         </div>
     </section>
     <!-- Features Style1 Section End -->
+
 
     <!-- Features Style1 Section End -->
 @endsection
