@@ -55,57 +55,9 @@ Route::group(
 
     });
 
-Route::get('trans-test', function () {
-    $s = BusinessSetting::query()->find(11);
-    dd($s->value);
-});
-});
-
-
-
-Route::get('fill-about-data', function () {
-    BusinessSetting::query()->create([
-        'lang' => 'ar',
-        'key' => 'about_us_text',
-        'page'  =>  'about',
-        'value' => 'يعتبر مكتب الرؤية المتكاملة من المكاتب الرائدة بالإمارات العربية المتحدة في مجال الاستشارات الهندسية وإدارة المشروعات حيث برزت الفكرة لتأسيس هذا المكتب وفقا لرؤية محددة تتطلع الى افاق عريضة وطموحات عالية لا سقف لها فعملنا جاهدين للوصول الى هذه الرؤية المتكاملة والتي تؤكد على ضرورة تطوير واتقان العمل المهني واستخدام الخدمات المتكاملة والحلول المبتكرة  في مجال الاستشارات الهندسية  وإدارة المشروعات والاشراف على المواقع (السكنية - التجارية - الصناعية - الحكومية - والمساجد)',
-    ]);
-    BusinessSetting::query()->create([
-        'lang' => 'ar',
-        'key' => 'exclusive_design_description',
-        'page'  =>  'about',
-        'value' => 'نؤمن أن التصميم الرائع يجب ألا يبدو جميلًا فحسب ، بل يجب أن يلبي أيضًا المتطلبات الوظيفية للعميل. يأخذ فريقنا الوقت الكافي لفهم احتياجاتك وأسلوبك وتفضيلاتك ، مما يضمن أن النتيجة النهائية لا تبدو مذهلة فحسب ، بل تخدم أيضًا الغرض المقصود منها.'
-    ]);
-    BusinessSetting::query()->create([
-        'lang' => 'ar',
-        'key' => 'pro_team_description',
-        'page'  =>  'about',
-        'value' =>  'فريقنا من المهندسين ذوي الخبرة والمهارة العالية مكرس لتقديم حلول مخصصة وشخصية لتلبية الاحتياجات والتفضيلات الخاصة لعملائنا.',
-    ]);
-    $settings   =   BusinessSetting::whereLang('en') ->get();
-    foreach($settings as $setting)
-    {
-        BusinessSetting::query()->updateOrcreate(
-            [
-                'lang' => 'ar',
-            'key' => $setting->key,
-            'value' => $setting->value,
-            'page' => $setting->page,
-            ],
-            [
-            'lang' => 'ar',
-            'key' => $setting->key,
-            'value' => $setting->value,
-            'page' => $setting->page,
-        ]);
-    }
-    dd('Done');
-
-
 
 });
 
-Route::get('ss', function () {
-    $s = ImageCategory::first();
-    dd($s->translations);
-});
+
+Route::get('set-icon', [HomeController::class , 'setIcons']);
+

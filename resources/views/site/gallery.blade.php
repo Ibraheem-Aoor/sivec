@@ -27,8 +27,13 @@
         }
 
         .gallery-image img {
-            height: 250px;
-            width: 350px;
+            @if ($buildings_gallery)
+                height: 402px;
+                width: 350px;
+            @else
+                height: 250px;
+                width: 350px;
+            @endif
             transform: scale(1.0);
             transition: transform 0.4s ease;
         }
@@ -36,8 +41,14 @@
         .img-box {
             box-sizing: content-box;
             margin: 10px;
-            height: 250px;
-            width: 350px;
+
+            @if ($buildings_gallery)
+                height: 402px;
+                width: 350px;
+            @else
+                height: 250px;
+                width: 350px;
+            @endif
             overflow: hidden;
             display: inline-block;
             color: white;
@@ -54,8 +65,13 @@
         }
 
         .transparent-box {
-            height: 250px;
-            width: 350px;
+            @if ($buildings_gallery)
+                height: 402px;
+                width: 350px;
+            @else
+                height: 250px;
+                width: 350px;
+            @endif
             background-color: rgba(0, 0, 0, 0);
             position: absolute;
             top: 0;

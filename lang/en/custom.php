@@ -121,9 +121,9 @@ return [
         'our_services_text'       =>    'Difficult challenges are our passion, so we decided to expand and assist in construction and development, which has already reflected its effects positively on the citizen. We were also keen to expand its business in the Emirates and carried on it mainly service and construction projects, using the latest means and competitive prices that suit the capabilities of the people of the Emirates',
 
         'Design'        =>  'Design',
-        'Contact With Us'       =>  'Contact With Us',
+        'Contact With Us'       =>  'Contact with us and get a free Consultation',
         'We are ready to help you'       =>  'We are ready to help you',
-        'need_help'       =>  'Need Any Interior Design Help?',
+        'need_help'       =>  'Need Help?',
         'get_in_touch'      =>              'Get In Touch',
         'have_question'     =>                'Have Any Questions?',
         'our_branches'      =>          'Our Company Branches',
@@ -151,6 +151,7 @@ return [
         'enter_email'       =>  'Enter your email',
         'our_experince'     =>          'We Have Experince',
         'get_solutions'     =>  'Get Easy Solutions',
+        'take_look'         =>    'Visit Our Catalog Through Whatsapp from <a style="color:black;" href='."#".'>here</>'
 
     ],
 

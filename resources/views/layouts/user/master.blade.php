@@ -76,8 +76,7 @@
 
     @if (!isset($footer_disabled))
         <!-- Footer Area Start -->
-        <footer class="footer bg-cover" data-background="https://via.placeholder.com/1920x1280"
-            data-overlay-dark="98">
+        <footer class="footer bg-cover" data-background="https://via.placeholder.com/1920x1280" data-overlay-dark="98">
             <div class="footer-main-area">
                 <div class="footer-section-obj1">
                     <img src="{{ asset('user_assets/images/objects/footer-obj1.png') }}" alt="">
@@ -93,8 +92,8 @@
                                 <p class="mrb-30">{{ __('custom.site.newsletter_text') }}</p>
                                 <div class="newsletter-from">
                                     <div class="email">
-                                        <input type="email" name="EMAIL" placeholder="{{__('custom.site.enter_email')}}"
-                                            required="">
+                                        <input type="email" name="EMAIL"
+                                            placeholder="{{ __('custom.site.enter_email') }}" required="">
                                     </div>
                                     <div class="submit">
                                         <button type="submit">
@@ -114,7 +113,8 @@
                                             class="capitlized">{{ __('custom.site.PROJECTS') }}</a></li>
                                     <li><a href="{{ route('site.contact') }}"
                                             class="capitlized">{{ __('custom.site.CONTACT') }}</a></li>
-                                    <li><a href="{{ route('site.about') }}"
+                                    <li>
+                                        <a href="{{ route('site.about') }}"
                                             class="capitlized">{{ __('custom.site.ABOUT') }}</a></li>
                                     <li><a href="{{ route('site.jobs') }}"
                                             class="capitlized">{{ __('custom.site.JOBS') }}</a></li>
@@ -124,7 +124,7 @@
                         <div class="col-xl-3 col-lg-6">
                             <div class="widget footer-widget mrr-30 mrr-md-0">
                                 <h5 class="widget-title text-white mrb-30">{{ __('custom.site.CONTACT') }}</h5>
-                                <address class="mrb-0">
+                                <address class="mrb-0" style="font-size:small !important;">
                                     <p>{{ @$site_settings['main_address'] }}</p>
                                     <div class="mrb-10"><a href="#"><i
                                                 class="fas fa-phone-alt mrr-10"></i>{{ @$site_settings['phone_number'] }}</a>
@@ -252,7 +252,6 @@
     <script src="{{ asset('user_assets/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('user_assets/js/jquery.nice-select.min.js') }}"></script>
     <script src="{{ asset('user_assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('user_assets/js/bootstrap.rtl.min.js') }}"></script>
     <script src="{{ asset('user_assets/js/jquery.appear.min.js') }}"></script>
     <script src="{{ asset('user_assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('user_assets/js/owl.carousel.min.js') }}"></script>
@@ -262,6 +261,11 @@
     <script src="{{ asset('user_assets/js/magnific-popup.min.js') }}"></script>
     <script src="{{ asset('user_assets/js/backtotop.js') }}"></script>
     <script src="{{ asset('user_assets/js/trigger.js') }}"></script>
+    <script>
+        $(".owl-carousel").owlCarousel({
+            autoPlay: 3000,
+        });
+    </script>
     <script>
         $.ajaxSetup({
             headers: {

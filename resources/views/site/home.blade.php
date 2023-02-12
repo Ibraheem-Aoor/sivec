@@ -1,8 +1,15 @@
 @extends('layouts.user.master')
 @section('tiite', 'SIVEC- Inerior Design Services')
 @section('content')
+
+
+
     <!-- Home Slider Start -->
-    <section class="home_banner_01" >
+
+    <section class="home_banner_01">
+        <div id="slider-border">
+            {!! __('custom.site.take_look') !!}
+        </div>
         <div class="home-carousel owl-theme owl-carousel">
             <div class="slide-item">
                 <div class="image-layer" data-background="{{ asset('user_assets/images/slider/400.png') }}"></div>
@@ -155,50 +162,67 @@
                 </div>
             </div>
         </div>
+
     </section>
     <!-- Home Slider End -->
     <!-- Features Style1 Section Start -->
     <section class="bg-no-repeat bg-cover bg-pos-cb pdt-110 pdb-85" data-background="images/bg/abs-bg4.png">
+        <div class="service-title-section-obj2">
+            <img src="{{ asset('user_assets/images/objects/3.png') }}" alt="">
+        </div>
         <div class="section-content">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-6  col-xs-6 ol-lg-6 col-md-6">
-                        <div class="feature-box-style2 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="800ms">
-                            <div class="inner-box">
-                                <div class="feature-box-icon">
-                                    <span class="webextheme-icon-light-interior-design-1"></span>
-                                </div>
-                                <h6 class="title" style="padding-right:10px !important;">{{ __('custom.site.Design') }}</h6>
-                            </div>
-                        </div>
+                <div class="row trans-row">
+                    <div class="col-sm-6">
+                        <img src="{{ asset('user_assets/images/slider/400.png') }}" id="animated-img" alt="">
                     </div>
-                    <div class="col-sm-6  col-xs-6 col-s-6 col-lg-6 col-md-6">
-                        <div class="feature-box-style2 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="800ms">
-                            <div class="inner-box">
-                                <div class="feature-box-icon">
-                                    <span class="service-icon webextheme-icon-light-measure"></span>
+                    <div class="col-sm-6 margin-on-mobile">
+                        <div class="row">
+                            <div class="col-sm-6  col-xs-6 ol-lg-6 col-md-6">
+                                <div class="feature-box-style2 wow fadeInUp" data-wow-delay="200ms"
+                                    data-wow-duration="800ms">
+                                    <div class="inner-box">
+                                        <div class="feature-box-icon">
+                                            <span class="webextheme-icon-light-interior-design-1"></span>
+                                        </div>
+                                        <h6 class="title" style="padding-right:10px !important;">
+                                            {{ __('custom.site.Design') }}
+                                        </h6>
+                                    </div>
                                 </div>
-                                <h6 class="title">{{ __('custom.site.Engineering Consulting') }}</h6>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6  col-xs-6 col-s-6 col-lg-6 col-md-6">
-                        <div class="feature-box-style2 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="800ms">
-                            <div class="inner-box">
-                                <div class="feature-box-icon">
-                                    <span class="webextheme-icon-light-architect-4"></span>
+                            <div class="col-sm-6  col-xs-6 col-s-6 col-lg-6 col-md-6">
+                                <div class="feature-box-style2 wow fadeInUp" data-wow-delay="300ms"
+                                    data-wow-duration="800ms">
+                                    <div class="inner-box">
+                                        <div class="feature-box-icon">
+                                            <span class="service-icon webextheme-icon-light-measure"></span>
+                                        </div>
+                                        <h6 class="title">{{ __('custom.site.Engineering Consulting') }}</h6>
+                                    </div>
                                 </div>
-                                <h6 class="title">{{ __('custom.site.Skilled Team') }}</h6>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6  col-xs-6 col-s-6 col-lg-6 col-md-6">
-                        <div class="feature-box-style2 wow fadeInUp" data-wow-delay="500ms" data-wow-duration="800ms">
-                            <div class="inner-box">
-                                <div class="feature-box-icon">
-                                    <span class="base-icon-071-guarantee"></span>
+                            <div class="col-sm-6  col-xs-6 col-s-6 col-lg-6 col-md-6">
+                                <div class="feature-box-style2 wow fadeInUp" data-wow-delay="400ms"
+                                    data-wow-duration="800ms">
+                                    <div class="inner-box">
+                                        <div class="feature-box-icon">
+                                            <span class="webextheme-icon-light-architect-4"></span>
+                                        </div>
+                                        <h6 class="title">{{ __('custom.site.Skilled Team') }}</h6>
+                                    </div>
                                 </div>
-                                <h6 class="title">{{ __('custom.site.Trusted Work') }}</h6>
+                            </div>
+                            <div class="col-sm-6  col-xs-6 col-s-6 col-lg-6 col-md-6">
+                                <div class="feature-box-style2 wow fadeInUp" data-wow-delay="500ms"
+                                    data-wow-duration="800ms">
+                                    <div class="inner-box">
+                                        <div class="feature-box-icon">
+                                            <span class="base-icon-071-guarantee"></span>
+                                        </div>
+                                        <h6 class="title">{{ __('custom.site.Trusted Work') }}</h6>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -334,7 +358,7 @@
     </section>
     <!-- Service Section Title Area End -->
     <!-- Service Section Area Start -->
-    <section class="service-section-style1 bg-no-repeat bg-cover bg-pos-cb"
+    <section class="service-section-style1 bg-no-repeat bg-cover bg-pos-cb mb-5"
         data-background="{{ asset('user_assets/images/bg/abs-bg7.png') }}">
         <div class="section-content">
             <div class="container">
@@ -350,7 +374,7 @@
                                     <div class="services-link">
                                         <a class="text-btn"
                                             href="{{ route('site.service.details', encrypt($service->id)) }}">
-                                            {{__('custom.site.read_more')}}
+                                            {{ __('custom.site.read_more') }}
                                         </a>
                                     </div>
                                     <div class="service-inner-obj"></div>
@@ -374,8 +398,29 @@
     </section>
     <!-- Service Section Area End -->
 
-
-
-    <!-- Funfact Section Start -->
-    <!-- Funfact Section End -->
+    @include('site.partials.call_section')
 @endsection
+
+
+@push('js')
+    <script>
+        $('.owl-next').click();
+        setInterval(function() {
+            $('.owl-next').click();
+        }, 5000);
+    </script>
+    <script>
+        const animatedImg = document.getElementById('animated-img');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animatedImg.classList.add('show');
+                    observer.unobserve(animatedImg);
+                }
+            });
+        });
+
+        observer.observe(animatedImg);
+    </script>
+@endpush

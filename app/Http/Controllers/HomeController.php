@@ -78,6 +78,14 @@ class HomeController extends Controller
         {
             array_push($data['addresses'], ['title' => $address, 'value' => @$addres_values[$i++]]);
         }
+        $addres_titles =    json_decode( @$this->branches_page_settings['address_titles'] , true) ?? [];
+        $addres_values = json_decode(@$this->branches_page_settings['address_values'] , true);
+        $data['branches'] =    [];
+        $i = 0;
+        foreach($addres_titles as $address)
+        {
+            array_push($data['branches'], ['title' => $address, 'value' => @$addres_values[$i++]]);
+        }
         return view('site.contact' , $data);
     }
 
@@ -258,12 +266,12 @@ class HomeController extends Controller
     {
         $servies = Service::query()->orderByDesc('created_at')->get();
         $icons  =   [
-            'webextheme-icon-003-staircase',
+            'fa fa-palette',
             'fa fa-briefcase',
             'fa fa-certificate',
-            'webextheme-icon-architect',
+            'fa fa-list',
             'fa fa-city',
-            'webextheme-icon-measure',
+            'fa fa-sitemap',
         ];
         for($i = 0; $i < count($servies) ;$i++)
         {
@@ -281,7 +289,7 @@ class HomeController extends Controller
         $data['page_settings'] =  BusinessSetting::query()->wherePage('about')->pluck('value' , 'key');
         $data['images'] = Image::query()->where('image_category_id' , $category->id)->get();
         $data['footer_disabled'] = true;
-        $data['modal_width']    =
+        $data['buildings_gallery']    =  decrypt($category_id) == 7;
         $view   =   view('site.gallery' , $data)->render();
         return $view;
     }

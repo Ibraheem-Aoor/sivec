@@ -23,19 +23,6 @@
 				</div>
 				<div class="col-md-12 col-lg-12 col-xl-8">
 					<div class="row">
-                        @foreach($addresses as $address)
-						<div class="col-lg-6 col-xl-6">
-							<div class="contact-block d-flex mrb-30">
-								<div class="contact-icon">
-									<i class="base-icon-map"></i>
-								</div>
-								<div class="contact-details mrl-30">
-									<h5 class="icon-box-title mrb-10">{{@$address['title']}}</h5>
-									<p class="mrb-0">{{@$address['value']}}</p>
-								</div>
-							</div>
-						</div>
-                        @endforeach
 					</div>
 				</div>
 			</div>
@@ -84,15 +71,19 @@
 					<!-- Google Map End -->
 				</div>
                 @foreach($branches as $branch)
-				<div class="col-xl-6 col-xs-6 mb-3">
-					<!-- Google Map Start -->
-					<div class="mapouter fixed-height">
-						<div class="gmap_canvas">
-							<iframe id="gmap_canvas" src="{{@$branch}}"></iframe>
-						</div>
-					</div>
-					<!-- Google Map End -->
-				</div>
+				<div class="col-lg-6 col-xl-6 mt-5">
+                    <div class="contact-block d-flex mrb-30">
+                        <div class="contact-icon">
+                            <i class="base-icon-map"></i>
+                        </div>
+                        <div class="contact-details mrl-30">
+                            <h5 class="icon-box-title mrb-10">{{@$branch['title']}}</h5>
+                        </div>
+                    </div>
+                    <div class="gmap_canvas">
+                        <iframe id="gmap_canvas" src="{{@$branch['value']}}" style="width: 100% !important;"></iframe>
+                    </div>
+                </div>
                 @endforeach
 			</div>
 		</div>
