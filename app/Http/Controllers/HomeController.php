@@ -230,7 +230,7 @@ class HomeController extends Controller
         {
             $services = Cache::get('home_page_services');
         }else{
-            $home_page_services =   Service::query()->orderByDesc('created_at')->limit(6)->get();
+            $home_page_services =   Service::query()->orderByDesc('created_at')->with('translations')->limit(6)->get();
             $services = Cache::put('home_page_services' , $home_page_services);
         }
         return $services;
@@ -248,7 +248,7 @@ class HomeController extends Controller
         {
             $image_categories = Cache::get('image_categories');
         }else{
-            $image_categories = Cache::put('image_categories',  ImageCategory::query()->whereNull('parent_id')->get());
+            $image_categories = Cache::put('image_categories',  ImageCategory::query()->whereNull('parent_id')->with('translations')->get());
         }
         return $image_categories;
     }
