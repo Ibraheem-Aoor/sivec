@@ -11427,6 +11427,57 @@ select {
     }
 }
 
+@media(min-width:601px) and (max-width:767px) {
+    #slider-border {
+        width: 100% !important;
+        background-color: var(--primary-color);
+        color: #fff !important;
+        text-align: center !important;
+        padding-top: 17vh !important;
+        padding-bottom: 2.5vh !important;
+        justify-content: center !important;
+        vertical-align: center !important;
+    }
+}
+
+@media(min-width:768px) and (max-width:1024px) {
+    #slider-border {
+        width: 100% !important;
+        background-color: var(--primary-color);
+        color: #fff !important;
+        text-align: center !important;
+        padding-top: 11vh !important;
+        padding-bottom: 2.5vh !important;
+        justify-content: center !important;
+        vertical-align: center !important;
+    }
+}
+
+@media(min-width:1025px) and (max-width:1300px) {
+    #slider-border {
+        width: 100% !important;
+        background-color: var(--primary-color);
+        color: #fff !important;
+        text-align: center !important;
+        padding-top: 8vh !important;
+        padding-bottom: 2vh !important;
+        justify-content: center !important;
+        vertical-align: center !important;
+    }
+}
+
+@media(min-width:1301px){
+    #slider-border {
+        width: 100% !important;
+        background-color: var(--primary-color);
+        color: #fff !important;
+        text-align: center !important;
+        padding-top: 5vh !important;
+        padding-bottom: 2.4vh !important;
+        justify-content: center !important;
+        vertical-align: center !important;
+    }
+}
 
 
 #animated-img {
