@@ -11384,17 +11384,6 @@ select {
         color: var(--footer-text-color);
     }
 
-    #slider-border {
-        width: 100% !important;
-        background-color: var(--primary-color);
-        color: #fff !important;
-        text-align: center !important;
-        padding-top: 3% !important;
-        padding-bottom:2% !important;
-        justify-content: center !important;
-        vertical-align: center !important;
-    }
-
     .home_banner_01 {
         margin-top: 28.5% !important;
     }
@@ -11405,18 +11394,38 @@ select {
 
 }
 
-@media (max-width: 576){
+@media (max-width: 576) {
     .home_banner_01 {
         margin-top: 26% !important;
     }
-
-    #slider-border {
-        padding-top: 3% !important;
-        padding-bottom: 2% !important;
-    }
-
 }
 
+@media(min-width:320px) and (max-width:480px) {
+
+    #slider-border {
+        width: 100% !important;
+        background-color: var(--primary-color);
+        color: #fff !important;
+        text-align: center !important;
+        padding-top: 10vh !important;
+        padding-bottom: 5vh !important;
+        justify-content: center !important;
+        vertical-align: center !important;
+    }
+}
+@media(min-width:481px) and (max-width:600px) {
+
+    #slider-border {
+        width: 100% !important;
+        background-color: var(--primary-color);
+        color: #fff !important;
+        text-align: center !important;
+        padding-top: 9vh !important;
+        padding-bottom: 3.5vh !important;
+        justify-content: center !important;
+        vertical-align: center !important;
+    }
+}
 
 
 
@@ -11435,4 +11444,3 @@ select {
 
 
 /*# sourceMappingURL=style.css.map */
-
