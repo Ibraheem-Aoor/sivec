@@ -15,9 +15,9 @@
                 <li class="@if (Route::currentRouteName() == 'site.services' || Route::currentRouteName() == 'site.service.details') current @endif">
                     <a href="{{ route('site.services') }}">{{ __('custom.site.SERVICES') }}</a>
                 </li>
-                <li class="@if (Route::currentRouteName() == 'site.projects' || Route::currentRouteName() == 'site.project.details') current @endif">
+                {{-- <li class="@if (Route::currentRouteName() == 'site.projects' || Route::currentRouteName() == 'site.project.details') current @endif">
                     <a href="{{ route('site.projects') }}">{{ __('custom.site.PROJECTS') }}</a>
-                </li>
+                </li> --}}
                 <li class="@if (Route::currentRouteName() == 'site.about') current @endif">
                     <a href="{{ route('site.about') }}">{{ __('custom.site.ABOUT') }}</a>
                 </li>

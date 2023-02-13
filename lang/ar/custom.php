@@ -68,7 +68,7 @@ return [
         'get_solutions'     =>  'احصل على استشارة',
         'enter_email'       =>  'ادخل البريد الالكتروني',
         'take_look'         =>          'قم بزيارة المعرض الخاص بنا على الواتساب من <a style="color:black;">هنا<a>',
-
+        'Contact With Us_slider'        =>              'تواصل معنا',
     ],
 
 ];

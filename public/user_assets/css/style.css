@@ -2776,6 +2776,9 @@ div[class*='kursor'].kursor--1.kursor--down {
     font-weight: 600;
 }
 
+
+
+
 .footer-widget-list li a:hover {
     color: var(--primary-color);
     padding-left: 35px;
@@ -4834,37 +4837,7 @@ div[class*='kursor'].kursor--1.kursor--down {
     font-size: 14px;
 }
 
-.animate-btn-style3:after {
-    content: "";
-    height: 15px;
-    width: 15px;
-    position: absolute;
-    background: rgba(var(--primary-color-rgb), 0.9);
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-    -moz-transition: all 300ms ease-out 0s;
-    -webkit-transition: all 300ms ease-out 0s;
-    -ms-transition: all 300ms ease-out 0s;
-    -o-transition: all 300ms ease-out 0s;
-    transition: all 300ms ease-out 0s;
-}
 
-.animate-btn-style3:before {
-    position: absolute;
-    content: '';
-    width: 15px;
-    height: 15px;
-    background: rgba(var(--primary-color-rgb), 0.9);
-    left: 0px;
-    top: 0px;
-    z-index: -1;
-    -moz-transition: all 300ms ease-out 0s;
-    -webkit-transition: all 300ms ease-out 0s;
-    -ms-transition: all 300ms ease-out 0s;
-    -o-transition: all 300ms ease-out 0s;
-    transition: all 300ms ease-out 0s;
-}
 
 .animate-btn-style3:hover {
     color: #fff;
@@ -11319,6 +11292,20 @@ select {
 }
 
 
+
+
+
+#slider-border {
+    width: 100% !important;
+    background-color: var(--primary-color);
+    color: #fff !important;
+    text-align: center !important;
+    padding-top: 2% !important;
+    padding-bottom: 1% !important;
+    justify-content: center !important;
+    vertical-align: center !important;
+}
+
 @media (max-width: 576px) {
     .col-xs-6 {
         flex: 0 0 auto;
@@ -11402,8 +11389,8 @@ select {
         background-color: var(--primary-color);
         color: #fff !important;
         text-align: center !important;
-        padding-top: 1% !important;
-        padding-bottom: 0.5% !important;
+        padding-top: 3% !important;
+        padding-bottom:2% !important;
         justify-content: center !important;
         vertical-align: center !important;
     }
@@ -11418,25 +11405,20 @@ select {
 
 }
 
-@media (min-width: 577px) and (max-width: 767px) {
+@media (max-width: 576){
     .home_banner_01 {
         margin-top: 26% !important;
     }
+
+    #slider-border {
+        padding-top: 3% !important;
+        padding-bottom: 2% !important;
+    }
+
 }
 
 
 
-
-#slider-border {
-    width: 100% !important;
-    background-color: var(--primary-color);
-    color: #fff !important;
-    text-align: center !important;
-    padding-top: 1% !important;
-    padding-bottom: 0.5% !important;
-    justify-content: center !important;
-    vertical-align: center !important;
-}
 
 #animated-img {
     transform: scale(0);
@@ -11453,3 +11435,4 @@ select {
 
 
 /*# sourceMappingURL=style.css.map */
+

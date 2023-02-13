@@ -1,5 +1,6 @@
 @extends('layouts.user.master')
 @section('tiite', 'SIVEC- Inerior Design Services')
+
 @section('content')
 
 
@@ -22,7 +23,7 @@
                                 <p class="home-carousel-text"></p>
                                 <div class="btn-box">
                                     <a href="{{ route('site.contact') }}"
-                                        class="animate-btn-style3">{{ __('custom.site.Contact With Us') }}</a>
+                                        class="animate-btn-style3">{{ __('custom.site.Contact With Us_slider') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -40,7 +41,7 @@
                                 <p class="home-carousel-text"></p>
                                 <div class="btn-box">
                                     <a href="{{ route('site.contact') }}"
-                                        class="animate-btn-style3">{{ __('custom.site.Contact With Us') }}</a>
+                                        class="animate-btn-style3">{{ __('custom.site.Contact With Us_slider') }}</a>
                                 </div>
                             </div>
                         </div>

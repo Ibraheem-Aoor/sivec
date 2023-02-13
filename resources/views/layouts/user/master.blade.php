@@ -13,9 +13,32 @@
     <title>{{ $page_title }}</title>
     <link href="{{ asset('user_assets/images/favicon.png') }}" rel="shortcut icon" type="image/png">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('user_assets/css/style.css?v=0.88') }}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/style.css?v=0.89') }}">
     <link rel="stylesheet" href="{{ asset('user_assets/css/responsive.css') }}">
     @stack('css')
+    @if (app()->getLocale() == 'ar')
+        <style>
+            .footer-widget-list li a:before {
+                position: absolute;
+                content: '\f17d';
+                left: 80px !important;
+                top: -3px;
+                font-family: 'webexbaseicon';
+                font-weight: 600;
+                rotate: 180deg !important;
+                margin-left: 20px !important;
+            }
+
+            .footer-widget-list li a {
+                padding-right: 30px !important;
+            }
+
+            .footer-widget-list li a:hover {
+                color: var(--primary-color);
+                padding-right: 35px !important;
+            }
+        </style>
+    @endif
 </head>
 
 <body>
@@ -107,16 +130,22 @@
                             <div class="widget footer-widget">
                                 <h5 class="widget-title text-white mrb-30">{{ __('custom.site.Quick Links') }}</h5>
                                 <ul class="footer-widget-list">
-                                    <li><a href="{{ route('site.services') }}"
+                                    <li><a class="@if (app()->getLocale() == 'ar') footer-links-edited @endif"
+                                            href="{{ route('site.services') }}"
                                             class="capitlized">{{ __('custom.site.SERVICES') }}</a></li>
-                                    <li><a href="{{ route('site.projects') }}"
+                                    <li><a class="@if (app()->getLocale() == 'ar') footer-links-edited @endif"
+                                            href="{{ route('site.projects') }}"
                                             class="capitlized">{{ __('custom.site.PROJECTS') }}</a></li>
-                                    <li><a href="{{ route('site.contact') }}"
+                                    <li><a class="@if (app()->getLocale() == 'ar') footer-links-edited @endif"
+                                            href="{{ route('site.contact') }}"
                                             class="capitlized">{{ __('custom.site.CONTACT') }}</a></li>
                                     <li>
-                                        <a href="{{ route('site.about') }}"
-                                            class="capitlized">{{ __('custom.site.ABOUT') }}</a></li>
-                                    <li><a href="{{ route('site.jobs') }}"
+                                        <a class="@if (app()->getLocale() == 'ar') footer-links-edited @endif"
+                                            href="{{ route('site.about') }}"
+                                            class="capitlized">{{ __('custom.site.ABOUT') }}</a>
+                                    </li>
+                                    <li><a class="@if (app()->getLocale() == 'ar') footer-links-edited @endif"
+                                            href="{{ route('site.jobs') }}"
                                             class="capitlized">{{ __('custom.site.JOBS') }}</a></li>
                                 </ul>
                             </div>
