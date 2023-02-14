@@ -3147,9 +3147,9 @@ div[class*='kursor'].kursor--1.kursor--down {
 .home_banner_01 .home-carousel .slide-item {
     position: relative;
     background-repeat: no-repeat;
-    background-position: center bottom;
+    background-position: center center;
     background-size: cover;
-    padding: 245px 0px 240px 0px;
+    padding: 345px 0px 240px 0px;
     overflow: hidden;
     background-color: #151130;
 }
@@ -3224,7 +3224,7 @@ div[class*='kursor'].kursor--1.kursor--down {
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: cover;
-    -moz-transform: scale(1);
+    /* -moz-transform: scale(1);
     -o-transform: scale(1);
     -ms-transform: scale(1);
     -webkit-transform: scale(1);
@@ -3233,7 +3233,8 @@ div[class*='kursor'].kursor--1.kursor--down {
     -webkit-transition: all 8000ms linear;
     -ms-transition: all 8000ms linear;
     -o-transition: all 8000ms linear;
-    transition: all 8000ms linear;
+    transition: all 8000ms linear; */
+
     z-index: 0;
 }
 
@@ -3434,11 +3435,11 @@ div[class*='kursor'].kursor--1.kursor--down {
 }
 
 .home_banner_01 .home-carousel .active .image-layer {
-    -moz-transform: scale(1.12);
-    -o-transform: scale(1.12);
-    -ms-transform: scale(1.12);
-    -webkit-transform: scale(1.12);
-    transform: scale(1.12);
+    /* -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); */
 }
 
 .home_banner_01 .home-carousel .active .auto-container .content-box .home-carousel-title {
@@ -3605,11 +3606,11 @@ div[class*='kursor'].kursor--1.kursor--down {
     -ms-transform: scale(1);
     -webkit-transform: scale(1);
     transform: scale(1);
-    -moz-transition: all 8000ms linear;
-    -webkit-transition: all 8000ms linear;
-    -ms-transition: all 8000ms linear;
-    -o-transition: all 8000ms linear;
-    transition: all 8000ms linear;
+    -moz-transition: all 10000ms linear;
+    -webkit-transition: all 10000ms linear;
+    -ms-transition: all 10000ms linear;
+    -o-transition: all 10000ms linear;
+    transition: all 10000ms linear;
     z-index: 0;
 }
 
@@ -3812,11 +3813,11 @@ div[class*='kursor'].kursor--1.kursor--down {
 }
 
 .home_banner_02 .home-carousel .active .image-layer {
-    -moz-transform: scale(1.12);
+    /* -moz-transform: scale(1.12);
     -o-transform: scale(1.12);
     -ms-transform: scale(1.12);
     -webkit-transform: scale(1.12);
-    transform: scale(1.12);
+    transform: scale(1.12); */
 }
 
 .home_banner_02 .home-carousel .active .auto-container .content-box .home-carousel-title {
@@ -11413,6 +11414,7 @@ select {
         vertical-align: center !important;
     }
 }
+
 @media(min-width:481px) and (max-width:600px) {
 
     #slider-border {
@@ -11466,7 +11468,7 @@ select {
     }
 }
 
-@media(min-width:1301px){
+@media(min-width:1301px) {
     #slider-border {
         width: 100% !important;
         background-color: var(--primary-color);

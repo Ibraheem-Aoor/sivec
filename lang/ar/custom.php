@@ -67,7 +67,7 @@ return [
         'read_more'     =>  'قراءة المزيد',
         'get_solutions'     =>  'احصل على استشارة',
         'enter_email'       =>  'ادخل البريد الالكتروني',
-        'take_look'         =>          'قم بزيارة المعرض الخاص بنا على الواتساب من <a style="color:black;">هنا<a>',
+        'take_look'         =>          'قم بزيارة المعرض الخاص بنا على الواتساب من <a href="'."https://wa.me/c/971543018342".'" style="color:black;" target="_blank">هنا<a>',
         'Contact With Us_slider'        =>              'تواصل معنا',
     ],
 
