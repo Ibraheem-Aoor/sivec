@@ -151,7 +151,7 @@ return [
         'enter_email'       =>  'Enter your email',
         'our_experince'     =>          'We Have Experince',
         'get_solutions'     =>  'Get Easy Solutions',
-        'take_look'         =>    'Visit Our Catalog Through Whatsapp from <a href="'."https://wa.me/c/971543018342".'" style="color:black;" target="_blank">here</>',
+        'take_look'         =>    '<span>Visit Our Catalog Through Whatsapp from <a href="'."https://wa.me/c/971543018342".'" style="color:black;" target="_blank">here</a></span>',
         'Contact With Us_slider'        =>              'Contact Us',
         'our_company'       =>  'Our Company',
         'make_u'            =>  'Make You',

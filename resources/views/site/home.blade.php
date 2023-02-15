@@ -171,18 +171,19 @@
     <section class="mrt-100 mrb-100">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 col-xl-6 bg-cover-custom" data-background="{{ asset('user_assets/images/choose.png') }}">
+                <div class="col-lg-12 col-xl-6 bg-cover-custom"
+                    data-background="{{ asset('user_assets/images/choose.png') }}">
                 </div>
                 <div class="col-lg-12 col-xl-6 p-0">
                     <div class="divider-gap">
-                        <h2 class="mrb-25">{{__('custom.site.why_us')}}</h2>
+                        <h2 class="mrb-25">{{ __('custom.site.why_us') }}</h2>
                         <div class="icon-box-two mrb-40">
                             <div class="icon bg-primary-color f-left">
                                 <span class="webexflaticon fa fa-check"></span>
                             </div>
                             <div class="icon-details ">
-                                <h4 class="icon-box-title mrb-10">{{__('custom.site.transparency')}}</h4>
-                                <p>{{__('custom.site.transparency_text')}}</p>
+                                <h4 class="icon-box-title mrb-10">{{ __('custom.site.transparency') }}</h4>
+                                <p>{{ __('custom.site.transparency_text') }}</p>
                             </div>
                         </div>
                         <div class="icon-box-two mrb-40">
@@ -190,8 +191,8 @@
                                 <span class="webexflaticon fa fa-users"></span>
                             </div>
                             <div class="icon-details ">
-                                <h4 class="icon-box-title mrb-10">{{__('custom.site.teamwork')}}</h4>
-                                <p>{{__('custom.site.teamwork_text')}}</p>
+                                <h4 class="icon-box-title mrb-10">{{ __('custom.site.teamwork') }}</h4>
+                                <p>{{ __('custom.site.teamwork_text') }}</p>
                             </div>
                         </div>
                         <div class="icon-box-two mrb-40">
@@ -199,8 +200,8 @@
                                 <span class="webexflaticon fa fa-clock"></span>
                             </div>
                             <div class="icon-details ">
-                                <h4 class="icon-box-title mrb-10">{{__('custom.site.achievement')}}</h4>
-                                <p>{{__('custom.site.achievement_text')}}</p>
+                                <h4 class="icon-box-title mrb-10">{{ __('custom.site.achievement') }}</h4>
+                                <p>{{ __('custom.site.achievement_text') }}</p>
                             </div>
                         </div>
                         <div class="icon-box-two">
@@ -208,8 +209,8 @@
                                 <span class="webexflaticon fa fa-pen"></span>
                             </div>
                             <div class="icon-details ">
-                                <h4 class="icon-box-title mrb-10">{{__('custom.site.innovation')}}</h4>
-                                <p>{{__('custom.site.innovation_text')}}</p>
+                                <h4 class="icon-box-title mrb-10">{{ __('custom.site.innovation') }}</h4>
+                                <p>{{ __('custom.site.innovation_text') }}</p>
                             </div>
                         </div>
                     </div>
@@ -421,27 +422,15 @@
 
     @include('site.partials.call_section')
 @endsection
-
-
 @push('js')
     <script>
+        var sliderBorder = $('#slider-border');
         $('.owl-next').click();
         setInterval(function() {
             $('.owl-next').click();
+            if ($('.owl-item .active').id == 'slider-border') {
+                $('.owl-next').click();
+            }
         }, 5000);
-    </script>
-    <script>
-        const animatedImg = document.getElementById('animated-img');
-
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animatedImg.classList.add('show');
-                    observer.unobserve(animatedImg);
-                }
-            });
-        });
-
-        observer.observe(animatedImg);
     </script>
 @endpush
