@@ -13,7 +13,7 @@
     <title>{{ $page_title }}</title>
     <link href="{{ asset('user_assets/images/favicon.png') }}" rel="shortcut icon" type="image/png">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('user_assets/css/style.css?v=0.93') }}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/style.css?v=0.94') }}">
     <link rel="stylesheet" href="{{ asset('user_assets/css/responsive.css') }}">
     @stack('css')
     @if (app()->getLocale() == 'ar')

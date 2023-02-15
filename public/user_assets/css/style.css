@@ -5642,6 +5642,8 @@ select {
     color: var(--text-black);
     font-family: var(--body-font);
     font-weight: 500;
+    text-align: center !important;
+    font-size: smaller;
 }
 
 .feature-box-style2:before {
@@ -6846,6 +6848,7 @@ select {
     left: 100px;
     animation: float-obj-x infinite 3s;
     opacity: 0.25;
+    margin-bottom: 5px !important;
 }
 
 @media screen and (max-width: 1024px) {
@@ -7148,7 +7151,7 @@ select {
     height: 75px;
     width: 75px;
     line-height: 75px;
-    background: #FCDDD0;
+    background:var(--primary-color);
     border-radius: 50%;
     z-index: 3;
     border: 1px solid #ffffff1a;
@@ -7170,7 +7173,7 @@ select {
     display: block;
     width: 100%;
     height: 100%;
-    background-color: #3E3D47b8;
+    background-color: var(--text-black);
     border-radius: 50%;
     animation: pulse-border-2 1s ease-out infinite;
     z-index: 0;
@@ -11492,6 +11495,12 @@ select {
 }
 
 
+
+.bg-cover-custom
+{
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+}
 
 
 

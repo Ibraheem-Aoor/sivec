@@ -166,64 +166,50 @@
 
     </section>
     <!-- Home Slider End -->
-    <!-- Features Style1 Section Start -->
-    <section class="bg-no-repeat bg-cover bg-pos-cb pdt-110 pdb-85" data-background="images/bg/abs-bg4.png">
-        <div class="service-title-section-obj2">
-            <img src="{{ asset('user_assets/images/objects/3.png') }}" alt="">
-        </div>
-        <div class="section-content">
-            <div class="container">
-                <div class="row trans-row">
-                    <div class="col-sm-6">
-                        <img src="{{ asset('user_assets/images/slider/400.png') }}" id="animated-img" alt="">
-                    </div>
-                    <div class="col-sm-6 margin-on-mobile">
-                        <div class="row">
-                            <div class="col-sm-6  col-xs-6 ol-lg-6 col-md-6">
-                                <div class="feature-box-style2 wow fadeInUp" data-wow-delay="200ms"
-                                    data-wow-duration="800ms">
-                                    <div class="inner-box">
-                                        <div class="feature-box-icon">
-                                            <span class="webextheme-icon-light-interior-design-1"></span>
-                                        </div>
-                                        <h6 class="title" style="padding-right:10px !important;">
-                                            {{ __('custom.site.Design') }}
-                                        </h6>
-                                    </div>
-                                </div>
+
+    <!-- why Choose Us Section Start -->
+    <section class="mrt-100 mrb-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-xl-6 bg-cover-custom" data-background="{{ asset('user_assets/images/choose.png') }}">
+                </div>
+                <div class="col-lg-12 col-xl-6 p-0">
+                    <div class="divider-gap">
+                        <h2 class="mrb-25">{{__('custom.site.why_us')}}</h2>
+                        <div class="icon-box-two mrb-40">
+                            <div class="icon bg-primary-color f-left">
+                                <span class="webexflaticon fa fa-check"></span>
                             </div>
-                            <div class="col-sm-6  col-xs-6 col-s-6 col-lg-6 col-md-6">
-                                <div class="feature-box-style2 wow fadeInUp" data-wow-delay="300ms"
-                                    data-wow-duration="800ms">
-                                    <div class="inner-box">
-                                        <div class="feature-box-icon">
-                                            <span class="service-icon webextheme-icon-light-measure"></span>
-                                        </div>
-                                        <h6 class="title">{{ __('custom.site.Engineering Consulting') }}</h6>
-                                    </div>
-                                </div>
+                            <div class="icon-details ">
+                                <h4 class="icon-box-title mrb-10">{{__('custom.site.transparency')}}</h4>
+                                <p>{{__('custom.site.transparency_text')}}</p>
                             </div>
-                            <div class="col-sm-6  col-xs-6 col-s-6 col-lg-6 col-md-6">
-                                <div class="feature-box-style2 wow fadeInUp" data-wow-delay="400ms"
-                                    data-wow-duration="800ms">
-                                    <div class="inner-box">
-                                        <div class="feature-box-icon">
-                                            <span class="webextheme-icon-light-architect-4"></span>
-                                        </div>
-                                        <h6 class="title">{{ __('custom.site.Skilled Team') }}</h6>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="icon-box-two mrb-40">
+                            <div class="icon bg-primary-color f-left">
+                                <span class="webexflaticon fa fa-users"></span>
                             </div>
-                            <div class="col-sm-6  col-xs-6 col-s-6 col-lg-6 col-md-6">
-                                <div class="feature-box-style2 wow fadeInUp" data-wow-delay="500ms"
-                                    data-wow-duration="800ms">
-                                    <div class="inner-box">
-                                        <div class="feature-box-icon">
-                                            <span class="base-icon-071-guarantee"></span>
-                                        </div>
-                                        <h6 class="title">{{ __('custom.site.Trusted Work') }}</h6>
-                                    </div>
-                                </div>
+                            <div class="icon-details ">
+                                <h4 class="icon-box-title mrb-10">{{__('custom.site.teamwork')}}</h4>
+                                <p>{{__('custom.site.teamwork_text')}}</p>
+                            </div>
+                        </div>
+                        <div class="icon-box-two mrb-40">
+                            <div class="icon bg-primary-color f-left">
+                                <span class="webexflaticon fa fa-clock"></span>
+                            </div>
+                            <div class="icon-details ">
+                                <h4 class="icon-box-title mrb-10">{{__('custom.site.achievement')}}</h4>
+                                <p>{{__('custom.site.achievement_text')}}</p>
+                            </div>
+                        </div>
+                        <div class="icon-box-two">
+                            <div class="icon bg-primary-color f-left">
+                                <span class="webexflaticon fa fa-pen"></span>
+                            </div>
+                            <div class="icon-details ">
+                                <h4 class="icon-box-title mrb-10">{{__('custom.site.innovation')}}</h4>
+                                <p>{{__('custom.site.innovation_text')}}</p>
                             </div>
                         </div>
                     </div>
@@ -231,7 +217,7 @@
             </div>
         </div>
     </section>
-    <!-- Features Style1 Section End -->
+    <!-- why Choose Us Section End -->
 
 
 
@@ -398,6 +384,40 @@
         </div>
     </section>
     <!-- Service Section Area End -->
+
+
+    <!-- Offer Section Start -->
+    <section class="bg-secondary-color bg-no-repeat bg-cover bg-pos-cb pdt-110 pdb-85"
+        style="background: none !important; margin-bottom:25vh !important; margin-top:20vh !important;">
+        <div class="section-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInUp" data-wow-delay="0ms"
+                        data-wow-duration="800ms">
+                        <h5 class="side-line-left text-primary-color mrb-10">What We Offer</h5>
+                        <h2 class="text-black mrb-30 mrb-sm-30">{{ __('custom.site.our_company') }} <span
+                                class="text-primary-color">{{ __('custom.site.make_u') }}<br>
+                            </span>{{ __('custom.site.feel_conf') }}</h2>
+                        <p class="text-black mrb-40">{{ __('custom.site.offer_text') }}</p>
+                        <div class="video-block mrb-lg-60">
+                            <div class="video-link">
+                                <a class="video-popup" href="https://www.youtube.com/watch?v=C1r_f98iJv8"><i
+                                        class="base-icon-play1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInUp" data-wow-delay="200ms"
+                        data-wow-duration="800ms">
+                        <div class="shine-effect">
+                            <img class="img-full" src="{{ asset('user_assets/images/offer_2.png') }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Offer Section End -->
+
 
     @include('site.partials.call_section')
 @endsection
