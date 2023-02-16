@@ -1087,7 +1087,6 @@ div[class*='kursor'].kursor--1.kursor--down {
     width: 100%;
     transition: all 400ms ease;
     z-index: 99;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .header-style-01 .main-menu .main-menu-wrapper {
