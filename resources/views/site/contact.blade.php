@@ -2,6 +2,17 @@
     @section('title' , 'Contact Us')
     @push('css')
         <link rel="stylesheet" href="{{ asset('admin_assets/plugins/toastr/toastr.min.css') }}">
+        <style>
+            .contact-icon i{
+                width: 54px;
+                height: 54px;
+                background: var(--primary-color);
+                text-align: center;
+                line-height: 54px;
+                display: inline-block;
+                border-radius: 6px;
+            }
+        </style>
     @endpush
     @section('content')
     <!-- Page Title Start -->
@@ -19,6 +30,8 @@
                         <li><a href="{{ $site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
                         <li><a href="{{ $site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a></li>
                         <li><a href="{{ $site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="{{ $site_settings['linked_in'] }}"><i class="fab fa-snapchat"></i></a></li>
+                        <li><a href="{{ $site_settings['linked_in'] }}"><i class="fab fa-youtube"></i></a></li>
 					</ul>
 				</div>
 				<div class="col-md-12 col-lg-12 col-xl-8">
@@ -26,8 +39,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-xl-6 col-xs-6">
+			<div class="row text-center">
+				<div class="col-xl  -6">
 					<div class="contact-form">
 						<form name="contact-form" action="{{route('site.contact.submit')}}" method="POST">
 							<div class="row">
@@ -61,30 +74,33 @@
 						</form>
 					</div>
 				</div>
-				<div class="col-xl-6 col-xs-6 mb-3">
-					<!-- Google Map Start -->
-					<div class="mapouter fixed-height">
-						<div class="gmap_canvas">
-							<iframe id="gmap_canvas" src="{{@$page_settings['google_map_url']}}"></iframe>
+                <div class="col-lg-6 col-xl-6">
+                            <div class="contact-block d-flex mrb-30">
+                                <div class="contact-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="contact-details mrl-30">
+                                    <h3><a  href="https://wa.me/971{{ @$site_settings['whatsaap_number'] }}" target="_blank">{{@$site_settings['whatsaap_number'] }}</a> </h3>
+                                </div>
+                            </div>
+                                <div class="contact-block d-flex mrb-30">
+								<div class="contact-icon">
+									<i class="fas fa-phone-alt"></i>
+								</div>
+								<div class="contact-details mrl-30">
+									<h3>{{ @$site_settings['phone_number'] }}</h3>
+								</div>
+							</div>
+							<div class="contact-block d-flex mrb-30">
+								<div class="contact-icon">
+									<i class="fas fa-phone-alt"></i>
+								</div>
+								<div class="contact-details mrl-30">
+									<h3>{{ @$site_settings['phone_number_2'] }}</h3>
+								</div>
+							</div>
+
 						</div>
-					</div>
-					<!-- Google Map End -->
-				</div>
-                @foreach($branches as $branch)
-				<div class="col-lg-6 col-xl-6 mt-5">
-                    <div class="contact-block d-flex mrb-30">
-                        <div class="contact-icon">
-                            <i class="base-icon-map"></i>
-                        </div>
-                        <div class="contact-details mrl-30">
-                            <h5 class="icon-box-title mrb-10">{{@$branch['title']}}</h5>
-                        </div>
-                    </div>
-                    <div class="gmap_canvas">
-                        <iframe id="gmap_canvas" src="{{@$branch['value']}}" style="width: 100% !important;"></iframe>
-                    </div>
-                </div>
-                @endforeach
 			</div>
 		</div>
 	</section>

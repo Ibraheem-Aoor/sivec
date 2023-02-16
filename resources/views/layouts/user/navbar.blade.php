@@ -21,12 +21,20 @@
                 <li class="@if (Route::currentRouteName() == 'site.about') current @endif">
                     <a href="{{ route('site.about') }}">{{ __('custom.site.ABOUT') }}</a>
                 </li>
-                <li class="@if (Route::currentRouteName() == 'site.contact') current @endif">
-                    <a href="{{ route('site.contact') }}">{{ __('custom.site.CONTACT') }}</a>
+                {{-- Contact Start --}}
+                <li class="menu-has-sub @if (Route::currentRouteName() == 'site.gallery') current @endif">
+                    <a href="#">{{ __('custom.site.CONTACT') }}</a>
+                    <ul>
+                        <li><a href="{{ route('site.contact') }}" class="capitlize">{{ __('custom.site.CONTACT') }}</a>
+                        </li>
+                        <li><a href="{{ route('site.branches') }}"
+                                class="capitlize">{{ __('custom.site.BRANCHES') }}</a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="@if (Route::currentRouteName() == 'site.branches') current @endif">
-                    <a href="{{ route('site.branches') }}">{{ __('custom.site.BRANCHES') }}</a>
-                </li>
+                {{-- Contact END --}}
+
+                {{-- desings start --}}
                 <li class="menu-has-sub @if (Route::currentRouteName() == 'site.gallery') current @endif">
                     <a href="#">{{ __('custom.site.DESINGS') }}</a>
                     <ul>
@@ -47,6 +55,7 @@
                         @endforeach
                     </ul>
                 </li>
+                {{-- desings End --}}
             </ul>
             <div class="main-menu-right">
                 <a href="#" class="mobile-nav-toggler">
@@ -82,7 +91,7 @@
                 <div class="header-contact-info">
                     <div class="header-contact-info-icon">
                         <i class="base-icon-011-phone-1"></i> &nbsp;&nbsp;
-                        <h5 class="phone-no" ><a style="color:#fff !important;" href="tel:0553133348">0553133348</a>
+                        <h5 class="phone-no"><a style="color:#fff !important;" href="tel:0553133348">0553133348</a>
                         </h5>
                     </div>
                     <div class="header-contact-info-text">
