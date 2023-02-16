@@ -69,23 +69,6 @@ class HomeController extends Controller
     {
         $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.CONTACT');
         $data['page_settings'] = $this->contact_page_settings;
-        $addres_titles =    json_decode( @$data['page_settings']['address_titles'] , true) ?? [];
-        $addres_values = json_decode(@$data['page_settings']['address_values'] , true);
-        $data['branches'] = json_decode($this->branches_page_settings['address_values'] , true);
-        $data['addresses'] =    [];
-        $i = 0;
-        foreach($addres_titles as $address)
-        {
-            array_push($data['addresses'], ['title' => $address, 'value' => @$addres_values[$i++]]);
-        }
-        $addres_titles =    json_decode( @$this->branches_page_settings['address_titles'] , true) ?? [];
-        $addres_values = json_decode(@$this->branches_page_settings['address_values'] , true);
-        $data['branches'] =    [];
-        $i = 0;
-        foreach($addres_titles as $address)
-        {
-            array_push($data['branches'], ['title' => $address, 'value' => @$addres_values[$i++]]);
-        }
         return view('site.contact' , $data);
     }
 
