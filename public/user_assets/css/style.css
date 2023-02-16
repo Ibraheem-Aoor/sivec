@@ -3430,7 +3430,7 @@ div[class*='kursor'].kursor--1.kursor--down {
     top: 0px;
     right: 0px;
     z-index: 2;
-    opacity: 0.9;
+    opacity: 0.3;
 }
 
 .home_banner_01 .home-carousel .active .image-layer {

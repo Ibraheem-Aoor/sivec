@@ -155,20 +155,20 @@
                                 <h5 class="widget-title text-white mrb-30">{{ __('custom.site.CONTACT') }}</h5>
                                 <address class="mrb-0" style="font-size:small !important;">
                                     <p>{{ @$site_settings['main_address'] }}</p>
-                                    <div class="mrb-10"><a href="#"><i
+                                    <div class="mrb-10"><a target="_blank" href="#"><i
                                                 class="fas fa-phone-alt mrr-10"></i>{{ @$site_settings['phone_number'] }}</a>
                                     </div>
-                                    <div class="mrb-10"><a href="#"><i
+                                    <div class="mrb-10"><a target="_blank" href="#"><i
                                                 class="fas fa-phone-alt mrr-10"></i>{{ @$site_settings['phone_number_2'] }}</a>
                                     </div>
                                     <div class="mrb-10"><a
                                             href="https://wa.me/971{{ @$site_settings['whatsaap_number'] }}"><i
                                                 class="fab fa-whatsapp mrr-10"></i>{{ @$site_settings['whatsaap_number'] }}</a>
                                     </div>
-                                    <div class="mrb-10"><a href="#"><i
+                                    <div class="mrb-10"><a target="_blank" href="#"><i
                                                 class="fas fa-envelope mrr-10"></i>{{ @$site_settings['company_email'] }}</a>
                                     </div>
-                                    <div class="mrb-0"><a href="#"><i
+                                    <div class="mrb-0"><a target="_blank" href="#"><i
                                                 class="fas fa-globe mrr-10"></i>www.sivec.ae</a></div>
                                 </address>
                             </div>
@@ -181,21 +181,21 @@
                                 </div>
                                 <p class="mrb-25"></p>
                                 <ul class="social-list">
-                                    <li><a href="{{ @$site_settings['facebook'] }}"><i
+                                    <li><a target="_blank" href="{{ @$site_settings['facebook'] }}"><i
                                                 class="fab fa-facebook-f"></i></a>
                                     </li>
-                                    <li><a href="{{ @$site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a>
+                                    <li><a target="_blank" href="{{ @$site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a>
                                     </li>
-                                    <li><a href="{{ @$site_settings['instagram'] }}"><i
+                                    <li><a target="_blank" href="{{ @$site_settings['instagram'] }}"><i
                                                 class="fab fa-instagram"></i></a>
                                     </li>
-                                    <li><a href="{{ @$site_settings['linked_in'] }}"><i
+                                    <li><a target="_blank" href="{{ @$site_settings['linked_in'] }}"><i
                                                 class="fab fa-linkedin"></i></a>
                                     </li>
-                                    <li><a href="{{ @$site_settings['snapchat'] }}"><i
+                                    <li><a target="_blank" href="{{ @$site_settings['snapchat'] }}"><i
                                                 class="fab fa-snapchat"></i></a>
                                     </li>
-                                    <li><a href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a>
+                                    <li><a target="_blank" href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -217,12 +217,12 @@
     <div class="mobile-nav-wrapper">
         <div class="mobile-nav-overlay mobile-nav-toggler"></div>
         <div class="mobile-nav-content">
-            <a href="#" class="mobile-nav-close mobile-nav-toggler">
+            <a target="_blank" href="#" class="mobile-nav-close mobile-nav-toggler">
                 <span></span>
                 <span></span>
             </a>
             <div class="logo-box">
-                <a href="{{ route('site.home') }}" aria-label="logo image">
+                <a target="_blank" href="{{ route('site.home') }}" aria-label="logo image">
                     <img src="{{ asset('user_assets/images/logo/black_logo.png') }}" width="165" height="72"
                         alt="logo">
                 </a>
@@ -246,12 +246,12 @@
                 </li>
             </ul>
             <ul class="social-list list-primary-color">
-                <li><a href="{{ @$site_settings['facebook'] }}"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="{{ @$site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="{{ @$site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="{{ @$site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="{{ @$site_settings['snapchat'] }}"><i class="fab fa-snapchat"></i></a></li>
-                <li><a href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a></li>
+                <li><a target="_blank" href="{{ @$site_settings['facebook'] }}"><i class="fab fa-facebook"></i></a></li>
+                <li><a target="_blank" href="{{ @$site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
+                <li><a target="_blank" href="{{ @$site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a></li>
+                <li><a target="_blank" href="{{ @$site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a></li>
+                <li><a target="_blank" href="{{ @$site_settings['snapchat'] }}"><i class="fab fa-snapchat"></i></a></li>
+                <li><a target="_blank" href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a></li>
             </ul>
         </div>
     </div>

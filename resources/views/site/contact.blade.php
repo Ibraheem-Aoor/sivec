@@ -26,12 +26,12 @@
 					<h5 class="side-line-left text-primary-color mrt-0 mrb-5">{{__('custom.site.get_in_touch')}}</h5>
 					<h2 class="faq-title mrb-30">{{__('custom.site.have_question')}}</h2>
 					<ul class="social-list list-lg list-primary-color list-flat mrb-lg-60 clearfix">
-						<li><a href="{{ $site_settings['facebook'] }}"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="{{ $site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="{{ $site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="{{ $site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a></li>
-                        <li><a href="{{ $site_settings['linked_in'] }}"><i class="fab fa-snapchat"></i></a></li>
-                        <li><a href="{{ $site_settings['linked_in'] }}"><i class="fab fa-youtube"></i></a></li>
+						<li><a target="blank" href="{{ $site_settings['facebook'] }}"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a target="blank" href="{{ $site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
+                        <li><a target="blank" href="{{ $site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a></li>
+                        <li><a target="blank" href="{{ $site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a target="blank" href="{{ $site_settings['linked_in'] }}"><i class="fab fa-snapchat"></i></a></li>
+                        <li><a target="blank" href="{{ $site_settings['linked_in'] }}"><i class="fab fa-youtube"></i></a></li>
 					</ul>
 				</div>
 				<div class="col-md-12 col-lg-12 col-xl-8">
