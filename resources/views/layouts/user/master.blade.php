@@ -13,11 +13,11 @@
     <meta property="og:title" content="{{ $page_title }}" />
     <meta property="og:type" content="Engineering Consulting" />
     <meta property="og:url" content="{{ route('site.home') }}" />
-    <meta property="og:image" content="{{ asset('user_assets/images/choose.png') }}" />
+    <meta property="og:image" content="{{ asset('user_assets/images/social_meida.png') }}" />
     <meta name="twitter:title" content="{{ $page_title }}">
     <meta name="twitter:description" content="{{ $meta_desc }}">
-    <meta name="twitter:image" content="{{ asset('user_assets/images/choose.png') }}">
-    <meta name="twitter:card" content="asset('user_assets/images/choose.png')">
+    <meta name="twitter:image" content="{{ asset('user_assets/images/social_meida.png') }}">
+    <meta name="twitter:card" content="asset('user_assets/images/social_meida.png')">
     <!--  Non-Essential, But Recommended -->
     <meta property="og:description" content="{{$meta_desc}}">
     <meta property="og:site_name" content="SEVIC">
