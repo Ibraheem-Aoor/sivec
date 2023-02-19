@@ -231,16 +231,16 @@
                     <div class="about-image-box-style1 about-side-line mrr-60 mrr-lg-0">
                         <figure class="about-image1 js-tilt d-none d-md-block d-lg-block d-xl-block">
                             @if (@$about_page_settings['about_image_2'])
-                                <img class="img-full"
+                                <img loading="lazy" class="img-full"
                                     src="{{ Storage::url("site/about/{$about_page_settings['about_image_2']}") }}"
-                                    alt="">
+                                    alt="about image-2">
                             @endif
                         </figure>
                         <figure class="about-image2">
                             @if (@$about_page_settings['about_image_1'])
-                                <img class="img-full"
+                                <img loading="lazy" class="img-full"
                                     src="{{ Storage::url("site/about/{$about_page_settings['about_image_1']}") }}"
-                                    alt="">
+                                    alt="about image-1">
                             @endif
                         </figure>
                     </div>
@@ -322,7 +322,7 @@
     <section class="service-title-section bg-silver bg-no-repeat bg-cover bg-pos-cb pdt-105 pdb-200"
         data-background="{{ asset('user_assets/images/bg/abs-bg2.png') }}">
         <div class="service-title-section-obj1">
-            <img src="{{ asset('user_assets/images/objects/3.png') }}" alt="">
+            <img loading="lazy" src="{{ asset('user_assets/images/objects/3.png') }}" alt="Services Image">
         </div>
         <div class="section-title mrb-55 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
             <div class="container">
@@ -410,7 +410,7 @@
                     <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInUp" data-wow-delay="200ms"
                         data-wow-duration="800ms">
                         <div class="shine-effect">
-                            <img class="img-full" src="{{ asset('user_assets/images/offer_2.png') }}" alt="">
+                            <img loading="lazy" class="img-full" src="{{ asset('user_assets/images/offer_2.png') }}" alt="offer image">
                         </div>
                     </div>
                 </div>

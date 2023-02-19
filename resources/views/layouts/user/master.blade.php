@@ -3,13 +3,26 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Sivec">
+    <meta name="author" content="sivec">
     <meta name="csrf" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="SIVECInterior & Architecture">
+    <meta name="description" content="{{ $meta_desc }}">
     <meta name="keywords"
-        content="architecture, interior, decoration, design, corporate, modern, html, template, multipurpose, creative" />
+        content="sivec,architecture,interior,decoration, design, corporate, modern, html, template, multipurpose, creative,engineering,engineering consulting ,sevic,svec, alrouya almoutakamela , الرؤية المتكاملة , الرؤية العصرية , تصاميم هندسية , مباني, مساجد , دبي , الامارات" />
+    <meta property="og:title" content="{{ $page_title }}" />
+    <meta property="og:type" content="Engineering Consulting" />
+    <meta property="og:url" content="{{ route('site.home') }}" />
+    <meta property="og:image" content="{{ asset('user_assets/images/choose.png') }}" />
+    <meta name="twitter:title" content="{{ $page_title }}">
+    <meta name="twitter:description" content="{{ $meta_desc }}">
+    <meta name="twitter:image" content="{{ asset('user_assets/images/choose.png') }}">
+    <meta name="twitter:card" content="asset('user_assets/images/choose.png')">
+    <!--  Non-Essential, But Recommended -->
+    <meta property="og:description" content="{{$meta_desc}}">
+    <meta property="og:site_name" content="SEVIC">
+    <meta name="twitter:image:alt" content="{{$page_title}}">
+    @stack('meta')
     <title>{{ $page_title }}</title>
     <link href="{{ asset('user_assets/images/favicon.png') }}" rel="shortcut icon" type="image/png">
     <!-- Main Stylesheet -->
@@ -80,7 +93,8 @@
                         </div>
                     @else
                         <div class="txt-loading preloader-text">
-                            <span data-text-preloader="الرؤية المتكاملة" class="letters-loading">الرؤية المتكاملة</span>
+                            <span data-text-preloader="الرؤية المتكاملة" class="letters-loading">الرؤية
+                                المتكاملة</span>
                         </div>
                     @endif
                 </div>
@@ -99,13 +113,14 @@
 
     @if (!isset($footer_disabled))
         <!-- Footer Area Start -->
-        <footer class="footer bg-cover" data-background="https://via.placeholder.com/1920x1280" data-overlay-dark="98">
+        <footer class="footer bg-cover" data-background="https://via.placeholder.com/1920x1280"
+            data-overlay-dark="98">
             <div class="footer-main-area">
                 <div class="footer-section-obj1">
-                    <img src="{{ asset('user_assets/images/objects/footer-obj1.png') }}" alt="">
+                    <img src="{{ asset('user_assets/images/objects/footer-obj1.png') }}" alt="footer-img-1">
                 </div>
                 <div class="footer-section-obj2">
-                    <img src="{{ asset('user_assets/images/objects/footer-obj2.png') }}" alt="">
+                    <img src="{{ asset('user_assets/images/objects/footer-obj2.png') }}" alt="footer-img-2">
                 </div>
                 <div class="container">
                     <div class="row pdb-65">
@@ -176,7 +191,7 @@
                         <div class="col-xl-3 col-lg-6">
                             <div class="widget footer-widget mrr-60 mrr-md-0">
                                 <div class="footer-logo">
-                                    <img src="{{ asset('user_assets/images/logo/white_logo.png') }}" alt=""
+                                    <img src="{{ asset('user_assets/images/logo/white_logo.png') }}" alt="logo-white"
                                         class="mrb-25">
                                 </div>
                                 <p class="mrb-25"></p>
@@ -184,7 +199,8 @@
                                     <li><a target="_blank" href="{{ @$site_settings['facebook'] }}"><i
                                                 class="fab fa-facebook-f"></i></a>
                                     </li>
-                                    <li><a target="_blank" href="{{ @$site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a>
+                                    <li><a target="_blank" href="{{ @$site_settings['twitter'] }}"><i
+                                                class="fab fa-twitter"></i></a>
                                     </li>
                                     <li><a target="_blank" href="{{ @$site_settings['instagram'] }}"><i
                                                 class="fab fa-instagram"></i></a>
@@ -195,7 +211,8 @@
                                     <li><a target="_blank" href="{{ @$site_settings['snapchat'] }}"><i
                                                 class="fab fa-snapchat"></i></a>
                                     </li>
-                                    <li><a target="_blank" href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a>
+                                    <li><a target="_blank" href="{{ @$site_settings['youtube'] }}"><i
+                                                class="fab fa-youtube"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -224,7 +241,7 @@
             <div class="logo-box">
                 <a target="_blank" href="{{ route('site.home') }}" aria-label="logo image">
                     <img src="{{ asset('user_assets/images/logo/black_logo.png') }}" width="165" height="72"
-                        alt="logo">
+                        alt="logo-black">
                 </a>
             </div>
             <div class="mobile-nav-container"></div>
@@ -246,12 +263,18 @@
                 </li>
             </ul>
             <ul class="social-list list-primary-color">
-                <li><a target="_blank" href="{{ @$site_settings['facebook'] }}"><i class="fab fa-facebook"></i></a></li>
-                <li><a target="_blank" href="{{ @$site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
-                <li><a target="_blank" href="{{ @$site_settings['instagram'] }}"><i class="fab fa-instagram"></i></a></li>
-                <li><a target="_blank" href="{{ @$site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a></li>
-                <li><a target="_blank" href="{{ @$site_settings['snapchat'] }}"><i class="fab fa-snapchat"></i></a></li>
-                <li><a target="_blank" href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a></li>
+                <li><a target="_blank" href="{{ @$site_settings['facebook'] }}"><i class="fab fa-facebook"></i></a>
+                </li>
+                <li><a target="_blank" href="{{ @$site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li><a target="_blank" href="{{ @$site_settings['instagram'] }}"><i
+                            class="fab fa-instagram"></i></a></li>
+                <li><a target="_blank" href="{{ @$site_settings['linked_in'] }}"><i class="fab fa-linkedin"></i></a>
+                </li>
+                <li><a target="_blank" href="{{ @$site_settings['snapchat'] }}"><i class="fab fa-snapchat"></i></a>
+                </li>
+                <li><a target="_blank" href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a>
+                </li>
             </ul>
         </div>
     </div>
