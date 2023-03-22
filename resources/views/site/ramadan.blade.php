@@ -134,7 +134,13 @@
             <div class="img-box" id="img-box">
                 <img src="{{ asset('user_assets/images/ramadan/greetings_offer_8.jpg') }}" loading="lazy" alt="" />
             </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/working_hours.jpg') }}" loading="lazy" alt="" />
+            </div>
         </div>
     </section>
     {{-- Ramadan Offers Ends --}}
+
+
+
 @endsection

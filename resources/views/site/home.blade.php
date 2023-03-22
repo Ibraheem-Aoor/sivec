@@ -436,6 +436,24 @@
 
 
     @include('site.partials.call_section')
+
+    <!-- Modal -->
+    <div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="testModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    {{-- <h5 class="modal-title" id="testModalLabel">Modal title</h5> --}}
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ asset('user_assets/images/ramadan/home_popup.jpg') }}" loading="lazy" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @push('js')
     <script>
@@ -447,5 +465,13 @@
                 $('.owl-next').click();
             }
         }, 5000);
+    </script>
+    <script>
+        @if (!Session::has('ramadan_popup_close'))
+            $(document).ready(function() {
+                $('#testModal').modal('show');
+            });
+            var x = "{{Session::put('ramadan_popup_close' , true)}}";
+        @endif
     </script>
 @endpush
