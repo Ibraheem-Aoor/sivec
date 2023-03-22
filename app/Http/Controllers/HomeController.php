@@ -299,4 +299,18 @@ class HomeController extends Controller
 
 
 
+
+    /**
+     * Newly Added Ramdan Section
+     */
+    public function ramadan()
+    {
+        $data['page_title'] =   __('custom.site.sivec'). ' - '. __('custom.site.RAMADAN');
+        $data['meta_desc']  =   "SEVIC RAMDAN 2023";
+        return view('site.ramadan' , $data);
+    }
+
+
+
+
 }

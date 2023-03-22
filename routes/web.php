@@ -53,6 +53,9 @@ Route::group(
         Route::get('branches', 'branches')->name('branches');
         Route::get('gallery/{id}', 'gallery')->name('gallery');
 
+        // Ramadan
+        Route::get('ramadan' , 'ramadan')->name('ramadan');
+
     });
 
 

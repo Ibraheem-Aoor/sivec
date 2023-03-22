@@ -95,6 +95,7 @@ return [
         'BRANCHES'  =>  'BRANCHES',
         'DESINGS'  =>  'DESINGS',
         'JOBS'  =>  'JOBS',
+        'RAMADAN'    =>  '🌙RAMADAN',
         'Call Anytime'  =>  'Call Anytime',
         'Newsletter'    =>  'Newsletter',
         'newsletter_text'  =>  'Join Our Community And Start Receiving Our News And Updates',
@@ -166,6 +167,10 @@ return [
         'achievement_text'      =>   'We are committed to providing a professional level of services that meets the aspirations of our customers to complete projects on time',
         'innovation'        =>  'Innovation',
         'innovation_text'        =>  'We always look at merit and strive to apply innovative engineering solutions to provide the highest level of service',
+        'ramdan_page_title'     =>  'Ramadan Kareem!',
+        'ramadan_greetings' =>  'Wishing you a blessed Ramadan from all of us at SIVEC 🌙',
+        'ramdan_offers_title'       =>  'Ramadan Exclusive Offers',
+        'ramdan_offers_text'        =>  'SIVEC Exclusive Offers For Ramadan',
     ],
 
 ];

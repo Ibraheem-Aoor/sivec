@@ -56,6 +56,12 @@
                     </ul>
                 </li>
                 {{-- desings End --}}
+
+                {{-- Start Ramdan --}}
+                <li class="@if (Route::currentRouteName() == 'site.ramadan') current @endif">
+                    <a href="{{ route('site.ramadan') }}">{{ __('custom.site.RAMADAN') }}</a>
+                </li>
+                {{-- End  Ramdan --}}
             </ul>
             <div class="main-menu-right">
                 <a href="#" class="mobile-nav-toggler">
