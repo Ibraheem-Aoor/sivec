@@ -116,6 +116,24 @@
             <div class="img-box" id="img-box">
                 <img src="{{ asset('user_assets/images/ramadan/greetings_offer_2.jpg') }}" loading="lazy" alt="" />
             </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_3.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_4.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_6.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_6.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_7.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_8.jpg') }}" loading="lazy" alt="" />
+            </div>
         </div>
     </section>
     {{-- Ramadan Offers Ends --}}
