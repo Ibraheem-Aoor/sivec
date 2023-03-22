@@ -62,6 +62,12 @@
                 </li>
                 {{-- desings End --}}
 
+                {{-- Start Catalog --}}
+                <li class="@if (Route::currentRouteName() == 'site.ramadan') current @endif">
+                    <a href="https://wa.me/c/971543018342" target="__blank">{{ __('custom.site.catalog') }}</a>
+                </li>
+                {{-- End  Catalog --}}
+
                 {{-- Start Ramdan --}}
                 <li class="@if (Route::currentRouteName() == 'site.ramadan') current @endif">
                     <a href="{{ route('site.ramadan') }}">{{ __('custom.site.RAMADAN') }}</a>
