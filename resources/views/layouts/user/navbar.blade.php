@@ -7,7 +7,7 @@
                     <img src="{{ asset('user_assets/images/logo/black_logo.png') }}" width="165" height="72"
                         alt="logo">
                 </a>
-                <a href="{{ route('site.ramadan') }}">
+                <a href="{{ route('site.ramadan') }}" class="ramadan-lattern">
                     <img src="{{ asset('user_assets/images/ramadan/latern.png') }}" width="165" height="72"
                         alt="logo">
                 </a>

@@ -6839,6 +6839,10 @@ select {
         opacity: 0.15;
     }
 }
+.ramadan-lattern {
+    position: absolute;
+    animation: float-obj-x infinite 3s;
+}
 
 .service-title-section-obj2 {
     position: relative;
