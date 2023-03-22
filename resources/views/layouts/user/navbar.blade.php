@@ -7,6 +7,10 @@
                     <img src="{{ asset('user_assets/images/logo/black_logo.png') }}" width="165" height="72"
                         alt="logo">
                 </a>
+                <a href="{{ route('site.ramadan') }}">
+                    <img src="{{ asset('user_assets/images/ramadan/latern.png') }}" width="165" height="72"
+                        alt="logo">
+                </a>
             </div>
             <ul class="main-nav-menu">
                 <li class="@if (Route::currentRouteName() == 'site.home') current @endif">
@@ -25,7 +29,8 @@
                 <li class="menu-has-sub @if (Route::currentRouteName() == 'site.gallery') current @endif">
                     <a href="#">{{ __('custom.site.CONTACT') }}</a>
                     <ul>
-                        <li><a href="{{ route('site.contact') }}" class="capitlize">{{ __('custom.site.CONTACT') }}</a>
+                        <li><a href="{{ route('site.contact') }}"
+                                class="capitlize">{{ __('custom.site.CONTACT') }}</a>
                         </li>
                         <li><a href="{{ route('site.branches') }}"
                                 class="capitlize">{{ __('custom.site.BRANCHES') }}</a>

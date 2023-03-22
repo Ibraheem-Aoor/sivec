@@ -171,6 +171,7 @@ return [
         'ramadan_greetings' =>  'Wishing you a blessed Ramadan from all of us at SIVEC 🌙',
         'ramdan_offers_title'       =>  'Ramadan Exclusive Offers',
         'ramdan_offers_text'        =>  'SIVEC Exclusive Offers For Ramadan',
+        'slide_ramadan'             =>  'Wishing you a blessed Ramadan ',
     ],
 
 ];

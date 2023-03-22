@@ -13,6 +13,20 @@
         </div>
         <div class="home-carousel owl-theme owl-carousel">
             <div class="slide-item">
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/24341.jpg') }}"></div>
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-xl-8 col-lg-12 col-md-12 content-column">
+                            <div class="content-box">
+                                <h1 class="home-carousel-title">{{ __('custom.site.slide_ramadan') }}
+                                </h1>
+                                <p class="home-carousel-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-item">
                 <div class="image-layer" data-background="{{ asset('user_assets/images/slider/400.png') }}"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
@@ -410,7 +424,8 @@
                     <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInUp" data-wow-delay="200ms"
                         data-wow-duration="800ms">
                         <div class="shine-effect">
-                            <img loading="lazy" class="img-full" src="{{ asset('user_assets/images/offer_2.png') }}" alt="offer image">
+                            <img loading="lazy" class="img-full" src="{{ asset('user_assets/images/offer_2.png') }}"
+                                alt="offer image">
                         </div>
                     </div>
                 </div>
