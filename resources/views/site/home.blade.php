@@ -409,7 +409,7 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInUp" data-wow-delay="0ms"
                         data-wow-duration="800ms">
-                        <h5 class="side-line-left text-primary-color mrb-10">{{__('custom.what_we_offer')}}</h5>
+                        <h5 class="side-line-left text-primary-color mrb-10">{{__('custom.site.what_we_offer')}}</h5>
                         <h2 class="text-black mrb-30 mrb-sm-30">{{ __('custom.site.our_company') }} <span
                                 class="text-primary-color">{{ __('custom.site.make_u') }}<br>
                             </span>{{ __('custom.site.feel_conf') }}</h2>
