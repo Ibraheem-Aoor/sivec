@@ -175,6 +175,8 @@ return [
         'ramdan_working_hours'      =>    'Working Hours During Ramadan 🕓',
         'ramdan_working_hours_text' =>     'We are Always With You During Ramadan',
         'catalog'                   =>      'CATALOG',
+        'what_we_offer'             =>      'What We Offer',
+
     ],
 
 ];
