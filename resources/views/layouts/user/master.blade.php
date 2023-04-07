@@ -19,9 +19,9 @@
     <meta name="twitter:image" content="{{ asset('user_assets/images/social_meida.png') }}">
     <meta name="twitter:card" content="asset('user_assets/images/social_meida.png')">
     <!--  Non-Essential, But Recommended -->
-    <meta property="og:description" content="{{$meta_desc}}">
+    <meta property="og:description" content="{{ $meta_desc }}">
     <meta property="og:site_name" content="SEVIC">
-    <meta name="twitter:image:alt" content="{{$page_title}}">
+    <meta name="twitter:image:alt" content="{{ $page_title }}">
     @stack('meta')
     <title>{{ $page_title }}</title>
     <link href="{{ asset('user_assets/images/favicon.png') }}" rel="shortcut icon" type="image/png">
@@ -49,6 +49,10 @@
             .footer-widget-list li a:hover {
                 color: var(--primary-color);
                 padding-right: 35px !important;
+            }
+
+            .prime-text {
+                color: #F25F29 !important;
             }
         </style>
     @endif
@@ -279,20 +283,36 @@
         </div>
     </div>
     <!-- Mobile Nav Sidebar Content End -->
-    <!-- Header Search Popup Start -->
-    {{-- <div class="search-popup">
-        <div class="search-popup-overlay search-toggler"></div>
-        <div class="search-popup-content">
-            <form action="#">
-                <label for="search" class="sr-only">search here</label>
-                <input type="text" id="search" placeholder="Search Here..." />
-                <button type="submit" aria-label="search submit" class="thm-btn">
-                    <i class="base-icon-search-1"></i>
-                </button>
-            </form>
+
+    <!-- Start Whatsapp Catatlog Modal -->
+    <div class="modal fade" id="catalogModal" tabindex="-1" role="dialog" aria-labelledby="testModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="testModalLabel">{!! __('custom.site.catalog_modal_headline') !!}</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <video id="catalogVideo" controls>
+                            <source src="{{ asset('user_assets/videos/whatsapp_catalog.mp4') }}">
+                        </video>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://wa.me/c/971543018342" target="_blank" id="whatsapp-continue-btn"
+                        class="btn btn-success">{{ __('custom.site.catalog_continue') }} <i
+                            class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
-    </div> --}}
-    <!-- Header Search Popup End -->
+    </div>
+    <!-- End Whatsapp Catatlog Modal -->
+
+
     <!-- Back to Top Start -->
     <div class="anim-scroll-to-top">
         <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
@@ -365,6 +385,16 @@
                 }
             });
         });
+        $(document).on('shown.bs.modal', '#catalogModal', function() {
+            $('#catalogVideo').get(0).play();
+        });
+        $(document).on('hide.bs.modal', '#catalogModal', function() {
+            $('#catalogVideo').get(0).pause();
+        });
+
+        $(document).on('click', '#whatsapp-continue-btn', function() {
+            $('#catalogModal').modal('hide');
+        })
     </script>
     @stack('js')
 </body>

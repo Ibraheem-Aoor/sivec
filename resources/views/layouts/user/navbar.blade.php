@@ -44,9 +44,9 @@
                     <a href="#">{{ __('custom.site.DESINGS') }}</a>
                     <ul>
                         @foreach ($image_categories as $image_category)
-                        @php
-                            $has_sub_category = $image_category->hasSubCategories();
-                        @endphp
+                            @php
+                                $has_sub_category = $image_category->hasSubCategories();
+                            @endphp
                             <li @if ($has_sub_category) class="menu-has-sub has-sub-child" @endif><a
                                     href="@if (!$has_sub_category) {{ $image_category->getUrl() }} @endif"
                                     class="capitlize">{{ $image_category->name }}</a>
@@ -67,9 +67,10 @@
 
                 {{-- Start Catalog --}}
                 <li class="">
-                    <a href="https://wa.me/c/971543018342" target="__blank">{{ __('custom.site.catalog') }}</a>
+                    <a data-bs-toggle="modal" data-bs-target="#catalogModal" >{{ __('custom.site.catalog') }}</a>
                 </li>
                 {{-- End  Catalog --}}
+                
 
                 {{-- Start Ramdan --}}
                 <li class="@if (Route::currentRouteName() == 'site.ramadan') current @endif">

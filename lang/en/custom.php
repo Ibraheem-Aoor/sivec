@@ -176,7 +176,10 @@ return [
         'ramdan_working_hours_text' =>     'We are Always With You During Ramadan',
         'catalog'                   =>      'CATALOG',
         'what_we_offer'             =>      'What We Offer',
-
+        'catalog_modal_headline'    =>      'Welocme To <span class="prime-text" >SIVEC Catalog</span>',
+        'catalog_continue'          =>       'Continue To Catalog',
     ],
+
+    'close'     =>  'Close',
 
 ];

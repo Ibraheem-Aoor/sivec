@@ -92,6 +92,12 @@ return [
         'ramdan_working_hours_text' =>     'نتواجد دوما لخدمتكم خلال الشهر الفضيل',
         'catalog'                   =>      'كتالوج',
         'what_we_offer'             =>      'ما الذي نقدمه',
+        'catalog_modal_headline'    =>      'اهلا بك في كتالوج <span class="prime-text">الرؤية المتكاملة</span>',
+        'catalog_continue'          =>       'متابعة خلال الواتساب',
+
     ],
+
+    'close'     =>  'إغلاق',
+
 
 ];
