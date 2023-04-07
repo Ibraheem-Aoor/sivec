@@ -6,6 +6,7 @@ use App\Models\Image;
 use App\Models\ImageCategory;
 use App\Models\Service;
 use Google\Service\MyBusinessLodging\Business;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -62,5 +63,10 @@ Route::group(
 });
 
 
-Route::get('set-icon', [HomeController::class , 'setIcons']);
+// Route::get('set-icon', [HomeController::class , 'setIcons']);
+Route::get('clear-cache' , function()
+{
+    Artisan::call('optimize:clear');
+    return back();
+});
 

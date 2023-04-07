@@ -25,10 +25,13 @@ use Throwable;
 class HomeController extends Controller
 {
 
-    public $services;
-    public $contact_page_settings;
-    public $about_page_settings;
-    public $site_settings , $branches_page_settings , $image_categories;
+    public $services,
+            $contact_page_settings,
+            $about_page_settings,
+            $site_settings ,
+            $branches_page_settings,
+            $image_categories,
+            $meta_desc = "SEVIC is considered one of the leading offices in the United Arab Emirates in the field of engineering consultancy and project management Providing the best Engineering Consulting & interior design services";
 
     public function __construct()
     {
@@ -55,14 +58,14 @@ class HomeController extends Controller
     {
         $data['services'] = $this->services;
         $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.Engineering Consulting');
-        $data['meta_desc']  =   "SEVIC is considered one of the leading offices in the United Arab Emirates in the field of engineering consultancy and project management Providing the best Engineering Consulting & interior design services";
+        $data['meta_desc']  =   $this->meta_desc;
         return view('site.home' , $data);
     }
 
     public function about()
     {
         $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.ABOUT');
-        $data['meta_desc']  =   "SEVIC is considered one of the leading offices in the United Arab Emirates in the field of engineering consultancy and project management Providing the best Engineering Consulting & interior design services";
+        $data['meta_desc']  =   $this->meta_desc;
 
         $data['page_settings'] =  BusinessSetting::query()->wherePage('about')->whereLang(app()->getLocale())->pluck('value' , 'key');
         return view('site.about' , $data);
@@ -71,7 +74,7 @@ class HomeController extends Controller
     public function contact()
     {
         $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.CONTACT');
-        $data['meta_desc']  =   "SEVIC is considered one of the leading offices in the United Arab Emirates in the field of engineering consultancy and project management Providing the best Engineering Consulting & interior design services";
+        $data['meta_desc']  =   $this->meta_desc;
         $data['page_settings'] = $this->contact_page_settings;
         return view('site.contact' , $data);
     }
@@ -100,11 +103,8 @@ class HomeController extends Controller
     public function services()
     {
         $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.SERVICES');
-        $data['meta_desc']  =   "SEVIC is considered one of the leading offices in the United Arab Emirates in the field of engineering consultancy and project management Providing the best Engineering Consulting & interior design services";
-        $data['services'] = Service::query()
-            ->whereStatus('ACTIVE')
-            ->with('category')
-            ->orderByDesc('services.created_at')->paginate(10);
+        $data['meta_desc']  =   $this->meta_desc;
+        $data['services'] = $this->services;
         return view('site.services' , $data);
     }
 
@@ -112,8 +112,7 @@ class HomeController extends Controller
     {
         $data['service'] = Service::query()->find(decrypt($id));
         $data['page_title'] = "{$data['service']->name}";
-        $data['meta_desc']  =   "SEVIC is considered one of the leading offices in the United Arab Emirates in the field of engineering consultancy and project management Providing the best Engineering Consulting & interior design services";
-
+        $data['meta_desc']  =   $this->meta_desc;
         $data['related_services'] = $data['service']->getRleatedServices();
         return view('site.service_details' , $data);
     }
@@ -137,7 +136,7 @@ class HomeController extends Controller
             ->orderByDesc('projects.created_at')
             ->paginate(12);
         $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.PROJECTS');
-        $data['meta_desc']  =   "SEVIC is considered one of the leading offices in the United Arab Emirates in the field of engineering consultancy and project management Providing the best Engineering Consulting & interior design services";
+        $data['meta_desc']  =   $this->meta_desc;
 
         return view('site.projects', $data);
     }
@@ -146,7 +145,7 @@ class HomeController extends Controller
     {
         $data['project'] = Project::query()->with(['category' , 'client'])->find(decrypt($id));
         $data['page_title'] = "{$data['project']->name}";
-        $data['meta_desc']  =   "SEVIC is considered one of the leading offices in the United Arab Emirates in the field of engineering consultancy and project management Providing the best Engineering Consulting & interior design services";
+        $data['meta_desc']  =   $this->meta_desc;
 
         $data['related_projects']   =   $data['project']->getRleatedProjects();
         return view('site.project_details' , $data);
@@ -165,7 +164,7 @@ class HomeController extends Controller
         $data['jobs'] = JobPosition::query()->
                         whereStatus('ACTIVE')->paginate(50);
         $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.JOBS');
-        $data['meta_desc']  =   "SEVIC is considered one of the leading offices in the United Arab Emirates in the field of engineering consultancy and project management Providing the best Engineering Consulting & interior design services";
+        $data['meta_desc']  =   $this->meta_desc;
 
         return view('site.jobs' , $data);
     }
@@ -176,7 +175,7 @@ class HomeController extends Controller
                                 ->with('title')
                                 ->findOrFail(decrypt($id));
         $data['page_title'] = "SIVEC - Jobs | ".$data['job']->title->name;
-        $data['meta_desc']  =   "SEVIC is considered one of the leading offices in the United Arab Emirates in the field of engineering consultancy and project management Providing the best Engineering Consulting & interior design services";
+        $data['meta_desc']  =   $this->meta_desc;
 
         $data['related_jobs'] = $data['job']->getRleatedJobs();
         return view('site.job_details' , $data);
@@ -213,7 +212,7 @@ class HomeController extends Controller
     public function branches()
     {
         $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.BRANCHES');
-        $data['meta_desc']  =   "SEVIC is considered one of the leading offices in the United Arab Emirates in the field of engineering consultancy and project management Providing the best Engineering Consulting & interior design services";
+        $data['meta_desc']  =   $this->meta_desc;
 
         $data['page_settings']  =   $this->branches_page_settings;
         $addres_titles =    json_decode( @$data['page_settings']['address_titles'] , true) ?? [];
@@ -234,31 +233,33 @@ class HomeController extends Controller
 
     protected function getHomeServices()
     {
-        if(Cache::has('home_page_services'))
+        return Cache::rememberForever('home_page_services' , function()
         {
-            $services = Cache::get('home_page_services');
-        }else{
-            $home_page_services =   Service::query()->orderByDesc('created_at')->with('translations')->limit(6)->get();
-            $services = Cache::put('home_page_services' , $home_page_services);
-        }
-        return $services;
+            return Service::query()
+                            ->whereStatus('ACTIVE')
+                            ->with(['category' , 'translations'])
+                            ->limit(6)->get();
+        });
     }
 
 
     public function getPageSettings($page = null)
     {
-        return BusinessSetting::query()->wherePage($page)->whereLang(app()->getLocale())->pluck('value' , 'key');
+        return Cache::rememberForEver($page.'_'.app()->getLocale() , function()use($page)
+        {
+            return BusinessSetting::query()->wherePage($page)->whereLang(app()->getLocale())->pluck('value' , 'key');
+        });
     }
 
+
+    /**
+     * gallery parent categories to show in navBar.
+     */
     public function setImageCategorires()
     {
-        if(Cache::has('image_categories'))
-        {
-            $image_categories = Cache::get('image_categories');
-        }else{
-            $image_categories = Cache::put('image_categories',  ImageCategory::query()->whereNull('parent_id')->with('translations')->get());
-        }
-        return $image_categories;
+        return Cache::rememberForever('image_categories', function () {
+            return  ImageCategory::query()->whereNull('parent_id')->with('translations')->get();
+        });
     }
 
 
@@ -286,7 +287,7 @@ class HomeController extends Controller
     {
         $category = ImageCategory::query()->findOrFail(decrypt($category_id));
         $data['page_title'] =   __('custom.site.sivec'). ' - '. __('custom.site.DESINGS');" - {$category->getFullTitle()}";
-        $data['meta_desc']  =   "SEVIC is considered one of the leading offices in the United Arab Emirates in the field of engineering consultancy and project management Providing the best Engineering Consulting & interior design services";
+        $data['meta_desc']  =   $this->meta_desc;
 
         $data['page_settings'] =  BusinessSetting::query()->wherePage('about')->pluck('value' , 'key');
         $data['images'] = Image::query()->where('image_category_id' , $category->id)->get();

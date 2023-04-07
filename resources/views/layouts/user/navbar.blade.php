@@ -44,10 +44,13 @@
                     <a href="#">{{ __('custom.site.DESINGS') }}</a>
                     <ul>
                         @foreach ($image_categories as $image_category)
-                            <li @if ($image_category->hasSubCategories()) class="menu-has-sub has-sub-child" @endif><a
-                                    href="@if (!$image_category->hasSubCategories()) {{ $image_category->getUrl() }} @endif"
+                        @php
+                            $has_sub_category = $image_category->hasSubCategories();
+                        @endphp
+                            <li @if ($has_sub_category) class="menu-has-sub has-sub-child" @endif><a
+                                    href="@if (!$has_sub_category) {{ $image_category->getUrl() }} @endif"
                                     class="capitlize">{{ $image_category->name }}</a>
-                                @if ($image_category->hasSubCategories())
+                                @if ($has_sub_category)
                                     <ul>
                                         @foreach ($image_category->subCategories() as $sub_category)
                                             <li><a href="{{ $sub_category->getUrl() }}"
