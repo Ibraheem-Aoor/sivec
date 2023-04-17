@@ -26,8 +26,8 @@
     <title>{{ $page_title }}</title>
     <link href="{{ asset('user_assets/images/favicon.png') }}" rel="shortcut icon" type="image/png">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('user_assets/css/style.css?v=0.96') }}">
-    <link rel="stylesheet" href="{{ asset('user_assets/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/style.css?v=1.0') }}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/responsive.css?v=1.0') }}">
     @stack('css')
     @if (app()->getLocale() == 'ar')
         <style>
@@ -321,18 +321,18 @@
     </div>
     <!-- Back to Top end -->
     <!-- Integrated important scripts here -->
-    <script src="{{ asset('user_assets/js/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('user_assets/js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('user_assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('user_assets/js/jquery.appear.min.js') }}"></script>
-    <script src="{{ asset('user_assets/js/wow.min.js') }}"></script>
-    <script src="{{ asset('user_assets/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('user_assets/js/jquery.event.move.js') }}"></script>
-    <script src="{{ asset('user_assets/js/jquery.twentytwenty.js') }}"></script>
-    <script src="{{ asset('user_assets/js/tilt.jquery.min.js') }}"></script>
-    <script src="{{ asset('user_assets/js/magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('user_assets/js/backtotop.js') }}"></script>
-    <script src="{{ asset('user_assets/js/trigger.js') }}"></script>
+    <script src="{{ asset('user_assets/js/jquery-3.6.0.min.js?v=1.0') }}"></script>
+    <script src="{{ asset('user_assets/js/jquery.nice-select.min.js?v=1.0') }}"></script>
+    <script src="{{ asset('user_assets/js/bootstrap.min.js?v=1.0') }}"></script>
+    <script src="{{ asset('user_assets/js/jquery.appear.min.js?v=1.0') }}"></script>
+    <script src="{{ asset('user_assets/js/wow.min.js?v=1.0') }}"></script>
+    <script src="{{ asset('user_assets/js/owl.carousel.min.js?v=1.0') }}"></script>
+    <script src="{{ asset('user_assets/js/jquery.event.move.js?v=1.0') }}"></script>
+    <script src="{{ asset('user_assets/js/jquery.twentytwenty.js?v=1.0') }}"></script>
+    <script src="{{ asset('user_assets/js/tilt.jquery.min.js?v=1.0') }}"></script>
+    <script src="{{ asset('user_assets/js/magnific-popup.min.js?v=1.0') }}"></script>
+    <script src="{{ asset('user_assets/js/backtotop.js?v=1.0') }}"></script>
+    <script src="{{ asset('user_assets/js/trigger.js?v=1.0') }}"></script>
     <script>
         $(".owl-carousel").owlCarousel({
             autoPlay: 3000,
