@@ -13,7 +13,7 @@
         </div>
         <div class="home-carousel owl-theme owl-carousel">
             <div class="slide-item">
-                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/24341.jpg') }}"></div>
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/24341.webp') }}"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <div class="col-xl-8 col-lg-12 col-md-12 content-column">
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="slide-item">
-                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/400.png') }}"></div>
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/400.webp') }}"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <div class="col-xl-8 col-lg-12 col-md-12 content-column">
@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="slide-item">
-                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/392.png') }}"></div>
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/392.webp') }}"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <div class="col-xl-8 col-lg-12 col-md-12 content-column">
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="slide-item">
-                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/762.png') }}">
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/762.webp') }}">
                 </div>
                 <div class="auto-container">
                     <div class="row clearfix">
@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div class="slide-item">
-                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/880.png') }}">
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/880.webp') }}">
                 </div>
                 <div class="auto-container">
                     <div class="row clearfix">
@@ -101,7 +101,7 @@
                 </div>
             </div>
             <div class="slide-item">
-                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/710.png') }}">
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/710.webp') }}">
                 </div>
                 <div class="auto-container">
                     <div class="row clearfix">
@@ -120,7 +120,7 @@
                 </div>
             </div>
             <div class="slide-item">
-                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/171.png') }}">
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/171.webp') }}">
                 </div>
                 <div class="auto-container">
                     <div class="row clearfix">
@@ -139,7 +139,7 @@
                 </div>
             </div>
             <div class="slide-item">
-                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/356.png') }}">
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/356.webp') }}">
                 </div>
                 <div class="auto-container">
                     <div class="row clearfix">
@@ -158,7 +158,7 @@
                 </div>
             </div>
             <div class="slide-item">
-                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/355.jpeg') }}">
+                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/355.webp') }}">
                 </div>
                 <div class="auto-container">
                     <div class="row clearfix">
@@ -186,7 +186,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-xl-6 bg-cover-custom"
-                    data-background="{{ asset('user_assets/images/choose.png') }}">
+                    data-background="{{ asset('user_assets/images/choose.webp') }}">
                 </div>
                 <div class="col-lg-12 col-xl-6 p-0">
                     <div class="divider-gap">
@@ -238,7 +238,7 @@
 
     <!-- About Section Start -->
     <section class="about-section pdt-110 pdb-105 bg-no-repeat bg-cover bg-pos-cb"
-        data-background="{{ asset('user_assets/images/bg/abs-bg3.png') }}" data-overlay-light="4">
+        data-background="{{ asset('user_assets/images/bg/abs-bg3.webp') }}" data-overlay-light="4">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-8 col-xl-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
@@ -334,9 +334,9 @@
 
     <!-- Service Section Title Area Start -->
     <section class="service-title-section bg-silver bg-no-repeat bg-cover bg-pos-cb pdt-105 pdb-200"
-        data-background="{{ asset('user_assets/images/bg/abs-bg2.png') }}">
+        data-background="{{ asset('user_assets/images/bg/abs-bg2.webp') }}">
         <div class="service-title-section-obj1">
-            <img loading="lazy" src="{{ asset('user_assets/images/objects/3.png') }}" alt="Services Image">
+            <img loading="lazy" src="{{ asset('user_assets/images/objects/3.webp') }}" alt="Services Image">
         </div>
         <div class="section-title mrb-55 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
             <div class="container">
@@ -361,7 +361,7 @@
     <!-- Service Section Title Area End -->
     <!-- Service Section Area Start -->
     <section class="service-section-style1 bg-no-repeat bg-cover bg-pos-cb mb-5"
-        data-background="{{ asset('user_assets/images/bg/abs-bg7.png') }}">
+        data-background="{{ asset('user_assets/images/bg/abs-bg7.webp') }}">
         <div class="section-content">
             <div class="container">
                 <div class="row">
@@ -424,7 +424,7 @@
                     <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInUp" data-wow-delay="200ms"
                         data-wow-duration="800ms">
                         <div class="shine-effect">
-                            <img loading="lazy" class="img-full" src="{{ asset('user_assets/images/offer_2.png') }}"
+                            <img loading="lazy" class="img-full" src="{{ asset('user_assets/images/offer_2.webp') }}"
                                 alt="offer image">
                         </div>
                     </div>
