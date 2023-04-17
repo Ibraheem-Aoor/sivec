@@ -17,7 +17,7 @@
         .img-box {
             box-sizing: content-box;
             margin: 20px;
-            width: 650px;
+            width: 400px;
             height: auto;
             overflow: hidden;
             display: inline-block !important;
@@ -126,16 +126,56 @@
                 <img src="{{ asset('user_assets/images/ramadan/greetings_offer_6.jpg') }}" loading="lazy" alt="" />
             </div>
             <div class="img-box" id="img-box">
-                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_6.jpg') }}" loading="lazy" alt="" />
-            </div>
-            <div class="img-box" id="img-box">
                 <img src="{{ asset('user_assets/images/ramadan/greetings_offer_7.jpg') }}" loading="lazy" alt="" />
             </div>
             <div class="img-box" id="img-box">
                 <img src="{{ asset('user_assets/images/ramadan/greetings_offer_8.jpg') }}" loading="lazy" alt="" />
             </div>
             <div class="img-box" id="img-box">
-                <img src="{{ asset('user_assets/images/ramadan/working_hours_updated.jpg') }}" loading="lazy" alt="" />
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_9.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_10.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_11.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_12.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_13.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_14.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_15.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_16.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_17.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_18.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_19.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_20.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_21.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/greetings_offer_22.jpg') }}" loading="lazy" alt="" />
+            </div>
+            <div class="img-box" id="img-box">
+                <img src="{{ asset('user_assets/images/ramadan/working_hours_updated.jpg') }}" loading="lazy"
+                    alt="" />
             </div>
         </div>
     </section>
