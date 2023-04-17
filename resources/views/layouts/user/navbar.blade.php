@@ -8,7 +8,7 @@
                         alt="logo">
                 </a>
                 <a href="{{ route('site.ramadan') }}" class="ramadan-lattern">
-                    <img src="{{ asset('user_assets/images/ramadan/latern.png') }}" width="165" height="72"
+                    <img src="{{ asset('user_assets/images/ramadan/latern.webp') }}" width="165" height="72"
                         alt="logo">
                 </a>
             </div>
@@ -70,7 +70,7 @@
                     <a data-bs-toggle="modal" data-bs-target="#catalogModal" >{{ __('custom.site.catalog') }}</a>
                 </li>
                 {{-- End  Catalog --}}
-                
+
 
                 {{-- Start Ramdan --}}
                 <li class="@if (Route::currentRouteName() == 'site.ramadan') current @endif">

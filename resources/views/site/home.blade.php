@@ -449,7 +449,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <img src="{{ asset('user_assets/images/ramadan/home_popup.jpg') }}" loading="lazy" alt="">
+                    <img src="{{ asset('user_assets/images/ramadan/home_popup.webp') }}" loading="lazy" alt="">
                 </div>
             </div>
         </div>
