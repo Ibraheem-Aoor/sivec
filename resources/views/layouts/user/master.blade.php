@@ -195,7 +195,7 @@
                         <div class="col-xl-3 col-lg-6">
                             <div class="widget footer-widget mrr-60 mrr-md-0">
                                 <div class="footer-logo">
-                                    <img src="{{ asset('user_assets/images/logo/white_logo.webp') }}" alt="logo-white"
+                                    <img src="{{ asset('user_assets/images/logo/white_logo.webp?v=1.0') }}" alt="logo-white"
                                         class="mrb-25">
                                 </div>
                                 <p class="mrb-25"></p>
@@ -244,7 +244,7 @@
             </a>
             <div class="logo-box">
                 <a target="_blank" href="{{ route('site.home') }}" aria-label="logo image">
-                    <img src="{{ asset('user_assets/images/logo/black_logo.webp') }}" width="165" height="72"
+                    <img src="{{ asset('user_assets/images/logo/black_logo.webp?v=1.0') }}" width="165" height="72"
                         alt="logo-black">
                 </a>
             </div>
@@ -298,7 +298,7 @@
                 <div class="modal-body">
                     <div>
                         <video id="catalogVideo" controls>
-                            <source src="{{ asset('user_assets/videos/whatsapp_catalog.mp4') }}">
+                            <source src="{{ asset('user_assets/videos/whatsapp_catalog.mp4?v=1.0') }}">
                         </video>
                     </div>
                 </div>
