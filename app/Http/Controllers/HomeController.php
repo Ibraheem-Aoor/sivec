@@ -31,7 +31,7 @@ class HomeController extends Controller
             $site_settings ,
             $branches_page_settings,
             $image_categories,
-            $meta_desc = "SEVIC is considered one of the leading offices in the United Arab Emirates in the field of engineering consultancy and project management Providing the best Engineering Consulting & interior design services";
+            $meta_desc;
 
     public function __construct()
     {
@@ -41,6 +41,9 @@ class HomeController extends Controller
         $this->branches_page_settings = $this->getPageSettings('branches');
         $this->site_settings = $this->getPageSettings('site');
         $this->image_categories = $this->setImageCategorires();
+        $this->meta_desc       =    app()->getLocale() ? "احصل على خدمات الاستشارات الهندسية والتصميم الداخلي والمعماري الخبرة في الإمارات العربية المتحدة من شركة الرؤية المتكاملة (SIVEC). يقدم فريقنا من المستشارين ذوي الخبرة حلولًا عالية الجودة لتصميم المباني والتصميم الشركي والتصميم الحديث"
+                                :
+                            "Get expert engineering, architecture, and interior design consulting services in  UAE from SIVEC (الرؤية المتكاملة). Our experienced consultants deliver high-quality solutions for building design, corporate design, modern design, and more.";
         View::share(['site_settings' => $this->site_settings ,
                     'about_page_settings' => $this->about_page_settings ,
                     'image_categories' =>  $this->image_categories,

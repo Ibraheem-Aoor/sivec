@@ -424,8 +424,8 @@
                     <div class="col-md-12 col-lg-10 col-xl-6 wow fadeInUp" data-wow-delay="200ms"
                         data-wow-duration="800ms">
                         <div class="shine-effect">
-                            <img loading="lazy" class="img-full" src="{{ asset('user_assets/images/offer_2.webp?v=1.0') }}"
-                                alt="offer image">
+                            <img loading="lazy" class="img-full"
+                                src="{{ asset('user_assets/images/offer_2.webp?v=1.0') }}" alt="offer image">
                         </div>
                     </div>
                 </div>
@@ -436,26 +436,6 @@
 
 
     @include('site.partials.call_section')
-
-    <!-- Start Ramadan Modal -->
-    <div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="testModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    {{-- <h5 class="modal-title" id="testModalLabel">Modal title</h5> --}}
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <img src="{{ asset('user_assets/images/ramadan/home_popup.webp?v=1.0') }}" loading="lazy" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Ramadan Modal -->
-
 
 
 @endsection
@@ -469,13 +449,5 @@
                 $('.owl-next').click();
             }
         }, 5000);
-    </script>
-    <script>
-        @if (!Session::has('ramadan_popup_close'))
-            $(document).ready(function() {
-                $('#testModal').modal('show');
-            });
-            var x = "{{ Session::put('ramadan_popup_close', true) }}";
-        @endif
     </script>
 @endpush

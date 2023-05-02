@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="{{ $meta_desc }}">
     <meta name="keywords"
-        content="sivec,architecture,interior,decoration, design, corporate, modern, html, template, multipurpose, creative,engineering,engineering consulting ,sevic,svec, alrouya almoutakamela , الرؤية المتكاملة , الرؤية العصرية , تصاميم هندسية , مباني, مساجد , دبي , الامارات" />
+        content="الرؤية الذكية للاستشارات الهندسية,الهندسية,للاستشارات,المتكاملة,الرؤية,الرؤية المتكاملة للاستشارات الهندسية,sivec,architecture,interior,decoration, creative,engineering,engineering consulting ,sevic,svec, alrouya almoutakamela , الرؤية المتكاملة , الرؤية العصرية , تصاميم هندسية , مباني, مساجد , دبي , الامارات" />
     <meta property="og:title" content="{{ $page_title }}" />
     <meta property="og:type" content="Engineering Consulting" />
     <meta property="og:url" content="{{ route('site.home') }}" />
@@ -195,8 +195,8 @@
                         <div class="col-xl-3 col-lg-6">
                             <div class="widget footer-widget mrr-60 mrr-md-0">
                                 <div class="footer-logo">
-                                    <img src="{{ asset('user_assets/images/logo/white_logo.webp?v=1.0') }}" alt="logo-white"
-                                        class="mrb-25">
+                                    <img src="{{ asset('user_assets/images/logo/white_logo.webp?v=1.0') }}"
+                                        alt="logo-white" class="mrb-25">
                                 </div>
                                 <p class="mrb-25"></p>
                                 <ul class="social-list">
@@ -244,8 +244,8 @@
             </a>
             <div class="logo-box">
                 <a target="_blank" href="{{ route('site.home') }}" aria-label="logo image">
-                    <img src="{{ asset('user_assets/images/logo/black_logo.webp?v=1.0') }}" width="165" height="72"
-                        alt="logo-black">
+                    <img src="{{ asset('user_assets/images/logo/black_logo.webp?v=1.0') }}" width="165"
+                        height="72" alt="logo-black">
                 </a>
             </div>
             <div class="mobile-nav-container"></div>

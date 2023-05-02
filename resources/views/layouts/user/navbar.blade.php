@@ -67,16 +67,10 @@
 
                 {{-- Start Catalog --}}
                 <li class="">
-                    <a data-bs-toggle="modal" data-bs-target="#catalogModal" >{{ __('custom.site.catalog') }}</a>
+                    <a data-bs-toggle="modal" data-bs-target="#catalogModal">{{ __('custom.site.catalog') }}</a>
                 </li>
                 {{-- End  Catalog --}}
 
-
-                {{-- Start Ramdan --}}
-                <li class="@if (Route::currentRouteName() == 'site.ramadan') current @endif">
-                    <a href="{{ route('site.ramadan') }}">{{ __('custom.site.RAMADAN') }}</a>
-                </li>
-                {{-- End  Ramdan --}}
             </ul>
             <div class="main-menu-right">
                 <a href="#" class="mobile-nav-toggler">
