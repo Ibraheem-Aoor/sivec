@@ -7,10 +7,6 @@
                     <img src="{{ asset('user_assets/images/logo/black_logo.webp?v=1.0') }}" width="165" height="72"
                         alt="logo">
                 </a>
-                <a href="{{ route('site.ramadan') }}" class="ramadan-lattern">
-                    <img src="{{ asset('user_assets/images/ramadan/latern.png') }}" width="165" height="72"
-                        alt="logo">
-                </a>
             </div>
             <ul class="main-nav-menu">
                 <li class="@if (Route::currentRouteName() == 'site.home') current @endif">
