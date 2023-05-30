@@ -398,7 +398,7 @@
     </script>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZWVDK3KPK"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3TSLKMVVE"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
