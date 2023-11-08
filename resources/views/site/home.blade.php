@@ -13,20 +13,6 @@
         </div>
         <div class="home-carousel owl-theme owl-carousel">
             <div class="slide-item">
-                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/24341.webp?v=1.0') }}"></div>
-                <div class="auto-container">
-                    <div class="row clearfix">
-                        <div class="col-xl-8 col-lg-12 col-md-12 content-column">
-                            <div class="content-box">
-                                <h1 class="home-carousel-title">{{ __('custom.site.slide_ramadan') }}
-                                </h1>
-                                <p class="home-carousel-text"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slide-item">
                 <div class="image-layer" data-background="{{ asset('user_assets/images/slider/400.webp?v=1.0') }}"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
