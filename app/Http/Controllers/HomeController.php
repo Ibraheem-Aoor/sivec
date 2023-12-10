@@ -293,7 +293,7 @@ class HomeController extends Controller
         $data['meta_desc']  =   $this->meta_desc;
 
         $data['page_settings'] =  BusinessSetting::query()->wherePage('about')->pluck('value' , 'key');
-        $data['images'] = Image::query()->where('image_category_id' , $category->id)->get();
+        $data['images'] = Image::query()->where('image_category_id' , $category->id)->paginate(20);
         $data['footer_disabled'] = true;
         $data['buildings_gallery']    =  decrypt($category_id) == 7;
         $view   =   view('site.gallery' , $data)->render();

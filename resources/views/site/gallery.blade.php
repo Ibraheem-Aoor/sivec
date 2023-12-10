@@ -144,6 +144,78 @@
 
         }
     </style>
+
+    {{-- START pagination style --}}
+    <style>
+        /* Start Pagination Section */
+        .pagination_sec .pagination {
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .pagination_sec .page-item.active .page-link {
+            background-color: #F25F29;
+            border-color: #FAB758;
+            color: #fff !important;
+        }
+
+        .pagination_sec .page-item .page-link {
+            font-size: 23px;
+            padding: 3px 25px;
+            color: #100F0F;
+            cursor: pointer !important;
+        }
+
+
+        .pagination_sec .span_direction {
+            font-size: 18px;
+            letter-spacing: 0.5px;
+            font-weight: bold;
+        }
+
+        .pagination_sec .span_direction.span_direction_next {
+            color: var(--basicColor);
+        }
+
+        .page-link:hover {
+            z-index: 2;
+            background-color: #F25F29;
+            border-color: #F25F29;
+            color:#fff !important;
+        }
+
+        html[lang="ar"] .pagination_sec .page-item:first-child .page-link {
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+            border-top-right-radius: var(--bs-pagination-border-radius);
+            border-bottom-right-radius: var(--bs-pagination-border-radius);
+        }
+
+        html[lang="ar"] .pagination_sec .page-item:last-child .page-link {
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+            border-top-left-radius: var(--bs-pagination-border-radius);
+            border-bottom-left-radius: var(--bs-pagination-border-radius);
+        }
+
+        @media (max-width:321px) {
+            .pagination_sec .page-item .page-link {
+                font-size: 12px !important;
+                padding: 2px 11px !important;
+            }
+        }
+
+        @media (min-width:325px) and (max-width:600px) {
+            .pagination_sec .page-item .page-link {
+                font-size: 13px !important;
+                padding: 2px 15px !important;
+            }
+        }
+
+        /* End Pagination Section */
+    </style>
+    {{-- End Pagination Style. --}}
 @endpush
 @section('content')
     @include('site.partials.page-title')
@@ -160,6 +232,7 @@
             </div>
         @endforeach
     </div>
+    @include('site.partials.pagiantion', ['items' => $images])
     <div id="img-modal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="img-enlarged">
