@@ -294,6 +294,7 @@ class HomeController extends Controller
 
         $data['page_settings'] =  BusinessSetting::query()->wherePage('about')->pluck('value' , 'key');
         $data['images'] = Image::query()->where('image_category_id' , $category->id)->paginate(20);
+        $data['is_interior_caetegory'] = $category->parent_id == 9 ;
         $data['footer_disabled'] = true;
         $data['buildings_gallery']    =  decrypt($category_id) == 7;
         $view   =   view('site.gallery' , $data)->render();
@@ -313,6 +314,21 @@ class HomeController extends Controller
         $data['meta_desc']  =   "SEVIC RAMDAN 2023";
         return view('site.ramadan' , $data);
     }
+
+    // public function saveImagesToDB()
+    // {
+    //     $interior_parent_folder = Storage::disk('public')->files('gallery/9/13');
+    //     // dd(basename(($interior_parent_folder[0])));
+    //     foreach($interior_parent_folder as $image)
+    //     {
+    //         $name = basename($image);
+    //         Image::query()->create([
+    //             'name' => $name,
+    //             'image_category_id' => 13,
+    //         ]);
+    //     }
+    //     dd('Done');
+    // }
 
 
 

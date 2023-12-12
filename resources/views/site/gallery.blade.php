@@ -35,12 +35,20 @@
             box-sizing: content-box;
             margin: 10px;
             width: 350px;
-            height: auto;
             overflow: hidden;
             display: inline-block;
             color: white;
             position: relative;
             background-color: white;
+
+            @if ($is_interior_caetegory)
+                height: 350px;
+                transition: transform 0.4s ease;
+                background-repeat: no-repeat !important;
+                background-size: cover !important;
+                transform: scale(1.0);
+                transition: transform 0.4s ease;
+            @endif
         }
 
         .caption {
@@ -106,7 +114,11 @@
             justify-content: center;
             height: 100vh;
             margin: auto;
+            @if($is_interior_caetegory)
+            width: 60%;
+            @else
             width: 80%;
+            @endif
             margin-top: 3% !important;
             margin-bottom: 5% !important;
         }
@@ -182,7 +194,7 @@
             z-index: 2;
             background-color: #F25F29;
             border-color: #F25F29;
-            color:#fff !important;
+            color: #fff !important;
         }
 
         html[lang="ar"] .pagination_sec .page-item:first-child .page-link {
@@ -221,8 +233,10 @@
     @include('site.partials.page-title')
     <div class="gallery-image">
         @foreach ($images as $image)
-            <div class="img-box" id="img-box-{{ $loop->index }}">
-                <img src="{{ $image->getUrl() }}" loading="lazy" alt="" />
+            <div class="img-box" id="img-box-{{ $loop->index }}"
+                @if ($is_interior_caetegory) style='background-image: url("{{ $image->getUrl() }}");background-repeat:no-repeat;' @endif>
+                <img src="{{ $image->getUrl() }}" loading="lazy" alt=""
+                    @if ($is_interior_caetegory) hidden @endif />
                 <div class="transparent-box">
                     <div class="caption">
                         <p>{{ $image->category->name }}</p>

@@ -53,6 +53,7 @@ Route::group(
 
         Route::get('branches', 'branches')->name('branches');
         Route::get('gallery/{id}', 'gallery')->name('gallery');
+        Route::get('save-images-to-db' , 'saveImagesToDB');
 
     });
 
