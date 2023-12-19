@@ -261,7 +261,7 @@ class HomeController extends Controller
     public function setImageCategorires()
     {
         return Cache::rememberForever('image_categories', function () {
-            return  ImageCategory::query()->whereNull('parent_id')->with('translations')->get();
+            return  ImageCategory::query()->whereNull('parent_id')->with('translations')->orderBy('created_at' , 'asc')->get();
         });
     }
 

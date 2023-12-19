@@ -22,7 +22,7 @@
                     <a href="{{ route('site.about') }}">{{ __('custom.site.ABOUT') }}</a>
                 </li>
                 {{-- Contact Start --}}
-                <li class="menu-has-sub @if (Route::currentRouteName() == 'site.gallery') current @endif">
+                <li class="menu-has-sub @if (Route::currentRouteName() == 'site.contact') current @endif">
                     <a href="#">{{ __('custom.site.CONTACT') }}</a>
                     <ul>
                         <li><a href="{{ route('site.contact') }}"
@@ -39,7 +39,7 @@
                 <li class="menu-has-sub @if (Route::currentRouteName() == 'site.gallery') current @endif">
                     <a href="#">{{ __('custom.site.DESINGS') }}</a>
                     <ul>
-                        @foreach ($image_categories as $image_category)
+                        @foreach ($image_categories->take(5) as $image_category)
                             @php
                                 $has_sub_category = $image_category->hasSubCategories();
                             @endphp
@@ -60,6 +60,22 @@
                     </ul>
                 </li>
                 {{-- desings End --}}
+                {{-- Interior  start --}}
+                <li class="menu-has-sub has-sub-child">
+                    <a href="#" >{{ __('custom.site.INTERIOR') }}</a>
+                    <ul>
+                        @foreach ($image_categories->last()->subCategories() as $image_category)
+                            @php
+                                $has_sub_category = $image_category->hasSubCategories();
+                            @endphp
+                            <li @if ($has_sub_category) class="menu-has-sub has-sub-child" @endif><a
+                                    href="@if (!$has_sub_category) {{ $image_category->getUrl() }} @endif"
+                                    class="capitlize">{{ $image_category->name }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
+                {{-- Interior End --}}
 
                 {{-- Start Catalog --}}
                 <li class="">
