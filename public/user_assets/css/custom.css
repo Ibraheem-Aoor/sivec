@@ -7,3 +7,9 @@
         margin-right: -1px !important;
     }
 }
+
+@media (min-width:320px) and (max-width:1023px) {
+    .mobile-nav-content .social-list li {
+        margin-right: 1px !important;
+    }
+}

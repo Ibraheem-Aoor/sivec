@@ -334,6 +334,8 @@
                 </li>
                 <li><a target="_blank" href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a>
                 </li>
+                <li><a target="_blank" href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a>
+                </li>
             </ul>
         </div>
     </div>
