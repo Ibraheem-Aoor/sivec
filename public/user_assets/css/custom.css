@@ -1,0 +1,9 @@
+/**
+    # Custom styles
+*/
+
+@media (min-width:1440px) {
+    .social-list li {
+        margin-right: -1px !important;
+    }
+}

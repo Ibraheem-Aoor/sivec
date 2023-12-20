@@ -27,6 +27,7 @@
     <link href="{{ asset('user_assets/images/favicon.png') }}" rel="shortcut icon" type="image/png">
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ asset('user_assets/css/style.css?v=1.0') }}">
+    <link rel="stylesheet" href="{{ asset('user_assets/css/custom.css?v=1.0') }}">
     <link rel="stylesheet" href="{{ asset('user_assets/css/responsive.css?v=1.0') }}">
     @stack('css')
     @if (app()->getLocale() == 'ar')
@@ -265,6 +266,9 @@
                                     </li>
                                     <li><a target="_blank" href="{{ @$site_settings['snapchat'] }}"><i
                                                 class="fab fa-snapchat"></i></a>
+                                    </li>
+                                    <li><a target="_blank" href="{{ @$site_settings['youtube'] }}"><i
+                                                class="fab fa-youtube"></i></a>
                                     </li>
                                     <li><a target="_blank" href="{{ @$site_settings['youtube'] }}"><i
                                                 class="fab fa-youtube"></i></a>
