@@ -64,7 +64,7 @@
                 <li class="menu-has-sub has-sub-child">
                     <a href="#" >{{ __('custom.site.INTERIOR') }}</a>
                     <ul>
-                        @foreach ($image_categories->last()->subCategories() as $image_category)
+                        @foreach ($image_categories->last()->subCategories as $image_category)
                             @php
                                 $has_sub_category = $image_category->hasSubCategories();
                             @endphp

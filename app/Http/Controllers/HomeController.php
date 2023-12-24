@@ -36,9 +36,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->services = $this->getHomeServices();
-        $this->contact_page_settings = $this->getPageSettings('contact');
         $this->about_page_settings = $this->getPageSettings('about');
-        $this->branches_page_settings = $this->getPageSettings('branches');
         $this->site_settings = $this->getPageSettings('site');
         $this->image_categories = $this->setImageCategorires();
         $this->meta_desc       =    app()->getLocale() ? "احصل على خدمات الاستشارات الهندسية والتصميم الداخلي والمعماري الخبرة في الإمارات العربية المتحدة من شركة الرؤية المتكاملة (SIVEC). يقدم فريقنا من المستشارين ذوي الخبرة حلولًا عالية الجودة لتصميم المباني والتصميم الشركي والتصميم الحديث"
@@ -76,6 +74,7 @@ class HomeController extends Controller
 
     public function contact()
     {
+        $this->contact_page_settings = $this->getPageSettings('contact');
         $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.CONTACT');
         $data['meta_desc']  =   $this->meta_desc;
         $data['page_settings'] = $this->contact_page_settings;
@@ -214,9 +213,9 @@ class HomeController extends Controller
     ####### Start Branches #####
     public function branches()
     {
+        $this->branches_page_settings = $this->getPageSettings('branches');
         $data['page_title'] = __('custom.site.sivec'). ' - '. __('custom.site.BRANCHES');
         $data['meta_desc']  =   $this->meta_desc;
-
         $data['page_settings']  =   $this->branches_page_settings;
         $addres_titles =    json_decode( @$data['page_settings']['address_titles'] , true) ?? [];
         $addres_values = json_decode(@$data['page_settings']['address_values'] , true);
@@ -240,7 +239,7 @@ class HomeController extends Controller
         {
             return Service::query()
                             ->whereStatus('ACTIVE')
-                            ->with(['category' , 'translations'])
+                            ->with('category:id,name')
                             ->limit(6)->get();
         });
     }
@@ -261,7 +260,7 @@ class HomeController extends Controller
     public function setImageCategorires()
     {
         return Cache::rememberForever('image_categories', function () {
-            return  ImageCategory::query()->whereNull('parent_id')->with('translations')->orderBy('created_at' , 'asc')->get();
+            return  ImageCategory::query()->whereNull('parent_id')->orderBy('created_at' , 'asc')->get();
         });
     }
 

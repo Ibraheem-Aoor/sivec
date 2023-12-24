@@ -23,13 +23,16 @@ class Service extends Model
         'status'
     ];
 
+    protected $with = [
+        'translations',
+    ];
 
 
     ####### Start Relationbs #######
 
-    public function category() : BelongsTo
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(ServiceCategory::class , 'category_id');
+        return $this->belongsTo(ServiceCategory::class, 'category_id');
     }
     ####### End Relationbs #######
 
@@ -46,11 +49,10 @@ class Service extends Model
 
     public function getRleatedServices()
     {
-        $related_services = self::query()->whereCategoryId($this->category->id)->where('id' , '!=' , $this->id);
-        if($related_services->count() > 0)
-        {
+        $related_services = self::query()->whereCategoryId($this->category->id)->where('id', '!=', $this->id);
+        if ($related_services->count() > 0) {
             $related_services = $related_services->orderByDesc('created_at')->get();
-        }else{
+        } else {
             $related_services = self::query()->inRandomOrder()->orderByDesc('created_at')->get();
         }
         return $related_services;
@@ -58,7 +60,7 @@ class Service extends Model
 
     public function getRoute()
     {
-        return route('site.service.details' , encrypt($this->id));
+        return route('site.service.details', encrypt($this->id));
     }
 
     public function getEncId()
