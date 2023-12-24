@@ -7,10 +7,7 @@
 
     <!-- Home Slider Start -->
 
-    <section class="home_banner_01">
-        <div id="slider-border">
-            {!! __('custom.site.take_look') !!}
-        </div>
+    <section class="home_banner_01 @if (app()->getLocale() == 'ar') home_banner_rtl @endif">
         <div class="home-carousel owl-theme owl-carousel">
             <div class="slide-item">
                 <div class="image-layer" data-background="{{ asset('user_assets/images/slider/400.webp?v=1.0') }}"></div>
@@ -352,7 +349,7 @@
             <div class="container">
                 <div class="row">
                     @foreach ($services as $service)
-                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="col-xl-4 col-lg-6 col-md-6">
                             <div class="service-style1">
                                 <div class="service-inner">
                                     <i class="service-icon {{ $service->icon }}"></i>

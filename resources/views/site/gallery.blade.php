@@ -7,9 +7,6 @@
             padding: 0;
         }
 
-        body {
-            font-family: Raleway;
-        }
 
         .heading {
             text-align: center;
@@ -114,10 +111,11 @@
             justify-content: center;
             height: 100vh;
             margin: auto;
-            @if($is_interior_caetegory)
-            width: 60%;
+
+            @if ($is_interior_caetegory)
+                width: 60%;
             @else
-            width: 80%;
+                width: 80%;
             @endif
             margin-top: 3% !important;
             margin-bottom: 5% !important;

@@ -26,6 +26,7 @@
 ## [_Accordion]
 ## [_js_tilt]
 ## [_video_popup]
+## [_home_banner_rtl]
 ## [_Home_banner_01]
 ## [_Home_banner_02]
 ## [_Testmonial_2col]
@@ -34,6 +35,7 @@
 ## [_Client_items]
 ## [_Sticky_header]
 ## [_Preloader]
+## [_TypeText]
 ==========================================
 --------- [JS_INDEXING_END] --------------
 ==========================================
@@ -235,6 +237,110 @@
       fixedContentPos: false
     });
   }
+
+  /*========= [_home_banner_rtl] =========*/
+  function home_banner_rtl() {
+    var owl = $(".home_banner_rtl .home-carousel");
+    owl.owlCarousel({
+      loop:true,
+      margin:0,
+      nav:true,
+      dots: false,
+      animateOut: 'fadeOut',
+      animateIn: 'fadeIn',
+      active: true,
+      autoplay: false,
+      rtl: true,
+      smartSpeed: 1000,
+      autoplayTimeout: 8000,
+      navText: ["<i class='base-icon-left-chevron'></i>", "<i class='base-icon-right-chevron'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        425: {
+          items: 1
+        },
+        768: {
+          items: 1
+        },
+        1024: {
+          items: 1
+        },
+        1440: {
+          items: 1
+        }
+      }
+    });
+    console.log('SS');
+  }
+  home_banner_rtl();
+
+  /*========= [_Testmonial_2col] =========*/
+  function testimonial_rtl() {
+    var owl = $(".testimonial_rtl");
+    owl.owlCarousel({
+      loop: true,
+      margin: 30,
+      autoplay: true,
+      autoplayTimeout: 8000,
+      nav: true,
+      rtl: true,
+      dots: false,
+      navText: ["<i class='base-icon-left-chevron'></i>", "<i class='base-icon-right-chevron'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        425: {
+          items: 1
+        },
+        768: {
+          items: 1
+        },
+        1024: {
+          items: 2
+        },
+        1440: {
+          items: 2
+        }
+      }
+    });
+  }
+  testimonial_rtl();
+
+  /*========= [_Projects_rtl] =========*/
+  function projects_rtl() {
+    var owl = $(".projects_rtl");
+    owl.owlCarousel({
+      loop: true,
+      margin: 10,
+      autoplay: true,
+      autoplayTimeout: 8000,
+      nav: true,
+      dots: false,
+      rtl: true,
+      navText: ["<i class='base-icon-left-chevron'></i>", "<i class='base-icon-right-chevron'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        425: {
+          items: 1
+        },
+        768: {
+          items: 2
+        },
+        1024: {
+          items: 3
+        },
+        1440: {
+          items: 5
+        }
+      }
+    });
+  }
+  projects_rtl();
 
   /*========= [_Home_banner_01] =========*/
   function home_banner_01() {
@@ -468,6 +574,39 @@
   }
   client_items();
 
+  /*========= [_Client_items] =========*/
+  function client_items_rtl() {
+    var owl = $(".client-items-rtl");
+    owl.owlCarousel({
+      loop: true,
+      margin: 30,
+      autoplay: true,
+      autoplayTimeout: 8000,
+      nav: false,
+      rtl: true,
+      dots: false,
+      navText: ["<i class='base-icon-left-chevron'></i>", "<i class='base-icon-right-chevron'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        425: {
+          items: 2
+        },
+        768: {
+          items: 3
+        },
+        1024: {
+          items: 4
+        },
+        1440: {
+          items: 5
+        }
+      }
+    });
+  }
+  client_items_rtl();
+
   /*========= [_Sticky_header] =========*/
   $(window).on("scroll", function () {
     if ($(".sticky-header--cloned").length) {
@@ -499,5 +638,56 @@
       });
     }
   });
+
+  /*========= [TypeText] =========*/
+  var TxtType = function(el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = !1
+  };
+  TxtType.prototype.tick = function() {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+    if (this.isDeleting) {
+      this.txt = fullTxt.substring(0, this.txt.length - 1)
+    } else {
+      this.txt = fullTxt.substring(0, this.txt.length + 1)
+    }
+    this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+    var that = this;
+    var delta = 200 - Math.random() * 100;
+    if (this.isDeleting) {
+      delta /= 2
+    }
+    if (!this.isDeleting && this.txt === fullTxt) {
+      delta = this.period;
+      this.isDeleting = !0
+    } else if (this.isDeleting && this.txt === '') {
+      this.isDeleting = !1;
+      this.loopNum++;
+      delta = 500
+    }
+    setTimeout(function() {
+      that.tick()
+    }, delta)
+  };
+  window.onload = function() {
+    var elements = document.getElementsByClassName('typewrite');
+    for (var i = 0; i < elements.length; i++) {
+      var toRotate = elements[i].getAttribute('data-type');
+      var period = elements[i].getAttribute('data-period');
+      if (toRotate) {
+        new TxtType(elements[i], JSON.parse(toRotate), period)
+      }
+    }
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".typewrite > .wrap { border-right: 0.06em solid #fff}";
+    document.body.appendChild(css)
+  }
 
 })(jQuery);

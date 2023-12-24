@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rt">
+@if (app()->getLocale() == 'ar')
+    <html lang="ar" dir="rtl">
+@else
+    <html lang="en" dir="ltr">
+@endif
 
 <head>
     <meta charset="UTF-8">
@@ -26,37 +30,24 @@
     <title>{{ $page_title }}</title>
     <link href="{{ asset('user_assets/images/favicon.png') }}" rel="shortcut icon" type="image/png">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('user_assets/css/style.css?v=1.0') }}">
-    <link rel="stylesheet" href="{{ asset('user_assets/css/custom.css?v=1.0') }}">
-    <link rel="stylesheet" href="{{ asset('user_assets/css/responsive.css?v=1.0') }}">
-    @stack('css')
     @if (app()->getLocale() == 'ar')
+        <link rel="stylesheet" href="{{ asset('user_assets/css/bootstrap.rtl.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('user_assets/css/bootstrap-grid.rtl.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('user_assets/css/bootstrap-reboot.rtl.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('user_assets/css/bootstrap-utilities.rtl.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('user_assets/css/style-rtl.css') }}">
+        <link rel="stylesheet" href="{{ asset('user_assets/css/style-rtl-modify.css') }}">
         <style>
-            .footer-widget-list li a:before {
-                position: absolute;
-                content: '\f17d';
-                left: 80px !important;
-                top: -3px;
-                font-family: 'webexbaseicon';
-                font-weight: 600;
-                rotate: 180deg !important;
-                margin-left: 20px !important;
-            }
-
-            .footer-widget-list li a {
-                padding-right: 30px !important;
-            }
-
-            .footer-widget-list li a:hover {
-                color: var(--primary-color);
-                padding-right: 35px !important;
-            }
-
             .prime-text {
                 color: #F25F29 !important;
             }
         </style>
+    @else
+        <link rel="stylesheet" href="{{ asset('user_assets/css/style.css?v=1.0') }}">
+        <link rel="stylesheet" href="{{ asset('user_assets/css/responsive.css?v=1.0') }}">
     @endif
+    @stack('css')
+    <link rel="stylesheet" href="{{ asset('user_assets/css/custom.css?v=2.0') }}">
     <!-- Meta Pixel Code -->
     <script>
         ! function(f, b, e, v, n, t, s) {
@@ -201,22 +192,17 @@
                             <div class="widget footer-widget">
                                 <h5 class="widget-title text-white mrb-30">{{ __('custom.site.Quick Links') }}</h5>
                                 <ul class="footer-widget-list">
-                                    <li><a class="@if (app()->getLocale() == 'ar') footer-links-edited @endif"
-                                            href="{{ route('site.services') }}"
+                                    <li><a class="" href="{{ route('site.services') }}"
                                             class="capitlized">{{ __('custom.site.SERVICES') }}</a></li>
-                                    <li><a class="@if (app()->getLocale() == 'ar') footer-links-edited @endif"
-                                            href="{{ route('site.projects') }}"
+                                    <li><a class="" href="{{ route('site.projects') }}"
                                             class="capitlized">{{ __('custom.site.PROJECTS') }}</a></li>
-                                    <li><a class="@if (app()->getLocale() == 'ar') footer-links-edited @endif"
-                                            href="{{ route('site.contact') }}"
+                                    <li><a class="" href="{{ route('site.contact') }}"
                                             class="capitlized">{{ __('custom.site.CONTACT') }}</a></li>
                                     <li>
-                                        <a class="@if (app()->getLocale() == 'ar') footer-links-edited @endif"
-                                            href="{{ route('site.about') }}"
+                                        <a class="" href="{{ route('site.about') }}"
                                             class="capitlized">{{ __('custom.site.ABOUT') }}</a>
                                     </li>
-                                    <li><a class="@if (app()->getLocale() == 'ar') footer-links-edited @endif"
-                                            href="{{ route('site.jobs') }}"
+                                    <li><a class="" href="{{ route('site.jobs') }}"
                                             class="capitlized">{{ __('custom.site.JOBS') }}</a></li>
                                 </ul>
                             </div>
@@ -245,7 +231,7 @@
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-6">
-                            <div class="widget footer-widget mrr-60 mrr-md-0">
+                            <div class="widget footer-widget  mrr-md-0">
                                 <div class="footer-logo">
                                     <img src="{{ asset('user_assets/images/logo/white_logo.webp?v=1.0') }}"
                                         alt="logo-white" class="mrb-25">
@@ -390,11 +376,11 @@
     <script src="{{ asset('user_assets/js/magnific-popup.min.js?v=1.0') }}"></script>
     <script src="{{ asset('user_assets/js/backtotop.js?v=1.0') }}"></script>
     <script src="{{ asset('user_assets/js/trigger.js?v=1.0') }}"></script>
-    <script>
+    {{-- <script>
         $(".owl-carousel").owlCarousel({
             autoPlay: 3000,
         });
-    </script>
+    </script> --}}
     <script>
         $.ajaxSetup({
             headers: {
