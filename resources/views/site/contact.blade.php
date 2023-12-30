@@ -38,7 +38,7 @@
                          </li>
                          <li><a target="blank" href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a>
                          </li>
-                         <li><a target="blank" href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a>
+                         <li><a target="blank" href="{{ @$site_settings['tiktok'] }}"><i class="ri-tiktok-line"></i></a>
                          </li>
                      </ul>
                  </div>

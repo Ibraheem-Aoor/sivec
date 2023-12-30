@@ -46,6 +46,7 @@
         <link rel="stylesheet" href="{{ asset('user_assets/css/style.css?v=1.0') }}">
         <link rel="stylesheet" href="{{ asset('user_assets/css/responsive.css?v=1.0') }}">
     @endif
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
     @stack('css')
     <link rel="stylesheet" href="{{ asset('user_assets/css/custom.css?v=2.0') }}">
     <!-- Meta Pixel Code -->
@@ -256,8 +257,9 @@
                                     <li><a target="_blank" href="{{ @$site_settings['youtube'] }}"><i
                                                 class="fab fa-youtube"></i></a>
                                     </li>
-                                    <li><a target="_blank" href="{{ @$site_settings['youtube'] }}"><i
-                                                class="fab fa-youtube"></i></a>
+                                    <li><a target="_blank" href="{{ @$site_settings['tiktok'] }}">
+                                            <i class="ri-tiktok-line"></i>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -320,7 +322,7 @@
                 </li>
                 <li><a target="_blank" href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a>
                 </li>
-                <li><a target="_blank" href="{{ @$site_settings['youtube'] }}"><i class="fab fa-youtube"></i></a>
+                <li><a target="_blank" href="{{ @$site_settings['tiktok'] }}"> <i class="ri-tiktok-line"></i></a>
                 </li>
             </ul>
         </div>
