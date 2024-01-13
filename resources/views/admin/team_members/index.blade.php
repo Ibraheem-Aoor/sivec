@@ -6,8 +6,8 @@
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @include('admin.partials.page_header')
         <!-- Main content -->
+        @include('admin.partials.page_header'  , [ 'page_title_1' => __('custom.dashboard.team_members')])
         <section class="content">
             <div class="card">
                 <div class="card-header">

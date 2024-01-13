@@ -25,7 +25,8 @@ class CreateServiceCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  =>  'required|unique:service_categories,name',
+            'name_ar'  =>  'required|unique:service_category_translations,name',
+            'name_en'  =>  'required|unique:service_category_translations,name',
             'status'    =>  'required'
         ];
     }

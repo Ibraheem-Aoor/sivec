@@ -70,9 +70,11 @@ $('#client-create-update-modal').on('show.bs.modal', function (e) {
     }
     var imagePath = btn.getAttribute('data-image');
     if (isCreate == 1) {
+        document.getElementById('image-input-wrapper').style.backgroundImage =  "url(" + globals.placeholder_image + ")";
         $(this).find('button[type="reset"]').click();
     } else {
         console.log(client);
+        document.getElementById('image-input-wrapper').style.backgroundImage =  "url(" +  btn.getAttribute('data-image') + ")";
         $('#name').val(client.name);
         $('#email').val(client.email);
         $('#phone').val(client.phone);

@@ -41,7 +41,7 @@ $(document).ready(function () {
     $(document).on('submit', 'form:not(#confirm-delete-form)', function (e) {
         e.preventDefault();
         var submitBtn = $(this).find('button[type="submit"]');
-        submitBtn.prop('disabled',true);
+        submitBtn.prop('disabled', true);
         var formData = new FormData(this);
         $.ajax({
             url: $(this).attr('action'),
@@ -83,5 +83,57 @@ $(document).ready(function () {
         });
     });
 
+
+
+    // English Inputs
+    // Get all input elements with the specified class
+    const inputs = document.querySelectorAll('.en-only');
+
+    // Iterate over each input and attach event listeners
+    inputs.forEach((input) => {
+        input.addEventListener('input', (event) => {
+            const inputValue = event.target.value;
+            const englishCharsRegex = /^[a-zA-Z0-9 -]*$/;
+
+            if (!englishCharsRegex.test(inputValue)) {
+                const englishCharsOnly = inputValue.replace(/[^a-zA-Z0-9 -]/g, '');
+                event.target.value = englishCharsOnly;
+            }
+        });
+    });
+
+
+    // Arabic Inputs
+    // Get all input elements with the specified class
+    const arabicInputs = document.querySelectorAll('.ar-only');
+
+    // Iterate over each input and attach event listeners
+    arabicInputs.forEach((input) => {
+        input.addEventListener('input', (event) => {
+            const arabicInputValue = event.target.value;
+            const arabicCharsRegex = /^[\u0600-\u06FF0-9 -]*$/;
+
+            if (!arabicCharsRegex.test(arabicInputValue)) {
+                const arabicCharsOnly = arabicInputValue.replace(/[^\u0600-\u06FF0-9 -]/g, '');
+                event.target.value = arabicCharsOnly;
+            }
+        });
+    });
+
+
+
+
+
+
+    /**
+         * Master Checkbox trigger
+         * */
+    $(document).on('change', '#master-checkbox', function () {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#master_checkbox)');
+        const isChecked = this.checked;
+        checkboxes.forEach(function (checkbox) {
+            checkbox.checked = isChecked;
+        });
+    });
 
 });

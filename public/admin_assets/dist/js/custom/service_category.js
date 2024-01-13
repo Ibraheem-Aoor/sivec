@@ -21,8 +21,14 @@ function renderDataTable() {
 
 function getTableColumns() {
     return [{
-        data: 'name',
-        name: 'name',
+        data: 'name_ar',
+        name: 'name_ar',
+        searchable: true,
+        orderable: true,
+    },
+    {
+        data: 'name_en',
+        name: 'name_en',
         searchable: true,
         orderable: true,
     },
@@ -61,7 +67,8 @@ $('#service-category-create-update-modal').on('show.bs.modal', function (e) {
         $(this).find('button[type="reset"]').click();
     } else {
         console.log(serviceCategory);
-        $('#name').val(serviceCategory.name);
+        $('#name_ar').val(serviceCategory.translations[0].name);
+        $('#name_en').val(serviceCategory.translations[1].name);
         $('#status').val(serviceCategory.status);
     }
 

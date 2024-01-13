@@ -171,7 +171,11 @@
             },
         });
     </script>
-
+    <script>
+        var globals = {
+            'placeholder_image' : "{{ asset('admin_assets/dist/img/image_placeholder.jpg') }}",
+        };
+    </script>
     <script src="{{ asset('admin_assets/dist/js/custom/master.js?v=0.03') }}"></script>
     @stack('js')
 

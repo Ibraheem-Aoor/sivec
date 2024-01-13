@@ -32,7 +32,9 @@ class ProjectCategoryController extends Controller
     {
         $data['table_data_url'] = route('admin.project-category.table_data');
         $data['show_statuses'] = BaseShowStatusEnum::getInstances();
-        return view('admin.project_category.index' , $data);
+        $data['categories'] =   ProjectCategory::query()->get();
+        // dd($data['categories']);
+        return view('admin.project_category.index', $data);
     }
 
     /**
@@ -53,22 +55,30 @@ class ProjectCategoryController extends Controller
      */
     public function store(CreateProjectCategoryRequest $request)
     {
-        try{
+        try {
             $data = $request->toArray();
-            ProjectCategory::query()->create($data);
+            ProjectCategory::query()->create([
+                'ar' => [
+                    'name' => $data['name_ar'],
+                ],
+                'en' => [
+                    'name' => $data['name_en'],
+                ],
+                'status' => $data['status'],
+                'parent_id' =>  $data['project_category_id'],
+            ]);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.create_success');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
             $response_data['modal_to_hiode'] = '#project-category-create-update-modal';
             $error_no = 200;
-        }catch(Throwable $e)
-        {
+        } catch (Throwable $e) {
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage();
             $error_no = 500;
         }
-        return response()->json($response_data , $error_no);
+        return response()->json($response_data, $error_no);
     }
 
     /**
@@ -102,23 +112,30 @@ class ProjectCategoryController extends Controller
      */
     public function update(UpdateProjectCategoryRequest $request, $id)
     {
-        try{
-            $service_cateogry = ProjectCategory::query()->find($id);
+        try {
+            $project_category = ProjectCategory::query()->find($id);
             $data = $request->toArray();
-            $service_cateogry->update($data);
+            $project_category->update([
+                'ar' => [
+                    'name' => $data['name_ar'],
+                ],
+                'en' => [
+                    'name' => $data['name_en'],
+                ],
+                'status' => $data['status'],
+            ]);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.updated_successs');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
             $response_data['modal_to_hiode'] = '#project-category-create-update-modal';
             $error_no = 200;
-        }catch(Throwable $e)
-        {
+        } catch (Throwable $e) {
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
             $error_no = 500;
         }
-        return response()->json($response_data , $error_no);
+        return response()->json($response_data, $error_no);
     }
 
     /**
@@ -129,18 +146,15 @@ class ProjectCategoryController extends Controller
      */
     public function destroy($id)
     {
-        try
-        {
-            $service_category  =   ProjectCategory::query()->find($id);
+        try {
+            $service_category = ProjectCategory::query()->find($id);
             $service_category->delete();
             $respnse_data['status'] = true;
             $respnse_data['is_deleted'] = true;
             $respnse_data['message'] = __('custom.deleted_successflly');
             $respnse_data['row'] = $id;
             $error_no = 200;
-        }
-        catch(Throwable $e)
-        {
+        } catch (Throwable $e) {
             $respnse_data['message'] = _('custom.smth_wrong');
             $error_no = 500;
         }
@@ -152,8 +166,15 @@ class ProjectCategoryController extends Controller
     public function getTableData()
     {
         return DataTables::of(ProjectCategory::query()->orderByDesc('created_at'))
-                    ->setTransformer(ProjectCategoryTransformer::class)
-                    ->make(true);
+            ->setTransformer(ProjectCategoryTransformer::class)
+            ->filterColumn('name', function ($query, $keyword) {
+                $query->whereHas('translations', function ($query) use ($keyword) {
+                    $query->where('name', 'like', "%$keyword%")->whereIn('locale', getAvilableLocales());
+                });
+            })->orderColumn('status'  , function($query ,  $order){
+                return $query->orderBy('status' ,  $order);
+            })
+            ->make(true);
     }
 
 }

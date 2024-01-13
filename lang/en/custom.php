@@ -24,10 +24,13 @@ return [
         'job_titles' => 'Job Titles',
         'applications' => 'Applications',
         'branches' => 'Branches',
+
     ],
 
     'image' => 'Image',
     'name' => 'Name',
+    'name_ar' => 'Name In Arabic',
+    'name_en' => 'Name In English',
     'email' => 'E-mail',
     'phone' => 'Phone',
     'title_position' => 'Title Position',
@@ -60,6 +63,7 @@ return [
     'smthing_wrong' => 'Something Went Wrong',
     'contact_success_message' => 'We Will Be In Touch!',
     'create_success' => 'Created Successfully',
+    'update' => 'Created Successfully',
     'new_address' => 'New Address',
     'address_title' => 'Title',
     'address_value' => 'Address',
@@ -182,5 +186,13 @@ return [
     ],
 
     'close' => 'Close',
+
+    'detials_ar' => 'Details In Arabi',
+    'detials_en'   => 'Details In English',
+    'description_ar'        => 'Project Description In Arabic',
+    'description_en'        =>  'Project Description In English',
+    'address_title_ar'  =>  'Address title in Arabic',
+    'address_title_en'  =>  'Address Title In English',
+    'parent_category' => 'Parent Category',
 
 ];

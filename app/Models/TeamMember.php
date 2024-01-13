@@ -4,22 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
 
-class TaeamMemmber extends Model
+class TeamMember extends Model implements TranslatableContract
 {
-    use HasFactory;
+    use HasFactory, Translatable;
 
     protected $table = 'team_members';
 
     protected $fillable = [
         'avatar',
-        'name',
-        'title_position',
         'email',
         'phone',
         'address',
-        'cover_letter',
-        'personal_details',
         'facebook',
         'instagram',
         'twitter',
@@ -27,4 +25,11 @@ class TaeamMemmber extends Model
         'status',
         'show_in_home',
     ];
+
+    protected $with = [
+        'translations',
+    ];
+
+    public $translatedAttributes = ['name', 'details'];
+
 }

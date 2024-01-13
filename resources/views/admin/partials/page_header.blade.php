@@ -10,7 +10,7 @@
                       @isset($page_title_1)
                           <li class="breadcrumb-item"><a href="#">{{ $page_title_1}}</a></li>
                       @endisset
-                      @isset($page_title_1)
+                      @isset($page_title_2)
                           <li class="breadcrumb-item active">{{$page_title_2}}</li>
                       @endisset
                   </ol>

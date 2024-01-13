@@ -24,13 +24,13 @@ function getTableColumns() {
         data: 'name',
         name: 'name',
         searchable: true,
-        orderable: true,
+        orderable: false,
     },
     {
         data: 'status',
         name: 'status',
-        searchable: true,
-        orderable: true,
+        searchable: false,
+        orderable: false,
     },
     {
         data: 'actions',
@@ -61,8 +61,9 @@ $('#project-category-create-update-modal').on('show.bs.modal', function (e) {
         $(this).find('button[type="reset"]').click();
     } else {
         console.log(projectCategory);
-        $('#name').val(projectCategory.name);
-        $('#status').val(projectCategory.status);
+        $('#name_ar').val(btn.getAttribute('data-name-ar'));
+        $('#name_en').val(btn.getAttribute('data-name-en'));
+        $('#status').val(btn.getAttribute('data-status'));
     }
 
 });

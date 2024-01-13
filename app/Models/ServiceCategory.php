@@ -2,18 +2,24 @@
 
 namespace App\Models;
 
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class ServiceCategory extends Model
+class ServiceCategory extends Model implements TranslatableContract
 {
-    use HasFactory;
-    protected $table = 'service_categories';
+    use HasFactory , Translatable;
 
     protected $fillable = [
-        'name',
         'status',
+    ];
+
+    protected $with = ['translations'];
+
+    public $translatedAttributes = [
+        'name',
     ];
 
 

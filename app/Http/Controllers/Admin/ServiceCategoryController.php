@@ -10,6 +10,7 @@ use App\Http\Requests\Admin\UpdateServiceCategoryRequest;
 use App\Http\Requests\Admin\UpdateTeamMemberRequest;
 use App\Models\ServiceCategory;
 use App\Models\TaeamMemmber;
+use App\Services\ArtisanService;
 use App\Transformers\Admin\TeamMemberTransformer;
 use App\Transformers\ServiceCategoryTransformer;
 use Illuminate\Http\Request;
@@ -19,6 +20,12 @@ use Yajra\DataTables\Facades\DataTables;
 
 class ServiceCategoryController extends Controller
 {
+
+    protected $artisan_service;
+    public function __construct()
+    {
+        $this->artisan_service  = new ArtisanService();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +35,7 @@ class ServiceCategoryController extends Controller
     {
         $data['table_data_url'] = route('admin.service-category.table_data');
         $data['show_statuses'] = BaseShowStatusEnum::getInstances();
-        return view('admin.service_category.index' , $data);
+        return view('admin.service_category.index', $data);
     }
 
     /**
@@ -49,22 +56,30 @@ class ServiceCategoryController extends Controller
      */
     public function store(CreateServiceCategoryRequest $request)
     {
-        try{
+        try {
             $data = $request->toArray();
-            ServiceCategory::query()->create($data);
+            ServiceCategory::query()->create([
+                'ar' => [
+                    'name' => $data['name_ar'],
+                ],
+                'en' => [
+                    'name' => $data['name_en'],
+                ],
+                'status' => $data['status'],
+            ]);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.create_success');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
             $response_data['modal_to_hiode'] = '#service-category-create-update-modal';
             $error_no = 200;
-        }catch(Throwable $e)
-        {
+            $this->artisan_service->call('optimize:clear');
+        } catch (Throwable $e) {
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
             $error_no = 500;
         }
-        return response()->json($response_data , $error_no);
+        return response()->json($response_data, $error_no);
     }
 
     /**
@@ -98,23 +113,32 @@ class ServiceCategoryController extends Controller
      */
     public function update(UpdateServiceCategoryRequest $request, $id)
     {
-        try{
+        try {
             $service_cateogry = ServiceCategory::query()->find($id);
             $data = $request->toArray();
-            $service_cateogry->update($data);
+            $service_cateogry->update([
+                'ar' => [
+                    'name' => $data['name_ar'],
+                ],
+                'en' => [
+                    'name' => $data['name_en'],
+                ],
+                'status' => $data['status'],
+            ]);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.updated_successs');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
             $response_data['modal_to_hiode'] = '#service-category-create-update-modal';
             $error_no = 200;
-        }catch(Throwable $e)
-        {
+            $this->artisan_service->call('optimize:clear');
+
+        } catch (Throwable $e) {
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
             $error_no = 500;
         }
-        return response()->json($response_data , $error_no);
+        return response()->json($response_data, $error_no);
     }
 
     /**
@@ -125,18 +149,16 @@ class ServiceCategoryController extends Controller
      */
     public function destroy($id)
     {
-        try
-        {
-            $service_category  =   ServiceCategory::query()->find($id);
+        try {
+            $service_category = ServiceCategory::query()->find($id);
             $service_category->delete();
             $respnse_data['status'] = true;
             $respnse_data['is_deleted'] = true;
             $respnse_data['message'] = __('custom.deleted_successflly');
             $respnse_data['row'] = $id;
             $error_no = 200;
-        }
-        catch(Throwable $e)
-        {
+            $this->artisan_service->call('optimize:clear');
+        } catch (Throwable $e) {
             $respnse_data['message'] = _('custom.smth_wrong');
             $error_no = 500;
         }
@@ -148,8 +170,28 @@ class ServiceCategoryController extends Controller
     public function getTableData()
     {
         return DataTables::of(ServiceCategory::query()->orderByDesc('created_at'))
-                    ->setTransformer(ServiceCategoryTransformer::class)
-                    ->make(true);
+            ->setTransformer(ServiceCategoryTransformer::class)
+            ->orderColumn('name_ar', function ($query, $order) {
+                $query->whereHas('translations', function ($q) use ($order) {
+                    $q->where('locale', 'ar')->orderBy('name', $order);
+                });
+            })
+            ->orderColumn('name_en', function ($query, $order) {
+                $query->whereHas('translations', function ($q) use ($order) {
+                    $q->where('locale', 'en')->orderBy('name', $order);
+                });
+            })
+            ->filterColumn('name_ar', function ($query, $keyword) {
+                $query->whereHas('translations', function ($query) use ($keyword) {
+                    $query->where('name', 'like', "%$keyword%")->where('locale', 'ar');
+                });
+            })
+            ->filterColumn('name_en', function ($query, $keyword) {
+                $query->whereHas('translations', function ($query) use ($keyword) {
+                    $query->where('name', 'like', "%$keyword%")->where('locale', 'en');
+                });
+            })
+            ->make(true);
     }
 
 }

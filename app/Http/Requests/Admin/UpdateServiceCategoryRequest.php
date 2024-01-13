@@ -5,6 +5,7 @@ namespace App\Http\Requests\Admin;
 use App\Http\Requests\Admin\CreateServiceCategoryRequest;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class UpdateServiceCategoryRequest extends CreateServiceCategoryRequest
 {
@@ -25,8 +26,9 @@ class UpdateServiceCategoryRequest extends CreateServiceCategoryRequest
      */
     public function rules()
     {
-        $rules = parent::rules();
-        $rules['name'] .=  ','.$this->id;
-        return $rules;
+        return [
+            'name_ar'  =>  ['required' , Rule::unique('service_category_translations' , 'name')->ignore($this->id , 'service_category_id')],
+            'name_en'  =>  ['required' , Rule::unique('service_category_translations' , 'name')->ignore($this->id , 'service_category_id')],
+        ];
     }
 }

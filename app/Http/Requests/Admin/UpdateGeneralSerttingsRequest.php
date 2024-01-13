@@ -32,8 +32,8 @@ class UpdateGeneralSerttingsRequest extends FormRequest
             'facebook'      =>  'nullable',
             'instagram'      =>  'nullable',
             'twitter'      =>  'nullable',
-            'twitter'      =>  'nullable',
             'linked_in'      =>  'nullable',
+            'tiktok'      =>  'nullable',
         ];
     }
 }

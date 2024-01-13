@@ -65,11 +65,20 @@
                         <div class="row mb-2">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="name">{{ __('custom.name') }}</label>
-                                    <input type="text" name="name" id="name" class="form-control">
+                                    <label for="name">{{ __('custom.name_ar') }}</label>
+                                    <input type="text" name="name_ar" id="name_ar" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="name">{{ __('custom.name_en') }}</label>
+                                    <input type="text" name="name_en" id="name_en" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-sm-4">
                                 <label for="category_id">{{ __('custom.category') }}</label>
                                 <select name="category_id" id="category_id" class="form-control">
                                     <option value="">--{{ __('custom.select') }}--</option>
@@ -78,9 +87,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="category_id">{{ __('custom.client') }}</label>
                                     <select name="client_id" id="client_id" class="form-control">
@@ -91,7 +98,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="category_id">{{ __('custom.budget') }}</label>
                                     <input type="text" name="budget" id="budget" class="form-control">
@@ -99,7 +106,7 @@
                             </div>
                         </div>
                         <div class="row mb-2">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="category_id">{{ __('custom.achieve_date') }}</label>
                                     <input type="date" name="achieve_date" id="achieve_date" class="form-control">
@@ -120,8 +127,16 @@
                         <div class="row mb-2">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="basic_info">{{ __('cutom.description') }}</label>
-                                    <textarea name="basic_info" id="basic_info" name="basic_info" cols="30" rows="10" class="form-control"></textarea>
+                                    <label for="basic_info">{{ __('custom.description_ar') }}</label>
+                                    <textarea name="basic_info_ar" id="basic_info_ar" name="basic_info_ar" cols="30" rows="10"
+                                        class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="basic_info">{{ __('custom.description_en') }}</label>
+                                    <textarea name="basic_info_en" id="basic_info_en" name="basic_info_en" cols="30" rows="10"
+                                        class="form-control"></textarea>
                                 </div>
                             </div>
                         </div>

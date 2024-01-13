@@ -13,8 +13,14 @@
                         <div class="row mb-2">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="name">{{ __('custom.name') }}</label>
-                                    <input type="text" name="name" id="name" class="form-control">
+                                    <label for="name">{{ __('custom.name_ar') }}</label>
+                                    <input type="text" name="name_ar" id="name_ar" class="form-control ar-only">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="name">{{ __('custom.name_en') }}</label>
+                                    <input type="text" name="name_en"  id="name_en" class="form-control en-only">
                                 </div>
                             </div>
                             <div class="col-sm-6">

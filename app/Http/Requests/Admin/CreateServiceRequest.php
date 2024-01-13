@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 
 class CreateServiceRequest extends FormRequest
 {
+
+    protected $stopOnFirstFailure = true;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -25,12 +27,14 @@ class CreateServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  =>  'required|unique:services,name',
-            'details'  => 'required',
+            'name_ar'  =>  'required|unique:service_translations,name',
+            'name_en'  =>  'required|unique:service_translations,name',
             'pdf'   =>  'nullable|file|mimes:pdf',
             'category_id'   =>  'required',
             'image'   =>  'required|image|mimes:jpeg,png,jpg,gif',
-            'status'    =>  'required'
+            'status'    =>  'required',
+            'details_ar'  => 'required',
+            'details_en'  => 'required',
         ];
     }
 }

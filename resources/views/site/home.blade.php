@@ -229,15 +229,13 @@
                         <figure class="about-image1 js-tilt d-none d-md-block d-lg-block d-xl-block">
                             @if (@$about_page_settings['about_image_2'])
                                 <img loading="lazy" class="img-full"
-                                    src="{{ Storage::url("site/about/{$about_page_settings['about_image_2']}") }}"
-                                    alt="about image-2">
+                                    src="{{ getImageUrl($about_page_settings['about_image_2']) }}" alt="about image-2">
                             @endif
                         </figure>
                         <figure class="about-image2">
                             @if (@$about_page_settings['about_image_1'])
                                 <img loading="lazy" class="img-full"
-                                    src="{{ Storage::url("site/about/{$about_page_settings['about_image_1']}") }}"
-                                    alt="about image-1">
+                                    src="{{ getImageUrl($about_page_settings['about_image_1']) }}" alt="about image-1">
                             @endif
                         </figure>
                     </div>

@@ -24,37 +24,37 @@ function getTableColumns() {
         data: 'name',
         name: 'name',
         searchable: true,
-        orderable: true,
+        orderable: false,
     },
     {
         data: 'category',
-        name: 'category.name',
+        name: 'category',
         searchable: true,
-        orderable: true,
+        orderable: false,
     },
     {
         data: 'client',
-        name: 'client.name',
+        name: 'client',
         searchable: true,
-        orderable: true,
+        orderable: false,
     },
     {
         data: 'budget',
         name: 'budget',
         searchable: true,
-        orderable: true,
+        orderable: false,
     },
     {
         data: 'achieve_date',
         name: 'achieve_date',
         searchable: true,
-        orderable: true,
+        orderable: false,
     },
     {
         data: 'status',
         name: 'status',
-        searchable: true,
-        orderable: true,
+        searchable: false,
+        orderable: false,
     },
     {
         data: 'actions',
@@ -83,17 +83,23 @@ $('#project-create-update-modal').on('show.bs.modal', function (e) {
     $(this).find('form').attr('action', action);
     $(this).find('form').attr('method', method);
     if (isCreate == 1) {
+        document.getElementById('image-input-wrapper-1').style.backgroundImage =  "url(" + globals.placeholder_image + ")";
+        document.getElementById('image-input-wrapper-2').style.backgroundImage =  "url(" +  globals.placeholder_image + ")";
+        $('textarea').text('');
         $(this).find('button[type="reset"]').click();
     } else {
         document.getElementById('image-input-wrapper-1').style.backgroundImage =  "url(" + homeImagePath + ")";
         document.getElementById('image-input-wrapper-2').style.backgroundImage =  "url(" +  mainImagePath + ")";
-        $('#name').val(project.name);
+        $('#name_ar').val(btn.getAttribute('data-name-ar'));
+        $('#name_en').val(btn.getAttribute('data-name-en'));
         $('#category_id').val(project.category_id);
         $('#client_id').val(project.client_id);
         $('#budget').val(project.budget);
         $('#achieve_date').val(project.achieve_date);
         $('#basic_info').text(project.basic_info);
         $('#status').val(project.status);
+        $('#basic_info_ar').text(btn.getAttribute('data-basic-info-ar'));
+        $('#basic_info_en').text(btn.getAttribute('data-basic-info-en'));
     }
 
 });

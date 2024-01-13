@@ -24,11 +24,11 @@ class JobPositionTransformer extends TransformerAbstract
 
     public function getActionButtons($position)
     {
-        return "<button class='btn-xs btn-success'  data-toggle='modal' data-target='#job-position-create-update-modal'
-        data-action='".route('admin.job-position.custom_update' , $position->id)."' data-method='POST' data-job-position='".json_encode($position)."' data-is-create='false'><i class='fa fa-edit'></i></button>
+        return "<div class='d-flex'><button class='btn-xs btn-success'  data-toggle='modal' data-target='#job-position-create-update-modal'
+        data-action='".route('admin.job-position.custom_update' , $position->id)."' data-method='POST' data-job-position='".json_encode($position)."' data-is-create='false'><i class='fa fa-edit'></i></button> &nbsp;
         <button type='button' data-toggle='modal' data-target='#delete-modal' class='btn-xs btn-danger'
         data-delete-url='".route('admin.job-position.destroy' , $position->id)."' data-message='".__('custom.confirm_delete')."' data-name='".$position->name."' id='row-".$position->id."'><i class='fa fa-trash'></i></button>
-        ";
+        </div>";
     }
 }
 

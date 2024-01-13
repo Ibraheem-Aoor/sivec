@@ -13,7 +13,6 @@ class CreateBlogCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::disableForeignKeyConstraints();
 
         Schema::create('blog_categories', function (Blueprint $table) {
             $table->id();

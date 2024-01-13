@@ -174,6 +174,14 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'settings_ar'      =>   'all settings in arabic language required',
+        'settings_en'      =>   'all settings in english language required',
+        'settings_ar.*'      =>   'all settings in arabic language required',
+        'settings_en.*'      =>   'all settings in english language required',
+        'client_id' =>  'Client',
+        'project_category_id'   =>  'Project Parent Category',
+        'category_id'       =>  'Project Category',
+    ],
 
 ];

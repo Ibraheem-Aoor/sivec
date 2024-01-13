@@ -87,7 +87,8 @@
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @include('admin.partials.page_header')
+        @include('admin.partials.page_header', ['page_title_1' => __('custom.dashboard.pages') , 'page_title_2' => __('custom.dashboard.branches')])
+
         <!-- Main content -->
         <section class="content" enc>
             <div class="card">
@@ -111,18 +112,21 @@
                                 </div>
                             </div>
                         </div>
-                        @php
-
-                        @endphp
                         @foreach ($addresses as $address)
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-sm-12">
                                     <div class="form-group">
-                                        <label for="">{{ __('custom.address_title') }}</label>
-                                        <input required type="text" name="address_titles[]" value="{{$address['title']}}" class="form-control"> &nbsp;
+                                        <label for="">{{ __('custom.address_title_ar') }}</label>
+                                        <input required type="text" name="ar[address_titles][]" value="{{$address['title_ar']}}" class="form-control"> &nbsp;
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">{{ __('custom.address_title_ar') }}</label>
+                                        <input required type="text" name="en[address_titles][]" value="{{$address['title_en']}}" class="form-control"> &nbsp;
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
                                     <label for="">{{ __('custom.address_value') }}</label>
                                     <div class="form-group d-flex">
                                         <input required type="text" name="address_values[]" value="{{$address['value']}}" class="form-control"> &nbsp;
@@ -161,13 +165,19 @@
     <script>
         function addNewAddress(btn) {
             var html = `<div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="">{{ __('custom.address_title') }}</label>
-                                <input required type="text" name="address_titles[]" class="form-control"> &nbsp;
+                                <label for="">{{ __('custom.address_title_ar') }}</label>
+                                <input required type="text" name="ar[address_titles][]" class="form-control"> &nbsp;
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="">{{ __('custom.address_title_en') }}</label>
+                                <input required type="text" name="en[address_titles][]" class="form-control"> &nbsp;
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
                             <label for="">{{ __('custom.address_value') }}</label>
                             <div class="form-group d-flex">
                                 <input required type="text" name="address_values[]" class="form-control"> &nbsp;

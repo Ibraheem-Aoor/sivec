@@ -25,19 +25,24 @@ class CreateTeamMemberRequest extends FormRequest
     public function rules()
     {
         return [
-            'avatar'   =>   'required|image|mimes:jpeg,png,jpg,gif|dimensions:min_width=460,min_height=460,max_width=480,max_height=480',
-            'name'  =>  'required|string',
-            'title_position'  =>  'required|string',
+            'avatar'   =>   'required|image|mimes:jpeg,png,jpg,gif',#dimensions:min_width=460,min_height=460,max_width=480,max_height=480
+            'name_ar'  =>  'required|string',
+            'name_en'  =>  'required|string',
+            'title_position_ar'  =>  'required|string',
+            'title_position_en'  =>  'required|string',
             'email'  =>  'required|email|unique:team_members,email',
             'phone'  =>  'nullable|string',
-            'address'  =>  'nullable|string',
-            'cover_letter'  =>  'nullable',
-            'personal_details'  =>  'nullable',
+            'status'    =>  'required',
+            'address_ar'  =>  'nullable|string',
+            'address_en'  =>  'nullable|string',
             'facebook'  =>  'nullable',
             'instagram'  =>  'nullable',
             'twitter'  =>  'nullable',
             'linked_in'  =>  'nullable',
-            'status'    =>  'required',
+            'cover_letter_ar'  =>  'nullable',
+            'cover_letter_en'  =>  'nullable',
+            'personal_details_ar'  =>  'nullable',
+            'personal_details_en'  =>  'nullable',
         ];
     }
 }

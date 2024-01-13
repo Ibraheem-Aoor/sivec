@@ -87,7 +87,7 @@
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @include('admin.partials.page_header')
+        @include('admin.partials.page_header', ['page_title_1' => __('custom.dashboard.settings') , 'page_title_2' => __('custom.dashboard.general')])
         <!-- Main content -->
         <section class="content" enc>
             <div class="card">
@@ -197,6 +197,13 @@
                                     <label for="">{{ __('custom.youtube') }}</label>
                                     <input type="text" name="youtube" class="form-control"
                                         value="{{ @$general_settings['youtube'] }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">{{ __('custom.tiktok') }}</label>
+                                    <input type="text" name="tiktok" class="form-control"
+                                        value="{{ @$general_settings['tiktok'] }}">
                                 </div>
                             </div>
                         </div>

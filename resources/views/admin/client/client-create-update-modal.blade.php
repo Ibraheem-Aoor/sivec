@@ -14,7 +14,7 @@
                             <div class="col-sm-12">
                                 <div class="avatar-picture">
                                     <div class="image-input image-input-outline" id="imgUserProfile">
-                                        <div class="image-input-wrapper"
+                                        <div class="image-input-wrapper" id="image-input-wrapper"
                                             style="background-image: url('{{ asset('admin_assets/dist/img/image_placeholder.jpg') }}');">
                                         </div>
 

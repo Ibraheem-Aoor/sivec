@@ -239,7 +239,7 @@ class HomeController extends Controller
         {
             return Service::query()
                             ->whereStatus('ACTIVE')
-                            ->with('category:id,name')
+                            ->with('category')
                             ->limit(6)->get();
         });
     }
@@ -247,9 +247,9 @@ class HomeController extends Controller
 
     public function getPageSettings($page = null)
     {
-        return Cache::rememberForEver($page.'_'.app()->getLocale() , function()use($page)
+        return Cache::rememberForEver($page.'_'.getCurrentLocale() , function()use($page)
         {
-            return BusinessSetting::query()->wherePage($page)->whereLang(app()->getLocale())->pluck('value' , 'key');
+            return BusinessSetting::query()->wherePage($page)->whereLang(getCurrentLocale())->pluck('value' , 'key');
         });
     }
 

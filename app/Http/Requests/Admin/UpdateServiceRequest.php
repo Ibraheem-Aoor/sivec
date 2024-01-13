@@ -4,6 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class UpdateServiceRequest extends CreateServiceRequest
 {
@@ -25,8 +26,9 @@ class UpdateServiceRequest extends CreateServiceRequest
     public function rules()
     {
         $rules = parent::rules();
-        $rules['image'] = 'sometimes|image|mimes:jpeg,png,jpg,gif|dimensions:min_width=400,min_height=475,max_width=400,max_height=475';
-        $rules['name'] .= ','.$this->id;
+        $rules['image'] = 'sometimes|image|mimes:jpeg,png,jpg,gif|';
+        $rules['name_ar']  =  ['required' , Rule::unique('service_translations' , 'name')->ignore($this->id , 'service_id')];
+        $rules['name_en']  =  ['required' , Rule::unique('service_translations' , 'name')->ignore($this->id , 'service_id')];
         return $rules;
     }
 }

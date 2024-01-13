@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('locale');
             $table->unsignedBigInteger('image_category_id');
             $table->foreign('image_category_id')->references('id')->on('image_categories')->onDelete('cascade');
+            $table->unique(['locale' , 'image_category_id']);
             $table->timestamps();
         });
     }

@@ -25,13 +25,20 @@ class UpdateAboutPageRequest extends FormRequest
     public function rules()
     {
         return [
-            'about_image_1' =>  'sometimes|image|mimes:jpeg,png,jpg,gif|',
-            'about_image_2' =>  'sometimes|image|mimes:jpeg,png,jpg,gif|',
-            'about_us_text' => 'required',
-            'exclusive_design_description'  =>  'required',
-            'pro_team_description'  =>  'required',
-            'about_us_features'  =>  'sometimes|array',
-            'about_us_features.*'    =>  'required',
+            'about_image_1' => 'sometimes|image|mimes:jpeg,png,jpg,gif|',
+            'about_image_2' => 'sometimes|image|mimes:jpeg,png,jpg,gif|',
+            'settings_ar' => 'required|array',
+            'settings_ar.*' => 'required',
+            'settings_en' => 'required|array',
+            'settings_en.*' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'settings_ar.*' => __('validation.attriubtes.settings_ar.*'),
+            'settings_en.*' => __('validation.attriubtes.settings_en.*'),
         ];
     }
 }

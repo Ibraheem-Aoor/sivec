@@ -23,34 +23,36 @@ function getTableColumns() {
     return [{
         data: 'avatar',
         name: 'avatar',
+        searchable: false,
+        orderable: false,
     }, {
         data: 'name',
         name: 'name',
         searchable: true,
-        orderable: true,
+        orderable: false,
     }, {
         data: 'title_position',
         name: 'title_position',
         searchable: true,
-        orderable: true,
+        orderable: false,
     },
     {
         data: 'email',
         name: 'email',
         searchable: true,
-        orderable: true,
+        orderable: false,
     },
     {
         data: 'phone',
         name: 'phone',
         searchable: true,
-        orderable: true,
+        orderable: false,
     },
     {
         data: 'status',
         name: 'status',
-        searchable: true,
-        orderable: true,
+        searchable: false,
+        orderable: false,
     },
     {
         data: 'actions',
@@ -79,20 +81,23 @@ $('#team-create-update-modal').on('show.bs.modal', function (e) {
     $(this).find('form').attr('method', method);
     if (is_create == 1) {
         $(this).find('button[type="reset"]').click();
+        document.getElementById('image-input-wrapper').style.backgroundImage =  "url(" + globals.placeholder_image + ")";
     } else {
         document.getElementById('image-input-wrapper').style.backgroundImage =  "url(" + avatarPath + ")";
-        $('#name').val(member.name);
+        $('#name_ar').val(btn.getAttribute('data-name-ar'));
+        $('#name_en').val(btn.getAttribute('data-name-en'));
+        $('#title_position_ar').val(btn.getAttribute('data-title-position-ar'));
+        $('#title_position_en').val(btn.getAttribute('data-title-position-en'));
         $('#email').val(member.email);
         $('#phone').val(member.phone);
-        $('#title_position').val(member.title_position);
         $('#status').val(member.status);
         $('#address').val(member.address);
         $('#instagram').val(member.instagram);
         $('#twitter').val(member.twitter);
         $('#facebook').val(member.facebook);
         $('#linked_in').val(member.linked_in);
-        $('#cover_letter').text(member.cover_letter);
-        $('#personal_details').text(member.personal_details);
+        // $('#cover_letter').text(member.cover_letter);
+        // $('#personal_details').text(member.personal_details);
     }
 
 });

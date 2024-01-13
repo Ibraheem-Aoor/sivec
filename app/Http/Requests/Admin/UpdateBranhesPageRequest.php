@@ -25,8 +25,10 @@ class UpdateBranhesPageRequest extends FormRequest
     public function rules()
     {
         return [
-            'address_titles'  =>  'sometimes|array',
-            'address_titles.*'  =>  'required',
+            'ar'  =>  'sometimes|array',
+            'ar.*'  =>  'required',
+            'en'  =>  'sometimes|array',
+            'en.*'  =>  'required',
             'address_values'    =>  'required_with:address_titles',
             'address_values.*'    =>  'required',
         ];

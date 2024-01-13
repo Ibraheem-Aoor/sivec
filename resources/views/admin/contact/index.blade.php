@@ -6,7 +6,7 @@
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @include('admin.partials.page_header')
+        @include('admin.partials.page_header', ['page_title_1' => __('custom.dashboard.contact')])
         <!-- Main content -->
         <section class="content" enc>
             <div class="card">
@@ -18,21 +18,21 @@
                         <div class="col-sm-2"></div>
                     </div>
                 </div>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body table-responsive">
-                <table id="myTable" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>{{ __('custom.name') }}</th>
-                            <th>{{ __('custom.phone') }}</th>
-                            <th>{{ __('custom.email') }}</th>
-                            <th>{{ __('custom.message') }}</th>
-                            <th>{{ __('custom.date') }}</th>
-                            <th>{{ __('custom.Actions') }}</th>
-                        </tr>
-                    </thead>
-                </table>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive">
+                    <table id="myTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>{{ __('custom.name') }}</th>
+                                <th>{{ __('custom.phone') }}</th>
+                                <th>{{ __('custom.email') }}</th>
+                                <th>{{ __('custom.message') }}</th>
+                                <th>{{ __('custom.date') }}</th>
+                                <th>{{ __('custom.Actions') }}</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
             <!-- /.card-body -->
     </div>

@@ -87,7 +87,8 @@
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @include('admin.partials.page_header')
+        @include('admin.partials.page_header', ['page_title_1' => __('custom.dashboard.pages') , 'page_title_2' => __('custom.dashboard.about')])
+
         <!-- Main content -->
         <section class="content" enc>
             <div class="card">
@@ -121,52 +122,115 @@
 
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="">{{ __('custom.about_us_text') }}:</label>
-                                <textarea name="about_us_text" id="about_us_text" cols="30" rows="7" class="form-control">{{ @$page_settings['about_us_text'] ?? null }}</textarea>
+                                <label for="">{{ __('custom.about_us_text_ar') }}:</label>
+                                <textarea name="settings_ar[about_us_text]" id="about_us_text_ar" cols="30" rows="7" class="form-control">{{ @$page_settings_ar['about_us_text'] ?? null }}</textarea>
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="">{{ __('custom.exclusive_design_description') }}:</label>
-                                <textarea name="exclusive_design_description" id="exclusive_design_description" cols="30" rows="4"
-                                    class="form-control">{{ @$page_settings['exclusive_design_description'] ?? null }}</textarea>
+                                <label for="">{{ __('custom.about_us_text_en') }}:</label>
+                                <textarea name="settings_en[about_us_text]" id="about_us_text_en" cols="30" rows="7" class="form-control">{{ @$page_settings_en['about_us_text'] ?? null }}</textarea>
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="">{{ __('custom.pro_team_description') }}:</label>
-                                <textarea name="pro_team_description" id="pro_team_description" cols="30" rows="4" class="form-control">{{ @$page_settings['pro_team_description'] }}</textarea>
+                                <label for="">{{ __('custom.exclusive_design_description_ar') }}:</label>
+                                <textarea name="settings_ar[exclusive_design_description]" id="exclusive_design_description_ar" cols="30" rows="4"
+                                    class="form-control">{{ @$page_settings_ar['exclusive_design_description'] ?? null }}</textarea>
                             </div>
                         </div>
-                        <div class="col-sm-8">
-                            <div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="">{{ __('custom.exclusive_design_description_en') }}:</label>
+                                <textarea name="settings_en[exclusive_design_description]" id="exclusive_design_description_en" cols="30" rows="4"
+                                    class="form-control">{{ @$page_settings_en['exclusive_design_description'] ?? null }}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="">{{ __('custom.pro_team_description_ar') }}:</label>
+                                <textarea name="settings_ar[pro_team_description]" id="pro_team_description_ar" cols="30" rows="4"
+                                    class="form-control">{{ @$page_settings_ar['pro_team_description'] }}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="">{{ __('custom.pro_team_description_en') }}:</label>
+                                <textarea name="settings_en[pro_team_description]" id="pro_team_description_en" cols="30" rows="4"
+                                    class="form-control">{{ @$page_settings_en['pro_team_description'] }}</textarea>
+                            </div>
+                        </div>
 
-                                <label for="">{{ __('custom.checklist_features') }}:</label>
+                        {{-- Start features ar --}}
+                        <div class="col-sm-6">
+                            <div>
+                                <label for="">{{ __('custom.checklist_features_ar') }}:</label>
                                 <button type="button" class="add_feature btn-xs btn-primary"
-                                    onclick="addNewFeature($(this));"><i class="fa fa-plus"></i></button>
+                                    onclick="addNewFeature($(this).parent().parent() , 'ar');"><i class="fa fa-plus"></i></button>
                             </div>
                         </div>
                         @php
-                            if (@$page_settings['about_us_features']) {
-
-                                $features = json_decode($page_settings['about_us_features'], true);
+                            if (@$page_settings_ar['about_us_features']) {
+                                $features = json_decode($page_settings_ar['about_us_features'], true);
                             } else {
                                 $features = [null];
                             }
                         @endphp
                         @foreach ($features as $feature)
-                            <div class="col-sm-8">
+                            <div class="col-sm-6" id="features-en-div">
                                 <div class="form-group d-flex">
                                     ✔️ &nbsp; &nbsp;
-                                    <input type="text" name="about_us_features[]" value="{{$feature}}" class="form-control d-flex"> &nbsp;
+                                    <input type="text" name="settings_ar[about_us_features][]" value="{{ $feature }}"
+                                        class="form-control d-flex"> &nbsp;
                                     <button type="button" class="add_feature btn-xs btn-primary"
-                                        onclick="addNewFeature($(this));"><i class="fa fa-plus"></i></button>&nbsp;
+                                        onclick="addNewFeature($(this).parent().parent() , 'ar');"><i
+                                            class="fa fa-plus"></i></button>&nbsp;
                                     <button type="button" class="remove_feature btn-xs btn-danger"
                                         onclick="deleteFeature($(this));"><i class="fa fa-trash"></i></button>
 
                                 </div>
                             </div>
                         @endforeach
+
+                        {{-- end features ar --}}
+
+                        {{-- start features en --}}
+
+                        <div class="col-sm-6">
+
+                            <div>
+
+                                <label for="">{{ __('custom.checklist_features_en') }}:</label>
+                                <button type="button" class="add_feature btn-xs btn-primary"
+                                    onclick="addNewFeature($(this).parent().parent() , 'en');"><i
+                                        class="fa fa-plus"></i></button>
+                            </div>
+                        </div>
+                        @php
+                            if (@$page_settings_en['about_us_features']) {
+                                $features = json_decode($page_settings_en['about_us_features'], true);
+                            } else {
+                                $features = [null];
+                            }
+                        @endphp
+                        @foreach ($features as $feature)
+                            <div class="col-sm-6" id="features-en-div">
+                                <div class="form-group d-flex">
+                                    ✔️ &nbsp; &nbsp;
+                                    <input type="text" name="settings_en[about_us_features][]" value="{{ $feature }}"
+                                        class="form-control d-flex"> &nbsp;
+                                    <button type="button" class="add_feature btn-xs btn-primary"
+                                        onclick="addNewFeature($(this).parent().parent() , 'en');"><i
+                                            class="fa fa-plus"></i></button>&nbsp;
+                                    <button type="button" class="remove_feature btn-xs btn-danger"
+                                        onclick="deleteFeature($(this));"><i class="fa fa-trash"></i></button>
+
+                                </div>
+                            </div>
+                        @endforeach
+                        {{-- end features en --}}
+
+
                         <div class="row mt-5">
                             <div class="col-sm-12">
                                 <button class="btn btn-outline-success">{{ __('custom.submit') }}</button>
@@ -213,17 +277,18 @@
 
     {{-- about features checklist --}}
     <script>
-        function addNewFeature(btn) {
-            var html = `<div class="col-sm-8">
+        function addNewFeature(div, lang) {
+            var input_name = lang == 'ar' ? 'settings_ar[about_us_features]' : 'settings_en[about_us_features]';
+            var html = `<div class="col-sm-6">
                         <div class="form-group d-flex">
                             ✔️ &nbsp; &nbsp;
-                            <input type="text" name="about_us_features[]" class="form-control d-flex"> &nbsp;
-                            <button type="button" class="add_feature btn-xs btn-primary" onclick="addNewFeature($(this));"><i
+                            <input type="text" name="${input_name}[]" class="form-control d-flex"> &nbsp;
+                            <button type="button" class="add_feature btn-xs btn-primary" onclick="addNewFeature($(this).parent().parent());"><i
                                     class="fa fa-plus"></i></button>&nbsp;
                             <button type="button" class="remove_feature btn-xs btn-danger" onclick="deleteFeature($(this));"><i class="fa fa-trash"></i></button>
                         </div>
                     </div>`;
-            btn.parent().parent().after(html);
+            div.after(html);
         };
 
         function deleteFeature(btn) {

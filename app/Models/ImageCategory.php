@@ -13,7 +13,6 @@ class ImageCategory extends Model
     use HasFactory, Translatable;
 
     protected $table = 'image_categories';
-    public $translatedAttributes = ['name'];
 
     protected $with = [
         'translations',
@@ -21,10 +20,10 @@ class ImageCategory extends Model
     ];
 
     protected $fillable = [
-        'name',
         'parent_id',
     ];
 
+    public $translatedAttributes = ['name'];
 
 
 

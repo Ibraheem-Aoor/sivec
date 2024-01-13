@@ -28,10 +28,13 @@ class CreateProjectRequest extends FormRequest
     {
         $images_required = Route::currentRouteName() == 'admin.project.custom_update' ? 'nullable' : 'required';
         return [
-            'image'   =>  $images_required.'|image|mimes:jpeg,png,jpg,gif|dimensions:min_width=1280,min_height=640,max_width=1340,max_height=720',
-            'home_image'   =>  $images_required.'|image|mimes:jpeg,png,jpg,gif|dimensions:min_width=400,min_height=475,max_width=400,max_height=475',
-            'budget'  => 'nullable',
-            'basic_info'    =>  'required',
+            'image'   =>  $images_required.'|image|mimes:jpeg,png,jpg,gif',#dimensions:min_width=1280,min_height=640,max_width=1340,max_height=720
+            'home_image'   =>  $images_required.'|image|mimes:jpeg,png,jpg,gif',#dimensions:min_width=400,min_height=475,max_width=400,max_height=475
+            'name_ar' => 'required',
+            'name_en' => 'required',
+            'budget'  => 'nullable|numeric',
+            'basic_info_ar'    =>  'nullable',
+            'basic_info_en'    =>  'nullable',
             'challenge'    =>  'nullable',
             'result'    =>  'nullable',
             'achieve_date'  =>  'required',

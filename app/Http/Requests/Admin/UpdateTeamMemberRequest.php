@@ -25,7 +25,7 @@ class UpdateTeamMemberRequest extends CreateTeamMemberRequest
     public function rules()
     {
         $rules = parent::rules();
-        $rules['avatar'] =  'sometimes|image|mimes:jpeg,png,jpg,gif|dimensions:min_width=460,min_height=460,max_width=480,max_height=480';
+        $rules['avatar'] =  'sometimes|image|mimes:jpeg,png,jpg,gif';#dimensions:min_width=460,min_height=460,max_width=480,max_height=480'
         $rules['email'] = 'required|email|unique:team_members,email,'.$this->id;
         return $rules;
     }

@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Storage;
 use Throwable;
 use Yajra\DataTables\DataTables;
 use Analytics;
+use App\Models\TeamMember;
 use Spatie\Analytics\Period;
 
 class DashboardController extends Controller
@@ -82,7 +83,7 @@ class DashboardController extends Controller
             $data['projects_count'] = Project::query()->count();
             $data['service_categories_count'] = ServiceCategory::query()->count();
             $data['services_count'] = Service::query()->count();
-            $data['team_members_count'] = TaeamMemmber::query()->count();
+            $data['team_members_count'] = TeamMember::query()->count();
             $data['clients_count'] = Client::query()->count();
             $data['jobs_positions_count'] = JobPosition::query()->count();
             $data['job_applications_count'] = JobApplication::query()->count();

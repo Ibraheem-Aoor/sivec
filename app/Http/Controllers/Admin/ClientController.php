@@ -31,7 +31,7 @@ class ClientController extends Controller
     public function index()
     {
         $data['table_data_url'] = route('admin.client.table_data');
-        return view('admin.client.index' , $data);
+        return view('admin.client.index', $data);
     }
 
     /**
@@ -52,31 +52,24 @@ class ClientController extends Controller
      */
     public function store(CreateClientRequest $request)
     {
-        try{
+        try {
             $data = $request->toArray();
-            $image_file_content =   $request->file('image');
-            if($image_file_content)
-            {
-                $data['image'] = encrypt(time()) . '.' . $image_file_content->getClientOriginalExtension();
-            }
             $client = Client::query()->create($data);
-            if($image_file_content)
-            {
-                $image_file_content->storeAs('public/clients/' . $client->id . '/' , $data['image']);
-            }
+            $data['image'] = saveImage('clients/' . $client->id . '/', $request->file('image'));
+            $client->image = $data['image'];
+            $client->save();
             $response_data['status'] = true;
             $response_data['message'] = __('custom.create_success');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
-            $response_data['modal_to_hiode'] = '#service-category-create-update-modal';
+            $response_data['modal_to_hiode'] = '#client-create-update-modal';
             $error_no = 200;
-        }catch(Throwable $e)
-        {
+        } catch (Throwable $e) {
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
             $error_no = 500;
         }
-        return response()->json($response_data , $error_no);
+        return response()->json($response_data, $error_no);
     }
 
     /**
@@ -110,15 +103,14 @@ class ClientController extends Controller
      */
     public function update(UpdateClientRequest $request, $id)
     {
-        try{
+        try {
             $client = Client::query()->find($id);
             $data = $request->toArray();
-            $image_file_content =   $request->file('image');
-            if($image_file_content)
-            {
+            $image_file_content = $request->file('image');
+            if ($image_file_content) {
                 $data['image'] = encrypt(time()) . '.' . $image_file_content->getClientOriginalExtension();
-                Storage::disk('public')->delete('clients/'.$client->id.'/'.$client->image);
-                $image_file_content->storeAs('public/clients/' . $client->id . '/' , $data['image']);
+                Storage::disk('public')->delete('clients/' . $client->id . '/' . $client->image);
+                $image_file_content->storeAs('public/clients/' . $client->id . '/', $data['image']);
             }
             $client->update($data);
             $response_data['status'] = true;
@@ -127,13 +119,12 @@ class ClientController extends Controller
             $response_data['reset_form'] = false;
             $response_data['modal_to_hiode'] = '#client-create-update-modal';
             $error_no = 200;
-        }catch(Throwable $e)
-        {
+        } catch (Throwable $e) {
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
             $error_no = 500;
         }
-        return response()->json($response_data , $error_no);
+        return response()->json($response_data, $error_no);
     }
 
     /**
@@ -144,18 +135,15 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        try
-        {
-            $service_category  =   Client::query()->find($id);
+        try {
+            $service_category = Client::query()->find($id);
             $service_category->delete();
             $respnse_data['status'] = true;
             $respnse_data['is_deleted'] = true;
             $respnse_data['message'] = __('custom.deleted_successflly');
             $respnse_data['row'] = $id;
             $error_no = 200;
-        }
-        catch(Throwable $e)
-        {
+        } catch (Throwable $e) {
             $respnse_data['message'] = _('custom.smth_wrong');
             $error_no = 500;
         }
@@ -167,8 +155,8 @@ class ClientController extends Controller
     public function getTableData()
     {
         return DataTables::of(Client::query()->orderByDesc('created_at'))
-                    ->setTransformer(ClientTransformer::class)
-                    ->make(true);
+            ->setTransformer(ClientTransformer::class)
+            ->make(true);
     }
 
 }

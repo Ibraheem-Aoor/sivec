@@ -6,6 +6,7 @@ use App\Enums\BaseShowStatusEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateProjectRequest;
 use App\Http\Requests\Admin\CreateServiceRequest;
+use App\Jobs\Admin\SaveFilesJob;
 use App\Models\Client;
 use App\Models\Project;
 use App\Models\ProjectCategory;
@@ -18,9 +19,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Throwable;
 use Yajra\DataTables\DataTables;
+use Str;
 
 class ProjectController extends Controller
 {
+
+
 
     /**
      * Display a listing of the resource.
@@ -33,7 +37,7 @@ class ProjectController extends Controller
         $data['show_statuses'] = BaseShowStatusEnum::getInstances();
         $data['categories'] = ProjectCategory::query()->get();
         $data['clients'] = Client::query()->get();
-        return view('admin.project.index' , $data);
+        return view('admin.project.index', $data);
     }
 
 
@@ -45,28 +49,40 @@ class ProjectController extends Controller
      */
     public function store(CreateProjectRequest $request)
     {
-        try{
+        try {
             $data = $request->toArray();
-            $image_file_content =   $request->file('image');
+            $image_file_content = $request->file('image');
             $home_image_file_content = $request->file('home_image');
-            $data['image'] = encrypt(time()) . '.' . $image_file_content->getClientOriginalExtension();
-            $data['home_image']    =   encrypt(time()).'.'.$home_image_file_content->getClientOriginalExtension();
-            $project = Project::query()->create($data);
-            $image_file_content->storeAs('public/projects/'.$project->id.'/main'.'/' , $data['image']);
-            $home_image_file_content->storeAs('public/projects/'.$project->id.'/home'.'/' , $data['home_image']);
+            $project = Project::query()->create([
+                'ar' => [
+                    'name' => $data['name_ar'],
+                    'basic_info' => $data['basic_info_ar']
+                ],
+                'en' => [
+                    'name' => $data['name_en'],
+                    'basic_info' => $data['basic_info_en']
+                ],
+                'status' => $data['status'],
+                'achieve_date' => $data['achieve_date'],
+                'budget' => $data['budget'],
+                'category_id' => $data['category_id'],
+                'client_id' => $data['client_id'],
+            ]);
+            $image_data['image'] = saveImage('projects/' . $project->id . '/main' . '/' , $image_file_content);
+            $image_data['home_image'] = saveImage('projects/' . $project->id . '/home' . '/' , $home_image_file_content);
+            $project->update($image_data);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.create_success');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
             $response_data['modal_to_hiode'] = '#project-create-update-modal';
             $error_no = 200;
-        }catch(Throwable $e)
-        {
+        } catch (Throwable $e) {
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
             $error_no = 500;
         }
-        return response()->json($response_data , $error_no);
+        return response()->json($response_data, $error_no);
     }
 
     /**
@@ -100,37 +116,48 @@ class ProjectController extends Controller
      */
     public function update(CreateProjectRequest $request, $id)
     {
-        try{
+        try {
             $project = Project::query()->find($id);
             $data = $request->toArray();
-            $image_file_content =   $request->file('image');
+            $image_file_content = $request->file('image');
             $home_image_file_content = $request->file('home_image');
-            if($image_file_content)
-            {
-                $data['image'] = encrypt(time()) . '.' . $image_file_content->getClientOriginalExtension();
-                $image_file_content->storeAs('public/projects/'.$project->id.'/main'.'/' , $data['image']);
+            if ($image_file_content) {
+                deleteImage($project->image);
+                $data['image'] = saveImage('projects/' . $project->id . '/main' . '/', $image_file_content);
             }
-            if($home_image_file_content)
-            {
-                $data['home_image']    =   encrypt(time()).'.'.$home_image_file_content->getClientOriginalExtension();
-                $home_image_file_content->storeAs('public/projects/'.$project->id.'/home'.'/' , $data['home_image']);
+            if ($home_image_file_content) {
+                deleteImage($project->home_image);
+                $data['home_image'] = saveImage('projects/' . $project->id . '/home' . '/', $home_image_file_content);
             }
-            Storage::disk('public')->delete("projects/{$project->id}/home/{$project->home_image}");
-            Storage::disk('public')->delete("projects/{$project->id}/main/{$project->image}");
-            $project->update($data);
+            $project->update([
+                'ar' => [
+                    'name' => $data['name_ar'],
+                    'basic_info' => $data['basic_info_ar']
+                ],
+                'en' => [
+                    'name' => $data['name_en'],
+                    'basic_info' => $data['basic_info_en']
+                ],
+                'status' => $data['status'],
+                'achieve_date' => $data['achieve_date'],
+                'budget' => $data['budget'],
+                'category_id' => $data['category_id'],
+                'client_id' => $data['client_id'],
+                'image' =>  @$data['image'] ?? $project->image,
+                'home_image' =>  @$data['home_image'] ?? $project->home_image,
+            ]);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.updated_successs');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = false;
             $response_data['modal_to_hiode'] = '#project-create-update-modal';
             $error_no = 200;
-        }catch(Throwable $e)
-        {
+        } catch (Throwable $e) {
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
             $error_no = 500;
         }
-        return response()->json($response_data , $error_no);
+        return response()->json($response_data, $error_no);
     }
 
     /**
@@ -141,19 +168,16 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        try
-        {
-            $project  =   Project::query()->find($id);
-            Storage::disk('public')->deleteDirectory('projects/'.$project->id.'/');
+        try {
+            $project = Project::query()->find($id);
+            Storage::disk('public')->deleteDirectory('projects/' . $project->id . '/');
             $project->delete();
             $respnse_data['status'] = true;
             $respnse_data['is_deleted'] = true;
             $respnse_data['message'] = __('custom.deleted_successflly');
             $respnse_data['row'] = $id;
             $error_no = 200;
-        }
-        catch(Throwable $e)
-        {
+        } catch (Throwable $e) {
             $respnse_data['message'] = _('custom.smth_wrong');
             $error_no = 500;
         }
@@ -164,8 +188,23 @@ class ProjectController extends Controller
 
     public function getTableData()
     {
-        return DataTables::of(Project::query()->with(['category' , 'client'])->orderByDesc('projects.created_at'))
-                    ->setTransformer(ProjectTransformer::class)
-                    ->make(true);
+        return DataTables::of(Project::query()->with(['category', 'client'])->orderByDesc('projects.created_at'))
+            ->setTransformer(ProjectTransformer::class)
+            ->filterColumn('name', function ($query, $keyword) {
+                $query->whereHas('translations', function ($query) use ($keyword) {
+                    $query->where('name', 'like', "%$keyword%")->whereIn('locale', getAvilableLocales());
+                });
+            })->filterColumn('category', function ($query, $keyword) {
+                $query->whereHas('category', function ($category) use ($keyword) {
+                    $category->whereHas('translations', function ($category_translations) use ($keyword) {
+                        $category_translations->where('name', 'like', "%$keyword%")->whereIn('locale', getAvilableLocales());
+                    });
+                });
+            })->filterColumn('client', function ($query, $keyword) {
+                $query->whereHas('client', function ($client) use ($keyword) {
+                    $client->where('name', 'like', "%$keyword%");
+                });
+            })
+            ->make(true);
     }
 }

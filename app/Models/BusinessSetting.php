@@ -10,7 +10,6 @@ class BusinessSetting extends Model
 {
     use HasFactory;
 
-    public $translatedAttributes = ['value'];
 
     protected $fillable = [
         'key',

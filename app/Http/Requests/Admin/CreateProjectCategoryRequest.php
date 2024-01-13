@@ -5,17 +5,8 @@ namespace App\Http\Requests\Admin;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class CreateProjectCategoryRequest extends FormRequest
+class CreateProjectCategoryRequest extends BaseAdminRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return Auth::check();
-    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -25,8 +16,9 @@ class CreateProjectCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  =>  'required|unique:project_categories,name',
-            'status'    =>  'required'
+            'name_ar' => 'required|unique:project_category_translations,name',
+            'name_en' => 'required|unique:project_category_translations,name',
+            'status' => 'required'
         ];
     }
 }

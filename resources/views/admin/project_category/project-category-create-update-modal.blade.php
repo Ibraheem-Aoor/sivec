@@ -13,8 +13,36 @@
                         <div class="row mb-2">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="name">{{ __('custom.name') }}</label>
-                                    <input type="text" name="name" id="name" class="form-control">
+                                    <label for="name">{{ __('custom.name_ar') }}</label>
+                                    <input type="text" name="name_ar" id="name_ar" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="name">{{ __('custom.name_en') }}</label>
+                                    <input type="text" name="name_en" id="name_en" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="name">{{ __('custom.parent_category') }}</label>
+                                    <select name="project_category_id" id="project_category_id" class="form-control">
+                                        <option value="">--{{ __('custom.select') }}--</option>
+                                        @foreach ($categories as $category)
+                                            {{-- @if (!($category->subCategories->isEmpty()))
+                                            <label for="{{ $category->id }}">{{ $category->name }}</label>
+                                                <optgroup id="{{ $category->id }}">
+                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    @foreach ($category->subCategories as $sub_category)
+                                                        <option value="{{ $sub_category->id }}">
+                                                            {{ $sub_category->name }}</option>
+                                                    @endforeach
+                                                </optgroup>
+                                            @else --}}
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            {{-- @endif --}}
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">

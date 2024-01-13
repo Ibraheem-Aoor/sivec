@@ -39,34 +39,49 @@
                         <div class="row mb-2">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="name">{{ __('custom.name') }}</label>
-                                    <input type="text" name="name" id="name" class="form-control">
+                                    <label for="name">{{ __('custom.name_ar') }}</label>
+                                    <input type="text" name="name_ar" id="name_ar" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="email">{{ __('custom.email') }}</label>
-                                    <input type="text" name="email" id="email" class="form-control">
+                                    <label for="name">{{ __('custom.name_en') }}</label>
+                                    <input type="text" name="name_en" id="name_en" class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="name">{{ __('custom.title_position_ar') }}</label>
+                                    <input type="text" name="title_position_ar" id="title_position_ar"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="name">{{ __('custom.title_position_en') }}</label>
+                                    <input type="text" name="title_position_en" id="title_position_en"
+                                        class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row mb-2">
+
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="phone">{{ __('custom.phone') }}</label>
                                     <input type="text" name="phone" id="phone" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label for="title_position">{{ __('custom.title_position') }}</label>
-                                    <input type="text" name="title_position" id="title_position"
-                                        class="form-control">
+                                    <label for="email">{{ __('custom.email') }}</label>
+                                    <input type="text" name="email" id="email" class="form-control">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="status">{{ __('custom.status') }}</label>
                                     <select name="status" id="status" class="form-control">
@@ -77,12 +92,20 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                        </div>
+                        <div class="row mb-2">
+                            {{-- <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="address">{{ __('custom.address') }}</label>
-                                    <input type="text" name="address" id="address" class="form-control">
+                                    <label for="address">{{ __('custom.address_ar') }}</label>
+                                    <input type="text" name="address_ar" id="address_ar" class="form-control">
                                 </div>
                             </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="address">{{ __('custom.address_en') }}</label>
+                                    <input type="text" name="address_en" id="address_en" class="form-control">
+                                </div>
+                            </div> --}}
                         </div>
                         <div class="row mb-2">
                             <div class="col-sm-6">
@@ -112,22 +135,38 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        {{-- <div class="row mb-2">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="cover_letter">{{ __('custom.cover_letter') }}</label>
-                                    <textarea class="form-control" name="cover_letter" id="cover_letter" cols="30" rows="4"></textarea>
+                                    <label for="cover_letter">{{ __('custom.cover_letter_ar') }}</label>
+                                    <textarea class="form-control" name="cover_letter_en" id="cover_letter_en" cols="30" rows="4"></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="personal_details">{{ __('custom.personal_details') }}</label>
-                                    <textarea class="form-control" name="personal_details" id="personal_details" cols="30" rows="7"></textarea>
+                                    <label for="cover_letter">{{ __('custom.cover_letter_en') }}</label>
+                                    <textarea class="form-control" name="cover_letter_en" id="cover_letter_en" cols="30" rows="4"></textarea>
                                 </div>
                             </div>
                         </div>
+                        <div class="row mb-2">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="personal_details">{{ __('custom.personal_details_ar') }}</label>
+                                    <textarea class="form-control" name="personal_details_ar" id="personal_details_ar" cols="30" rows="7"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="personal_details">{{ __('custom.personal_details_en') }}</label>
+                                    <textarea class="form-control" name="personal_details_en" id="personal_details_en" cols="30" rows="7"></textarea>
+                                </div>
+                            </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">

@@ -6,7 +6,7 @@
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @include('admin.partials.page_header')
+        @include('admin.partials.page_header'  , [ 'page_title_1' => __('custom.dashboard.services'), 'page_title_2' => __('custom.dashboard.service_category')])
         <!-- Main content -->
         <section class="content" enc>
             <div class="card">
@@ -30,7 +30,8 @@
                     <table id="myTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>{{ __('custom.name') }}</th>
+                                <th>{{ __('custom.name_ar') }}</th>
+                                <th>{{ __('custom.name_en') }}</th>
                                 <th>{{ __('custom.status') }}</th>
                                 <th>{{ __('custom.Actions') }}</th>
                             </tr>
@@ -58,5 +59,5 @@
     <script>
         var table_data_url = "{{ $table_data_url }}"
     </script>
-    <script src="{{ asset('admin_assets/dist/js/custom/service_category.js') }}"></script>
+    <script src="{{ asset('admin_assets/dist/js/custom/service_category.js?v=0.01') }}"></script>
 @endpush

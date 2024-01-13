@@ -24,19 +24,19 @@ function getTableColumns() {
         data: 'name',
         name: 'name',
         searchable: true,
-        orderable: true,
+        orderable: false,
     },
     {
         data: 'category',
-        name: 'category.name',
+        name: 'category',
         searchable: true,
-        orderable: true,
+        orderable: false,
     },
     {
         data: 'status',
         name: 'status',
         searchable: true,
-        orderable: true,
+        orderable: false,
     },
     {
         data: 'actions',
@@ -65,13 +65,15 @@ $('#service-create-update-modal').on('show.bs.modal', function (e) {
     $(this).find('form').attr('method', method);
     if (isCreate == 1) {
         $(this).find('button[type="reset"]').click();
+        document.getElementById('image-input-wrapper').style.backgroundImage = "url(" + globals.placeholder_image + ")";
     } else {
         document.getElementById('image-input-wrapper').style.backgroundImage = "url(" + imagePath + ")";
-        $('#name').val(service.name);
-        $('#category_id').val(service.category_id);
-        $('#status').val(service.status);
-        $('#pdf').val(service.pdf);
-        $('#details').text(service.details);
+        $('#name_ar').val(btn.getAttribute('data-name-ar'));
+        $('#name_en').val(btn.getAttribute('data-name-en'));
+        $('#category_id').val(btn.getAttribute('data-category-id'));
+        $('#status').val(btn.getAttribute('data-status'));
+        $('#details_ar').text(btn.getAttribute('data-details-ar'));
+        $('#details_en').text(btn.getAttribute('data-details-en'));
     }
 
 });

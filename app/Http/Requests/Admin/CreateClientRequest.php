@@ -25,7 +25,7 @@ class CreateClientRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' =>  'nullable|image|mimes:jpeg,png,jpg,gif|dimensions:min_width=80,min_height=80,max_width=80,max_height=80',
+            'image' =>  'nullable|image|mimes:jpeg,png,jpg,gif',#dimensions:min_width=80,min_height=80,max_width=80,max_height=80
             'name'  =>  'required|string',
             'email' =>  'required|email|unique:clients,email',
             'phone' =>  'required|unique:clients,phone',

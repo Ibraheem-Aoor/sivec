@@ -7,15 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 
-class Service extends Model
+
+class Service extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
-    public $translatedAttributes = ['name', 'details'];
 
     protected $fillable = [
-        'name',
-        'details',
         'category_id',
         'image',
         'icon',
@@ -26,6 +25,10 @@ class Service extends Model
     protected $with = [
         'translations',
     ];
+
+    public $translatedAttributes = ['name', 'details'];
+
+
 
 
     ####### Start Relationbs #######

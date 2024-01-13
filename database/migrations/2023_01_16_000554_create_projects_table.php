@@ -17,8 +17,8 @@ class CreateProjectsTable extends Migration
 
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->string('home_image');
+            $table->string('image')->nullable();
+            $table->string('home_image')->nullable();
             $table->string('name');
             $table->longText('features')->nullable();
             $table->double('budget')->nullable();
