@@ -73,7 +73,7 @@ class ProjectController extends Controller
             $response_data['reset_form'] = true;
             $response_data['modal_to_hiode'] = '#project-create-update-modal';
             $error_no = 200;
-            $this->cache_service->forget('home_projects');
+            $this->cache_service->forget('project_parent_categories');
             $this->cache_service->forget('projects');
         } catch (Throwable $e) {
             $response_data['status'] = false;

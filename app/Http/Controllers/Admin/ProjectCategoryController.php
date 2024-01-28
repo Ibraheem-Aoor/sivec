@@ -116,6 +116,8 @@ class ProjectCategoryController extends Controller
                     'name' => $data['name_en'],
                 ],
                 'image' => $request->hasFile('image') ? saveImage('project_category', $request->file('image')) : $project_category->image,
+                'parent_id' => $data['project_category_id'],
+
             ]);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.updated_successs');
@@ -150,6 +152,7 @@ class ProjectCategoryController extends Controller
             $error_no = 200;
             $this->cache_service->forget('project_parent_categories');
         } catch (Throwable $e) {
+            dd($e);
             $respnse_data['message'] = _('custom.smth_wrong');
             $error_no = 500;
         }

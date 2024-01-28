@@ -64,7 +64,7 @@ $('#project-category-create-update-modal').on('show.bs.modal', function (e) {
         document.getElementById('image-input-wrapper-1').style.backgroundImage = "url(" + btn.getAttribute('data-image') + ")";
         $('#name_ar').val(btn.getAttribute('data-name-ar'));
         $('#name_en').val(btn.getAttribute('data-name-en'));
-        $('#status').val(btn.getAttribute('data-status'));
+        $('#project_category_id').val(btn.getAttribute('data-category-id'));
     }
 
 });

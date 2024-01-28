@@ -157,5 +157,5 @@
             }
         });
     </script>
-    <script src="{{ asset('admin_assets/dist/js/custom/project_category.js') }}"></script>
+    <script src="{{ asset('admin_assets/dist/js/custom/project_category.js?v=0.01') }}"></script>
 @endpush

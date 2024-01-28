@@ -56,16 +56,6 @@
                                     <select name="project_category_id" id="project_category_id" class="form-control">
                                         <option value="">--{{ __('custom.select') }}--</option>
                                         @foreach ($categories as $category)
-                                            {{-- @if (!$category->subCategories->isEmpty())
-                                            <label for="{{ $category->id }}">{{ $category->name }}</label>
-                                                <optgroup id="{{ $category->id }}">
-                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                                    @foreach ($category->subCategories as $sub_category)
-                                                        <option value="{{ $sub_category->id }}">
-                                                            {{ $sub_category->name }}</option>
-                                                    @endforeach
-                                                </optgroup>
-                                            @else --}}
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                             {{-- @endif --}}
                                         @endforeach

@@ -27,6 +27,7 @@ class UpdateProjectCategoryRequest extends CreateProjectCategoryRequest
     public function rules()
     {
         $rules = parent::rules();
+        $rules['image'] =   ['nullable'];
         $rules['name_ar']  =  ['required' , Rule::unique('project_category_translations' , 'name')->ignore($this->id , 'project_category_id')];
         $rules['name_en']  =  ['required' , Rule::unique('project_category_translations' , 'name')->ignore($this->id , 'project_category_id')];
         return $rules;

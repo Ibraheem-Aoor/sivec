@@ -326,7 +326,7 @@ if (!function_exists('getProjectCategoriesForHome')) {
     function getProjectCategoriesForHome()
     {
         return Cache::rememberForever('project_parent_categories', function () {
-            return ProjectCategory::query()->whereHas('projects')->latest()->get();
+            return ProjectCategory::query()->whereNull('parent_id')->latest()->get();
         });
     }
 }
