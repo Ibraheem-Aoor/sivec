@@ -17,6 +17,7 @@ class ServiceCategoryTransformer extends TransformerAbstract
             'name_ar'  =>  $service_category->translate('ar')->name,
             'name_en'  =>  $service_category->translate('en')->name,
             'status'    =>  $service_category->status,
+            'created_at'    =>  date($service_category->created_at),
             'actions'   =>  $this->getActionButtons($service_category),
         ];
     }

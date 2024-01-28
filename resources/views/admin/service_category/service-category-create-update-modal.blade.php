@@ -23,17 +23,6 @@
                                     <input type="text" name="name_en"  id="name_en" class="form-control en-only">
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="status">{{ __('custom.status') }}</label>
-                                    <select name="status" id="status" class="form-control">
-                                        <option value="">--{{ __('custom.select') }}--</option>
-                                        @foreach ($show_statuses as $key => $object)
-                                            <option value="{{ $key }}">{{ $key }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
                         </div>
 
                     </div>

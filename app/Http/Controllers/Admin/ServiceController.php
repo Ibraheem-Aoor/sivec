@@ -23,7 +23,7 @@ class ServiceController extends Controller
     protected $artisan_service;
     public function __construct()
     {
-        $this->artisan_service  = new ArtisanService();
+        $this->artisan_service = new ArtisanService();
     }
 
     /**
@@ -51,11 +51,6 @@ class ServiceController extends Controller
         try {
             $data = $request->toArray();
             $image_file_content = $request->file('image');
-            $pdf_file_content = $request->file('pdf');
-            $data['image'] = Str::limit(encrypt(time()), 40, 'abc') . '.' . $image_file_content->getClientOriginalExtension();
-            if ($pdf_file_content) {
-                $data['pdf'] = Str::limit(encrypt(time()), 40, 'abc') . '.' . $pdf_file_content->getClientOriginalExtension();
-            }
             $service = Service::query()->create([
                 'ar' => [
                     'name' => $data['name_ar'],
@@ -65,15 +60,10 @@ class ServiceController extends Controller
                     'name' => $data['name_en'],
                     'details' => $data['details_en'],
                 ],
-                'image' => $data['image'],
-                'pdf' => @$data['pdf'],
+                'image' => saveImage('services', $image_file_content),
+                'pdf' => $request->hasFile('pdf') ? saveImage('services', $request->file('pdf')): null,
                 'category_id' => $data['category_id'],
-                'status' => $data['status'],
             ]);
-            $image_file_content->storeAs('public/services/' . $service->id . '/main' . '/', $data['image']);
-            if (@$data['pdf']) {
-                $pdf_file_content->storeAs('public/services/' . $service->id . '/pdf' . '/', $data['pdf']);
-            }
             $response_data['status'] = true;
             $response_data['message'] = __('custom.create_success');
             $response_data['refresh_table'] = true;
@@ -195,7 +185,7 @@ class ServiceController extends Controller
 
     public function getTableData()
     {
-        return DataTables::of(Service::query()->with('category')->orderByDesc('services.created_at'))
+        return DataTables::of(Service::query())
             ->setTransformer(ServiceTransformer::class)
             ->filterColumn('name', function ($query, $keyword) {
                 $query->whereHas('translations', function ($query) use ($keyword) {

@@ -113,10 +113,8 @@
                             <tr>
                                 <th>{{ __('custom.name') }}</th>
                                 <th>{{ __('custom.category') }}</th>
-                                <th>{{ __('custom.client') }}</th>
-                                <th>{{ __('custom.budget') }}</th>
-                                <th>{{ __('custom.achieve_date') }}</th>
-                                <th>{{ __('custom.status') }}</th>
+                                <th>{{ __('custom.projects.style') }}</th>
+                                <th>{{ __('custom.projects.type') }}</th>
                                 <th>{{ __('custom.Actions') }}</th>
                             </tr>
                         </thead>

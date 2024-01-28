@@ -27,7 +27,6 @@ class CreateServiceCategoryRequest extends FormRequest
         return [
             'name_ar'  =>  'required|unique:service_category_translations,name',
             'name_en'  =>  'required|unique:service_category_translations,name',
-            'status'    =>  'required'
         ];
     }
 }

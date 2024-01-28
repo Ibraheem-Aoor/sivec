@@ -10,7 +10,7 @@
                 <div class="col-xl-8 col-lg-7">
                     <div class="service-detail-text">
                         <div class="blog-standared-img slider-blog mrb-40">
-                            <img class="img-full" src="{{ $service->getImage() }}" alt="">
+                            <img class="img-full" src="{{ getImageUrl($service->image) }}" alt="">
                         </div>
                         <h3 class="mrb-15">{{ $service->name }}</h3>
                         <p class="about-text-block mrb-40">{{ $service->details }}</p>

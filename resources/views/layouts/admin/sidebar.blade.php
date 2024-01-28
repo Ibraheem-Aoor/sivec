@@ -69,9 +69,9 @@
                   {{-- End services --}}
 
                   <li
-                      class="nav-item has-treeview {{ areActiveRoutes(['admin.project.index', 'admin.project-category.index'], 'menu-open') }}">
+                      class="nav-item has-treeview {{ areActiveRoutes(['admin.project.index', 'admin.project-category.index' , 'admin.project-style-type.index'], 'menu-open') }}">
                       <a href="#"
-                          class="nav-link {{ areActiveRoutes(['admin.project.index', 'admin.project-category.index']) }}">
+                          class="nav-link {{ areActiveRoutes(['admin.project.index', 'admin.project-category.index' , 'admin.project-style-type.index']) }}">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
                               {{ __('custom.dashboard.projects') }}
@@ -85,6 +85,20 @@
                                   <i class="nav-icon fas fa-th"></i>
 
                                   <p>{{ __('custom.dashboard.project_category') }}</p>
+                              </a>
+                          </li>
+                          <li class="nav-item @if (Route::currentRouteName() == 'admin.project-style-type.index' && @$model == 'ProjectType') active @endif">
+                              <a href="{{ route('admin.project-style-type.index', ['model' => 'ProjectType']) }}"
+                                  class="nav-link {{ areActiveRoutes(['admin.project-style-type.index']) }}">
+                                  <i class="nav-icon fas fa-th"></i>
+                                  <p>{{ __('custom.projects.projects_types') }}</p>
+                              </a>
+                          </li>
+                          <li class="nav-item @if (Route::currentRouteName() == 'admin.project-style-type.index' && @$model == 'ProjectStyle') active @endif">
+                              <a href="{{ route('admin.project-style-type.index', ['model' => 'ProjectStyle']) }}"
+                                  class="nav-link {{ areActiveRoutes(['admin.project-style-type.index']) }}">
+                                  <i class="nav-icon fas fa-th"></i>
+                                  <p>{{ __('custom.projects.projects_styles') }}</p>
                               </a>
                           </li>
                           <li class="nav-item">
@@ -187,10 +201,7 @@
 
                   {{-- Start services --}}
                   {{-- <li class="nav-item has-treeview menu-open">
-                      <a href="#" class="nav-link @if (Route::currentRouteName() == 'admin.job-title.index' ||
-                              Route::currentRouteName() == 'admin.job-title.create' ||
-                              Route::currentRouteName() == 'admin.job-position.create' ||
-                              Route::currentRouteName() == 'admin.service-category.destroy') active @endif">
+                      <a href="#" class="nav-link @if (Route::currentRouteName() == 'admin.job-title.index' || Route::currentRouteName() == 'admin.job-title.create' || Route::currentRouteName() == 'admin.job-position.create' || Route::currentRouteName() == 'admin.service-category.destroy') active @endif">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
                               {{ __('custom.dashboard.jobs') }}
@@ -208,10 +219,7 @@
                           </li>
                           <li class="nav-item ">
                               <a href="{{ route('admin.job_application.index') }}"
-                                  class="nav-link @if (Route::currentRouteName() == 'admin.job-title.index' ||
-                                          Route::currentRouteName() == 'admin.job-titlereate' ||
-                                          Route::currentRouteName() == 'admin.service.custom_update' ||
-                                          Route::currentRouteName() == 'admin.service.destroy') active @endif">
+                                  class="nav-link @if (Route::currentRouteName() == 'admin.job-title.index' || Route::currentRouteName() == 'admin.job-titlereate' || Route::currentRouteName() == 'admin.service.custom_update' || Route::currentRouteName() == 'admin.service.destroy') active @endif">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>{{ __('custom.dashboard.job_titles') }}</p>
                               </a>

@@ -24,6 +24,7 @@ class Service extends Model implements TranslatableContract
 
     protected $with = [
         'translations',
+        'category',
     ];
 
     public $translatedAttributes = ['name', 'details'];
@@ -69,5 +70,14 @@ class Service extends Model implements TranslatableContract
     public function getEncId()
     {
         return encrypt($this->id);
+    }
+
+
+    protected static function prepareHomeServicesQueryForCache()
+    {
+        return self::query()
+            ->whereStatus('ACTIVE')
+            ->with('category')
+            ->limit(6);
     }
 }

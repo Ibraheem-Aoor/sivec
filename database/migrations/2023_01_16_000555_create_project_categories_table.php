@@ -17,11 +17,11 @@ class CreateProjectCategoriesTable extends Migration
 
         Schema::create('project_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
             $table->unsignedBigInteger('parent_id')
                 ->nullable()
                 ->comment('Each Project Category May Have Multiple Sub Categories');
-            $table->string('status');
+            $table->string('image');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
 

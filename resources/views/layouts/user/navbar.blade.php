@@ -25,8 +25,7 @@
                 <li class="menu-has-sub @if (Route::currentRouteName() == 'site.contact') current @endif">
                     <a href="#">{{ __('custom.site.CONTACT') }}</a>
                     <ul>
-                        <li><a href="{{ route('site.contact') }}"
-                                class="capitlize">{{ __('custom.site.CONTACT') }}</a>
+                        <li><a href="{{ route('site.contact') }}" class="capitlize">{{ __('custom.site.CONTACT') }}</a>
                         </li>
                         <li><a href="{{ route('site.branches') }}"
                                 class="capitlize">{{ __('custom.site.BRANCHES') }}</a>
@@ -61,20 +60,28 @@
                 </li>
                 {{-- desings End --}}
                 {{-- Interior  start --}}
-                <li class="menu-has-sub has-sub-child">
-                    <a href="#" >{{ __('custom.site.INTERIOR') }}</a>
-                    <ul>
-                        @foreach ($image_categories->last()->subCategories as $image_category)
-                            @php
-                                $has_sub_category = $image_category->hasSubCategories();
-                            @endphp
-                            <li @if ($has_sub_category) class="menu-has-sub has-sub-child" @endif><a
-                                    href="@if (!$has_sub_category) {{ $image_category->getUrl() }} @endif"
-                                    class="capitlize">{{ $image_category->name }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </li>
+                @foreach ($project_parent_categories as $category)
+                    <li class="menu-has-sub has-sub-child">
+                        <a href="#">{{ $category->name }}</a>
+                        <ul>
+                            @foreach ($category->subCategories as $sub_category)
+                                <li @if ($sub_category->hasSubCategories()) class="menu-has-sub has-sub-child" @endif><a
+                                        href="{{ $sub_category->getUrl() }}"
+                                        class="capitlize">{{ $sub_category->name }}</a>
+                                    @if ($sub_category->hasSubCategories())
+                                        <ul>
+                                            @foreach ($sub_category->subCategories as $child_category)
+                                                <li><a href="{{ $child_category->getUrl() }}"
+                                                        class="capitlize">{{ $child_category->name }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @endforeach
                 {{-- Interior End --}}
 
                 {{-- Start Catalog --}}
@@ -98,10 +105,8 @@
                         @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                             @if (app()->getLocale() != $localeCode)
                                 <li>
-
-
                                     <a rel="alternate" hreflang="{{ $localeCode }}"
-                                        href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        href="{{ route('change_language', $localeCode) }}">
                                         @if ($localeCode == 'en')
                                             <i class="fa fa-globe"></i>
                                         @endif

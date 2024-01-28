@@ -195,7 +195,7 @@
                                 <ul class="footer-widget-list">
                                     <li><a class="" href="{{ route('site.services') }}"
                                             class="capitlized">{{ __('custom.site.SERVICES') }}</a></li>
-                                    <li><a class="" href="{{ route('site.projects') }}"
+                                    <li><a class="" href="#"
                                             class="capitlized">{{ __('custom.site.PROJECTS') }}</a></li>
                                     <li><a class="" href="{{ route('site.contact') }}"
                                             class="capitlized">{{ __('custom.site.CONTACT') }}</a></li>

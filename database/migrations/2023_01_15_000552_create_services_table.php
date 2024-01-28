@@ -17,13 +17,11 @@ class CreateServicesTable extends Migration
 
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->longText('details');
             $table->string('pdf')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('service_categories')->onDelete('cascade');
             $table->string('image');
-            $table->string('status');
+            $table->boolean('status')->default(true);
             $table->string('icon')->nullable();
             $table->timestamps();
         });

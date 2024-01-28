@@ -32,7 +32,7 @@ class ProjectCategoryController extends Controller
     {
         $data['table_data_url'] = route('admin.project-category.table_data');
         $data['show_statuses'] = BaseShowStatusEnum::getInstances();
-        $data['categories'] =   ProjectCategory::query()->get();
+        $data['categories'] = ProjectCategory::query()->get();
         // dd($data['categories']);
         return view('admin.project_category.index', $data);
     }
@@ -57,22 +57,25 @@ class ProjectCategoryController extends Controller
     {
         try {
             $data = $request->toArray();
-            ProjectCategory::query()->create([
+            $project_category = ProjectCategory::query()->create([
                 'ar' => [
                     'name' => $data['name_ar'],
                 ],
                 'en' => [
                     'name' => $data['name_en'],
                 ],
-                'status' => $data['status'],
-                'parent_id' =>  $data['project_category_id'],
+                'image' => saveImage("project_category", $request->file('image')),
+                'parent_id' => $data['project_category_id'],
             ]);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.create_success');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
             $response_data['modal_to_hiode'] = '#project-category-create-update-modal';
+            $response_data['html_element_to_change_content'] = '#project_category_id';
+            $response_data['html_element_new_content'] = $this->getCategoriesSelectElement();
             $error_no = 200;
+            $this->cache_service->forget('project_parent_categories');
         } catch (Throwable $e) {
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage();
@@ -81,27 +84,17 @@ class ProjectCategoryController extends Controller
         return response()->json($response_data, $error_no);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function getCategoriesSelectElement()
     {
-        //
+        $html = "";
+        ProjectCategory::query()->chunk(10, function ($categories) use (&$html) {
+            foreach ($categories as $category) {
+                $html .= "<option value='" . $category->id . "'>" . $category->name . "</option>";
+            }
+        });
+        return $html;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -122,7 +115,7 @@ class ProjectCategoryController extends Controller
                 'en' => [
                     'name' => $data['name_en'],
                 ],
-                'status' => $data['status'],
+                'image' => $request->hasFile('image') ? saveImage('project_category', $request->file('image')) : $project_category->image,
             ]);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.updated_successs');
@@ -130,6 +123,7 @@ class ProjectCategoryController extends Controller
             $response_data['reset_form'] = true;
             $response_data['modal_to_hiode'] = '#project-category-create-update-modal';
             $error_no = 200;
+            $this->cache_service->forget('project_parent_categories');
         } catch (Throwable $e) {
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
@@ -154,6 +148,7 @@ class ProjectCategoryController extends Controller
             $respnse_data['message'] = __('custom.deleted_successflly');
             $respnse_data['row'] = $id;
             $error_no = 200;
+            $this->cache_service->forget('project_parent_categories');
         } catch (Throwable $e) {
             $respnse_data['message'] = _('custom.smth_wrong');
             $error_no = 500;
@@ -171,8 +166,8 @@ class ProjectCategoryController extends Controller
                 $query->whereHas('translations', function ($query) use ($keyword) {
                     $query->where('name', 'like', "%$keyword%")->whereIn('locale', getAvilableLocales());
                 });
-            })->orderColumn('status'  , function($query ,  $order){
-                return $query->orderBy('status' ,  $order);
+            })->orderColumn('status', function ($query, $order) {
+                return $query->orderBy('status', $order);
             })
             ->make(true);
     }

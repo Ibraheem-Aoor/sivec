@@ -58,9 +58,10 @@ $('#project-category-create-update-modal').on('show.bs.modal', function (e) {
     $(this).find('form').attr('action', action);
     $(this).find('form').attr('method', method);
     if (isCreate == 1) {
+        document.getElementById('image-input-wrapper-1').style.backgroundImage = "url(" + globals.placeholder_image + ")";
         $(this).find('button[type="reset"]').click();
     } else {
-        console.log(projectCategory);
+        document.getElementById('image-input-wrapper-1').style.backgroundImage = "url(" + btn.getAttribute('data-image') + ")";
         $('#name_ar').val(btn.getAttribute('data-name-ar'));
         $('#name_en').val(btn.getAttribute('data-name-en'));
         $('#status').val(btn.getAttribute('data-status'));

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\JobTitleController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProjectCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ProjectTypeAndStyleController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
@@ -75,6 +76,12 @@ Route::group(['prefix' => 'backoffice'], function () {
         Route::get('project-category-table-data', [ProjectCategoryController::class, 'getTableData'])->name('project-category.table_data');
 
 
+        // Project Style&Type
+        Route::get('project-style-type', [ProjectTypeAndStyleController::class , 'index'])->name('project-style-type.index');
+        Route::post('project-style-type/store', [ProjectTypeAndStyleController::class, 'store'])->name('project-style-type.store');
+        Route::post('project-style-type/{id}/update', [ProjectTypeAndStyleController::class, 'update'])->name('project-style-type.custom_update');
+        Route::delete('project-style-type/{id}/destroy', [ProjectTypeAndStyleController::class, 'destroy'])->name('project-style-type.destroy');
+        Route::get('project-style-type-table-data', [ProjectTypeAndStyleController::class, 'getTableData'])->name('project-style-type.table_data');
         // Project
         Route::resource('project', ProjectController::class);
         Route::post('project/{id}/update', [ProjectController::class, 'update'])->name('project.custom_update');

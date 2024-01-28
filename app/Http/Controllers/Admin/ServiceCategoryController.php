@@ -34,7 +34,6 @@ class ServiceCategoryController extends Controller
     public function index()
     {
         $data['table_data_url'] = route('admin.service-category.table_data');
-        $data['show_statuses'] = BaseShowStatusEnum::getInstances();
         return view('admin.service_category.index', $data);
     }
 
@@ -65,7 +64,6 @@ class ServiceCategoryController extends Controller
                 'en' => [
                     'name' => $data['name_en'],
                 ],
-                'status' => $data['status'],
             ]);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.create_success');
@@ -123,7 +121,6 @@ class ServiceCategoryController extends Controller
                 'en' => [
                     'name' => $data['name_en'],
                 ],
-                'status' => $data['status'],
             ]);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.updated_successs');
@@ -169,7 +166,7 @@ class ServiceCategoryController extends Controller
 
     public function getTableData()
     {
-        return DataTables::of(ServiceCategory::query()->orderByDesc('created_at'))
+        return DataTables::of(ServiceCategory::query())
             ->setTransformer(ServiceCategoryTransformer::class)
             ->orderColumn('name_ar', function ($query, $order) {
                 $query->whereHas('translations', function ($q) use ($order) {
@@ -178,7 +175,7 @@ class ServiceCategoryController extends Controller
             })
             ->orderColumn('name_en', function ($query, $order) {
                 $query->whereHas('translations', function ($q) use ($order) {
-                    $q->where('locale', 'en')->orderBy('name', $order);
+                    return $q->where('locale', 'en')->orderBy('name', $order);
                 });
             })
             ->filterColumn('name_ar', function ($query, $keyword) {
@@ -190,6 +187,8 @@ class ServiceCategoryController extends Controller
                 $query->whereHas('translations', function ($query) use ($keyword) {
                     $query->where('name', 'like', "%$keyword%")->where('locale', 'en');
                 });
+            })->orderColumn('status' , function($query , $order){
+                $query->orderBy('status' , $order);
             })
             ->make(true);
     }

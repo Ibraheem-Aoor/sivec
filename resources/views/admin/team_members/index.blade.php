@@ -34,7 +34,7 @@
                                 <th>{{ __('custom.title_position') }}</th>
                                 <th>{{ __('custom.email') }}</th>
                                 <th>{{ __('custom.phone') }}</th>
-                                <th>{{ __('custom.status') }}</th>
+                                <th class="d-none">{{ __('custom.status') }}</th>
                                 <th>{{ __('custom.Actions') }}</th>
                             </tr>
                         </thead>

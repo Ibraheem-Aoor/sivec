@@ -10,17 +10,44 @@
                 </div>
                 <div class="modal-body">
                     <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label for="">{{ __('custom.home_image') }}</label>
+                                <div class="avatar-picture">
+                                    <div class="image-input image-input-outline" id="imgUserProfile">
+                                        <div class="image-input-wrapper" id="image-input-wrapper-1"
+                                            style="background-image: url('{{ asset('admin_assets/dist/img/image_placeholder.jpg') }}');">
+                                        </div>
+                                        <label class="btn">
+                                            <i>
+                                                <img src="{{ asset('admin_assets/dist/img/edit.svg') }}" alt=""
+                                                    class="img-fluid">
+                                            </i>
+                                            <input type="file" name="image" id="changeImg_1"
+                                                accept=".png, .jpg, .jpeg">
+                                            <input type="button" value="Upload" id="uploadButton_1">
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <div class="text-center">
+
+                                    <span class="text-danger text-center">400*475</span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row mb-2">
+
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">{{ __('custom.name_ar') }}</label>
-                                    <input type="text" name="name_ar" id="name_ar" class="form-control">
+                                    <input type="text" name="name_ar" id="name_ar" class="form-control ar-only">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">{{ __('custom.name_en') }}</label>
-                                    <input type="text" name="name_en" id="name_en" class="form-control">
+                                    <input type="text" name="name_en" id="name_en" class="form-control en-only">
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -29,7 +56,7 @@
                                     <select name="project_category_id" id="project_category_id" class="form-control">
                                         <option value="">--{{ __('custom.select') }}--</option>
                                         @foreach ($categories as $category)
-                                            {{-- @if (!($category->subCategories->isEmpty()))
+                                            {{-- @if (!$category->subCategories->isEmpty())
                                             <label for="{{ $category->id }}">{{ $category->name }}</label>
                                                 <optgroup id="{{ $category->id }}">
                                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -39,19 +66,8 @@
                                                     @endforeach
                                                 </optgroup>
                                             @else --}}
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                                             {{-- @endif --}}
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="status">{{ __('custom.status') }}</label>
-                                    <select name="status" id="status" class="form-control">
-                                        <option value="">--{{ __('custom.select') }}--</option>
-                                        @foreach ($show_statuses as $key => $object)
-                                            <option value="{{ $key }}">{{ $key }}</option>
                                         @endforeach
                                     </select>
                                 </div>

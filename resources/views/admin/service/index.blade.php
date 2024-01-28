@@ -114,7 +114,8 @@
                             <tr>
                                 <th>{{ __('custom.name') }}</th>
                                 <th>{{ __('custom.category') }}</th>
-                                <th>{{ __('custom.status') }}</th>
+                                <th class="d-none">{{ __('custom.status') }}</th>
+                                <th>{{ __('custom.created_at') }}</th>
                                 <th>{{ __('custom.Actions') }}</th>
                             </tr>
                         </thead>

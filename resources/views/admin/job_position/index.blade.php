@@ -35,7 +35,7 @@
                                 <th>{{ __('custom.vacancy') }}</th>
                                 <th>{{ __('custom.description') }}</th>
                                 <th>{{ __('custom.salary') }}</th>
-                                <th>{{ __('custom.status') }}</th>
+                                <th class="d-none">{{ __('custom.status') }}</th>
                                 <th>{{ __('custom.Actions') }}</th>
                             </tr>
                         </thead>

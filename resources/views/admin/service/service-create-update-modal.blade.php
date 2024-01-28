@@ -40,13 +40,13 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">{{ __('custom.name_ar') }}</label>
-                                    <input type="text" name="name_ar" id="name_ar" class="form-control">
+                                    <input type="text" name="name_ar" id="name_ar" class="form-control ar-only">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">{{ __('custom.name_en') }}</label>
-                                    <input type="text" name="name_en" id="name_en" class="form-control">
+                                    <input type="text" name="name_en" id="name_en" class="form-control en-only">
                                 </div>
                             </div>
                         </div>
@@ -60,23 +60,10 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </div>
-                        <div class="row mb-2">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="pdf">{{ __('custom.pdf') }}</label>
                                     <input type="file" name="pdf" id="pdf" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="status">{{ __('custom.status') }}</label>
-                                    <select name="status" id="status" class="form-control">
-                                        <option value="">--{{ __('custom.select') }}--</option>
-                                        @foreach ($show_statuses as $key => $object)
-                                            <option value="{{ $key }}">{{ $key }}</option>
-                                        @endforeach
-                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +71,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="status">{{ __('custom.detials_ar') }}</label>
-                                    <textarea name="details_ar" id="details_ar" cols="30" rows="10" class="form-control"></textarea>
+                                    <textarea name="details_ar" id="details_ar" cols="30" rows="10" class="form-control ar-only"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +79,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="status">{{ __('custom.detials_en') }}</label>
-                                    <textarea name="details_en" id="details_en" cols="30" rows="10" class="form-control"></textarea>
+                                    <textarea name="details_en" id="details_en" cols="30" rows="10" class="form-control en-only"></textarea>
                                 </div>
                             </div>
                         </div>

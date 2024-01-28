@@ -8,24 +8,17 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Project extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
 
 
-    protected $fillable = [
-        'image',
-        'home_image',
-        'budget',
-        'achieve_date',
-        'category_id',
-        'client_id',
-        'status',
-    ];
-
+    protected $guarded = [];
     protected $with = [
         'translations',
+        'category',
     ];
 
     public $translatedAttributes = [
@@ -36,8 +29,10 @@ class Project extends Model implements TranslatableContract
         'result'
     ];
 
-
-
+    #### START RELATIONS ####
+    /**
+     * Direct Category Of The Project
+     */
     public function category(): BelongsTo
     {
         return $this->belongsTo(ProjectCategory::class, 'category_id');
@@ -49,41 +44,66 @@ class Project extends Model implements TranslatableContract
     }
 
 
+    public function type(): BelongsTo
+    {
+        return $this->belongsTo(ProjectType::class, 'project_type_id');
+    }
+    public function style(): BelongsTo
+    {
+        return $this->belongsTo(ProjectStyle::class, 'project_style_id');
+    }
+
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(ProjectImage::class);
+    }
+
+    #### END RELATIONS ####
+
+
+    public function getBaseCategory(): ProjectCategory
+    {
+        return $this->category->getBaseCategory();
+    }
+
 
     /**
-     *  get the image url
-     * @return \url
+     * This function is used to display the name of the project well
+     * in home page. so if there is a baseCategory. we display the directCategory name of the project.
+     * else we are displaying the project's name becauses there will be no parentCategories for it's DirectCategory :)
      */
-    public function getHomeImage()
+    public function getNameOrDirectCategoryName(): string
     {
-        return Storage::url("projects/{$this->id}/home/{$this->home_image}");
-    }
-
-    public function getImage()
-    {
-        return Storage::url("projects/{$this->id}/main/{$this->image}");
-    }
-
-    public function getRleatedProjects()
-    {
-        $related_projects = self::query()->with(['category', 'client'])->whereCategoryId($this->category->id)->where('id', '!=', $this->id);
-        if ($related_projects->count() > 0) {
-            $related_projects = $related_projects->orderByDesc('created_at')->limit(6)->get();
+        if ($this->getBaseCategory() != null) {
+            return $this->category->name;
         } else {
-            $related_projects = self::query()->with(['category', 'client'])->inRandomOrder()->orderByDesc('created_at')->limit(6)->get();
+            return $this->name;
         }
-        return $related_projects;
     }
 
-    public function getRoute()
+
+    public function saveGalleryImages($gallery_images = [])
     {
-        return route('site.project.details', encrypt($this->id));
+        foreach ($gallery_images as $gallery_image => $file) {
+            $saved_image = saveImage('projects/' . $this->id . '/gallery' . '/', $file);
+            $this->images()->create([
+                'name' => $saved_image
+            ]);
+        }
+    }
+
+
+    public function getUrl()
+    {
+        return route('site.project_details' , $this->getEncId());
     }
 
     public function getEncId()
     {
         return encrypt($this->id);
     }
+
 
 
 

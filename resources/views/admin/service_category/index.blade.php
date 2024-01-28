@@ -32,7 +32,8 @@
                             <tr>
                                 <th>{{ __('custom.name_ar') }}</th>
                                 <th>{{ __('custom.name_en') }}</th>
-                                <th>{{ __('custom.status') }}</th>
+                                <th class="d-none">{{ __('custom.status') }}</th>
+                                <th>{{ __('custom.created_at') }}</th>
                                 <th>{{ __('custom.Actions') }}</th>
                             </tr>
                         </thead>

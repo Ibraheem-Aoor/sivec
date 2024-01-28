@@ -32,7 +32,6 @@ class CreateServiceRequest extends FormRequest
             'pdf'   =>  'nullable|file|mimes:pdf',
             'category_id'   =>  'required',
             'image'   =>  'required|image|mimes:jpeg,png,jpg,gif',
-            'status'    =>  'required',
             'details_ar'  => 'required',
             'details_en'  => 'required',
         ];

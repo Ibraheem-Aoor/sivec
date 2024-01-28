@@ -15,7 +15,7 @@ class ClientTransformer extends TransformerAbstract
      */
     public function transform(Client $client): array
     {
-        $image_path = Storage::url($client->image);
+        $image_path = getImageUrl($client->image);
         return [
             'image' => '<img src="'.$image_path.'" width="80" height="80" />',
             'name'  =>  $client->name,

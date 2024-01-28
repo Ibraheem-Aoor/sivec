@@ -10,6 +10,8 @@ use App\Jobs\Admin\SaveFilesJob;
 use App\Models\Client;
 use App\Models\Project;
 use App\Models\ProjectCategory;
+use App\Models\ProjectStyle;
+use App\Models\ProjectType;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Transformers\Admin\ProjectTransformer;
@@ -24,8 +26,6 @@ use Str;
 class ProjectController extends Controller
 {
 
-
-
     /**
      * Display a listing of the resource.
      *
@@ -35,8 +35,9 @@ class ProjectController extends Controller
     {
         $data['table_data_url'] = route('admin.project.table_data');
         $data['show_statuses'] = BaseShowStatusEnum::getInstances();
-        $data['categories'] = ProjectCategory::query()->get();
-        $data['clients'] = Client::query()->get();
+        $data['categories'] = ProjectCategory::query()->sub()->get();
+        $data['project_types'] = ProjectType::query()->get();
+        $data['project_styles'] = ProjectStyle::query()->get();
         return view('admin.project.index', $data);
     }
 
@@ -52,31 +53,28 @@ class ProjectController extends Controller
         try {
             $data = $request->toArray();
             $image_file_content = $request->file('image');
-            $home_image_file_content = $request->file('home_image');
             $project = Project::query()->create([
                 'ar' => [
                     'name' => $data['name_ar'],
-                    'basic_info' => $data['basic_info_ar']
                 ],
                 'en' => [
                     'name' => $data['name_en'],
-                    'basic_info' => $data['basic_info_en']
                 ],
-                'status' => $data['status'],
-                'achieve_date' => $data['achieve_date'],
-                'budget' => $data['budget'],
-                'category_id' => $data['category_id'],
-                'client_id' => $data['client_id'],
+                'category_id' => @$data['category_id'],
+                'project_type_id' => @$data['project_type_id'],
+                'project_style_id' => @$data['project_style_id'],
             ]);
-            $image_data['image'] = saveImage('projects/' . $project->id . '/main' . '/' , $image_file_content);
-            $image_data['home_image'] = saveImage('projects/' . $project->id . '/home' . '/' , $home_image_file_content);
+            $image_data['image'] = $image_file_content ? saveImage('projects/' . $project->id . '/main' . '/', $image_file_content) : null;
             $project->update($image_data);
+            $project->saveGalleryImages(@$data['gallery_images']);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.create_success');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
             $response_data['modal_to_hiode'] = '#project-create-update-modal';
             $error_no = 200;
+            $this->cache_service->forget('home_projects');
+            $this->cache_service->forget('projects');
         } catch (Throwable $e) {
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
@@ -120,31 +118,21 @@ class ProjectController extends Controller
             $project = Project::query()->find($id);
             $data = $request->toArray();
             $image_file_content = $request->file('image');
-            $home_image_file_content = $request->file('home_image');
             if ($image_file_content) {
                 deleteImage($project->image);
                 $data['image'] = saveImage('projects/' . $project->id . '/main' . '/', $image_file_content);
             }
-            if ($home_image_file_content) {
-                deleteImage($project->home_image);
-                $data['home_image'] = saveImage('projects/' . $project->id . '/home' . '/', $home_image_file_content);
-            }
             $project->update([
                 'ar' => [
                     'name' => $data['name_ar'],
-                    'basic_info' => $data['basic_info_ar']
                 ],
                 'en' => [
                     'name' => $data['name_en'],
-                    'basic_info' => $data['basic_info_en']
                 ],
-                'status' => $data['status'],
-                'achieve_date' => $data['achieve_date'],
-                'budget' => $data['budget'],
-                'category_id' => $data['category_id'],
-                'client_id' => $data['client_id'],
-                'image' =>  @$data['image'] ?? $project->image,
-                'home_image' =>  @$data['home_image'] ?? $project->home_image,
+                'category_id' => @$data['category_id'],
+                'project_type_id' => @$data['project_type_id'],
+                'project_style_id' => @$data['project_style_id'],
+                'image' => @$data['image'] ?? $project->image,
             ]);
             $response_data['status'] = true;
             $response_data['message'] = __('custom.updated_successs');
@@ -152,6 +140,8 @@ class ProjectController extends Controller
             $response_data['reset_form'] = false;
             $response_data['modal_to_hiode'] = '#project-create-update-modal';
             $error_no = 200;
+            $this->cache_service->forget('home_projects');
+            $this->cache_service->forget('projects');
         } catch (Throwable $e) {
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
@@ -200,9 +190,14 @@ class ProjectController extends Controller
                         $category_translations->where('name', 'like', "%$keyword%")->whereIn('locale', getAvilableLocales());
                     });
                 });
-            })->filterColumn('client', function ($query, $keyword) {
-                $query->whereHas('client', function ($client) use ($keyword) {
-                    $client->where('name', 'like', "%$keyword%");
+            })->filterColumn('type', function ($query, $keyword) {
+                $query->whereHas('type', function ($type) use ($keyword) {
+                    $type->where('name', 'like', "%$keyword%");
+                });
+            })
+            ->filterColumn('style', function ($query, $keyword) {
+                $query->whereHas('style', function ($style) use ($keyword) {
+                    $style->where('name', 'like', "%$keyword%");
                 });
             })
             ->make(true);

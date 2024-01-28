@@ -65,6 +65,10 @@ $(document).ready(function () {
                 if (response.modal_to_hiode) {
                     $(response.modal_to_hiode).modal('hide');
                 }
+                if (response.html_element_to_change_content) {
+                    $(response.html_element_to_change_content).html('');
+                    $(response.html_element_to_change_content).html(response.html_element_new_content);
+                }
                 submitBtn.prop('disabled', false);
             }, error: function (response) {
                 if (response.status == 422) {

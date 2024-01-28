@@ -382,6 +382,15 @@
     <!-- Service Section Area End -->
 
 
+    {{-- Projects Section Start --}}
+    @if(!$projects->isEmpty())
+        @include('site.partials.projects_section', ['projects' => $projects])
+    @endif
+    {{-- Projects Section End --}}
+
+
+
+
     <!-- Offer Section Start -->
     <section class="bg-secondary-color bg-no-repeat bg-cover bg-pos-cb pdt-110 pdb-85"
         style="background: none !important; margin-bottom:25vh !important; margin-top:20vh !important;">

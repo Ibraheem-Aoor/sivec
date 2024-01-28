@@ -16,6 +16,10 @@ function renderDataTable() {
         serverSide: true,
         ajax: table_data_url,
         columns: getTableColumns(),
+        order:[[
+            3,
+            'desc'
+        ]],
     });
 }
 
@@ -37,6 +41,12 @@ function getTableColumns() {
         name: 'status',
         searchable: true,
         orderable: false,
+    },
+    {
+        data: 'created_at',
+        name: 'created_at',
+        searchable: true,
+        orderable: true,
     },
     {
         data: 'actions',
@@ -64,8 +74,9 @@ $('#service-create-update-modal').on('show.bs.modal', function (e) {
     $(this).find('form').attr('action', action);
     $(this).find('form').attr('method', method);
     if (isCreate == 1) {
-        $(this).find('button[type="reset"]').click();
         document.getElementById('image-input-wrapper').style.backgroundImage = "url(" + globals.placeholder_image + ")";
+        $(this).find('button[type="reset"]').click();
+        $(this).find('textarea').text('');
     } else {
         document.getElementById('image-input-wrapper').style.backgroundImage = "url(" + imagePath + ")";
         $('#name_ar').val(btn.getAttribute('data-name-ar'));

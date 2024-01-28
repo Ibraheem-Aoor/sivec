@@ -16,6 +16,10 @@ function renderDataTable() {
         serverSide: true,
         ajax: table_data_url,
         columns: getTableColumns(),
+        order:[[
+            3,
+            'desc'
+        ]],
     });
 }
 
@@ -35,6 +39,12 @@ function getTableColumns() {
     {
         data: 'status',
         name: 'status',
+        searchable: false,
+        orderable: false,
+    },
+    {
+        data: 'created_at',
+        name: 'created_at',
         searchable: true,
         orderable: true,
     },

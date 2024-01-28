@@ -33,27 +33,15 @@ function getTableColumns() {
         orderable: false,
     },
     {
-        data: 'client',
-        name: 'client',
+        data: 'type',
+        name: 'type',
         searchable: true,
         orderable: false,
     },
     {
-        data: 'budget',
-        name: 'budget',
+        data: 'style',
+        name: 'style',
         searchable: true,
-        orderable: false,
-    },
-    {
-        data: 'achieve_date',
-        name: 'achieve_date',
-        searchable: true,
-        orderable: false,
-    },
-    {
-        data: 'status',
-        name: 'status',
-        searchable: false,
         orderable: false,
     },
     {
@@ -75,7 +63,6 @@ $('#project-create-update-modal').on('show.bs.modal', function (e) {
     var method = btn.getAttribute('data-method');
     var isCreate = btn.getAttribute('data-is-create');
     var project = btn.getAttribute('data-project');
-    var homeImagePath = btn.getAttribute('data-home-image');
     var mainImagePath = btn.getAttribute('data-main-image');
     if (project != null) {
         project = JSON.parse(project);
@@ -83,23 +70,23 @@ $('#project-create-update-modal').on('show.bs.modal', function (e) {
     $(this).find('form').attr('action', action);
     $(this).find('form').attr('method', method);
     if (isCreate == 1) {
-        document.getElementById('image-input-wrapper-1').style.backgroundImage =  "url(" + globals.placeholder_image + ")";
-        document.getElementById('image-input-wrapper-2').style.backgroundImage =  "url(" +  globals.placeholder_image + ")";
+        document.getElementById('image-input-wrapper-1').style.backgroundImage = "url(" + globals.placeholder_image + ")";
         $('textarea').text('');
         $(this).find('button[type="reset"]').click();
     } else {
-        document.getElementById('image-input-wrapper-1').style.backgroundImage =  "url(" + homeImagePath + ")";
-        document.getElementById('image-input-wrapper-2').style.backgroundImage =  "url(" +  mainImagePath + ")";
+        document.getElementById('image-input-wrapper-1').style.backgroundImage = "url(" + mainImagePath + ")";
         $('#name_ar').val(btn.getAttribute('data-name-ar'));
         $('#name_en').val(btn.getAttribute('data-name-en'));
         $('#category_id').val(project.category_id);
-        $('#client_id').val(project.client_id);
-        $('#budget').val(project.budget);
-        $('#achieve_date').val(project.achieve_date);
-        $('#basic_info').text(project.basic_info);
-        $('#status').val(project.status);
-        $('#basic_info_ar').text(btn.getAttribute('data-basic-info-ar'));
-        $('#basic_info_en').text(btn.getAttribute('data-basic-info-en'));
+        $('#project_type_id').val(project.project_type_id);
+        $('#project_style_id').val(project.project_style_id);
+        // $('#client_id').val(project.client_id);
+        // $('#budget').val(project.budget);
+        // $('#achieve_date').val(project.achieve_date);
+        // $('#basic_info').text(project.basic_info);
+        // $('#status').val(project.status);
+        // $('#basic_info_ar').text(btn.getAttribute('data-basic-info-ar'));
+        // $('#basic_info_en').text(btn.getAttribute('data-basic-info-en'));
     }
 
 });

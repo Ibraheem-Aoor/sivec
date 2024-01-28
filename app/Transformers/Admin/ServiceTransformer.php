@@ -19,6 +19,7 @@ class ServiceTransformer extends TransformerAbstract
             'name' => $service->name,
             'category' => $service->category->name,
             'status' => $service->status,
+            'created_at'    =>  date($service->created_at),
             'actions' => $this->getActionButtons($service),
         ];
     }

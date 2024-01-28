@@ -1,6 +1,9 @@
 <?php
 
 use App\Models\BusinessSetting;
+use App\Models\ImageCategory;
+use App\Models\ProjectCategory;
+use App\Models\Service;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -18,10 +21,7 @@ function saveImage($path, $file)
 function editImage($path, $file, $oldImage)
 {
     deleteImage($oldImage);
-
-    $imageName = Str::random() . '.' . $file->getClientOriginalExtension();
-    Storage::disk('public')->putFileAs($path, $file, $imageName);
-    return $imageName;
+    return saveImage($path, $file);
 }
 
 function deleteImage($oldImage)
@@ -36,17 +36,19 @@ function deleteImage($oldImage)
     }
 }
 
-
+/**
+ * get image url if exists. else return default placeholder image
+ */
 function getImageUrl($image)
 {
     if (is_null($image)) {
-        return asset('dist/img/product-placeholder.webp');
+        return asset('admin_assets/dist/img/product-placeholder.webp');
     }
     $exists = Storage::disk('public')->exists($image);
     if ($exists) {
         return Storage::url($image);
     } else {
-        return asset('dist/img/product-placeholder.webp');
+        return asset('admin_assets/dist/img/product-placeholder.webp');
     }
 }
 
@@ -303,4 +305,50 @@ if (!function_exists('getCurrentLocale')) {
     }
 }
 
+/**
+ * retrive page settings
+ */
+if (!function_exists('getPageSettings')) {
+    function getPageSettings($page = null)
+    {
+        return Cache::rememberForEver($page . '_' . getCurrentLocale(), function () use ($page) {
+            return BusinessSetting::query()->wherePage($page)->whereLang(getCurrentLocale())->pluck('value', 'key');
+        });
+    }
+}
 
+
+
+/**
+ * gallery parent categories to show in navBar.
+ */
+if (!function_exists('getProjectCategoriesForHome')) {
+    function getProjectCategoriesForHome()
+    {
+        return Cache::rememberForever('project_parent_categories', function () {
+            return ProjectCategory::query()->whereHas('projects')->latest()->get();
+        });
+    }
+}
+
+if (!function_exists('getHomeServices')) {
+    function getHomeServices()
+    {
+        return Cache::rememberForever('home_page_services', function () {
+            return Service::query()
+                ->whereStatus('ACTIVE')
+                ->with('category')
+                ->limit(6)->get();
+        });
+    }
+}
+
+
+if (!function_exists('setImageCategorires')) {
+    function setImageCategorires()
+    {
+        return Cache::rememberForever('image_categories', function () {
+            return ImageCategory::query()->whereNull('parent_id')->orderBy('created_at', 'asc')->get();
+        });
+    }
+}

@@ -23,7 +23,7 @@
                                                 <img src="{{ asset('admin_assets/dist/img/edit.svg') }}" alt=""
                                                     class="img-fluid">
                                             </i>
-                                            <input type="file" name="home_image" id="changeImg_1"
+                                            <input type="file" name="image" id="changeImg_1"
                                                 accept=".png, .jpg, .jpeg">
                                             <input type="button" value="Upload" id="uploadButton_1">
                                         </label>
@@ -33,32 +33,6 @@
                                 <div class="text-center">
 
                                     <span class="text-danger text-center">400*475</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <label for="">{{ __('custom.main_image') }}</label>
-                                <div class="avatar-picture">
-                                    <div class="image-input image-input-outline" id="imgUserProfile">
-                                        <div class="image-input-wrapper" id="image-input-wrapper-2"
-                                            style="background-image: url('{{ asset('admin_assets/dist/img/image_placeholder.jpg') }}');">
-                                        </div>
-                                        <label class="btn">
-                                            <i>
-                                                <img src="{{ asset('admin_assets/dist/img/edit.svg') }}" alt=""
-                                                    class="img-fluid">
-                                            </i>
-                                            <input type="file" name="image" id="changeImg_2"
-                                                accept=".png, .jpg, .jpeg">
-                                            <input type="button" value="Upload" id="uploadButton_2">
-                                        </label>
-
-                                    </div>
-                                </div>
-                                <div class="text-center">
-
-                                    <span class="text-danger text-center">775*450</span>
                                 </div>
                             </div>
                         </div>
@@ -88,17 +62,24 @@
                                 </select>
                             </div>
                             <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label for="category_id">{{ __('custom.client') }}</label>
-                                    <select name="client_id" id="client_id" class="form-control">
-                                        <option value="">--{{ __('custom.select') }}--</option>
-                                        @foreach ($clients as $client)
-                                            <option value="{{ $client->id }}">{{ $client->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                <label for="category_id">{{ __('custom.projects.type') }}</label>
+                                <select name="project_type_id" id="project_type_id" class="form-control">
+                                    <option value="">--{{ __('custom.select') }}--</option>
+                                    @foreach ($project_types as $type)
+                                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-sm-4">
+                                <label for="category_id">{{ __('custom.projects.style') }}</label>
+                                <select name="project_style_id" id="project_style_id" class="form-control">
+                                    <option value="">--{{ __('custom.select') }}--</option>
+                                    @foreach ($project_styles as $style)
+                                        <option value="{{ $style->id }}">{{ $style->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-sm-4 d-none">
                                 <div class="form-group">
                                     <label for="category_id">{{ __('custom.budget') }}</label>
                                     <input type="text" name="budget" id="budget" class="form-control">
@@ -106,6 +87,12 @@
                             </div>
                         </div>
                         <div class="row mb-2">
+                            <div class="form-group">
+                                <label for="category_id">{{ __('custom.gallery_images') }}</label>
+                                <input type="file" name="gallery_images[]" multiple class="custom-form">
+                            </div>
+                        </div>
+                        <div class="row mb-2 d-none">
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="category_id">{{ __('custom.achieve_date') }}</label>
@@ -124,7 +111,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row mb-2 d-none">
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="basic_info">{{ __('custom.description_ar') }}</label>

@@ -55,7 +55,7 @@ class ClientController extends Controller
         try {
             $data = $request->toArray();
             $client = Client::query()->create($data);
-            $data['image'] = saveImage('clients/' . $client->id . '/', $request->file('image'));
+            $data['image'] = $request->hasFile('image') ? saveImage('clients/' . $client->id . '/', $request->file('image')) : null;
             $client->image = $data['image'];
             $client->save();
             $response_data['status'] = true;
@@ -108,9 +108,8 @@ class ClientController extends Controller
             $data = $request->toArray();
             $image_file_content = $request->file('image');
             if ($image_file_content) {
-                $data['image'] = encrypt(time()) . '.' . $image_file_content->getClientOriginalExtension();
-                Storage::disk('public')->delete('clients/' . $client->id . '/' . $client->image);
-                $image_file_content->storeAs('public/clients/' . $client->id . '/', $data['image']);
+                $data['image'] = saveImage('clients/' . $client->id . '/', $request->file('image'));
+                deleteImage($client->image);
             }
             $client->update($data);
             $response_data['status'] = true;
