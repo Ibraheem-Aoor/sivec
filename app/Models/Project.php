@@ -87,8 +87,9 @@ class Project extends Model implements TranslatableContract
     {
         foreach ($gallery_images as $gallery_image => $file) {
             $saved_image = saveImage('projects/' . $this->id . '/gallery' . '/', $file);
-            $this->images()->create([
-                'name' => $saved_image
+            ProjectImage::query()->create([
+                'name'  =>  $saved_image,
+                'project_id'    =>  $this->id,
             ]);
         }
     }
