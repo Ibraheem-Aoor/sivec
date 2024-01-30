@@ -151,6 +151,7 @@ class ProjectCategorySeeder extends Seeder
                 'en' => [
                     'name' => 'NEW CLASSIC',
                 ],
+                'parent_id' =>  1,
                 'image' => 'gallery/int/classic/BEDROOM/1 (2).jpg',
             ],
             // 13
@@ -183,6 +184,7 @@ class ProjectCategorySeeder extends Seeder
                 'en' => [
                     'name' => 'OUTDOOR',
                 ],
+                'parent_id' =>  1,
                 'image' => 'gallery/int/classic/BEDROOM/1 (2).jpg',
             ],
         ];
