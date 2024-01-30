@@ -47,7 +47,7 @@
                                     class="capitlize">{{ $image_category->name }}</a>
                                 @if ($has_sub_category)
                                     <ul>
-                                        @foreach ($image_category->subCategories() as $sub_category)
+                                        @foreach ($image_category->subCategories as $sub_category)
                                             <li><a href="{{ $sub_category->getUrl() }}"
                                                     class="capitlize">{{ $sub_category->name }}</a>
                                             </li>
