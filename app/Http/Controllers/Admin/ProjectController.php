@@ -53,6 +53,7 @@ class ProjectController extends Controller
         try {
             set_time_limit(0);
             $data = $request->toArray();
+            dd($data);
             $image_file_content = $request->file('image');
             $project = Project::query()->create([
                 'ar' => [
