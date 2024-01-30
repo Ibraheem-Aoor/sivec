@@ -24,7 +24,7 @@
                                                     class="img-fluid">
                                             </i>
                                             <input type="file" name="image" id="changeImg_1"
-                                                accept=".png, .jpg, .jpeg">
+                                                accept=".png, .jpg, .jpeg , .webp">
                                             <input type="button" value="Upload" id="uploadButton_1">
                                         </label>
 
