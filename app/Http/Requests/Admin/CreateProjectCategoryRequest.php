@@ -17,8 +17,8 @@ class CreateProjectCategoryRequest extends BaseAdminRequest
     {
         return [
             'image' =>  'required|image',
-            'name_ar' => 'required|unique:project_category_translations,name',
-            'name_en' => 'required|unique:project_category_translations,name',
+            'name_ar' => 'required',
+            'name_en' => 'required',
         ];
     }
 }

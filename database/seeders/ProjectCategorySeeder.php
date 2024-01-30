@@ -53,7 +53,7 @@ class ProjectCategorySeeder extends Seeder
                     'name' => 'BEDROOM',
                 ],
                 'image' => 'gallery/int/classic/BEDROOM/1 (2).jpg',
-                'parent_id' => 1,
+                'parent_id' => 2,
             ],
             // 4
             [
@@ -64,7 +64,7 @@ class ProjectCategorySeeder extends Seeder
                     'name' => 'KIT',
                 ],
                 'image' => 'gallery/int/classic/BEDROOM/1 (2).jpg',
-                'parent_id' => 1,
+                'parent_id' => 2,
             ],
             // 5
             [
@@ -75,7 +75,7 @@ class ProjectCategorySeeder extends Seeder
                     'name' => 'LIVING',
                 ],
                 'image' => 'gallery/int/classic/BEDROOM/1 (2).jpg',
-                'parent_id' => 1,
+                'parent_id' => 2,
             ],
             // 6
             [
