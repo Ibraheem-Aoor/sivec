@@ -79,6 +79,7 @@ class ProjectController extends Controller
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
             $error_no = 500;
+            info($e);
         }
         return response()->json($response_data, $error_no);
     }
@@ -146,6 +147,7 @@ class ProjectController extends Controller
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
             $error_no = 500;
+            info($e);
         }
         return response()->json($response_data, $error_no);
     }
