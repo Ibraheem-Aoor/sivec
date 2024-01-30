@@ -76,6 +76,7 @@ class ProjectController extends Controller
             $this->cache_service->forget('project_parent_categories');
             $this->cache_service->forget('projects');
         } catch (Throwable $e) {
+            dd($e);
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
             $error_no = 500;
@@ -144,6 +145,7 @@ class ProjectController extends Controller
             $this->cache_service->forget('home_projects');
             $this->cache_service->forget('projects');
         } catch (Throwable $e) {
+            dd($e);
             $response_data['status'] = false;
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
             $error_no = 500;
