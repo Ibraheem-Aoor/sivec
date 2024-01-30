@@ -51,6 +51,7 @@ class ProjectController extends Controller
     public function store(CreateProjectRequest $request)
     {
         try {
+            set_time_limit(0);
             $data = $request->toArray();
             $image_file_content = $request->file('image');
             $project = Project::query()->create([
