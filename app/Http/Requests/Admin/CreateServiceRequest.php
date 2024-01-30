@@ -31,7 +31,7 @@ class CreateServiceRequest extends FormRequest
             'name_en'  =>  'required|unique:service_translations,name',
             'pdf'   =>  'nullable|file|mimes:pdf',
             'category_id'   =>  'required',
-            'image'   =>  'required|image|mimes:jpeg,png,jpg,gif',
+            'image'   =>  'required|image|mimes:jpeg,png,jpg,gif,webp',
             'details_ar'  => 'required',
             'details_en'  => 'required',
         ];

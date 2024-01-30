@@ -28,7 +28,7 @@ class CreateProjectRequest extends FormRequest
     {
         $images_required = Route::currentRouteName() == 'admin.project.custom_update' ? 'nullable' : 'required';
         return [
-            'image'   =>  $images_required.'|image|mimes:jpeg,png,jpg,gif',#dimensions:min_width=1280,min_height=640,max_width=1340,max_height=720
+            'image'   =>  $images_required.'|image|mimes:jpeg,png,jpg,gif,webp',#dimensions:min_width=1280,min_height=640,max_width=1340,max_height=720
             'name_ar' => 'required',
             'name_en' => 'required',
             'category_id'   =>  'required',

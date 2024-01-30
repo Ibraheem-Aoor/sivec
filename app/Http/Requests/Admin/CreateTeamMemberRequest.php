@@ -25,7 +25,7 @@ class CreateTeamMemberRequest extends FormRequest
     public function rules()
     {
         return [
-            'avatar'   =>   'required|image|mimes:jpeg,png,jpg,gif',#dimensions:min_width=460,min_height=460,max_width=480,max_height=480
+            'avatar'   =>   'required|image|mimes:jpeg,png,jpg,gif,webp',#dimensions:min_width=460,min_height=460,max_width=480,max_height=480
             'name_ar'  =>  'required|string',
             'name_en'  =>  'required|string',
             'title_position_ar'  =>  'required|string',
