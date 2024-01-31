@@ -23,6 +23,12 @@ function editImage($path, $file, $oldImage)
     deleteImage($oldImage);
     return saveImage($path, $file);
 }
+function moveFile($from, $to)
+{
+    if (is_file_exists($from)) {
+            return Storage::disk('public')->move($from, $to);
+    }
+}
 
 function deleteImage($oldImage)
 {
@@ -49,6 +55,13 @@ function getImageUrl($image)
         return Storage::url($image);
     } else {
         return asset('admin_assets/dist/img/product-placeholder.webp');
+    }
+}
+
+if (!function_exists('is_file_exists')) {
+    function is_file_exists($path, $disk = 'public') : bool
+    {
+        return Storage::disk($disk)->exists($path);
     }
 }
 

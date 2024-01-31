@@ -85,6 +85,7 @@ Route::group(['prefix' => 'backoffice'], function () {
         // Project
         Route::resource('project', ProjectController::class);
         Route::post('project/{id}/update', [ProjectController::class, 'update'])->name('project.custom_update');
+        Route::post('project/upload-gallery', [ProjectController::class, 'uploadGallery'])->name('project.upload_gallery');
         Route::get('project-table-data', [ProjectController::class, 'getTableData'])->name('project.table_data');
 
 

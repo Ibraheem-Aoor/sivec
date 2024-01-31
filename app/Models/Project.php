@@ -85,11 +85,12 @@ class Project extends Model implements TranslatableContract
 
     public function saveGalleryImages($gallery_images = [])
     {
-        foreach ($gallery_images as $gallery_image => $file) {
-            $saved_image = saveImage('projects/' . $this->id . '/gallery' . '/', $file);
+        foreach ($gallery_images as $file) {
+            $file = str_replace('"', '' , $file);
+            $s = moveFile('tmp/projects/'.$file , 'projects/' . $this->id . '/gallery'.'/'.$file);
             ProjectImage::query()->create([
-                'name'  =>  $saved_image,
-                'project_id'    =>  $this->id,
+                'name' => 'projects/' . $this->id . '/gallery'.'/'.$file,
+                'project_id' => $this->id,
             ]);
         }
     }
@@ -97,7 +98,7 @@ class Project extends Model implements TranslatableContract
 
     public function getUrl()
     {
-        return route('site.project_details' , $this->getEncId());
+        return route('site.project_details', $this->getEncId());
     }
 
     public function getEncId()

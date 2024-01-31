@@ -51,7 +51,6 @@ class ProjectController extends Controller
     public function store(CreateProjectRequest $request)
     {
         try {
-            set_time_limit(0);
             $data = $request->toArray();
             $image_file_content = $request->file('image');
             $project = Project::query()->create([
@@ -154,6 +153,21 @@ class ProjectController extends Controller
         }
         return response()->json($response_data, $error_no);
     }
+
+
+    /**
+     * Uploading one image at a time.
+     */
+    public function uploadGallery(Request $request)
+    {
+        try {
+            $image =  saveImage('tmp/projects' , $request->gallery_images[0]);
+            return response()->json(last(explode('/' , $image)));
+        } catch (Throwable $e) {
+            dd($e);
+        }
+    }
+
 
     /**
      * Remove the specified resource from storage.

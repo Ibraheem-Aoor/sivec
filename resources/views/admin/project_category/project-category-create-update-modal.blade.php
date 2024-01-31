@@ -1,7 +1,7 @@
 <div class="modal fade" id="project-category-create-update-modal">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form enctype="multipart/form-data">
+            <form>
                 <div class="modal-header">
                     <h4 class="modal-title"></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">

@@ -83,11 +83,16 @@
             font-size: 14px !important;
         }
     </style>
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
 @endpush
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @include('admin.partials.page_header'  , [ 'page_title_1' => __('custom.dashboard.projects'), 'page_title_2' => __('custom.dashboard.projects')])
+        @include('admin.partials.page_header', [
+            'page_title_1' => __('custom.dashboard.projects'),
+            'page_title_2' => __('custom.dashboard.projects'),
+        ])
         <!-- Main content -->
         <section class="content" enc>
             <div class="card">
@@ -138,6 +143,9 @@
     <!-- DataTables -->
     <script src="{{ asset('admin_assets/plugins/datatables/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('admin_assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+    <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
+    <script src="https://unpkg.com/jquery-filepond/filepond.jquery.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
     <script>
         var table_data_url = "{{ $table_data_url }}"
     </script>
@@ -177,6 +185,22 @@
             if (file) {
                 reader.readAsDataURL(file);
                 console.log(file);
+            }
+        });
+        // Register the plugin
+        FilePond.registerPlugin(FilePondPluginImagePreview);
+        // Turn input element into a pond with configuration options
+        $('#my-pond').filepond({
+            allowMultiple: true,
+            name: "gallery_images[]",
+            server: {
+                process: "{{ route('admin.project.upload_gallery') }}",
+                fetch: null,
+                revert: null,
+                withCredentials: false,
+                headers: {
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}",
+                }
             }
         });
     </script>

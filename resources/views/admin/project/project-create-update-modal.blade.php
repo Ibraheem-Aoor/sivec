@@ -89,7 +89,7 @@
                         <div class="row mb-2">
                             <div class="form-group">
                                 <label for="category_id">{{ __('custom.gallery_images') }}</label>
-                                <input type="file" name="gallery_images[]" multiple class="custom-form">
+                                <input type="file" name="gallery_images[]" multiple class="custom-form my-pond" id="my-pond">
                             </div>
                         </div>
                         <div class="row mb-2 d-none">
