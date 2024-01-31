@@ -198,6 +198,7 @@
                 fetch: null,
                 revert: null,
                 withCredentials: false,
+                chunkForce: true,
                 headers: {
                     'X-CSRF-TOKEN': "{{ csrf_token() }}",
                 }
