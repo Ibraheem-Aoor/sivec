@@ -35,7 +35,7 @@ class ImageCategory extends Model
 
     public function hasSubCategories(): bool
     {
-        return $this->subCategories()->count() > 0;
+        return $this->subCategories->count() > 0;
     }
 
     public function getUrl()

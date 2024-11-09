@@ -32,7 +32,7 @@ class ViewServiceProvider extends ServiceProvider
         View::share([
             'site_settings' => getPageSettings('site'),
             'about_page_settings' => getPageSettings('about'),
-            'project_parent_categories' => getProjectCategoriesForHome(),
+            // 'project_parent_categories' => getProjectCategoriesForHome(),
             'image_categories' => setImageCategorires(),
             'meta_desc' => __('custom.meta_data.desc'),
             'locale' => app()->getLocale(),

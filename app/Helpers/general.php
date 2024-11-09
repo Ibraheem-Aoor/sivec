@@ -26,7 +26,7 @@ function editImage($path, $file, $oldImage)
 function moveFile($from, $to)
 {
     if (is_file_exists($from)) {
-            return Storage::disk('public')->move($from, $to);
+        return Storage::disk('public')->move($from, $to);
     }
 }
 
@@ -59,7 +59,7 @@ function getImageUrl($image)
 }
 
 if (!function_exists('is_file_exists')) {
-    function is_file_exists($path, $disk = 'public') : bool
+    function is_file_exists($path, $disk = 'public'): bool
     {
         return Storage::disk($disk)->exists($path);
     }
@@ -339,7 +339,11 @@ if (!function_exists('getProjectCategoriesForHome')) {
     function getProjectCategoriesForHome()
     {
         return Cache::rememberForever('project_parent_categories', function () {
-            return ProjectCategory::query()->whereNull('parent_id')->latest()->get();
+            return ProjectCategory::query()
+            ->whereNull('parent_id')
+            ->with(['subCategories'])
+            ->latest()
+            ->get();
         });
     }
 }
@@ -361,7 +365,11 @@ if (!function_exists('setImageCategorires')) {
     function setImageCategorires()
     {
         return Cache::rememberForever('image_categories', function () {
-            return ImageCategory::query()->whereNull('parent_id')->orderBy('created_at', 'asc')->get();
+            return ImageCategory::query()
+                ->whereNull('parent_id')
+                ->orderBy('created_at', 'asc')
+                ->with(['subCategories'])
+                ->get();
         });
     }
 }

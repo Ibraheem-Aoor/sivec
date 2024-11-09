@@ -60,28 +60,30 @@
                 </li>
                 {{-- desings End --}}
                 {{-- Interior  start --}}
-                @foreach ($project_parent_categories as $category)
-                    <li class="menu-has-sub has-sub-child">
-                        <a href="#">{{ $category->name }}</a>
-                        <ul>
-                            @foreach ($category->subCategories as $sub_category)
-                                <li @if ($sub_category->hasSubCategories()) class="menu-has-sub has-sub-child" @endif><a
-                                        href="{{ $sub_category->getUrl() }}"
-                                        class="capitlize">{{ $sub_category->name }}</a>
-                                    @if ($sub_category->hasSubCategories())
-                                        <ul>
-                                            @foreach ($sub_category->subCategories as $child_category)
-                                                <li><a href="{{ $child_category->getUrl() }}"
-                                                        class="capitlize">{{ $child_category->name }}</a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    @endif
-                                </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                @endforeach
+                @isset($project_parent_categories)
+                    @foreach ($project_parent_categories as $category)
+                        <li class="menu-has-sub has-sub-child">
+                            <a href="#">{{ $category->name }}</a>
+                            <ul>
+                                @foreach ($category->subCategories as $sub_category)
+                                    <li @if ($sub_category->hasSubCategories()) class="menu-has-sub has-sub-child" @endif><a
+                                            href="{{ $sub_category->getUrl() }}"
+                                            class="capitlize">{{ $sub_category->name }}</a>
+                                        @if ($sub_category->hasSubCategories())
+                                            <ul>
+                                                @foreach ($sub_category->subCategories as $child_category)
+                                                    <li><a href="{{ $child_category->getUrl() }}"
+                                                            class="capitlize">{{ $child_category->name }}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    @endforeach
+                @endisset
                 {{-- Interior End --}}
 
                 {{-- Start Catalog --}}
