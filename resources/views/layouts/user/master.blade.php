@@ -165,10 +165,12 @@
             data-overlay-dark="98">
             <div class="footer-main-area">
                 <div class="footer-section-obj1">
-                    <img src="{{ asset('user_assets/images/objects/footer-obj1.png') }}" alt="footer-img-1">
+                    <img loading="lazy" src="{{ asset('user_assets/images/objects/footer-obj1.png') }}"
+                        alt="footer-img-1">
                 </div>
                 <div class="footer-section-obj2">
-                    <img src="{{ asset('user_assets/images/objects/footer-obj2.png') }}" alt="footer-img-2">
+                    <img loading="lazy" src="{{ asset('user_assets/images/objects/footer-obj2.png') }}"
+                        alt="footer-img-2">
                 </div>
                 <div class="container">
                     <div class="row pdb-65">
@@ -234,7 +236,8 @@
                         <div class="col-xl-3 col-lg-6">
                             <div class="widget footer-widget  mrr-md-0">
                                 <div class="footer-logo">
-                                    <img src="{{ asset('user_assets/images/logo/white_logo.webp?v=1.0') }}"
+                                    <img loading="lazy"
+                                        src="{{ asset('user_assets/images/logo/white_logo.webp?v=1.0') }}"
                                         alt="logo-white" class="mrb-25">
                                 </div>
                                 <p class="mrb-25"></p>
@@ -287,8 +290,8 @@
             </a>
             <div class="logo-box">
                 <a target="_blank" href="{{ route('site.home') }}" aria-label="logo image">
-                    <img src="{{ asset('user_assets/images/logo/black_logo.webp?v=1.0') }}" width="165"
-                        height="72" alt="logo-black">
+                    <img loading="lazy" src="{{ asset('user_assets/images/logo/black_logo.webp?v=1.0') }}"
+                        width="165" height="72" alt="logo-black">
                 </a>
             </div>
             <div class="mobile-nav-container"></div>
@@ -366,18 +369,18 @@
     </div>
     <!-- Back to Top end -->
     <!-- Integrated important scripts here -->
-    <script src="{{ asset('user_assets/js/jquery-3.6.0.min.js?v=1.0') }}"></script>
-    <script src="{{ asset('user_assets/js/jquery.nice-select.min.js?v=1.0') }}"></script>
-    <script src="{{ asset('user_assets/js/bootstrap.min.js?v=1.0') }}"></script>
+    {{-- <script src="{{ asset('user_assets/js/jquery-3.6.0.min.js?v=1.0') }}"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    {{-- <script src="{{ asset('user_assets/js/bootstrap.min.js?v=1.0') }}"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+    </script>
     <script src="{{ asset('user_assets/js/jquery.appear.min.js?v=1.0') }}"></script>
     <script src="{{ asset('user_assets/js/wow.min.js?v=1.0') }}"></script>
     <script src="{{ asset('user_assets/js/owl.carousel.min.js?v=1.0') }}"></script>
-    <script src="{{ asset('user_assets/js/jquery.event.move.js?v=1.0') }}"></script>
-    <script src="{{ asset('user_assets/js/jquery.twentytwenty.js?v=1.0') }}"></script>
-    <script src="{{ asset('user_assets/js/tilt.jquery.min.js?v=1.0') }}"></script>
     <script src="{{ asset('user_assets/js/magnific-popup.min.js?v=1.0') }}"></script>
-    <script src="{{ asset('user_assets/js/backtotop.js?v=1.0') }}"></script>
-    <script src="{{ asset('user_assets/js/trigger.js?v=1.0') }}"></script>
+    <script async src="{{ asset('user_assets/js/backtotop.js?v=1.0') }}"></script>
+    <script async src="{{ asset('user_assets/js/trigger.min.js?v=1.0') }}"></script>
     {{-- <script>
         $(".owl-carousel").owlCarousel({
             autoPlay: 3000,

@@ -4,7 +4,7 @@
         <div class="main-menu-wrapper" style="background: #fff !important;">
             <div class="main-menu-logo">
                 <a href="{{ route('site.home') }}">
-                    <img src="{{ asset('user_assets/images/logo/black_logo.webp?v=1.0') }}" width="165" height="72"
+                    <img loading="lazy" src="{{ asset('user_assets/images/logo/black_logo.webp?v=1.0') }}" width="165" height="72"
                         alt="logo">
                 </a>
             </div>

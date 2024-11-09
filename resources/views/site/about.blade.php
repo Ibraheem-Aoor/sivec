@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-12 col-lg-8 col-xl-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="about-image-box-style1 about-side-line mrr-60 mrr-lg-0">
-                        <figure class="about-image1 js-tilt d-none d-md-block d-lg-block d-xl-block">
+                        <figure class="about-image1 d-none d-md-block d-lg-block d-xl-block">
                             @if (@$page_settings['about_image_2'])
                                 <img class="img-full"
                                     src="{{ Storage::url("site/about/{$page_settings['about_image_2']}") }}">

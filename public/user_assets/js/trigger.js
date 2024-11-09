@@ -182,19 +182,19 @@
   }
 
   /*========= [_Before_after_slider1] =========*/
-  $(function(){
-    $(".before-after-slider1").twentytwenty({
-      default_offset_pct: 0.5, // How much of the before image is visible when the page loads
-      orientation: 'horizontal', // Orientation of the before and after images ('horizontal' or 'vertical')
-      no_overlay: false, //Do not show the overlay with before and after
-      move_slider_on_hover: false, // Move slider on mouse hover?
-      move_with_handle_only: true, // Allow a user to swipe anywhere on the image to control slider movement.
-      click_to_move: true // Allow a user to click (or tap) anywhere on the image to move the slider to that location.
-    });
-  });
+//   $(function(){
+//     $(".before-after-slider1").twentytwenty({
+//       default_offset_pct: 0.5, // How much of the before image is visible when the page loads
+//       orientation: 'horizontal', // Orientation of the before and after images ('horizontal' or 'vertical')
+//       no_overlay: false, //Do not show the overlay with before and after
+//       move_slider_on_hover: false, // Move slider on mouse hover?
+//       move_with_handle_only: true, // Allow a user to swipe anywhere on the image to control slider movement.
+//       click_to_move: true // Allow a user to click (or tap) anywhere on the image to move the slider to that location.
+//     });
+//   });
 
   /*========= [_Nice_select] =========*/
-  $('select').niceSelect();
+//   $('select').niceSelect();
 
   /*========= [_Accordion] =========*/
   $('.accordion-header').on('click', function(e) {
@@ -213,19 +213,6 @@
     }
   });
 
-  /*========= [_js_tilt] =========*/
-  function onHoverthreeDmovement() {
-    var tiltBlock = $('.js-tilt');
-    if(tiltBlock.length) {
-      $('.js-tilt').tilt({
-        maxTilt: 15,
-        perspective:1200,
-        glare: true,
-        maxGlare: 0
-      })
-    }
-  }
-  onHoverthreeDmovement();
 
   /*========= [_video_popup] =========*/
   if ($(".video-popup").length) {

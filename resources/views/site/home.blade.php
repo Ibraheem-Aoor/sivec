@@ -10,7 +10,8 @@
     <section class="home_banner_01 @if (app()->getLocale() == 'ar') home_banner_rtl @endif">
         <div class="home-carousel owl-theme owl-carousel">
             <div class="slide-item">
-                <div class="image-layer" data-background="{{ asset('user_assets/images/slider/400.webp?v=1.0') }}"></div>
+                <div class="image-layer lazy-background"
+                    data-background="{{ asset('user_assets/images/slider/400.webp?v=1.0') }}"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <div class="col-xl-8 col-lg-12 col-md-12 content-column">
@@ -383,7 +384,7 @@
 
 
     {{-- Projects Section Start --}}
-    @if(!$projects->isEmpty())
+    @if (!$projects->isEmpty())
         @include('site.partials.projects_section', ['projects' => $projects])
     @endif
     {{-- Projects Section End --}}
@@ -431,13 +432,42 @@
 @endsection
 @push('js')
     <script>
-        var sliderBorder = $('#slider-border');
-        $('.owl-next').click();
-        setInterval(function() {
-            $('.owl-next').click();
-            if ($('.owl-item .active').id == 'slider-border') {
-                $('.owl-next').click();
+        window.addEventListener("load", function() {
+            const lazyBackgrounds = document.querySelectorAll(".lazy-background");
+
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const bg = entry.target;
+                            const bgImage = bg.getAttribute("data-background");
+                            if (bgImage) {
+                                bg.style.backgroundImage = `url('${bgImage}')`;
+                            }
+                            observer.unobserve(bg); // Stop observing once loaded
+                        }
+                    });
+                });
+
+                lazyBackgrounds.forEach(lazyBackground => observer.observe(lazyBackground));
+            } else {
+                // Fallback for older browsers without IntersectionObserver support
+                lazyBackgrounds.forEach(bg => {
+                    const bgImage = bg.getAttribute("data-background");
+                    if (bgImage) {
+                        bg.style.backgroundImage = `url('${bgImage}')`;
+                    }
+                });
             }
-        }, 5000);
+
+            // Carousel auto-scroll after images have loaded
+            const autoScrollCarousel = () => {
+                const owlCarousel = $('.home-carousel');
+                owlCarousel.trigger('next.owl.carousel');
+            };
+
+            // Start auto-scroll every 5 seconds
+            setInterval(autoScrollCarousel, 5000);
+        });
     </script>
 @endpush
