@@ -40,7 +40,7 @@ return [
         'Call Anytime' => 'اتصل في أي وقت',
         'Newsletter' => 'النشرة الإخبارية',
         'newsletter_text' => 'انضم إلى مجتمعنا وابدأ في استقبال أخبارنا وتحديثاتنا',
-        'copy_rights' => "  حقوق النشر &copy; 2023 <a href=''>الرؤية المتكاملة</a> جميع الحقوق محفوظة.",
+        'copy_rights' => "  حقوق النشر &copy; ".date('Y')." <a href=''>الرؤية المتكاملة</a> جميع الحقوق محفوظة.",
         'Quick Links' => 'روابط سريعة',
         'Interior Design' => 'تصميم داخلي',
         'Engineering Consulting' => 'استشارات هندسية',

@@ -40,7 +40,7 @@ return [
         'Call Anytime' => 'Call Anytime',
         'Newsletter' => 'Newsletter',
         'newsletter_text' => 'Join Our Community And Start Receiving Our News And Updates',
-        'copy_rights' => "  Copyright &copy; 2023 <a href=''>SIVEC</a>
+        'copy_rights' => "  Copyright &copy; ".date('Y')." <a href=''>SIVEC</a>
         All rights reserved.",
         'Quick Links' => 'Quick Links',
         'Interior Design' => 'Interior Design',

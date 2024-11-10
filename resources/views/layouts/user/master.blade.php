@@ -246,7 +246,7 @@
                                                 class="fab fa-facebook-f"></i></a>
                                     </li>
                                     <li><a target="_blank" href="{{ @$site_settings['twitter'] }}"><i
-                                                class="fab fa-twitter"></i></a>
+                                                class="ri-twitter-x-line"></i></a>
                                     </li>
                                     <li><a target="_blank" href="{{ @$site_settings['instagram'] }}"><i
                                                 class="fab fa-instagram"></i></a>
@@ -315,7 +315,7 @@
             <ul class="social-list list-primary-color">
                 <li><a target="_blank" href="{{ @$site_settings['facebook'] }}"><i class="fab fa-facebook"></i></a>
                 </li>
-                <li><a target="_blank" href="{{ @$site_settings['twitter'] }}"><i class="fab fa-twitter"></i></a>
+                <li><a target="_blank" href="{{ @$site_settings['twitter'] }}"><i class="ri-twitter-x-line"></i></a>
                 </li>
                 <li><a target="_blank" href="{{ @$site_settings['instagram'] }}"><i
                             class="fab fa-instagram"></i></a></li>
