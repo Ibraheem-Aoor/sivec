@@ -30,9 +30,14 @@ nav .main-menu-wrapper {
 }
 
 
-@media(min-width:320px) and (max-width:768px)
-{
-   .contact-details h3{
-       font-size: 22px !important;
-   }
+@media(min-width:320px) and (max-width:768px) {
+    .contact-details h3 {
+        font-size: 22px !important;
+    }
+
+    .header-style-01 .main-menu .main-menu-wrapper .main-menu-right {
+        position: absolute !important;
+        right: 15px !important;
+    }
+
 }
