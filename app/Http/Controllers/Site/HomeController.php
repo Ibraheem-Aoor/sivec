@@ -36,12 +36,14 @@ class HomeController extends Controller
     $image_categories,
     $meta_desc;
 
-    public function __construct(CacheService $cacheService , Request $request)
+    public function __construct(CacheService $cacheService, Request $request)
     {
-        parent::__construct($cacheService , $request);
+        parent::__construct($cacheService, $request);
         $this->services = $this->cache_service->rememberFromModel(key: 'home_page_services', model: Service::class, is_forever: true, conditions: [
             [
-                'status' , '=' , true,
+                'status',
+                '=',
+                true,
             ]
         ]);
     }
@@ -59,7 +61,6 @@ class HomeController extends Controller
         $data['meta_desc'] = $this->meta_desc;
         $data['projects'] = collect([]);#Project::query()->get(); #$this->setHomeProjects();
         return view('site.home', $data);
-
     }
 
     public function about()
