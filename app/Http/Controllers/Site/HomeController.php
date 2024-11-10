@@ -58,10 +58,8 @@ class HomeController extends Controller
         $data['page_title'] = __('custom.site.sivec') . ' - ' . __('custom.site.Engineering Consulting');
         $data['meta_desc'] = $this->meta_desc;
         $data['projects'] = collect([]);#Project::query()->get(); #$this->setHomeProjects();
-        $home = Cache::rememberForever('home', function () use ($data){
-            return view('site.home', $data)->render();
-        });
-        return $home;
+        return view('site.home', $data);
+
     }
 
     public function about()
