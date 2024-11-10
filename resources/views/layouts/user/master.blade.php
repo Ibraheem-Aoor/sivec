@@ -43,8 +43,8 @@
             }
         </style>
     @else
-        <link rel="stylesheet" href="{{ asset('user_assets/css/style.css?v=1.0') }}">
-        <link rel="stylesheet" href="{{ asset('user_assets/css/responsive.css?v=1.0') }}">
+        <link rel="stylesheet" href="{{ asset('user_assets/css/style.min.css?v=1.0') }}">
+        <link rel="stylesheet" href="{{ asset('user_assets/css/responsive.min.css?v=1.0') }}">
     @endif
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
     @stack('css')
