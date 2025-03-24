@@ -26,6 +26,7 @@
     <meta property="og:description" content="{{ $meta_desc }}">
     <meta property="og:site_name" content="SEVIC">
     <meta name="twitter:image:alt" content="{{ $page_title }}">
+    <meta name="google-site-verification" content="your-verification-code" />
     @stack('meta')
     <title>{{ $page_title }}</title>
     <link href="{{ asset('user_assets/images/favicon.png') }}" rel="shortcut icon" type="image/png">
@@ -351,7 +352,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a href="https://wa.me/c/971543018342" target="_blank" id="whatsapp-continue-btn"
+                    <a href="https://wa.me/c/971509717598" target="_blank" id="whatsapp-continue-btn"
                         class="btn btn-success">{{ __('custom.site.catalog_continue') }} <i
                             class="fa fa-arrow-right"></i></a>
                 </div>

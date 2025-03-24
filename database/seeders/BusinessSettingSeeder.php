@@ -16,6 +16,33 @@ class BusinessSettingSeeder extends Seeder
      */
     public function run()
     {
-        
+        $settings = $this->getDataToSeed();
+        foreach ($settings as $setting) {
+            BusinessSetting::query()->updateOrCreate(
+                [
+                    'key' => $setting['key'],
+                    'lang' => $setting['lang'],
+                ],
+                $setting
+            );
+        }
+    }
+
+    private function getDataToSeed(): array
+    {
+        return [
+            [
+                'key' => 'whatsaap_number',
+                'value' => '971509717598',
+                'page' => 'site',
+                'lang' => 'en',
+            ],
+            [
+                'key' => 'whatsaap_number',
+                'value' => '971509717598',
+                'page' => 'site',
+                'lang' => 'ar',
+            ]
+        ];
     }
 }
