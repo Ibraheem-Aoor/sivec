@@ -33,13 +33,13 @@ class BusinessSettingSeeder extends Seeder
         return [
             [
                 'key' => 'whatsaap_number',
-                'value' => '971509717598',
+                'value' => '509717598',
                 'page' => 'site',
                 'lang' => 'en',
             ],
             [
                 'key' => 'whatsaap_number',
-                'value' => '971509717598',
+                'value' => '509717598',
                 'page' => 'site',
                 'lang' => 'ar',
             ]
