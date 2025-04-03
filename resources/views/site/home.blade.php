@@ -301,9 +301,45 @@
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-5 col-md-6">
-                            <div class="experience">
+                            <div class="experience text-center">
                                 <p class="experience-text">{{ __('custom.site.our_experince') }}</p>
-                                <h4 class="experience-year">8+</h4>
+                                <h4 class="experience-year" style="direction: {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
+                                    @if (app()->getLocale() == 'ar')
+                                        +15
+                                    @else
+                                        15+
+                                    @endif
+                                </h4>
+                            </div>
+                            <div class="experience text-center">
+                                <p class="experience-text">{{ __('custom.site.completed_projects') }}</p>
+                                <h4 class="experience-year" style="direction: {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
+                                    @if (app()->getLocale() == 'ar')
+                                        4k
+                                    @else
+                                        4k
+                                    @endif
+                                </h4>
+                            </div>
+                            <div class="experience text-center">
+                                <p class="experience-text">{{ __('custom.site.engineer') }}</p>
+                                <h4 class="experience-year" style="direction: {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }};font-size: 65px !important;">
+                                    @if (app()->getLocale() == 'ar')
+                                        +150
+                                    @else
+                                        150+
+                                    @endif
+                                </h4>
+                            </div>
+                            <div class="experience text-center">
+                                <p class="experience-text">{{ __('custom.site.regions') }}</p>
+                                <h4 class="experience-year" style="direction: {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
+                                    @if (app()->getLocale() == 'ar')
+                                        +6
+                                    @else
+                                        6+
+                                    @endif
+                                </h4>
                             </div>
                         </div>
                     </div>

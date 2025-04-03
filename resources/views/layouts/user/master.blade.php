@@ -44,7 +44,7 @@
             }
         </style>
     @else
-        <link rel="stylesheet" href="{{ asset('user_assets/css/style.min.css?v=1.0') }}">
+        <link rel="stylesheet" href="{{ asset('user_assets/css/style.min.css?v=1.1') }}">
         <link rel="stylesheet" href="{{ asset('user_assets/css/responsive.min.css?v=1.0') }}">
     @endif
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
@@ -117,8 +117,12 @@
                         <span data-text-preloader="E" class="letters-loading">E</span>
                         <span data-text-preloader="C" class="letters-loading">C</span>
                     </div>
-                    @if ($locale == 'en')
+                    @if (app()->getLocale() == 'en')
                         <div class="txt-loading preloader-text">
+
+                            <span data-text-preloader="الرؤية المتكاملة" class="letters-loading">الرؤية
+                                المتكاملة</span>
+                            <br><br>
                             <span data-text-preloader="A" class="letters-loading">A</span>
                             <span data-text-preloader="L" class="letters-loading">L</span>
                             <span data-text-preloader="R" class="letters-loading">R</span>
@@ -139,6 +143,8 @@
                             <span data-text-preloader="E" class="letters-loading">E</span>
                             <span data-text-preloader="L" class="letters-loading">L</span>
                             <span data-text-preloader="A" class="letters-loading">A</span>
+
+
                         </div>
                     @else
                         <div class="txt-loading preloader-text">

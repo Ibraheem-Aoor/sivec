@@ -1271,7 +1271,7 @@ div[class*='kursor'].kursor--1.kursor--down {
 }
 
 .header-style-01 .main-menu .main-menu-wrapper .main-nav-menu>li:hover>a, .header-style-01 .main-menu .main-menu-wrapper .main-nav-menu>li.current>a {
-    color: var(--header2-nav-hover-color);
+    /* color: var(--header2-nav-hover-color); */
 }
 
 .header-style-01 .main-menu .main-menu-wrapper .main-menu-right {
@@ -1811,7 +1811,7 @@ div[class*='kursor'].kursor--1.kursor--down {
 }
 
 .header-style-02 .main-menu .main-menu-inner .main-nav-menu>li:hover>a, .header-style-02 .main-menu .main-menu-inner .main-nav-menu>li.current>a {
-    color: var(--header1-nav-hover-color);
+    /* color: var(--header1-nav-hover-color); */
 }
 
 .header-style-02 .main-menu .main-menu-inner .main-menu-right {
@@ -2221,7 +2221,7 @@ div[class*='kursor'].kursor--1.kursor--down {
 }
 
 .header-style-03 .main-menu .main-menu-wrapper .main-nav-menu>li:hover>a, .header-style-03 .main-menu .main-menu-wrapper .main-nav-menu>li.current>a {
-    color: var(--header1-nav-hover-color);
+    /* color: var(--header1-nav-hover-color); */
 }
 
 .header-style-03 .main-menu .main-menu-wrapper .main-menu-right {

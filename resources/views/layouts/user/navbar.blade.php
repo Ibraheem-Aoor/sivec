@@ -36,7 +36,7 @@
 
                 {{-- desings start --}}
                 <li class="menu-has-sub @if (Route::currentRouteName() == 'site.gallery') current @endif">
-                    <a href="#">{{ __('custom.site.DESINGS') }}</a>
+                    <a href="#"  @if (Route::currentRouteName() != 'site.gallery') style="color:#3E3D47 !important;" @endif>{{ __('custom.site.DESINGS') }}</a>
                     <ul>
                         @foreach ($image_categories->take(5) as $image_category)
                             @php
