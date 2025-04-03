@@ -277,7 +277,7 @@ class HomeController extends Controller
         $data['meta_desc'] = $this->meta_desc;
 
         $data['page_settings'] = BusinessSetting::query()->wherePage('about')->pluck('value', 'key');
-        $data['images'] = Image::query()->where('image_category_id', $category->id)->paginate(20);
+        $data['images'] = Image::query()->where('image_category_id', $category->id)->latest()->paginate(20);
         $data['is_interior_caetegory'] = $category->parent_id == 9;
         $data['footer_disabled'] = true;
         $data['buildings_gallery'] = decrypt($category_id) == 7;
@@ -299,20 +299,44 @@ class HomeController extends Controller
         return view('site.ramadan', $data);
     }
 
-    // public function saveImagesToDB()
-    // {
-    //     $interior_parent_folder = Storage::disk('public')->files('gallery/9/13');
-    //     // dd(basename(($interior_parent_folder[0])));
-    //     foreach($interior_parent_folder as $image)
-    //     {
-    //         $name = basename($image);
-    //         Image::query()->create([
-    //             'name' => $name,
-    //             'image_category_id' => 13,
-    //         ]);
-    //     }
-    //     dd('Done');
-    // }
+    public function saveImagesToDB(Request $request, $id)
+    {
+        $path = 'gallery/' . $id;
+        if ($request->query('token') != '!!!') {
+            return back();
+        }
+        // if (Image::where('image_category_id', $id)->exists()) {
+        //     dd('DONE ALREADY');
+        // }
+        $db_category = ImageCategory::query()->find($id);
+        if($db_category->parent_id != null)
+        {
+            $path = 'gallery/' . $db_category->parent_id .'/'.$id;
+        }
+        if (!isset($db_category)) {
+            ImageCategory::query()->create([
+                'id' => $id,
+                'en' => [
+                    'name' => $request->name_en,
+                ],
+                'ar' => [
+                    'name' => $request->name_ar,
+                ]
+            ]);
+        }
+        $category = Storage::disk('public')->files($path);
+        foreach ($category as $image) {
+            $name = basename($image);
+            Image::query()->updateOrCreate([
+                'name' => $name,
+                'image_category_id' => $id,
+            ], [
+                'name' => $name,
+                'image_category_id' => $id,
+            ]);
+        }
+        dd('Done');
+    }
 
 
 

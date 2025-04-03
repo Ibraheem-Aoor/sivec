@@ -54,7 +54,7 @@ Route::group(['as' => 'site.'], function () {
 
     Route::get('branches', [HomeController::class, 'branches'])->name('branches');
     Route::get('gallery/{id}', [HomeController::class, 'gallery'])->name('gallery');
-    Route::get('save-images-to-db', [HomeController::class, 'saveImagesToDB']);
+    Route::get('save-images-to-db/{id}', [HomeController::class, 'saveImagesToDB']);
 
 });
 
