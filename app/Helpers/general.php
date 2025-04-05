@@ -324,6 +324,8 @@ if (!function_exists('getCurrentLocale')) {
 if (!function_exists('getPageSettings')) {
     function getPageSettings($page = null)
     {
+        // dd(app()->getLocale());
+        // dd(BusinessSetting::wherePage('about')->whereLang('ar')->pluck('value', 'key'));
         return Cache::rememberForEver($page . '_' . getCurrentLocale(), function () use ($page) {
             return BusinessSetting::query()->wherePage($page)->whereLang(getCurrentLocale())->pluck('value', 'key');
         });

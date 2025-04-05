@@ -37,5 +37,6 @@ class ViewServiceProvider extends ServiceProvider
             'meta_desc' => __('custom.meta_data.desc'),
             'locale' => app()->getLocale(),
         ]);
+        // dd(app()->getLocale());
     }
 }

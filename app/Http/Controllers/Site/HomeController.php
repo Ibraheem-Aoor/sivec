@@ -60,6 +60,7 @@ class HomeController extends Controller
         $data['page_title'] = __('custom.site.sivec') . ' - ' . __('custom.site.Engineering Consulting');
         $data['meta_desc'] = $this->meta_desc;
         $data['projects'] = collect([]);#Project::query()->get(); #$this->setHomeProjects();
+        $data['about_page_settings'] = getPageSettings('about');
         return view('site.home', $data);
     }
 
@@ -338,7 +339,14 @@ class HomeController extends Controller
         dd('Done');
     }
 
-
+    function getPageSettings($page = null)
+    {
+        // dd(app()->getLocale());
+        // dd(BusinessSetting::wherePage('about')->whereLang('ar')->pluck('value', 'key'));
+        return Cache::rememberForEver($page . '_' . getCurrentLocale(), function () use ($page) {
+            return BusinessSetting::query()->wherePage($page)->whereLang(getCurrentLocale())->pluck('value', 'key');
+        });
+    }
 
 
 }
