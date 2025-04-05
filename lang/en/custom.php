@@ -221,4 +221,8 @@ return [
     'latest_projects' => 'Latest Projects',
     'our_outstanding' => 'Our Outstanding',
     'designs' => 'Desgins',
+
+    'meta_keywords' => 'Engineering consultancy for commercial projects in the UAE, Best engineering consultancy office in Sharjah, Engineering consultancy in Dubai, Sivec for engineering consultancy',
+
+
 ];

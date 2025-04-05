@@ -11,19 +11,18 @@
     <meta name="csrf" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="{{ $meta_desc }}">
-    <meta name="keywords"
-        content="الرؤية الذكية للاستشارات الهندسية,الهندسية,للاستشارات,المتكاملة,الرؤية,الرؤية المتكاملة للاستشارات الهندسية,sivec,architecture,interior,decoration, creative,engineering,engineering consulting ,sevic,svec, alrouya almoutakamela , الرؤية المتكاملة , الرؤية العصرية , تصاميم هندسية , مباني, مساجد , دبي , الامارات" />
+    <meta name="description" content="{{ __('custom.meta_data.desc') }}">
+    <meta name="keywords" content="{{ __('custom.meta_keywords') }}">
     <meta property="og:title" content="{{ $page_title }}" />
     <meta property="og:type" content="Engineering Consulting" />
     <meta property="og:url" content="{{ route('site.home') }}" />
     <meta property="og:image" content="{{ asset('user_assets/images/social_meida.png') }}" />
     <meta name="twitter:title" content="{{ $page_title }}">
-    <meta name="twitter:description" content="{{ $meta_desc }}">
+    <meta name="twitter:description" content="{{ __('custom.meta_data.desc') }}">
     <meta name="twitter:image" content="{{ asset('user_assets/images/social_meida.png') }}">
     <meta name="twitter:card" content="asset('user_assets/images/social_meida.png')">
     <!--  Non-Essential, But Recommended -->
-    <meta property="og:description" content="{{ $meta_desc }}">
+    <meta property="og:description" content="{{ __('custom.meta_data.desc') }}">
     <meta property="og:site_name" content="SEVIC">
     <meta name="twitter:image:alt" content="{{ $page_title }}">
     <meta name="google-site-verification" content="your-verification-code" />
