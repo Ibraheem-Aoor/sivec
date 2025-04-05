@@ -1,0 +1,43 @@
+/**
+    # Custom styles
+*/
+nav .main-menu-wrapper {
+    border-bottom: 4px solid var(--primary-color);
+}
+
+
+@media (min-width:1440px) {
+    .social-list li {
+        margin-right: -1px !important;
+    }
+}
+
+@media (min-width:320px) and (max-width:1023px) {
+    .mobile-nav-content .social-list li {
+        margin-right: 1px !important;
+    }
+}
+
+
+.home_banner_01 .home-carousel .slide-item {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 345px 0px 240px 0px;
+    overflow: hidden;
+    background-color: #151130;
+}
+
+
+@media(min-width:320px) and (max-width:768px) {
+    .contact-details h3 {
+        font-size: 22px !important;
+    }
+
+    .header-style-01 .main-menu .main-menu-wrapper .main-menu-right {
+        position: absolute !important;
+        right: 15px !important;
+    }
+
+}

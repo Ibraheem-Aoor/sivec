@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/*============================================================
+ # Template Name: Insuren - Corporate Consulting HTML5 Template
+ # Template URI: https://webextheme.com/html/insuren-html/
+ # Description: Insurance Agency HTML Template
+ # Author: WebexTheme
+ # Author URI: https://themeforest.net/user/webextheme
+ # Version: 1.0
+/*============================================================*/
+
+.home_banner_rtl .home-carousel .slide-item .shape {
+  transform: rotateY(180deg);
+}
+.mean-container a.meanmenu-reveal {
+  right: auto !important;
+  left: 0 !important;
+}
+.mean-container .mean-nav ul li {
+  float: right;
+}
+.mean-container .mean-nav ul li a {
+  float: right;
+  text-align: right;
+}
+.mean-container .mean-nav ul li a.mean-expand {
+  right: auto;
+  left: 0;
+}
+@media (max-width: 991px) {
+  .header-style-two .header-wrapper .header-navigation-area.fixed {
+    position: inherit;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    transform: none;
+  }
+}
+.cs-btn-one.has-icon i {
+  padding-right: 10px;
+}
+.header-style-two .header-wrapper .header-navigation-area .main-menu ul li ul.sub-menu li.has-sub-child > a::before {
+  transform: translateY(-12px) rotate(180deg);
+}
+.owl-carousel .owl-nav button i {
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
