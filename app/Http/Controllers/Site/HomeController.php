@@ -60,6 +60,7 @@ class HomeController extends Controller
         $data['page_title'] = __('custom.site.sivec') . ' - ' . __('custom.site.Engineering Consulting');
         $data['meta_desc'] = $this->meta_desc;
         $data['projects'] = collect([]);#Project::query()->get(); #$this->setHomeProjects();
+        $data['about_page_settings'] = getPageSettings('about');
         return view('site.home', $data);
     }
 
