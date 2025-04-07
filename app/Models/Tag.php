@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Astrotomic\Translatable\Translatable;
+
+
+class Tag extends Model
+{
+    use Translatable;
+
+    protected $fillable = ['title'];
+
+    public $translatedAttributes = ['title'];
+
+    public function translations()
+    {
+        return $this->hasMany(TagTranslation::class);
+    }
+
+    public function posts(){
+        return $this->belongsToMany(Post::class);
+    }
+
+}

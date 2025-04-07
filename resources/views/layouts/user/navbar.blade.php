@@ -86,6 +86,14 @@
                 @endisset
                 {{-- Interior End --}}
 
+                <li class="menu-has-sub">
+                    <a href="{{ route('site.blog') }}">{{ __('blog.blog') }}</a>
+                    <ul>
+                        <li><a href="{{ route('site.blog') }}">{{ __('blog.posts') }}</a></li>
+                        <li><a href="{{ route('site.blog.posts_with_sidebar') }}">{{ __('blog.posts_with_category') }}</a></li>
+                    </ul>
+                </li>
+
                 {{-- Start Catalog --}}
                 <li class="">
                     <a data-bs-toggle="modal" data-bs-target="#catalogModal">{{ __('custom.site.catalog') }}</a>

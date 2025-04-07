@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\Site\PostController;
 use App\Models\BusinessSetting;
 use App\Models\Image;
 use App\Models\ImageCategory;
@@ -56,6 +57,13 @@ Route::group(['as' => 'site.'], function () {
     Route::get('gallery/{id}', [HomeController::class, 'gallery'])->name('gallery');
     Route::get('save-images-to-db/{id}', [HomeController::class, 'saveImagesToDB']);
 
+    Route::get('/blog' , [PostController::class , 'index'])->name('blog');
+    Route::get('/blog-sidebar' , [PostController::class , 'posts_with_sidebar'])->name('blog.posts_with_sidebar');
+    Route::get('/blog/{id}/post' , [PostController::class , 'post_details'])->name('blog.post_details');
+    Route::get('/blog/search' , [PostController::class , 'search'])->name('blog.search');
+    // Route::get('/blog/aa' , [PostController::class , 'aa'])->name('blog.aa');
+    Route::get('/blog/{id}/category' , [PostController::class , 'getPostsByCategory'])->name('blog.category');
+    Route::get('/blog/{id}/tag' , [PostController::class , 'getPostsByTag'])->name('blog.tag');
 });
 
 

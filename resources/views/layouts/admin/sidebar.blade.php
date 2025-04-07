@@ -69,9 +69,9 @@
                   {{-- End services --}}
 
                   <li
-                      class="nav-item has-treeview {{ areActiveRoutes(['admin.project.index', 'admin.project-category.index' , 'admin.project-style-type.index'], 'menu-open') }}">
+                      class="nav-item has-treeview {{ areActiveRoutes(['admin.project.index', 'admin.project-category.index', 'admin.project-style-type.index'], 'menu-open') }}">
                       <a href="#"
-                          class="nav-link {{ areActiveRoutes(['admin.project.index', 'admin.project-category.index' , 'admin.project-style-type.index']) }}">
+                          class="nav-link {{ areActiveRoutes(['admin.project.index', 'admin.project-category.index', 'admin.project-style-type.index']) }}">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
                               {{ __('custom.dashboard.projects') }}
@@ -177,6 +177,49 @@
                       </ul>
                   </li>
                   {{-- End pages --}}
+
+                  {{-- Start Blog --}}
+                  <li class="nav-item has-treeview ">
+                      <a href="#" class="nav-link
+                        ">
+                          <i class="nav-icon fas fa-tachometer-alt"></i>
+                          <p>
+                              {{ __('blog.blog') }}
+                              <i class="right fas fa-angle-left"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="{{ route('admin.categories.index') }}" class="nav-link">
+                                  <i class="nav-icon fas fa-file"></i>
+
+                                  <p>{{ __('custom.dashboard.categories') }}</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ route('admin.tags.index') }}" class="nav-link">
+                                  <i class="nav-icon fas fa-file"></i>
+
+                                  <p>{{ __('custom.dashboard.tags') }}</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ route('admin.posts.index') }}" class="nav-link">
+                                  <i class="nav-icon fas fa-file"></i>
+
+                                  <p>{{ __('custom.dashboard.posts') }}</p>
+                              </a>
+                          </li>
+                          {{-- <li class="nav-item ">
+                              <a href="{{ route('admin.page.branches') }}"
+                                  class="nav-link {{ areActiveRoutes(['admin.page.branches']) }}">
+                                  <i class="far fa-file nav-icon"></i>
+                                  <p>{{ __('custom.dashboard.branches') }}</p>
+                              </a>
+                          </li> --}}
+                      </ul>
+                  </li>
+                  {{-- End Blog --}}
 
                   {{-- Start pages --}}
                   <li class="nav-item has-treeview {{ areActiveRoutes(['admin.settings.general'], 'menu-open') }}">

@@ -38,6 +38,11 @@
         <link rel="stylesheet" href="{{ asset('user_assets/css/style-rtl.css') }}">
         <link rel="stylesheet" href="{{ asset('user_assets/css/style-rtl-modify.css') }}">
         <style>
+            .widget-search a{
+                color: var(--text-white);
+                background-color: var(--primary-color);
+            }
+
             .prime-text {
                 color: #F25F29 !important;
             }

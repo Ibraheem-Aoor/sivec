@@ -1,16 +1,19 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JobPositionController;
 use App\Http\Controllers\Admin\JobTitleController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProjectCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProjectTypeAndStyleController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\TeamMemmberController;
 use App\Models\ProjectCategory;
 use App\Models\ServiceCategory;
@@ -77,7 +80,7 @@ Route::group(['prefix' => 'backoffice'], function () {
 
 
         // Project Style&Type
-        Route::get('project-style-type', [ProjectTypeAndStyleController::class , 'index'])->name('project-style-type.index');
+        Route::get('project-style-type', [ProjectTypeAndStyleController::class, 'index'])->name('project-style-type.index');
         Route::post('project-style-type/store', [ProjectTypeAndStyleController::class, 'store'])->name('project-style-type.store');
         Route::post('project-style-type/{id}/update', [ProjectTypeAndStyleController::class, 'update'])->name('project-style-type.custom_update');
         Route::delete('project-style-type/{id}/destroy', [ProjectTypeAndStyleController::class, 'destroy'])->name('project-style-type.destroy');
@@ -112,6 +115,21 @@ Route::group(['prefix' => 'backoffice'], function () {
         Route::resource('job-position', JobPositionController::class);
         Route::post('job-position/{id}/update', [JobPositionController::class, 'update'])->name('job-position.custom_update');
         Route::get('job-position-table-data', [JobPositionController::class, 'getTableData'])->name('job-position.table_data');
+
+        // Blog Category
+        Route::resource('/categories', CategoryController::class);
+        Route::get('categories-table-data', [CategoryController::class, 'getAllCategories'])->name('categories.table_data');
+
+        // Blog Tags
+        Route::resource('/tags', TagController::class);
+        Route::get('tags-table-data', [TagController::class, 'getAllTags'])->name('tags.table_data');
+
+         // Blog Posts
+         Route::resource('/posts', PostController::class);
+         Route::get('posts-table-data', [PostController::class, 'getAllPosts'])->name('posts.table_data');
+         Route::get('posts/change-status/{id}', [PostController::class, 'changeStatus'])->name('posts.change_status');
     });
+
+
     ########## END  AUTH ADMIN #############
 });
