@@ -38,7 +38,7 @@
                   </li>
 
                   {{-- Start services --}}
-                  <li
+                  {{-- <li
                       class="nav-item has-treeview {{ areActiveRoutes(['admin.service.index', 'admin.service-category.index'], 'menu-open') }}">
                       <a href="#"
                           class="nav-link {{ areActiveRoutes(['admin.service.index', 'admin.service-category.index']) }}">
@@ -65,10 +65,10 @@
                               </a>
                           </li>
                       </ul>
-                  </li>
+                  </li> --}}
                   {{-- End services --}}
 
-                  <li
+                  {{-- <li
                       class="nav-item has-treeview {{ areActiveRoutes(['admin.project.index', 'admin.project-category.index', 'admin.project-style-type.index'], 'menu-open') }}">
                       <a href="#"
                           class="nav-link {{ areActiveRoutes(['admin.project.index', 'admin.project-category.index', 'admin.project-style-type.index']) }}">
@@ -143,11 +143,11 @@
                               <span class="right badge badge-danger">New</span>
                           </p>
                       </a>
-                  </li>
+                  </li> --}}
 
 
                   {{-- Start pages --}}
-                  <li
+                  {{-- <li
                       class="nav-item has-treeview {{ areActiveRoutes(['admin.page.about', 'admin.page.branches'], 'menu-open') }}">
                       <a href="#"
                           class="nav-link
@@ -175,7 +175,7 @@
                               </a>
                           </li>
                       </ul>
-                  </li>
+                  </li> --}}
                   {{-- End pages --}}
 
                   {{-- Start Blog --}}
@@ -222,7 +222,7 @@
                   {{-- End Blog --}}
 
                   {{-- Start pages --}}
-                  <li class="nav-item has-treeview {{ areActiveRoutes(['admin.settings.general'], 'menu-open') }}">
+                  {{-- <li class="nav-item has-treeview {{ areActiveRoutes(['admin.settings.general'], 'menu-open') }}">
                       <a href="#" class="nav-link {{ areActiveRoutes(['admin.settings.general']) }}">
                           <i class="nav-icon fas fa-cogs"></i>
                           <p>
@@ -239,7 +239,7 @@
                               </a>
                           </li>
                       </ul>
-                  </li>
+                  </li> --}}
                   {{-- End pages --}}
 
                   {{-- Start services --}}
