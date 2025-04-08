@@ -24,7 +24,7 @@ class ServiceCategoryController extends Controller
     protected $artisan_service;
     public function __construct()
     {
-        $this->artisan_service  = new ArtisanService();
+        // $this->artisan_service  = new ArtisanService();
     }
     /**
      * Display a listing of the resource.

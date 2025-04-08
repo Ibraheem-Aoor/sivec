@@ -84,7 +84,6 @@ class CategoryService{
             $respnse_data['is_deleted'] = true;
             $respnse_data['message'] = __('custom.deleted_successflly');
             $respnse_data['row'] = $id;
-            $response_data['modal_to_hiode'] = '#exampleModalDelete'.$category->id;
             $error_no = 200;
         } catch (Throwable $e) {
             $respnse_data['message'] = _('custom.smth_wrong');
