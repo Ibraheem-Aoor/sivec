@@ -39,16 +39,20 @@
                              </div>
                          </div>
                      @empty
-                         <div class="col-md-6 col-lg-6 col-xl-4 text-center">
-                             <div class=" mrb-30">
-                                 <div class="news-description">
-                                     <h4 class="the-title">{{ __('blog.no_posts') }}</h4>
-                                     <p>{{ __('blog.sorry_no_posts') }}</p>
-                                     <a href="{{ route('site.blog') }}" class="btn">{{ __('blog.back_to_blog') }}</a>
-                                     </a>
+                         
+                             <div class="col-md-6 col-lg-6 col-xl-4 text-center">
+                                 <div class=" mrb-30">
+                                     <div class="news-description">
+                                         <h4 class="the-title">{{ __('blog.no_posts') }}</h4>
+                                         @if (request()->has('key'))
+                                         <p>{{ __('blog.sorry_no_posts') }}</p>
+                                         <a href="{{ route('site.blog') }}" class="btn">{{ __('blog.back_to_blog') }}</a>
+                                         </a>
+                                         @endif
+                                     </div>
                                  </div>
                              </div>
-                         </div>
+                         
                  </div>
              </div>
              @endforelse

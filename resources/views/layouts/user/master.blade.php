@@ -29,6 +29,12 @@
     @stack('meta')
     <title>{{ $page_title }}</title>
     <link href="{{ asset('user_assets/images/favicon.png') }}" rel="shortcut icon" type="image/png">
+    <style>
+        .widget-search a {
+            color: var(--text-white);
+            background-color: var(--primary-color);
+        }
+    </style>
     <!-- Main Stylesheet -->
     @if (app()->getLocale() == 'ar')
         <link rel="stylesheet" href="{{ asset('user_assets/css/bootstrap.rtl.min.css') }}">
@@ -38,11 +44,6 @@
         <link rel="stylesheet" href="{{ asset('user_assets/css/style-rtl.css') }}">
         <link rel="stylesheet" href="{{ asset('user_assets/css/style-rtl-modify.css') }}">
         <style>
-            .widget-search a{
-                color: var(--text-white);
-                background-color: var(--primary-color);
-            }
-
             .prime-text {
                 color: #F25F29 !important;
             }

@@ -48,6 +48,6 @@ class PostRepository{
         return Post::whereHas('tags', function ($query) use ($id) {
             $query->where('tags.id', $id);
         })
-            ->with(['translations', 'category.translations', 'image'])->where('is_available' , '1')->paginate(9);
+            ->with(['category', 'image'])->where('is_available' , '1')->paginate(9);
     }
 }
