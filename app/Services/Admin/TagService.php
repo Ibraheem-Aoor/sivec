@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Services\Admin;
 
@@ -28,7 +28,7 @@ class TagService{
                 return $tag->translate(Config('app.locale'))->title;
             })
             ->addColumn('actions', function ($tag) {
-                return view('Admin.tags.actions', compact('tag'));
+                return view('admin.tags.actions', compact('tag'));
             })
             ->make(true);
     }
