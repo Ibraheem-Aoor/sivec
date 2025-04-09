@@ -24,7 +24,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary"
                     data-dismiss="modal">{{ __('blog.cancel') }}</button>
-                <button type="submit" class="btn btn-primary">{{ __('blog.delete') }}</button>
+                <button type="submit" class="btn btn-danger">{{ __('blog.delete') }}</button>
             </div>
         </form>
       </div>

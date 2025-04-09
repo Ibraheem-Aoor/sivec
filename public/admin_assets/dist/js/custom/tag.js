@@ -35,3 +35,15 @@ function getTableColumns() {
     ];
 }
 
+$(document).ajaxSuccess(function(event, xhr, settings) {
+    $('[id^="exampleModalDestroy"]').modal('hide');
+    $('#title_ar').val('');
+    $('#title_en').val('');
+    if (settings.type === 'POST') {
+        try {
+            $('#myTable').DataTable().ajax.reload();
+        } catch (error) {
+            console.error('Error reloading DataTable:', error);
+        }
+    }
+});

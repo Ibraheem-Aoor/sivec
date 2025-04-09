@@ -13,7 +13,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('admin.categories.store') }}" method="POST">
+            <form id="createCategoryForm" action="{{ route('admin.categories.store') }}" method="POST">
               @csrf
                 <div class="modal-body">
                     <div class="form-group">

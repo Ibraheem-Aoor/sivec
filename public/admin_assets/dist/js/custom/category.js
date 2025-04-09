@@ -35,3 +35,35 @@ function getTableColumns() {
     ];
 }
 
+
+
+
+$(document).ajaxSuccess(function(event, xhr, settings) {
+    $('[id^="exampleModalDestroy"]').modal('hide');
+    $('#title_ar').val('');
+    $('#title_en').val('');
+    if (settings.type === 'POST') {
+        try {
+            console.log('Reloading DataTable...');
+            $('#myTable').DataTable().ajax.reload();
+            console.log('DataTable reloaded');
+        } catch (error) {
+            console.error('Error reloading DataTable:', error);
+        }
+    }
+});
+
+// $(document).ajaxSuccess(function(event, xhr, settings) {
+//     console.log('ajaxSuccess triggered');
+//     console.log(settings.type);
+    
+// });
+
+
+
+
+
+
+
+
+

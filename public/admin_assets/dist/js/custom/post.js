@@ -59,3 +59,11 @@ function getTableColumns() {
     ];
 }
 
+$(document).ajaxSuccess(function(event, xhr, settings) {
+    console.log(settings.type);
+    $('[id^="exampleModalDestroy"]').modal('hide');
+    if(settings.type === 'POST'){
+        $('#myTable').DataTable().ajax.reload();
+    }
+});
+

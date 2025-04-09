@@ -58,10 +58,7 @@ class PostService{
         try {
             $post = $this->PostRepository->storePost($request);
             DB::commit();
-            $response_data['status'] = true;
             $response_data['message'] = __('custom.create_success');
-            $response_data['refresh_table'] = true;
-            $response_data['reset_form'] = true;
             $error_no = 200;
         } catch (Throwable $e) {
             $response_data['status'] = false;
@@ -113,16 +110,20 @@ class PostService{
             $response_data['is_deleted'] = true;
             $response_data['message'] = __('custom.deleted_successflly');
             $response_data['row'] = $id;
-            $response_data['modal_to_hiode'] = '#exampleModalDestroy'.$post->id;
             $error_no = 200;
+            return [
+                'response_data' => $response_data, 
+                'error_no' => $error_no
+            ];
         } catch (Throwable $e) {
             $response_data['message'] = _('custom.smth_wrong');
             $error_no = 500;
+            return [
+                'response_data' => $response_data, 
+                'error_no' => $error_no
+            ];
         }
-        return [
-            'response_data' => $response_data, 
-            'error_no' => $error_no
-        ];
+        
     }
 
     public function changeStatus($id)

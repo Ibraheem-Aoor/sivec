@@ -16,7 +16,7 @@
                         @csrf
                         @method('put')
                         <section id="add-post" class="add-post-section mb-5">
-                            <h2>{{ __('blog.create_post') }}</h2>
+                            <h2>{{ __('blog.edit_post') }}</h2>
                             <div class="post-form p-3 border rounded">
                                 <!-- Post Title -->
                                 <label for="postTitleAr">{{ __('blog.title_ar') }}</label>
@@ -46,7 +46,7 @@
                                     @endforeach
                                 </select>
 
-                                <label>{{ __('blog.tag') }}</label>
+                                <label>{{ __('blog.tags') }}</label>
                                 <div class="row">
                                     @foreach ($tags as $tag)
                                         <div class="col-md-2">
@@ -58,7 +58,7 @@
                                 </div>
                                 <!-- Post Button -->
                                 <button type="submit"
-                                    class="btn btn-primary post-btn">{{ __('blog.create_post') }}</button>
+                                    class="btn btn-primary post-btn">{{ __('blog.edit_post') }}</button>
                             </div>
                         </section>
                     </form>
@@ -87,13 +87,14 @@
                 showUpload: false,
                 initialPreviewAsData: true,
                 initialPreview: [
-
                     "{{ asset('uploads/blog/' . $post->image->path) }}",
                 ],
                 initialPreviewConfig: [{
                     caption: '{{ $post->image->path }}',
                     width: '120px',
                     key: {{ $post->image->id }},
+                    showRemove: false,
+                    showDrag: false,
                 }, ],
             });
             $("#postContentAr").summernote({

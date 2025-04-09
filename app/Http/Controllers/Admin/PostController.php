@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PostRequest;
 use App\Services\Admin\PostService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 
 
 
@@ -39,10 +41,8 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
         //
-        $data = $this->postService->store($request);
-        $response_data = $data['response_data'];
-        $error_no = $data['error_no'];
-        return response()->json($response_data, $error_no);
+        $this->postService->store($request);
+        return redirect()->route('admin.posts.index');
     }
 
     public function show($id)

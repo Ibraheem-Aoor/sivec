@@ -13,7 +13,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="{{ route('admin.categories.destroy' , $category->id) }}" method="POST">
+        <form class="destroyForm{{ $category->id }}" action="{{ route('admin.categories.destroy' , $category->id) }}" method="POST">
           @csrf
           @method('DELETE')
             <div class="modal-body">
@@ -24,7 +24,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary"
                     data-dismiss="modal">{{ __('blog.cancel') }}</button>
-                <button type="submit" class="btn btn-primary">{{ __('blog.delete') }}</button>
+                <button type="submit" class="btn btn-danger">{{ __('blog.delete') }}</button>
             </div>
         </form>
       </div>

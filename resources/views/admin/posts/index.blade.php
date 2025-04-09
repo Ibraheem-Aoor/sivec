@@ -29,7 +29,7 @@
                     <table id="myTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>{{ __('custom.title') }}</th>
+                                <th>{{ __('blog.title') }}</th>
                                 <th>{{ __('blog.num_of_views') }}</th>
                                 <th>{{ __('blog.category') }}</th>
                                 <th>{{ __('custom.dashboard.tags') }}</th>
@@ -58,7 +58,7 @@
     <script src="{{ asset('admin_assets/plugins/datatables/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('admin_assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
     <script>
-        var table_data_url = "{{ $table_data_url }}"
+        var table_data_url = "{{ $table_data_url ?? $data['table_data_url'] }}";
     </script>
     <script src="{{ asset('admin_assets/dist/js/custom/post.js') }}"></script>
 @endpush
