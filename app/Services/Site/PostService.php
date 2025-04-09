@@ -100,4 +100,10 @@ class PostService{
         });
         return $data;
     }
+
+    public function increaseViews($id){
+        $post = $this->postRepository->getPost($id);
+        $post = $this->postRepository->increaseViews($post);
+        return $post;
+    }
 }

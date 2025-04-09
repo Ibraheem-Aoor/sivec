@@ -50,4 +50,10 @@ class PostRepository{
         })
             ->with(['category', 'image'])->where('is_available' , '1')->paginate(9);
     }
+
+    
+    public function increaseViews($post){
+        $post->num_of_views++;
+        return $post->save();
+    }
 }

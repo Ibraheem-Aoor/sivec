@@ -29,12 +29,12 @@ class PostService{
                 return $post->category->translate(Config('app.locale'))->title;
             })
             ->addColumn('tags', function ($post) {
-                return view('Admin.posts._tags', compact('post'));
+                return view('admin.posts._tags', compact('post'));
             })
 
 
             ->addColumn('actions', function ($post) {
-                return view('Admin.posts.actions', compact('post'));
+                return view('admin.posts.actions', compact('post'));
             })
             ->make(true);
     }
@@ -131,5 +131,7 @@ class PostService{
         $post = $this->getPost($id);
         return $this->PostRepository->changeStatus($post);
     }
+
+    
 
 }

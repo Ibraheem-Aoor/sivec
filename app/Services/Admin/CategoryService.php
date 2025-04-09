@@ -29,7 +29,7 @@ class CategoryService{
                 return $category->translate(Config('app.locale'))->title;
             })
             ->addColumn('actions', function ($category) {
-                return view('Admin.categories.actions', compact('category'));
+                return view('admin.categories.actions', compact('category'));
             })
             ->make(true);
     }

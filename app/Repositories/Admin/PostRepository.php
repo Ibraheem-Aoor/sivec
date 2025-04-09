@@ -82,4 +82,5 @@ class PostRepository
         $post->is_available = $post->is_available == 'Active' || $post->is_available == 'مفعل' ? 0 : 1;
         return $post->save();
     }
+
 }

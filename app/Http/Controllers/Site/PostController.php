@@ -33,6 +33,7 @@ class PostController extends Controller
     public function post_details($id)
     {
         $data = $this->postService->getPost($id);
+        $post = $this->postService->increaseViews($id);
         return view('site.blog.post_details', $data);
     }
 
