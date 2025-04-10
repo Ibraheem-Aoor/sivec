@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\UpdateBranhesPageRequest;
 use App\Http\Requests\Admin\UpdateContactPageRequest;
 use App\Http\Requests\Admin\UpdateGeneralSerttingsRequest;
 use App\Models\BusinessSetting;
+use App\Services\Admin\AboutPageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
@@ -15,55 +16,20 @@ use Throwable;
 
 class PageController extends Controller
 {
+    private $aboutPageService;
+    public function __construct(AboutPageService $aboutPageService){
+        $this->aboutPageService = $aboutPageService;
+    }
     public function aboutPage()
     {
-        $data['page_settings_ar'] = BusinessSetting::query()
-            ->wherePage('about')
-            ->whereLang('ar')
-            ->pluck('value', 'key');
-        $data['page_settings_en'] = BusinessSetting::query()
-            ->wherePage('about')
-            ->whereLang('en')
-            ->pluck('value', 'key');
-
+        $data = $this->aboutPageService->aboutPage();
         return view('admin.pages.about', $data);
     }
 
-    /**
-     * Update The business Ssttings of the about page.
-     * @return \response
-     */
     public function updateAboutPageSettings(UpdateAboutPageRequest $request)
     {
-        try {
-            $data = $request->toArray();
-            $about_image_1_content = $request->file('about_image_1');
-            $about_image_2_content = $request->file('about_image_2');
-            if ($about_image_1_content) {
-                $data['about_image_1'] = saveImage('site/about/', $about_image_1_content);
-                $old_image_1 = BusinessSetting::query()->wherePage('about')->whereKey('about_image_1')->first()?->value;
-                deleteImage($old_image_1);
-                $data['settings_ar']['about_image_1'] = $data['about_image_1'];
-                $data['settings_en']['about_image_1'] = $data['about_image_1'];
-            }
-            if ($about_image_2_content) {
-                $data['about_image_2'] = saveImage('site/about/', $about_image_2_content);
-                $old_image_2 = BusinessSetting::query()->wherePage('about')->whereKey('about_image_2')->first()?->value;
-                deleteImage($old_image_2);
-                $data['settings_ar']['about_image_2'] = $data['about_image_2'];
-                $data['settings_en']['about_image_2'] = $data['about_image_2'];
-            }
-            $this->saveSetting($data['settings_ar'], 'about', 'ar');
-            $this->saveSetting($data['settings_en'], 'about', 'en');
-            $response_data['status'] = true;
-            $response_data['message'] = __('response.update_success');
-            $error_no = 200;
-        } catch (Throwable $e) {
-            $response_data['status'] = false;
-            $response_data['message'] = __('custom.smthing_wrong');
-            $error_no = 500;
-        }
-        return response()->json($response_data, $error_no);
+        $data = $this->aboutPageService->update($request);
+        return response()->json($data['response_data'], $data['error_no']);
     }
 
 
@@ -113,21 +79,8 @@ class PageController extends Controller
 
     public function updatebranchesPage(UpdateBranhesPageRequest $request)
     {
-        try {
-            $data = $request->toArray();
-            $this->saveSetting($data['ar'], 'branches' , 'ar');
-            $this->saveSetting($data['en'], 'branches', 'en');
-            $this->saveSetting(['address_values' => $data['address_values']], 'branches', 'ar');
-            $this->saveSetting(['address_values' => $data['address_values']], 'branches', 'en');
-            $response_data['status'] = true;
-            $response_data['message'] = __('custom.create_success');
-            $error_no = 200;
-        } catch (Throwable $e) {
-            $response_data['status'] = false;
-            $response_data['message'] = __('custom.smthing_wrong');
-            $error_no = 500;
-        }
-        return response()->json($response_data, $error_no);
+        $data = $this->aboutPageService->updateBranchesPage($request);
+        return response()->json($data['response_data'], $data['error_no']);
     }
 
 
@@ -141,29 +94,11 @@ class PageController extends Controller
 
     public function updateGeneralSettings(UpdateGeneralSerttingsRequest $request)
     {
-        try{
-            $data = $request->toArray();
-            $this->saveSetting($data, 'site' , 'ar');
-            $this->saveSetting($data, 'site' , 'en');
-            $response_data['status'] = true;
-            $response_data['message'] = __('custom.create_success');
-            $error_no = 200;
-        }catch(Throwable $e)
-        {
-            $response_data['status'] = false;
-            $response_data['message'] = $e->getMessage(); #__('custom.smthing_wrong');
-            $error_no = 500;
-        }
-        return response()->json($response_data, $error_no);
+        $data = $this->aboutPageService->updateGeneralSettings($request);
+        return response()->json($data['response_data'], $data['error_no']);
     }
 
 
-
-    /**
-     * Save Business Setting
-     * @param array $data
-     * @return void
-     */
     public function saveSetting(array $data, $page = null, $lang = 'en')
     {
         foreach ($data as $key => $value) {

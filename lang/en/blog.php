@@ -20,6 +20,7 @@ return [
     'tag' => 'Tag',
     'num_of_views' => 'Number of Views',
     'categories' => 'Categories',
+    'title_' => 'Title',
     'title_ar' => 'Title in Arabic',
     'title_en' => 'Title in English',
     'description' => 'Description',

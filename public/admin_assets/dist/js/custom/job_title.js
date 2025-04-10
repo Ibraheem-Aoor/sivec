@@ -57,3 +57,9 @@ $('#job-title-create-update-modal').on('show.bs.modal', function (e) {
     }
 });
 
+$(document).ajaxSuccess(function(event, xhr, settings) {
+    if(settings.type === 'DELETE'){
+        $('#delete-modal').modal('hide');
+        $('#myTable').DataTable().ajax.reload();
+    }
+});

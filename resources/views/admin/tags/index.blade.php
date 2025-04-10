@@ -26,7 +26,7 @@
                     <table id="myTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>{{ __('custom.name') }}</th>
+                                <th>{{ __('custom.title') }}</th>
                                 <th>{{ __('custom.Actions') }}</th>
                             </tr>
                         </thead>

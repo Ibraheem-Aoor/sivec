@@ -61,7 +61,7 @@ class CategoryService{
             $this->categoryRepository->update($category, $request);
 
             $response_data['status'] = true;
-            $response_data['message'] = __('custom.create_success');
+            $response_data['message'] = __('custom.update');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
             $response_data['modal_to_hiode'] = '#exampleModalEdit'.$category->id;

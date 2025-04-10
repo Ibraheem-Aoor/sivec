@@ -82,3 +82,8 @@ $('#client-create-update-modal').on('show.bs.modal', function (e) {
 
 });
 
+$(document).ajaxSuccess(function(event, xhr, settings) {
+    if(settings.type === 'DELETE'){
+        $('#myTable').DataTable().ajax.reload();
+    }
+});

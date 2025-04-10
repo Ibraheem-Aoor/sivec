@@ -27,6 +27,9 @@ return [
         'job_titles' => 'Job Titles',
         'applications' => 'Applications',
         'branches' => 'Branches',
+        'about_page_settings' => 'About Page Settings',
+        'branches_page_settings' => 'Branches Page Settings',
+        'general_settings' => 'General Settings',
 
     ],
 
@@ -137,7 +140,7 @@ return [
         'desc' => 'Get expert engineering, architecture, and interior design consulting services in  UAE from SIVEC (الرؤية المتكاملة). Our experienced consultants deliver high-quality solutions for building design, corporate design, modern design, and more.',
     ],
 
-
+    'title' => 'Title',
     'image' => 'Image',
     'name' => 'Name',
     'tilte' => 'Title',
@@ -147,6 +150,7 @@ return [
     'title_en' => 'Title In English',
     'email' => 'E-mail',
     'phone' => 'Phone',
+    'created_at' => 'Created At',
     'title_position' => 'Title Position',
     'status' => 'Status',
     'facebook' => 'Facebook',
@@ -228,6 +232,12 @@ return [
     'latest_projects' => 'Latest Projects',
     'our_outstanding' => 'Our Outstanding',
     'designs' => 'Desgins',
+    'about_image_1' => 'first image in about page',
+    'about_image_2' => 'second image in about page',
+    'pro_team_description_ar' => 'Pro team description in arabic',
+    'pro_team_description_en' => 'Pro team description in english',
+    'checklist_features_ar' => 'Checklist Features In Arabic',
+    'checklist_features_en' => 'Checklist Features In English',
 
     'meta_keywords' => 'Engineering consultancy for commercial projects in the UAE, Best engineering consultancy office in Sharjah, Engineering consultancy in Dubai, Sivec for engineering consultancy',
 

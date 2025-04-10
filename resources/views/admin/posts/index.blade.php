@@ -29,7 +29,7 @@
                     <table id="myTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>{{ __('blog.title') }}</th>
+                                <th>{{ __('custom.title') }}</th>
                                 <th>{{ __('blog.num_of_views') }}</th>
                                 <th>{{ __('blog.category') }}</th>
                                 <th>{{ __('custom.dashboard.tags') }}</th>

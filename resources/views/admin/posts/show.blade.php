@@ -42,7 +42,7 @@
                             <i class="fas @if($post->is_available == 'Active' || $post->is_available == 'مفعل' ) fa-times @else fa-check  @endif"></i>
                         </a>
 
-                        @include('admin.posts._destroy')
+                        
                     </div>
                 </div>
             </div>

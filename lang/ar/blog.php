@@ -20,6 +20,7 @@ return [
     'tag' => 'وسم',
     'num_of_views' => 'عدد المشاهدات',
     'categories' => 'الأقسام',
+    'title' => ' العنوان ',
     'title_ar' => ' العنوان بالعربية',
     'title_en' => ' العنوان بالإنجليزية',
     'description' => 'وصف',

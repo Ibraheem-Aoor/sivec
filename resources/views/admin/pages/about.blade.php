@@ -95,7 +95,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-sm-8">
-                            <h3 class="card-title">About Page Settings</h3>
+                            <h3 class="card-title">{{ __('custom.dashboard.about_page_settings') }}</h3>
                         </div>
                         <div class="col-sm-2"></div>
                     </div>
@@ -106,14 +106,14 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="">{{ __('custom.about_image_1') }}:</label> <span
+                                    <label for="">{{ __('custom.about_image_1') }}: </label> <span
                                         class="text-danger">480*565</span>
                                     <input type="file" name="about_image_1" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="">{{ __('custom.about_image_2') }}:</label><span
+                                    <label for="">{{ __('custom.about_image_2') }}: </label><span
                                         class="text-danger">425*300</span>
                                     <input type="file" name="about_image_2" class="form-control">
                                 </div>

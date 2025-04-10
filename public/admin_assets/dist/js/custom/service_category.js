@@ -1,5 +1,5 @@
-$(document).ready(function () {
 
+$(document).ready(function () {
     // render The datatable if we are at a table page
     if (table_data_url !== 'undefined') {
         renderDataTable();
@@ -11,17 +11,16 @@ $(document).ready(function () {
     * render Datatable
     */
 function renderDataTable() {
+    
     $('#myTable').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: table_data_url,
-        columns: getTableColumns(),
-        order:[[
-            3,
-            'desc'
-        ]],
+      processing: true,
+      serverSide: true,
+      ajax: table_data_url,
+      columns: getTableColumns(),
+      order: [[3, 'desc']],
     });
-}
+  }
+  
 
 function getTableColumns() {
     return [{
@@ -82,5 +81,17 @@ $('#service-category-create-update-modal').on('show.bs.modal', function (e) {
         $('#status').val(serviceCategory.status);
     }
 
+});
+
+$(document).ajaxSuccess(function(event, xhr, settings) {
+    if (settings.type === 'DELETE' || settings.type === 'POST') {
+        try {
+            console.log('Reloading DataTable...');
+            $('#myTable').DataTable().ajax.reload();
+            console.log('DataTable reloaded');
+        } catch (error) {
+            console.error('Error reloading DataTable:', error);
+        }
+    }
 });
 

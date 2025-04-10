@@ -60,7 +60,7 @@ class TagService{
             $this->tagRepository->update($tag, $request);
 
             $response_data['status'] = true;
-            $response_data['message'] = __('custom.create_success');
+            $response_data['message'] = __('custom.update');
             $response_data['refresh_table'] = true;
             $response_data['reset_form'] = true;
             $response_data['modal_to_hiode'] = '#exampleModalEdit'.$tag->id;
@@ -79,16 +79,16 @@ class TagService{
         try {
             $tag = $this->tagRepository->getTagById($id);
             $this->tagRepository->destroy($tag);
-            $respnse_data['status'] = true;
-            $respnse_data['is_deleted'] = true;
-            $respnse_data['message'] = __('custom.deleted_successflly');
-            $respnse_data['row'] = $id;
+            $response_data['status'] = true;
+            $response_data['is_deleted'] = true;
+            $response_data['message'] = __('custom.deleted_successflly');
+            $response_data['row'] = $id;
             $response_data['modal_to_hiode'] = '#exampleModalDelete'.$tag->id;
             $error_no = 200;
         } catch (Throwable $e) {
-            $respnse_data['message'] = _('custom.smth_wrong');
+            $response_data['message'] = _('custom.smth_wrong');
             $error_no = 500;
         }
-        return response()->json($respnse_data, $error_no);
+        return response()->json($response_data, $error_no);
     }
 }

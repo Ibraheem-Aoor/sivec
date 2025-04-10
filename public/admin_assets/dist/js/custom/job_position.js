@@ -134,3 +134,10 @@ function addNewRequirementsForModal(container, value = '') {
 function deleteRequirment(btn) {
     btn.parent().parent().remove();
 };
+
+
+$(document).ajaxSuccess(function(event, xhr, settings) {
+    if(settings.type === 'DELETE'){
+        $('#myTable').DataTable().ajax.reload();
+    }
+});
