@@ -12,10 +12,10 @@
                                 <div class="service-inner">
                                     <i class="service-icon webextheme-icon-003-staircase"></i>
                                     <h4 class="service-title">{{ $job->title->name }}</h4>
-                                    <div class="services-count"></div>description
+                                    <div class="services-count"></div>{{ __('custom.description') }}
                                     <p class="service-description">{{ Str::limit($job->description, 70, '...') }}</p>
                                     <div class="services-link">
-                                        <a class="text-btn" href="{{ $job->getRoute() }}">Read More</a>
+                                        <a class="text-btn" href="{{ $job->getRoute() }}">{{ __('custom.site.read_more') }}</a>
                                     </div>
                                     <div class="service-inner-obj"></div>
                                 </div>

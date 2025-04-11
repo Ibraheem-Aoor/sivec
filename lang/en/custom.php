@@ -135,6 +135,9 @@ return [
         'click_btn_download'=> 'Please click download button for getting brochure file',
         'download_pdf' => 'Download PDF',
 
+        'job_description' => 'Job Description',
+        'job_requirement' => 'Job Requirement',
+
     ],
     'projects' => [
         'projects_styles' => 'Projects Styles',
@@ -154,6 +157,9 @@ return [
     'title_ar' => 'Title In Arabic',
     'title_en' => 'Title In English',
     'email' => 'E-mail',
+    'cv' => 'CV',
+    'apply' => 'Apply',
+    'apply_now' => 'Apply Now',
     'phone' => 'Phone',
     'created_at' => 'Created At',
     'title_position' => 'Title Position',

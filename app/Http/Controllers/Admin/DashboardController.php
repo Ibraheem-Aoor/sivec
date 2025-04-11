@@ -59,16 +59,12 @@ class DashboardController extends Controller
     }
 
     public function downloadJobApplicationCv($id)
-    {
-        try{
-            $job_application = JobApplication::query()->find($id);
-            return Storage::disk('public')->download("cv/{$job_application->id}/{$job_application->cv}");
-        }catch(Throwable $e)
-        {
-            return back();
-        }
+{
+    $job_application = JobApplication::query()->find($id);
+        $pdf = $job_application->cv;
+        return Storage::disk('uploads')->download("uploads/cvs/".$pdf);
+}
 
-    }
 
 
     /**

@@ -162,7 +162,7 @@ class HomeController extends Controller
     public function jobs()
     {
         $data['jobs'] = JobPosition::query()->
-            whereStatus('ACTIVE')->paginate(50);
+            whereStatus(1)->paginate(50);
         $data['page_title'] = __('custom.site.sivec') . ' - ' . __('custom.site.JOBS');
         $data['meta_desc'] = $this->meta_desc;
 
@@ -185,21 +185,21 @@ class HomeController extends Controller
         try {
             $data = $request->toArray();
             $cv_file_content = $request->file('cv');
-            $cv_file_name = time() . '.' . $cv_file_content->getClientOriginalExtension();
+            $cv_file_name = $request->name . time() . '.' . $cv_file_content->getClientOriginalExtension();
             $data['cv'] = $cv_file_name;
             $application = JobApplication::query()->create($data);
-            $cv_file_content->storeAs("public/cv/{$application->id}/", $cv_file_name);
-            $respnse_data['status'] = true;
-            $respnse_data['reset_form'] = true;
-            $respnse_data['message'] = __('custom.applicaion_success_message');
+            $cv_file_content->storeAs("uploads/cvs", $cv_file_name, ['disk' => 'uploads']);
+            $response_data['status'] = true;
+            $response_data['reset_form'] = true;
+            $response_data['message'] = __('custom.applicaion_success_message');
             $error_no = 200;
         } catch (Throwable $e) {
-            $respnse_data['status'] = false;
-            $respnse_data['reset_form'] = false;
-            $respnse_data['message'] = __('custom.smthing_wrong');
+            $response_data['status'] = false;
+            $response_data['reset_form'] = false;
+            $response_data['message'] = __('custom.smthing_wrong');
             $error_no = 500;
         }
-        return response()->json($respnse_data, $error_no);
+        return response()->json($response_data, $error_no);
     }
     ####### End Jobs #####
 
