@@ -133,7 +133,7 @@
                 <div class="header-contact-info">
                     <div class="header-contact-info-icon">
                         <i class="base-icon-011-phone-1"></i> &nbsp;&nbsp;
-                        <h5 class="phone-no"><a style="color:#fff !important;" href="tel:0509717598">0509717598</a>
+                        <h5 class="phone-no"><a style="color:#fff !important;" href="tel:{{ @$site_settings['phone_number'] }}">{{ @$site_settings['phone_number'] }}</a>
                         </h5>
                     </div>
                     <div class="header-contact-info-text">

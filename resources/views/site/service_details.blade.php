@@ -10,7 +10,7 @@
                 <div class="col-xl-8 col-lg-7">
                     <div class="service-detail-text">
                         <div class="blog-standared-img slider-blog mrb-40">
-                            <img class="img-full" src="{{ getImageUrl($service->image) }}" alt="">
+                            <img class="img-full" src="{{  asset('uploads/services/' . $service->image) }}" alt="">
                         </div>
                         <h3 class="mrb-15">{{ $service->name }}</h3>
                         <p class="about-text-block mrb-40">{{ $service->details }}</p>
@@ -100,11 +100,10 @@
                     @if ($service->pdf)
                         <div class="sidebar-widget">
                             <div class="brochure-download">
-                                <h4 class="mrb-40 widget-title">Brochure Download</h4>
-                                <p>Please click download button for getting brochure file</p>
+                                <h4 class="mrb-40 widget-title">{{ __('custom.site.brochure_download') }}</h4>
+                                <p>{{ __('custom.site.click_btn_download') }}</p>
                                 <a href="{{ route('site.service.pdf', $service->getEncId()) }}" class="cs-btn-one"><span
-                                        class="far fa-file-pdf mrr-10"></span> Download
-                                    PDF</a>
+                                        class="far fa-file-pdf mrr-10"></span>{{ __('custom.site.download_pdf') }}</a>
                             </div>
                         </div>
                     @endif

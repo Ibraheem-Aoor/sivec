@@ -130,6 +130,11 @@ return [
         'catalog_modal_headline' => 'Welocme To <span class="prime-text" >SIVEC Catalog</span>',
         'catalog_continue' => 'Continue To Catalog',
         'INTERIOR' => 'INTERIOR',
+
+        'brochure_download' => 'Download Brochure',
+        'click_btn_download'=> 'Please click download button for getting brochure file',
+        'download_pdf' => 'Download PDF',
+
     ],
     'projects' => [
         'projects_styles' => 'Projects Styles',

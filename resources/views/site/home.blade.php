@@ -230,13 +230,13 @@
                         <figure class="about-image1 js-tilt d-none d-md-block d-lg-block d-xl-block">
                             @if (@$about_page_settings['about_image_2'])
                                 <img loading="lazy" class="img-full"
-                                    src="{{ getImageUrl($about_page_settings['about_image_2']) }}" alt="about image-2">
+                                    src="{{ asset('uploads/about/'.$about_page_settings['about_image_2']) }}" alt="about image-2">
                             @endif
                         </figure>
                         <figure class="about-image2">
                             @if (@$about_page_settings['about_image_1'])
                                 <img loading="lazy" class="img-full"
-                                    src="{{ getImageUrl($about_page_settings['about_image_1']) }}" alt="about image-1">
+                                    src="{{ asset('uploads/about/'.$about_page_settings['about_image_1']) }}" alt="about image-1">
                             @endif
                         </figure>
                     </div>
@@ -303,7 +303,8 @@
                         <div class="col-xl-5 col-lg-5 col-md-6">
                             <div class="experience text-center">
                                 <p class="experience-text">{{ __('custom.site.our_experince') }}</p>
-                                <h4 class="experience-year" style="direction: {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
+                                <h4 class="experience-year"
+                                    style="direction: {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
                                     @if (app()->getLocale() == 'ar')
                                         +15
                                     @else
@@ -313,7 +314,8 @@
                             </div>
                             <div class="experience text-center">
                                 <p class="experience-text">{{ __('custom.site.completed_projects') }}</p>
-                                <h4 class="experience-year" style="direction: {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
+                                <h4 class="experience-year"
+                                    style="direction: {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
                                     @if (app()->getLocale() == 'ar')
                                         4k
                                     @else
@@ -323,7 +325,8 @@
                             </div>
                             <div class="experience text-center">
                                 <p class="experience-text">{{ __('custom.site.engineer') }}</p>
-                                <h4 class="experience-year" style="direction: {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }};font-size: 65px !important;">
+                                <h4 class="experience-year"
+                                    style="direction: {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }};font-size: 65px !important;">
                                     @if (app()->getLocale() == 'ar')
                                         +150
                                     @else
@@ -333,7 +336,8 @@
                             </div>
                             <div class="experience text-center">
                                 <p class="experience-text">{{ __('custom.site.regions') }}</p>
-                                <h4 class="experience-year" style="direction: {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
+                                <h4 class="experience-year"
+                                    style="direction: {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
                                     @if (app()->getLocale() == 'ar')
                                         +6
                                     @else

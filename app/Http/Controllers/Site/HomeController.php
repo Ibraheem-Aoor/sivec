@@ -122,8 +122,7 @@ class HomeController extends Controller
     {
         $data['service'] = Service::query()->find(decrypt($id));
         $pdf = $data['service']->pdf;
-        return Storage::disk('public')->download("services/{$data['service']->id}/pdf/{$pdf}");
-        return view('site.service_details', $data);
+        return Storage::disk('uploads')->download("uploads/services/".$pdf);
     }
 
     ####### END  Services #####

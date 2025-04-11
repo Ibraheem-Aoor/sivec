@@ -12,13 +12,13 @@
                         <figure class="about-image1 d-none d-md-block d-lg-block d-xl-block">
                             @if (@$page_settings['about_image_2'])
                                 <img class="img-full"
-                                    src="{{ Storage::url("site/about/{$page_settings['about_image_2']}") }}">
+                                    src="{{ asset("uploads/about/".$page_settings['about_image_2']) }}">
                             @endif
                         </figure>
                         <figure class="about-image2">
                             @if (@$page_settings['about_image_1'])
                                 <img class=" img-full"
-                                    src="{{ Storage::url("site/about/{$page_settings['about_image_1']}") }}" alt="">
+                                    src="{{ asset("uploads/about/".$page_settings['about_image_1']) }}" alt="">
                             @endif
                         </figure>
                     </div>
