@@ -114,7 +114,7 @@
                             <tr>
                                 <th>{{ __('custom.name') }}</th>
                                 <th>{{ __('custom.category') }}</th>
-                                <th class="d-none">{{ __('custom.status') }}</th>
+                                <th>{{ __('custom.status') }}</th>
                                 <th>{{ __('custom.created_at') }}</th>
                                 <th>{{ __('custom.Actions') }}</th>
                             </tr>
@@ -140,7 +140,8 @@
     <script src="{{ asset('admin_assets/plugins/datatables/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('admin_assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
     <script>
-        var table_data_url = "{{ $table_data_url }}"
+        var table_data_url = "{{ $table_data_url }}";
+        var imgDir = "{{ asset('uploads/clients/') }}"
     </script>
     <script src="{{ asset('admin_assets/dist/js/custom/service.js') }}"></script>
     <script>

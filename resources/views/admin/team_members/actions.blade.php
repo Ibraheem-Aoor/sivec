@@ -1,5 +1,5 @@
 <button class='btn-xs btn-success' data-toggle='modal' data-target='#team-create-update-modal'
-    data-avatar=' {{ $member->avatar_path }} '
+    data-avatar=' {{ asset('uploads/team_members/'.$member->avatar) }} '
     data-action=' {{ route('admin.team-members.custom_update', $member->id) }}' data-method='POST'
     data-member=' {{ json_encode($member) }} ' data-name-ar=' {{ $member->translate('ar')->name }} '
     data-name-en='{{ $member->translate('en')->name }}'

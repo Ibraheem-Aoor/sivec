@@ -78,7 +78,7 @@ $('#service-create-update-modal').on('show.bs.modal', function (e) {
         $(this).find('button[type="reset"]').click();
         $(this).find('textarea').text('');
     } else {
-        document.getElementById('image-input-wrapper').style.backgroundImage = "url(" + imagePath + ")";
+        document.getElementById('image-input-wrapper').style.backgroundImage = "url(" + btn.getAttribute('data-image') + ")";
         $('#name_ar').val(btn.getAttribute('data-name-ar'));
         $('#name_en').val(btn.getAttribute('data-name-en'));
         $('#category_id').val(btn.getAttribute('data-category-id'));

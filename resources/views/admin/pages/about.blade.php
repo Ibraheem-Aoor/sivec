@@ -283,7 +283,7 @@
                         <div class="form-group d-flex">
                             ✔️ &nbsp; &nbsp;
                             <input type="text" name="${input_name}[]" class="form-control d-flex"> &nbsp;
-                            <button type="button" class="add_feature btn-xs btn-primary" onclick="addNewFeature($(this).parent().parent());"><i
+                            <button type="button" class="add_feature btn-xs btn-primary" onclick="addNewFeature($(this).parent().parent() , '${lang}');"><i
                                     class="fa fa-plus"></i></button>&nbsp;
                             <button type="button" class="remove_feature btn-xs btn-danger" onclick="deleteFeature($(this));"><i class="fa fa-trash"></i></button>
                         </div>

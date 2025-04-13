@@ -40,6 +40,7 @@ class JobPositionRepository
 
     public function update($jobPosition, $request)
     {
+        
         $jobPosition->job_title_id = $request->job_title_id;
         $jobPosition->vacancy = $request->vacancy;
         $jobPosition->salary = $request->salary;
@@ -47,9 +48,8 @@ class JobPositionRepository
         $jobPosition->description = $request->description;
         $jobPosition->requirements = json_encode($request->requirements);
         $jobPosition->benefits = json_encode($request->benefits);
-        if ($request->is_salary_visible) {
-            $jobPosition->is_salary_visible = $request->is_salary_visible == 'on' ? 1 : 0;
-        }
+        $jobPosition->is_salary_visible = $request->is_salary_visible ? 1 : 0;
+        
         return $jobPosition->save();
     }
 

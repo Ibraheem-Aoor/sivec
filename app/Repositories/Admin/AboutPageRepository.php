@@ -78,6 +78,9 @@ class AboutPageRepository
 
     public function saveRow($page, $key, $lang, $value)
     {
+        if(!$value){
+            return true;
+        }
         return BusinessSetting::updateOrCreate([
             'page' => $page,
             'key' => $key,

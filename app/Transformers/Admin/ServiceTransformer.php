@@ -27,7 +27,7 @@ class ServiceTransformer extends TransformerAbstract
 
     public function getActionButtons($service)
     {
-        $image = Storage::url("services/{$service->id}/main/{$service->image}");
+        $image = asset('uploads/services/'.$service->image);
         return "<button class='btn-xs btn-success'  data-toggle='modal' data-target='#service-create-update-modal'
         data-action='" . route('admin.service.custom_update', $service->id) . "' data-method='POST' data-name-ar='" . ($service->translate('ar')->name) ."' data-name-en='" . ($service->translate('en')->name) . "' data-details-ar='" . ($service->translate('ar')->details) . "'data-details-en='" . ($service->translate('en')->details) .
             "'data-category-id='" . ($service->category_id) ."'data-status='" . ($service->status) . "' data-is-create='false' data-image='" . $image . "'><i class='fa fa-edit'></i></button>

@@ -4,6 +4,7 @@ namespace App\Services\Admin;
 
 use App\Repositories\Admin\AboutPageRepository;
 use App\Repositories\Admin\TeamMemberRepository;
+use Illuminate\Support\Facades\Cache;
 use Yajra\DataTables\Facades\DataTables;
 use Throwable;
 
@@ -34,6 +35,8 @@ class AboutPageService
             $response_data['message'] =$e->getMessage();
             $error_no = 500;
         }
+        Cache::forget('about_ar');
+        Cache::forget('about_en');
         return [
             'response_data' => $response_data,
             'error_no' => $error_no
@@ -52,6 +55,8 @@ class AboutPageService
             $response_data['message'] = __('custom.smthing_wrong');
             $error_no = 500;
         }
+        Cache::forget('branches_ar');
+        Cache::forget('branches_en');
         return [
             'response_data' => $response_data,
             'error_no' => $error_no
@@ -71,6 +76,8 @@ class AboutPageService
             $response_data['message'] = $e->getMessage(); #__('custom.smthing_wrong');
             $error_no = 500;
         }
+        Cache::forget('site_ar');
+        Cache::forget('site_en');
         return [
             'response_data' => $response_data,
             'error_no' => $error_no
