@@ -74,7 +74,7 @@ $('#client-create-update-modal').on('show.bs.modal', function (e) {
         $(this).find('button[type="reset"]').click();
     } else {
         console.log(client);
-        document.getElementById('image-input-wrapper').style.backgroundImage =  "url(" +  btn.getAttribute('data-image') + ")";
+        document.getElementById('image-input-wrapper').style.backgroundImage =  "url(" + imgDir + '/' +btn.getAttribute('data-image') + ")";
         $('#name').val(client.name);
         $('#email').val(client.email);
         $('#phone').val(client.phone);

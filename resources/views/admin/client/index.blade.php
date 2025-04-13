@@ -141,6 +141,7 @@
     <script src="{{ asset('admin_assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
     <script>
         var table_data_url = "{{ $table_data_url }}"
+        var imgDir = "{{ asset('uploads/clients/') }}"
     </script>
     <script src="{{ asset('admin_assets/dist/js/custom/client.js') }}"></script>
     <script>
