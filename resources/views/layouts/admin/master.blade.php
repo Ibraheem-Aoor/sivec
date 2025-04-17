@@ -27,10 +27,10 @@
 
     {{-- Toastr --}}
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/toastr/toastr.min.css') }}">
-    
+
     <link rel="stylesheet" href="{{ asset('vendor/file-input/css/fileinput.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/summernote/summernote-bs4.min.css') }}">
-    
+
     <style>
         .avatar-picture {
             display: -webkit-box;
@@ -111,7 +111,7 @@
         td {
             font-size: 14px !important;
         }
-        
+
     </style>
     @stack('css')
 </head>
@@ -132,7 +132,7 @@
 
 
         <footer class="main-footer">
-            <strong>Copyright &copy; 2023 <a href="{{ route('admin.dashboard') }}">SIVEC</a>.</strong>
+            <strong>Copyright &copy; {{ date('Y') }} <a href="{{ route('admin.dashboard') }}">SIVEC</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 1.0.0
@@ -184,7 +184,7 @@
     <script src="{{ asset('admin_assets/dist/js/custom/master.js?v=0.03') }}"></script>
     <script src="{{ asset('vendor/file-input/js/fileinput.min.js') }}"></script>
     <script src="{{ asset('vendor/file-input/themes/fa5/theme.min.js') }}"></script>
-    
+
     <script src="{{ asset('vendor/summernote/summernote-bs4.min.js') }}"></script>
     @stack('js')
 

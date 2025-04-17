@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="sivec">
+    <meta name="author" content="sivec - الرؤية المتكاملة">
     <meta name="csrf" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +27,7 @@
     <meta name="twitter:image:alt" content="{{ $page_title }}">
     <meta name="google-site-verification" content="your-verification-code" />
     @stack('meta')
-    <title>{{ $page_title }}</title>
+    <title>الرؤية المتكاملة |   {{  $page_title }}</title>
     <link href="{{ asset('user_assets/images/favicon.png') }}" rel="shortcut icon" type="image/png">
     <style>
         .widget-search a {
