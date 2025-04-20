@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Site\ProjectCategoryController;
 use App\Http\Controllers\Site\ProjectController;
+use Illuminate\Support\Facades\Cache;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,52 +27,56 @@ use App\Http\Controllers\Site\ProjectController;
 */
 
 
-Route::get('change-lang/{locale}', [LanguageController::class, 'changeLanguage'])->middleware('locale')->name('change_language');
-
-Route::group(['as' => 'site.'], function () {
-
-    Route::get('/', [HomeController::class, 'home'])->name('home');
-
-    Route::get('about', [HomeController::class, 'about'])->name('about');
-
-    Route::get('contact', [HomeController::class, 'contact'])->name('contact');
-    Route::post('contact/submit', [HomeController::class, 'submitContact'])->name('contact.submit');
-
-    //Servicses Routes
-    Route::get('services', [HomeController::class, 'services'])->name('services');
-    Route::get('service/{id}', [HomeController::class, 'serviceDetails'])->name('service.details');
-    Route::get('service/{id}/pdf', [HomeController::class, 'servicePdf'])->name('service.pdf');
-
-    // ProjectCategories Routes
-    Route::get('project-category/{id}', [ProjectCategoryController::class, 'show'])->name('project_category');
-
-    // Proeject Routes
-    Route::get('project/{id}', [ProjectController::class, 'show'])->name('project_details');
-
-    // Jobs
-    Route::get('jobs', [HomeController::class, 'jobs'])->name('jobs');
-    Route::get('job/{id}', [HomeController::class, 'jobDetails'])->name('job_details');
-    Route::post('job/apply', [HomeController::class, 'submitJobApplication'])->name('job.apply');
-
-    Route::get('branches', [HomeController::class, 'branches'])->name('branches');
-    Route::get('gallery/{id}', [HomeController::class, 'gallery'])->name('gallery');
-    Route::get('save-images-to-db/{id}', [HomeController::class, 'saveImagesToDB']);
-
-    Route::get('/blog' , [PostController::class , 'index'])->name('blog');
-    Route::get('/blog-sidebar' , [PostController::class , 'posts_with_sidebar'])->name('blog.posts_with_sidebar');
-    Route::get('/blog/{id}/post' , [PostController::class , 'post_details'])->name('blog.post_details');
-    Route::get('/blog/search' , [PostController::class , 'search'])->name('blog.search');
-    // Route::get('/blog/aa' , [PostController::class , 'aa'])->name('blog.aa');
-    Route::get('/blog/{id}/category' , [PostController::class , 'getPostsByCategory'])->name('blog.category');
-    Route::get('/blog/{id}/tag' , [PostController::class , 'getPostsByTag'])->name('blog.tag');
+Route::get('/clear-cache', function () {
+    return LaravelLocalization::setLocale();
 });
+Route::group(['prefix' => Cache::get('locale') == 'ar' ? 'ar':''], function () {
+    Route::get('change-lang/{locale}', [LanguageController::class, 'changeLanguage'])->middleware('locale')->name('change_language');
+
+    Route::group(['as' => 'site.'], function () {
+
+        Route::get('/', [HomeController::class, 'home'])->name('home');
+
+        Route::get('about', [HomeController::class, 'about'])->name('about');
+
+        Route::get('contact', [HomeController::class, 'contact'])->name('contact');
+        Route::post('contact/submit', [HomeController::class, 'submitContact'])->name('contact.submit');
+
+        //Servicses Routes
+        Route::get('services', [HomeController::class, 'services'])->name('services');
+        Route::get('service/{id}', [HomeController::class, 'serviceDetails'])->name('service.details');
+        Route::get('service/{id}/pdf', [HomeController::class, 'servicePdf'])->name('service.pdf');
+
+        // ProjectCategories Routes
+        Route::get('project-category/{id}', [ProjectCategoryController::class, 'show'])->name('project_category');
+
+        // Proeject Routes
+        Route::get('project/{id}', [ProjectController::class, 'show'])->name('project_details');
+
+        // Jobs
+        Route::get('jobs', [HomeController::class, 'jobs'])->name('jobs');
+        Route::get('job/{id}', [HomeController::class, 'jobDetails'])->name('job_details');
+        Route::post('job/apply', [HomeController::class, 'submitJobApplication'])->name('job.apply');
+
+        Route::get('branches', [HomeController::class, 'branches'])->name('branches');
+        Route::get('gallery/{id}', [HomeController::class, 'gallery'])->name('gallery');
+        Route::get('save-images-to-db/{id}', [HomeController::class, 'saveImagesToDB']);
+
+        Route::get('/blog', [PostController::class, 'index'])->name('blog');
+        Route::get('/blog-sidebar', [PostController::class, 'posts_with_sidebar'])->name('blog.posts_with_sidebar');
+        Route::get('/blog/{id}/post', [PostController::class, 'post_details'])->name('blog.post_details');
+        Route::get('/blog/search', [PostController::class, 'search'])->name('blog.search');
+        // Route::get('/blog/aa' , [PostController::class , 'aa'])->name('blog.aa');
+        Route::get('/blog/{id}/category', [PostController::class, 'getPostsByCategory'])->name('blog.category');
+        Route::get('/blog/{id}/tag', [PostController::class, 'getPostsByTag'])->name('blog.tag');
+    });
 
 
 
 
-// Route::get('set-icon', [HomeController::class , 'setIcons']);
-Route::get('clear-cache', function () {
-    Artisan::call('optimize:clear');
-    return back();
+    // Route::get('set-icon', [HomeController::class , 'setIcons']);
+    Route::get('clear-cache', function () {
+        Artisan::call('optimize:clear');
+        return back();
+    });
 });
-

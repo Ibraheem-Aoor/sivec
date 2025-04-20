@@ -5,6 +5,7 @@ use App\Providers\SiteServiceProvider;
 use App\Providers\ViewServiceProvider;
 use Illuminate\Support\Facades\Facade;
 
+
 return [
 
     /*
@@ -84,6 +85,8 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
+
+    
 
     'locale' => 'en',
 
