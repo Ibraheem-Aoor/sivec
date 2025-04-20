@@ -34,6 +34,11 @@
             color: var(--text-white);
             background-color: var(--primary-color);
         }
+
+        .active-image-category{
+            background-color: #F25F29 !important;
+            color: aliceblue !important;
+        }
     </style>
     <!-- Main Stylesheet -->
     @if (app()->getLocale() == 'ar')

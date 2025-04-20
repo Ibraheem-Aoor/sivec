@@ -33,23 +33,28 @@
                     </ul>
                 </li>
                 {{-- Contact END --}}
-
+                
                 {{-- desings start --}}
                 <li class="menu-has-sub @if (Route::currentRouteName() == 'site.gallery') current @endif">
                     <a href="#"  @if (Route::currentRouteName() != 'site.gallery') style="color:#3E3D47 !important;" @endif>{{ __('custom.site.DESINGS') }}</a>
                     <ul>
+                        
                         @foreach ($image_categories->take(5) as $image_category)
                             @php
                                 $has_sub_category = $image_category->hasSubCategories();
                             @endphp
-                            <li @if ($has_sub_category) class="menu-has-sub has-sub-child" @endif><a
+                            <li @if ($has_sub_category) class="menu-has-sub has-sub-child 
+                                {{-- @if() active-image-category text-white @endif --}}
+                            " @endif><a
                                     href="@if (!$has_sub_category) {{ route('site.gallery' , $image_category->slug) }} @endif"
-                                    class="capitlize ">{{ $image_category->name }}</a>
+                                    class="capitlize @if(request()->segment(count(request()->segments())) == $image_category->slug || in_array(request()->segment(count(request()->segments())) , $image_category->getChildrenCategorySlug())) active-image-category @endif">
+                                    
+                                    {{ $image_category->name }}</a>
                                 @if ($has_sub_category)
                                     <ul>
                                         @foreach ($image_category->subCategories as $sub_category)
                                             <li><a href="{{ route('site.gallery' , $sub_category->slug) }}"
-                                                    class="capitlize">{{ $sub_category->name }}</a>
+                                                    class="capitlize @if(request()->segment(count(request()->segments())) == $sub_category->slug) active-image-category @endif">{{ $sub_category->name }}</a>
                                             </li>
                                         @endforeach
                                     </ul>

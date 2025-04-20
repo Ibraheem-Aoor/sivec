@@ -49,6 +49,18 @@ class ImageCategory extends Model
         return self::query()->find($this->parent_id)?->name ?? null;
     }
 
+    public function getChildrenCategorySlug()
+{
+    return self::query()
+        ->join('image_category_translations', 'image_categories.id', '=', 'image_category_translations.image_category_id')
+        ->where('image_categories.parent_id', $this->id)
+        ->select('image_category_translations.slug')
+        ->where('locale' , app()->getLocale())
+        ->get()
+        ->pluck('slug')
+        ->toArray();
+}
+
     public function getFullPath()
     {
         $full_path = $this->id;
