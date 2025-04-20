@@ -43,12 +43,12 @@
                                 $has_sub_category = $image_category->hasSubCategories();
                             @endphp
                             <li @if ($has_sub_category) class="menu-has-sub has-sub-child" @endif><a
-                                    href="@if (!$has_sub_category) {{ $image_category->getUrl() }} @endif"
-                                    class="capitlize">{{ $image_category->name }}</a>
+                                    href="@if (!$has_sub_category) {{ route('site.gallery' , $image_category->slug) }} @endif"
+                                    class="capitlize ">{{ $image_category->name }}</a>
                                 @if ($has_sub_category)
                                     <ul>
                                         @foreach ($image_category->subCategories as $sub_category)
-                                            <li><a href="{{ $sub_category->getUrl() }}"
+                                            <li><a href="{{ route('site.gallery' , $sub_category->slug) }}"
                                                     class="capitlize">{{ $sub_category->name }}</a>
                                             </li>
                                         @endforeach
@@ -67,12 +67,12 @@
                             <ul>
                                 @foreach ($category->subCategories as $sub_category)
                                     <li @if ($sub_category->hasSubCategories()) class="menu-has-sub has-sub-child" @endif><a
-                                            href="{{ $sub_category->getUrl() }}"
+                                            href="{{ route('site.gallery' , $sub_category->slug) }}"
                                             class="capitlize">{{ $sub_category->name }}</a>
                                         @if ($sub_category->hasSubCategories())
                                             <ul>
                                                 @foreach ($sub_category->subCategories as $child_category)
-                                                    <li><a href="{{ $child_category->getUrl() }}"
+                                                    <li><a href="{{ route('site.gallery' , $child_category->slug) }}"
                                                             class="capitlize">{{ $child_category->name }}</a>
                                                     </li>
                                                 @endforeach

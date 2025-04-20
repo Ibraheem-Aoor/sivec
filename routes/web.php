@@ -59,7 +59,7 @@ Route::group(['prefix' => Cache::get('locale') == 'ar' ? 'ar':''], function () {
         Route::post('job/apply', [HomeController::class, 'submitJobApplication'])->name('job.apply');
 
         Route::get('branches', [HomeController::class, 'branches'])->name('branches');
-        Route::get('gallery/{id}', [HomeController::class, 'gallery'])->name('gallery');
+        Route::get('gallery/{slug}', [HomeController::class, 'gallery'])->name('gallery');
         Route::get('save-images-to-db/{id}', [HomeController::class, 'saveImagesToDB']);
 
         Route::get('/blog', [PostController::class, 'index'])->name('blog');

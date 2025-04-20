@@ -27,65 +27,79 @@ class ImageCategorySeeder extends Seeder
             // 1
             [
                 'ar' => [
-                    'name' => 'فلل طابق واحد'
+                    'name' => 'فلل طابق واحد',
+                    'slug' => 'الرؤية-المتكاملة-فلل-طابق-واحد',
                 ],
                 'en' => [
-                    'name' => 'VILLA GROUND'
+                    'name' => 'VILLA GROUND',
+                    'slug' => 'sivec-VILLA-GROUND',
                 ],
             ],
             // 2
             [
                 'ar' => [
-                    'name' => 'فلل طابقين أو اكثر'
+                    'name' => 'فلل طابقين أو اكثر',
+                    'slug' => 'الرؤية-المتكاملة-فلل-طابقين-أو-اكثر',
                 ],
                 'en' => [
-                    'name' => 'VILLA G+1 or more'
+                    'name' => 'VILLA G+1 or more',
+                    'slug' => 'sivec-VILLA-G+1-or-more',
                 ],
             ],
             // 3
             [
                 'ar' => [
-                    'name' => 'ملاحق خارجية'
+                    'name' => 'ملاحق خارجية',
+                    'slug' => 'الرؤية-المتكاملة-ملاحق-خارجية',
                 ],
                 'en' => [
-                    'name' => 'SERVICE BLOCKS'
+                    'name' => 'SERVICE BLOCKS',
+                    'slug' => 'sivec-SERVICE-BLOCKS'
                 ],
             ],
             // 4
             [
                 'ar' => [
-                    'name' => 'بنايات'
+                    'name' => 'بنايات',
+                    'slug' => 'الرؤية-المتكاملة-بنايات',
                 ],
                 'en' => [
-                    'name' => 'buildings'
+                    'name' => 'buildings',
+                    'slug' => 'sivec-buildings',
                 ],
             ],
             // 5
             [
                 'ar' => [
-                    'name' => 'أسوار'
+                    'name' => 'أسوار',
+                    'slug' => 'الرؤية-المتكاملة-أسوار',
                 ],
                 'en' => [
-                    'name' => 'fences'
+                    'name' => 'fences',
+                    'slug' => 'sivec-fences',
                 ],
             ],
             // 6
             [
                 'ar' => [
-                    'name' => 'مساجد'
+                    'name' => 'مساجد',
+                    'slug' => 'الرؤية-المتكاملة-مساجد',
                 ],
                 'en' => [
-                    'name' => 'mosques'
+                    'name' => 'mosques',
+                    'slug' => 'sivec-mosques',
                 ],
                 'parent_id' => 4,
             ],
-            // 7
+
             [
                 'ar' => [
-                    'name' => 'بنايات'
+                    'name' => 'بنايات',
+                    'slug' => 'الرؤية-المتكاملة-بنايات-فرعي',
                 ],
                 'en' => [
-                    'name' => 'buildings'
+                    'name' => 'buildings',
+                    'slug' => 'sivec-sub-buildings',
                 ],
                 'parent_id' => 4,
             ],
