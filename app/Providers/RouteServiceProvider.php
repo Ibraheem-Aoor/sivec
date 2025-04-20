@@ -5,8 +5,11 @@ namespace App\Providers;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\App;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -26,6 +29,19 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        if (request()->segment(1) != 'ar') {
+            session()->put('locale', 'en');
+        App::setLocale('en');
+        Cache::forget('locale');
+        Cache::put('locale' , 'en' , 60 * 24 * 30);
+        } elseif (request()->segment(1) == 'ar') {
+            session()->put('locale', 'ar');
+            App::setLocale('ar');
+            Cache::forget('locale');
+            Cache::put('locale', 'ar', 60 * 24 * 30);
+        }
+
         $this->configureRateLimiting();
 
         $this->routes(function () {
@@ -33,10 +49,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware(['web' , 'locale'])
+            Route::middleware(['web', 'locale'])
                 ->group(base_path('routes/admin.php'));
 
-            Route::middleware(['web' , 'locale'])
+            Route::middleware(['web', 'locale'])
                 ->group(base_path('routes/web.php'));
         });
     }
