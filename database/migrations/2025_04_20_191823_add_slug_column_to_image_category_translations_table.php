@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('image_category_translations', function (Blueprint $table) {
             //
-            $table->string('slug')->unique()->after('name');
+            $table->string('slug')->nullable()->unique()->after('name');
         });
     }
 

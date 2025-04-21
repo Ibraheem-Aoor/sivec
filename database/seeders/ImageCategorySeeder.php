@@ -17,7 +17,9 @@ class ImageCategorySeeder extends Seeder
     {
         $image_categories = $this->getDataToSeed();
         foreach ($image_categories as $image_category) {
-            ImageCategory::query()->create($image_category);
+            ImageCategory::query()->updateOrCreate([
+                'id' => $image_category['id'],
+            ] , $image_category);
         }
     }
 
@@ -26,6 +28,7 @@ class ImageCategorySeeder extends Seeder
         return [
             // 1
             [
+                'id' => 1,
                 'ar' => [
                     'name' => 'فلل طابق واحد',
                     'slug' => 'الرؤية-المتكاملة-فلل-طابق-واحد',
@@ -37,6 +40,7 @@ class ImageCategorySeeder extends Seeder
             ],
             // 2
             [
+                'id' => 2,
                 'ar' => [
                     'name' => 'فلل طابقين أو اكثر',
                     'slug' => 'الرؤية-المتكاملة-فلل-طابقين-أو-اكثر',
@@ -48,6 +52,7 @@ class ImageCategorySeeder extends Seeder
             ],
             // 3
             [
+                'id' => 3,
                 'ar' => [
                     'name' => 'ملاحق خارجية',
                     'slug' => 'الرؤية-المتكاملة-ملاحق-خارجية',
@@ -59,6 +64,7 @@ class ImageCategorySeeder extends Seeder
             ],
             // 4
             [
+                'id' => 4,
                 'ar' => [
                     'name' => 'بنايات',
                     'slug' => 'الرؤية-المتكاملة-بنايات',
@@ -70,6 +76,7 @@ class ImageCategorySeeder extends Seeder
             ],
             // 5
             [
+                'id' => 5,
                 'ar' => [
                     'name' => 'أسوار',
                     'slug' => 'الرؤية-المتكاملة-أسوار',
@@ -81,6 +88,7 @@ class ImageCategorySeeder extends Seeder
             ],
             // 6
             [
+                'id' => 6,
                 'ar' => [
                     'name' => 'مساجد',
                     'slug' => 'الرؤية-المتكاملة-مساجد',
@@ -93,6 +101,7 @@ class ImageCategorySeeder extends Seeder
             ],
 
             [
+                'id' => 7,
                 'ar' => [
                     'name' => 'بنايات',
                     'slug' => 'الرؤية-المتكاملة-بنايات-فرعي',
