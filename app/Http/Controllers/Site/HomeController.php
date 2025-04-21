@@ -110,17 +110,21 @@ class HomeController extends Controller
         return view('site.services', $data);
     }
 
-    public function serviceDetails($id)
+    public function serviceDetails($slug)
     {
-        $data['service'] = Service::query()->find(decrypt($id));
+        $data['service'] = Service::query()->whereHas('translations' , function ($query) use ($slug) {
+            $query->where('slug', $slug);
+        })->firstOrFail();
         $data['page_title'] = "{$data['service']->name}";
         $data['meta_desc'] = $this->meta_desc;
         $data['related_services'] = $data['service']->getRleatedServices();
         return view('site.service_details', $data);
     }
-    public function servicePdf($id)
+    public function servicePdf($slug)
     {
-        $data['service'] = Service::query()->find(decrypt($id));
+        $data['service'] = Service::query()->whereHas('translations' , function ($query) use ($slug) {
+            $query->where('slug', $slug);
+        })->firstOrFail();
         $pdf = $data['service']->pdf;
         return Storage::disk('uploads')->download("uploads/services/".$pdf);
     }
@@ -277,8 +281,7 @@ class HomeController extends Controller
         $data['page_title'] = __('custom.site.sivec') . ' - ' . __('custom.site.DESINGS');
         " - {$category->getFullTitle()}";
         $data['meta_desc'] = $this->meta_desc;
-
-        $data['page_settings'] = BusinessSetting::query()->wherePage('about')->pluck('value', 'key');
+            $data['page_settings'] = BusinessSetting::query()->wherePage('about')->pluck('value', 'key');
         $data['images'] = Image::query()->where('image_category_id', $category->id)->latest()->paginate(20);
         $data['is_interior_caetegory'] = $category->parent_id == 9;
         $data['footer_disabled'] = true;
