@@ -269,9 +269,11 @@ class HomeController extends Controller
     }
 
 
-    public function gallery($category_id)
+    public function gallery($slug)
     {
-        $category = ImageCategory::query()->findOrFail(decrypt($category_id));
+        $category = ImageCategory::query()->whereHas('translations', function ($query) use ($slug) {
+            $query->where('slug', $slug);
+        })->first();
         $data['page_title'] = __('custom.site.sivec') . ' - ' . __('custom.site.DESINGS');
         " - {$category->getFullTitle()}";
         $data['meta_desc'] = $this->meta_desc;
@@ -280,7 +282,7 @@ class HomeController extends Controller
         $data['images'] = Image::query()->where('image_category_id', $category->id)->latest()->paginate(20);
         $data['is_interior_caetegory'] = $category->parent_id == 9;
         $data['footer_disabled'] = true;
-        $data['buildings_gallery'] = decrypt($category_id) == 7;
+        $data['buildings_gallery'] = $category->id == 7;
         $view = view('site.gallery', $data)->render();
         return $view;
     }

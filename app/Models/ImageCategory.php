@@ -6,6 +6,7 @@ use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class ImageCategory extends Model
 {
@@ -23,7 +24,7 @@ class ImageCategory extends Model
         'parent_id',
     ];
 
-    public $translatedAttributes = ['name'];
+    public $translatedAttributes = ['name' , 'slug'];
 
 
 
@@ -40,13 +41,25 @@ class ImageCategory extends Model
 
     public function getUrl()
     {
-        return route('site.gallery', encrypt($this->id));
+        return route('site.gallery', $this->name);
     }
 
     public function getParentCategoryName()
     {
         return self::query()->find($this->parent_id)?->name ?? null;
     }
+
+    public function getChildrenCategorySlug()
+{
+    return self::query()
+        ->join('image_category_translations', 'image_categories.id', '=', 'image_category_translations.image_category_id')
+        ->where('image_categories.parent_id', $this->id)
+        ->select('image_category_translations.slug')
+        ->where('locale' , app()->getLocale())
+        ->get()
+        ->pluck('slug')
+        ->toArray();
+}
 
     public function getFullPath()
     {
@@ -61,4 +74,6 @@ class ImageCategory extends Model
     {
         return $this->getFullPath(); #str_replace($this->getFullPath(), '/', '-');
     }
+
+    
 }

@@ -33,23 +33,28 @@
                     </ul>
                 </li>
                 {{-- Contact END --}}
-
+                
                 {{-- desings start --}}
                 <li class="menu-has-sub @if (Route::currentRouteName() == 'site.gallery') current @endif">
                     <a href="#"  @if (Route::currentRouteName() != 'site.gallery') style="color:#3E3D47 !important;" @endif>{{ __('custom.site.DESINGS') }}</a>
                     <ul>
+                        
                         @foreach ($image_categories->take(5) as $image_category)
                             @php
                                 $has_sub_category = $image_category->hasSubCategories();
                             @endphp
-                            <li @if ($has_sub_category) class="menu-has-sub has-sub-child" @endif><a
-                                    href="@if (!$has_sub_category) {{ $image_category->getUrl() }} @endif"
-                                    class="capitlize">{{ $image_category->name }}</a>
+                            <li @if ($has_sub_category) class="menu-has-sub has-sub-child 
+                                {{-- @if() active-image-category text-white @endif --}}
+                            " @endif><a
+                                    href="@if (!$has_sub_category) {{ route('site.gallery' , $image_category->slug) }} @endif"
+                                    class="capitlize @if(request()->segment(count(request()->segments())) == $image_category->slug || in_array(request()->segment(count(request()->segments())) , $image_category->getChildrenCategorySlug())) active-image-category @endif">
+                                    
+                                    {{ $image_category->name }}</a>
                                 @if ($has_sub_category)
                                     <ul>
                                         @foreach ($image_category->subCategories as $sub_category)
-                                            <li><a href="{{ $sub_category->getUrl() }}"
-                                                    class="capitlize">{{ $sub_category->name }}</a>
+                                            <li><a href="{{ route('site.gallery' , $sub_category->slug) }}"
+                                                    class="capitlize @if(request()->segment(count(request()->segments())) == $sub_category->slug) active-image-category @endif">{{ $sub_category->name }}</a>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -67,12 +72,12 @@
                             <ul>
                                 @foreach ($category->subCategories as $sub_category)
                                     <li @if ($sub_category->hasSubCategories()) class="menu-has-sub has-sub-child" @endif><a
-                                            href="{{ $sub_category->getUrl() }}"
+                                            href="{{ route('site.gallery' , $sub_category->slug) }}"
                                             class="capitlize">{{ $sub_category->name }}</a>
                                         @if ($sub_category->hasSubCategories())
                                             <ul>
                                                 @foreach ($sub_category->subCategories as $child_category)
-                                                    <li><a href="{{ $child_category->getUrl() }}"
+                                                    <li><a href="{{ route('site.gallery' , $child_category->slug) }}"
                                                             class="capitlize">{{ $child_category->name }}</a>
                                                     </li>
                                                 @endforeach
