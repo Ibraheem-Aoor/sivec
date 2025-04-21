@@ -1,11 +1,11 @@
-@extends('layouts.admin.master')
+@extends('layouts.admin.app')
 @push('css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
 @endpush
 @section('content')
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="">
         @include('admin.partials.page_header', ['page_title_1' => __('custom.dashboard.categories')])
         <!-- Main content -->
         <section class="content" enc>
@@ -26,7 +26,7 @@
                     <table id="myTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>{{ __('blog.title') }}</th>
+                                <th>{{ __('custom.title') }}</th>
                                 <th>{{ __('custom.Actions') }}</th>
                             </tr>
                         </thead>
@@ -40,6 +40,9 @@
 
     </div>
     <!-- /.content-wrapper -->
+
+
+
 
 @endsection
 

@@ -22,7 +22,6 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
         "fakerphp/faker": "^1.9.1",
-        "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
@@ -66,6 +65,7 @@
     },
     "config": {
         "optimize-autoloader": true,
+        "process-timeout": 600,
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
