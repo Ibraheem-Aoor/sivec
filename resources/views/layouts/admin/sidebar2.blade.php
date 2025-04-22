@@ -53,17 +53,15 @@
 
 
         <!-- projects -->
-        <li class="menu-item @if (Route::currentRouteName() == 'admin.project.index' || Route::currentRouteName() == 'admin.project-category.index' || Route::currentRouteName() == 'admin.project-style-type.index') active open @endif">
+        {{-- <li class="menu-item @if (Route::currentRouteName() == 'admin.project.index' || Route::currentRouteName() == 'admin.project-category.index' || Route::currentRouteName() == 'admin.project-style-type.index') active open @endif">
           <a href="javascript:void(0);" class="menu-link menu-toggle">
               <i class="tf-icons ti ti-building pe-2"></i>
               <div data-i18n="{{ __('custom.dashboard.projects') }}">{{ __('custom.dashboard.projects') }}
               </div>
-              {{-- <div class="badge bg-danger rounded-pill ms-auto">5</div> --}}
           </a>
           <ul class="menu-sub">
               <li class="menu-item @if (Route::currentRouteName() == 'admin.project-category.index') active @endif">
                   <a href="{{ route('admin.project-category.index') }}" class="menu-link">
-                      {{-- <i class="nav-icon fas fa-th"></i> --}}
                       <div data-i18n="{{ __('custom.dashboard.project_category') }}">
 
                           {{ __('custom.dashboard.project_category') }}
@@ -77,7 +75,7 @@
                   </a>
               </li>
           </ul>
-      </li>
+      </li> --}}
 
         {{-- team members --}}
         <li class="menu-item @if (Route::currentRouteName() == 'admin.team-members.index') active @endif">
