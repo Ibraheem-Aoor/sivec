@@ -66,6 +66,7 @@
 
             @yield('content')
             <!-- / Content -->
+            @include('admin.partials.confirm-delete-modal')
 
             <!-- Footer -->
             @include('layouts.admin.footer2')

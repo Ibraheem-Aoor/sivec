@@ -24,9 +24,9 @@ class ServiceCategoryTransformer extends TransformerAbstract
 
     public function getActionButtons($service_category)
     {
-        return "<div class='d-flex'> <button class='btn-xs btn-success'  data-toggle='modal' data-target='#service-category-create-update-modal'
+        return "<div class='d-flex'> <button class='btn-xs btn-success'  data-bs-toggle='modal' data-bs-target='#service-category-create-update-modal'
         data-action='".route('admin.service-category.custom_update' , $service_category->id)."' data-method='POST' data-service-category='".json_encode($service_category)."' data-is-create='false'><i class='fa fa-edit'></i></button> &nbsp;
-        <button type='button' data-toggle='modal' data-target='#delete-modal' class='btn-xs btn-danger'
+        <button type='button' data-bs-toggle='modal' data-bs-target='#delete-modal' class='btn-xs btn-danger'
         data-delete-url='".route('admin.service-category.destroy' , $service_category->id)."' data-message='".__('custom.confirm_delete')."' data-name='".$service_category->name."' id='row-".$service_category->id."'><i class='fa fa-trash'></i></button>
         </div>";
     }

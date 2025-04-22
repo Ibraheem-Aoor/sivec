@@ -4,7 +4,7 @@
             <form>
                 <div class="modal-header">
                     <h4 class="modal-title"></h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -48,9 +48,10 @@
                                 </div>
                             </div>
                             <div class="col-sm-3">
-                                <div class="form-group">
-                                    <label for="name">{{ __('custom.hide_salary') }}</label>
-                                    <input type="checkbox" name="is_salary_visible" id="is_salary_visible" class="form-control">
+                                <label for="name">{{ __('custom.hide_salary') }}</label>
+                                <div class="form-check">
+                                    <input type="checkbox" name="is_salary_visible" id="is_salary_visible" class="form-check-input p-4">
+                                    
                                 </div>
                             </div>
                         </div>
@@ -86,7 +87,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default"
-                        data-dismiss="modal">{{ __('custom.close') }}</button>
+                        data-bs-dismiss="modal">{{ __('custom.close') }}</button>
                     <button type="submit" class="btn btn-success">{{ __('custom.submit') }}</button>
                     <button type="reset" hidden></button>
                 </div>

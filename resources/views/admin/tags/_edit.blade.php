@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalEdit{{ $tag->id }}">
+<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModalEdit{{ $tag->id }}">
     {{ __('edit') }}
   </button>
   
@@ -9,7 +9,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">{{ __('blog.edit_tag') }}</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -28,7 +28,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary"
-                    data-dismiss="modal">{{ __('blog.cancel') }}</button>
+                    data-dismiss="bs-modal">{{ __('blog.cancel') }}</button>
                 <button type="submit" class="btn btn-primary">{{ __('blog.edit') }}</button>
             </div>
         </form>

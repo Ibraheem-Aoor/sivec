@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCreate">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCreate">
     {{ __('blog.create_tag') }}
 </button>
 
@@ -9,7 +9,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">{{ __('blog.create_tag') }}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"
-                        data-dismiss="modal">{{ __('blog.cancel') }}</button>
+                        data-bs-dismiss="modal">{{ __('blog.cancel') }}</button>
                     <button type="submit" class="btn btn-primary">{{ __('blog.save') }}</button>
                 </div>
             </form>

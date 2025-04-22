@@ -1,4 +1,4 @@
-@extends('layouts.admin.master')
+@extends('layouts.admin.app')
 @push('css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
@@ -86,7 +86,7 @@
 @endpush
 @section('content')
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="p-2">
         @include('admin.partials.page_header', ['page_title_1' => __('custom.dashboard.pages') , 'page_title_2' => __('custom.dashboard.about')])
 
         <!-- Main content -->
@@ -177,7 +177,7 @@
                             }
                         @endphp
                         @foreach ($features as $feature)
-                            <div class="col-sm-6" id="features-en-div">
+                            <div class="col-sm-6 my-1" id="features-en-div">
                                 <div class="form-group d-flex">
                                     ✔️ &nbsp; &nbsp;
                                     <input type="text" name="settings_ar[about_us_features][]" value="{{ $feature }}"
@@ -214,7 +214,7 @@
                             }
                         @endphp
                         @foreach ($features as $feature)
-                            <div class="col-sm-6" id="features-en-div">
+                            <div class="col-sm-6 my-1" id="features-en-div">
                                 <div class="form-group d-flex">
                                     ✔️ &nbsp; &nbsp;
                                     <input type="text" name="settings_en[about_us_features][]" value="{{ $feature }}"

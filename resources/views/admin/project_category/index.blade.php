@@ -1,4 +1,4 @@
-@extends('layouts.admin.master')
+@extends('layouts.admin.app')
 @push('css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
@@ -81,7 +81,7 @@
 @endpush
 @section('content')
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="p-2">
         @include('admin.partials.page_header', [
             'page_title_1' => __('custom.dashboard.projects'),
             'page_title_2' => __('custom.dashboard.project_category'),
@@ -97,8 +97,8 @@
                         </div>
                         <div class="col-sm-2"></div>
                         <div class="col-sm-2">
-                            <button class="btn btn-outline-primary" data-toggle="modal"
-                                data-target="#project-category-create-update-modal"
+                            <button class="btn btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#project-category-create-update-modal"
                                 data-action="{{ route('admin.project-category.store') }}" data-method="POST"
                                 data-is-create="1">
                                 {{ __('custom.new') }}
@@ -112,7 +112,7 @@
                         <thead>
                             <tr>
                                 <th>{{ __('custom.name') }}</th>
-                                <th class="d-none">{{ __('custom.status') }}</th>
+                                <th>{{ __('custom.status') }}</th>
                                 <th>{{ __('custom.Actions') }}</th>
                             </tr>
                         </thead>

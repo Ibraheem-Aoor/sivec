@@ -1,4 +1,4 @@
-@extends('layouts.admin.master')
+@extends('layouts.admin.app')
 @push('css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
@@ -86,7 +86,7 @@
 @endpush
 @section('content')
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="p-2">
         @include('admin.partials.page_header', ['page_title_1' => __('custom.dashboard.pages') , 'page_title_2' => __('custom.dashboard.branches')])
 
         <!-- Main content -->
@@ -106,7 +106,7 @@
                         <div class="row mb-4">
                             <div class="col-sm-12">
                                 <div>
-                                    <button type="button" class="add_address btn-xl btn-outline-primary"
+                                    <button type="button" class="add_address btn btn-outline-primary"
                                         onclick="addNewAddress($(this));"><i class="fa fa-plus"></i>
                                         {{ __('custom.new_address') }}</button>
                                 </div>
@@ -139,8 +139,8 @@
                             </div>
                         @endforeach
                         <div class="row">
-                            <div class="col-sm-12">
-                                <button type="submit" class="btn-xl btn-success">{{ __('custom.submit') }}</button>
+                            <div class="col-sm-12 mt-3">
+                                <button type="submit" class="btn btn-success">{{ __('custom.submit') }}</button>
                             </div>
                         </div>
                     </form>

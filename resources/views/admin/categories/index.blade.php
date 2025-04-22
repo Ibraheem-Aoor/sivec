@@ -5,19 +5,12 @@
 @endpush
 @section('content')
     <!-- Content Wrapper. Contains page content -->
-    <div class="">
+    <div class="p-2">
         @include('admin.partials.page_header', ['page_title_1' => __('custom.dashboard.categories')])
         <!-- Main content -->
         <section class="content" enc>
             <div class="card">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <h3 class="card-title"></h3>
-                        </div>
-                        <div class="col-sm-2"></div>
-                    </div>
-                </div>
+                
                 <!-- /.card-header -->
                 <div class="card-body table-responsive">
                     <div class="my-2">
@@ -54,7 +47,7 @@
     <script src="{{ asset('admin_assets/plugins/datatables/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('admin_assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
     <script>
-        var table_data_url = "{{ $table_data_url }}"
+        var table_data_url = "{{ $table_data_url }}";
     </script>
     <script src="{{ asset('admin_assets/dist/js/custom/category.js') }}"></script>
 @endpush

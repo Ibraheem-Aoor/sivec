@@ -54,4 +54,7 @@
 <script src="{{ asset('assets/dashboard/file-input/themes/fa5/theme.min.js') }}"></script>
 
 <script src="{{ asset('assets/dashboard/summernote/summernote-bs4.min.js') }}"></script>
+
+
+
 @stack('js')

@@ -31,7 +31,7 @@ class ContactTransformer extends TransformerAbstract
 
     public function getActionButtons($contact)
     {
-        return "<button class='btn-xs btn-info'  data-toggle='modal' data-target='#contact-modal'
+        return "<button class='btn-xs btn-info'  data-bs-toggle='modal' data-bs-target='#contact-modal'
         data-message='".$contact->message."'><i class='fa fa-eye'></i></button>
         ";
     }
