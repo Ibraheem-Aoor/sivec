@@ -10,22 +10,23 @@ use Illuminate\Support\Str;
 
 class LanguageController extends Controller
 {
-    public function changeLanguage(Request $request , $locale)
+    public function changeLanguage(Request $request, $locale)
     {
         session()->put('locale', $locale);
         App::setLocale($locale);
         Cache::forget('locale');
-        Cache::put('locale' , $locale , 60 * 24 * 30);
+        Cache::put('locale', $locale, 60 * 24 * 30);
 
-        $previousUrlWithoutDomain = parse_url(URL::previous(), PHP_URL_PATH);
+        if (!Str::contains(URL::previous(), 'backoffice')) {
+            $previousUrlWithoutDomain = parse_url(URL::previous(), PHP_URL_PATH);
 
-        // return $previousUrlWithoutDomain;
-
-        if (Str::contains($previousUrlWithoutDomain, '/ar')) {
-            $newUrl = Str::replace('/ar', '', $previousUrlWithoutDomain);
-        } else {
-            $newUrl = '/ar'.$previousUrlWithoutDomain;
+            if (Str::contains($previousUrlWithoutDomain, '/ar') && Cache::get('locale') == 'en') {
+                $newUrl = Str::replace('/ar', '', $previousUrlWithoutDomain);
+            } else {
+                $newUrl = '/ar' . $previousUrlWithoutDomain;
+            }
+            return redirect($newUrl);
         }
-        return redirect($newUrl);
+        return redirect()->back();
     }
 }

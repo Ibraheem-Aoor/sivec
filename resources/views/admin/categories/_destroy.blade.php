@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalDestroy{{ $category->id }}">
+<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModalDestroy{{ $category->id }}">
   {{ __('delete') }}
   </button>
   
@@ -9,7 +9,8 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">{{ __('blog.delete_category') }}</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -23,7 +24,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary"
-                    data-dismiss="modal">{{ __('blog.cancel') }}</button>
+                    data-bs-dismiss="modal">{{ __('blog.cancel') }}</button>
                 <button type="submit" class="btn btn-danger">{{ __('blog.delete') }}</button>
             </div>
         </form>

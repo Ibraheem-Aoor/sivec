@@ -9,48 +9,58 @@
 
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
-              <div class="navbar-nav align-items-center">
+              {{-- <div class="navbar-nav align-items-center">
                 <div class="nav-item navbar-search-wrapper mb-0">
                   <a class="nav-item nav-link search-toggler d-flex align-items-center px-0" href="javascript:void(0);">
                     <i class="ti ti-search ti-md me-2 me-lg-4 ti-lg"></i>
                     <span class="d-none d-md-inline-block text-muted fw-normal">Search (Ctrl+/)</span>
                   </a>
                 </div>
-              </div>
+              </div> --}}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('site.home') }}" target="__blank"><i class="fas fa-globe"></i></a>
+            </li>
               <!-- /Search -->
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Language -->
-                <li class="nav-item dropdown-language dropdown">
-                  <a
+                {{-- <li class="nav-item dropdown-language dropdown">
+                  <button
                     class="nav-link btn btn-text-secondary btn-icon rounded-pill dropdown-toggle hide-arrow"
-                    href="javascript:void(0);"
+                    
                     data-bs-toggle="dropdown">
                     <i class="ti ti-language rounded-circle ti-md"></i>
-                  </a>
+                  </button>
                   <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                      <a class="dropdown-item" href="javascript:void(0);" data-language="en" data-text-direction="ltr">
+                      <a class="dropdown-item" href="{{ route('change_language', 'en') }}" data-language="en" data-text-direction="ltr">
                         <span>English</span>
                       </a>
                     </li>
+                    
                     <li>
-                      <a class="dropdown-item" href="javascript:void(0);" data-language="fr" data-text-direction="ltr">
-                        <span>French</span>
+                      <a class="dropdown-item" href="{{ route('change_language', 'ar') }}" data-language="ar" data-text-direction="rtl">
+                        <span>العربية</span>
                       </a>
                     </li>
-                    <li>
-                      <a class="dropdown-item" href="javascript:void(0);" data-language="ar" data-text-direction="rtl">
-                        <span>Arabic</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="javascript:void(0);" data-language="de" data-text-direction="ltr">
-                        <span>German</span>
-                      </a>
-                    </li>
+                    
                   </ul>
-                </li>
+                </li> --}}
+                <li class="nav-item dropdown">
+                  <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                      <i class="fa fa-language"></i>
+                      <span class="badge badge-warning navbar-badge"></span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                      @foreach (getAvilableLocales() as $locale)
+                          <div class="dropdown-divider"></div>
+                          <a href="{{ route('change_language', ['locale' => $locale]) }}" class="dropdown-item text-center ">
+                              {{ $locale == 'ar' ? 'العربية' : 'English' }}
+                          </a>
+                      @endforeach
+                  </div>
+      
+              </li>
                 <!--/ Language -->
 
                 <!-- Style Switcher -->
@@ -84,7 +94,7 @@
                 <!-- / Style Switcher-->
 
                 <!-- Quick links  -->
-                <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown">
+                {{-- <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown">
                   <a
                     class="nav-link btn btn-text-secondary btn-icon rounded-pill btn-icon dropdown-toggle hide-arrow"
                     href="javascript:void(0);"
@@ -174,11 +184,11 @@
                       </div>
                     </div>
                   </div>
-                </li>
+                </li> --}}
                 <!-- Quick links -->
 
                 <!-- Notification -->
-                <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-2">
+                {{-- <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-2">
                   <a
                     class="nav-link btn btn-text-secondary btn-icon rounded-pill dropdown-toggle hide-arrow"
                     href="javascript:void(0);"
@@ -427,11 +437,11 @@
                       </div>
                     </li>
                   </ul>
-                </li>
+                </li> --}}
                 <!--/ Notification -->
 
                 <!-- User -->
-                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                {{-- <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a
                     class="nav-link dropdown-toggle hide-arrow p-0"
                     href="javascript:void(0);"
@@ -502,7 +512,7 @@
                       </div>
                     </li>
                   </ul>
-                </li>
+                </li> --}}
                 <!--/ User -->
               </ul>
             </div>

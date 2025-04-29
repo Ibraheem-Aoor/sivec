@@ -1,24 +1,17 @@
 
-@extends('layouts.admin.master')
+@extends('layouts.admin.app')
 @push('css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
 @endpush
 @section('content')
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="p-2">
         @include('admin.partials.page_header', ['page_title_1' => __('custom.dashboard.posts')])
         <!-- Main content -->
         <section class="content" enc>
             <div class="card">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <h3 class="card-title"></h3>
-                        </div>
-                        <div class="col-sm-2"></div>
-                    </div>
-                </div>
+                
                 <!-- /.card-header -->
                 <div class="card-body table-responsive">
                     <div class="my-2">

@@ -69,7 +69,7 @@
                     {{-- End services --}}
 
                     {{-- Start Projects --}}
-                    {{-- <li
+                    <li
                         class="nav-item has-treeview {{ areActiveRoutes(['admin.project.index', 'admin.project-category.index', 'admin.project-style-type.index'], 'menu-open') }}">
                         <a href="#"
                             class="nav-link {{ areActiveRoutes(['admin.project.index', 'admin.project-category.index', 'admin.project-style-type.index']) }}">
@@ -113,7 +113,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li> --}}
+                    </li>
                     {{-- End Projects --}}
 
                     {{-- Start Team Members Done 100% --}}

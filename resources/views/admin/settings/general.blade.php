@@ -1,4 +1,4 @@
-@extends('layouts.admin.master')
+@extends('layouts.admin.app')
 @push('css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
@@ -86,7 +86,7 @@
 @endpush
 @section('content')
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="p-2">
         @include('admin.partials.page_header', ['page_title_1' => __('custom.dashboard.settings') , 'page_title_2' => __('custom.dashboard.general')])
         <!-- Main content -->
         <section class="content" enc>
@@ -208,7 +208,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 mt-2">
                                 <button class="btn btn-outline-success">{{ __('custom.submit') }}</button>
                             </div>
                         </div>

@@ -1,11 +1,16 @@
-@extends('layouts.admin.master')
+@extends('layouts.admin.app')
 @push('css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
-@endpush
+    <style>
+        .avatar-picture .image-input .image-input-wrapper{
+            border: 0;
+        }
+    </style>
+    @endpush
 @section('content')
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="p-2">
         <!-- Main content -->
         @include('admin.partials.page_header'  , [ 'page_title_1' => __('custom.dashboard.team_members')])
         <section class="content">
@@ -17,8 +22,8 @@
                         </div>
                         <div class="col-sm-2"></div>
                         <div class="col-sm-2">
-                            <button class="btn btn-outline-primary" data-toggle="modal"
-                                data-target="#team-create-update-modal" data-action="{{route('admin.team-members.store')}}" data-method="POST" data-is-create="1">
+                            <button class="btn btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#team-create-update-modal" data-action="{{route('admin.team-members.store')}}" data-method="POST" data-is-create="1">
                                 {{ __('custom.new') }}
                             </button>
                         </div>

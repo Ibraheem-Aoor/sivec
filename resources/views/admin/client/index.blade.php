@@ -1,4 +1,4 @@
-@extends('layouts.admin.master')
+@extends('layouts.admin.app')
 @push('css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
@@ -24,13 +24,13 @@
         }
 
         .avatar-picture .image-input .image-input-wrapper {
-            border: 3px solid #fff;
             background-image: url("");
             width: 200px;
             height: 200px;
             /* border-radius: 50%; */
             background-repeat: no-repeat;
             background-size: contain !important;
+            border: 0;
         }
 
         .avatar-picture .image-input .btn {
@@ -86,7 +86,7 @@
 @endpush
 @section('content')
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="p-2">
         @include('admin.partials.page_header'  , [ 'page_title_1' => __('custom.dashboard.clients')])
         <!-- Main content -->
         <section class="content" enc>
@@ -98,8 +98,8 @@
                         </div>
                         <div class="col-sm-2"></div>
                         <div class="col-sm-2">
-                            <button class="btn btn-outline-primary" data-toggle="modal"
-                                data-target="#client-create-update-modal"
+                            <button class="btn btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#client-create-update-modal"
                                 data-action="{{ route('admin.client.store') }}" data-method="POST"
                                 data-is-create="1">
                                 {{ __('custom.new') }}

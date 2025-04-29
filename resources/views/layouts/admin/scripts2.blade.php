@@ -48,10 +48,13 @@
         'placeholder_image': "{{ asset('assets/dashboard/img/image_placeholder.jpg') }}",
     };
 </script>
-<script src="{{ asset('assets/dashboard/js/custom/master.js?v=0.03') }}"></script>
+<script src="{{ asset('admin_assets/dist/js/custom/master.js?v=0.03') }}"></script>
 <script src="{{ asset('assets/dashboard/js/custom/master.js?v=0.03') }}"></script>
 <script src="{{ asset('assets/dashboard/file-input/js/fileinput.min.js') }}"></script>
 <script src="{{ asset('assets/dashboard/file-input/themes/fa5/theme.min.js') }}"></script>
 
 <script src="{{ asset('assets/dashboard/summernote/summernote-bs4.min.js') }}"></script>
+
+
+
 @stack('js')

@@ -110,6 +110,14 @@
     td {
         font-size: 14px !important;
     }
+    .toast-error{
+        background-color: #ff4c51 !important;
+    }
+
+    .toast-success{
+        background-color: #24b364  !important;
+    }
+
     
 </style>
 @stack('css')

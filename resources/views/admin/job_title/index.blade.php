@@ -1,11 +1,11 @@
-@extends('layouts.admin.master')
+@extends('layouts.admin.app')
 @push('css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
 @endpush
 @section('content')
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="p-2">
         @include('admin.partials.page_header')
         <!-- Main content -->
         <section class="content" enc>
@@ -17,8 +17,8 @@
                         </div>
                         <div class="col-sm-2"></div>
                         <div class="col-sm-2">
-                            <button class="btn btn-outline-primary" data-toggle="modal"
-                                data-target="#job-title-create-update-modal"
+                            <button class="btn btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#job-title-create-update-modal"
                                 data-action="{{ route('admin.job-title.store') }}" data-method="POST"
                                 data-is-create="1">
                                 {{ __('custom.new') }}

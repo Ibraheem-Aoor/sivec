@@ -1,12 +1,12 @@
-@extends('layouts.admin.master')
+@extends('layouts.admin.app')
 @push('css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
 @endpush
 @section('content')
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        @include('admin.partials.page_header', ['page_title_1' => __('custom.dashboard.posts')])
+    <div class="content-wrapper p-2">
+        @include('admin.partials.page_header', ['page_title_1' => __('custom.dashboard.posts') , 'page_title_2' => __('blog.create_post')])
         <!-- Main content -->
         @if (session()->has('message'))
             <div class="toast toast-success" role="alert" aria-live="assertive" aria-atomic="true">
@@ -83,9 +83,11 @@
                                     <label>{{ __('blog.tag') }}</label>
                                     <div class="row">
                                         @foreach ($tags as $tag)
+                                        
                                             <div class="col-md-2">
                                                 <input id="{{ $tag->id }}" value="{{ $tag->id }}"
-                                                    type="checkbox" name="tags[]" class="checkbox">
+                                                    type="checkbox" name="tags[]" class="checkbox" >
+                                                    
                                                 <label for="id={{ $tag->title }}">{{ $tag->title }}</label>
                                             </div>
                                         @endforeach
@@ -102,12 +104,10 @@
                 </section>
             </div>
             <!-- /.card-body -->
-    </div>
-    </div>
-    <!-- /.card-body -->
-    </div>
-    </section>
-    <!-- /.content -->
+
+
+        </section>
+        <!-- /.content -->
 
     </div>
     <!-- /.content-wrapper -->
