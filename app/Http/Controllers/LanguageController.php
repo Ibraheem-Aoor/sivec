@@ -16,6 +16,7 @@ class LanguageController extends Controller
         App::setLocale($locale);
         Cache::forget('locale');
         Cache::put('locale', $locale, 60 * 24 * 30);
+        
 
         if (!Str::contains(URL::previous(), 'backoffice')) {
             $previousUrlWithoutDomain = parse_url(URL::previous(), PHP_URL_PATH);

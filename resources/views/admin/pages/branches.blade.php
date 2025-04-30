@@ -1,4 +1,7 @@
 @extends('layouts.admin.app')
+@section('title')
+    {{ __('custom.dashboard.branches') }}
+@endsection
 @push('css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
@@ -114,26 +117,28 @@
                         </div>
                         @foreach ($addresses as $address)
                             <div class="row">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12 mb-2">
                                     <div class="form-group">
                                         <label for="">{{ __('custom.address_title_ar') }}</label>
                                         <input required type="text" name="ar[address_titles][]" value="{{$address['title_ar']}}" class="form-control"> &nbsp;
                                     </div>
                                 </div>
-                                <div class="col-sm-12">
+                                <div class="col-sm-12 mb-2">
                                     <div class="form-group">
                                         <label for="">{{ __('custom.address_title_ar') }}</label>
                                         <input required type="text" name="en[address_titles][]" value="{{$address['title_en']}}" class="form-control"> &nbsp;
                                     </div>
                                 </div>
-                                <div class="col-sm-12">
-                                    <label for="">{{ __('custom.address_value') }}</label>
-                                    <div class="form-group d-flex">
-                                        <input required type="text" name="address_values[]" value="{{$address['value']}}" class="form-control"> &nbsp;
-                                        <button type="button" class="add_address btn-xs btn-primary"
-                                            onclick="addNewAddress($(this));"><i class="fa fa-plus"></i></button>&nbsp;
-                                        <button class="btn-xs btn-danger" onclick="deleteAddress($(this));"><i
-                                                class="fa fa-trash"></i></button>
+                                <div class="col-sm-12 mb-2">
+                                        <div class="form-group mb-3">
+                                        <label for="">{{ __('custom.address_value') }}</label>
+                                        <div class="form-group d-flex">
+                                            <input required type="text" name="address_values[]" value="{{$address['value']}}" class="form-control"> &nbsp;
+                                            <button type="button" class="add_address btn-xs btn-primary"
+                                                onclick="addNewAddress($(this));"><i class="fa fa-plus"></i></button>&nbsp;
+                                            <button class="btn-xs btn-danger" onclick="deleteAddress($(this));"><i
+                                                    class="fa fa-trash"></i></button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -178,6 +183,7 @@
                             </div>
                         </div>
                         <div class="col-sm-12">
+                            <div class="form-group mb-4">
                             <label for="">{{ __('custom.address_value') }}</label>
                             <div class="form-group d-flex">
                                 <input required type="text" name="address_values[]" class="form-control"> &nbsp;
@@ -185,6 +191,7 @@
                                 onclick="addNewAddress($(this));"><i class="fa fa-plus"></i></button>&nbsp;
                                 <button class="btn-xs btn-danger" onclick="deleteAddress($(this));"><i
                                         class="fa fa-trash"></i></button>
+                            </div>
                             </div>
                         </div>
                     </div>`;

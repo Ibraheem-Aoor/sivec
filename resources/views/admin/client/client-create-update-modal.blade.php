@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-3">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">{{ __('custom.name') }}</label>
@@ -48,7 +48,7 @@
                                 <input type="text" name="email" id="email" class="form-control">
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-3">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="phone">{{ __('custom.phone') }}</label>

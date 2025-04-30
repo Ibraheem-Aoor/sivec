@@ -112,9 +112,9 @@ class HomeController extends Controller
 
     public function serviceDetails($slug)
     {
-        $data['service'] = Service::query()->whereHas('translations' , function ($query) use ($slug) {
+        $data['service'] = Service::whereHas('translations', function ($query) use ($slug) {
             $query->where('slug', $slug);
-        })->firstOrFail();
+        })->first();
         $data['page_title'] = "{$data['service']->name}";
         $data['meta_desc'] = $this->meta_desc;
         $data['related_services'] = $data['service']->getRleatedServices();

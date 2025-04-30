@@ -45,7 +45,7 @@ Route::group(['prefix' => Cache::get('locale') == 'ar' ? 'ar':''], function () {
         //Servicses Routes
         Route::get('services', [HomeController::class, 'services'])->name('services');
         Route::get('service/{slug}', [HomeController::class, 'serviceDetails'])->name('service.details');
-        Route::get('service/{slug}/pdf', [HomeController::class, 'servicePdf'])->name('service.pdf');
+        Route::get('service/{id}/pdf', [HomeController::class, 'servicePdf'])->name('service.pdf');
 
         // ProjectCategories Routes
         Route::get('project-category/{id}', [ProjectCategoryController::class, 'show'])->name('project_category');

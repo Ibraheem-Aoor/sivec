@@ -12,6 +12,7 @@ use App\Services\ArtisanService;
 use App\Enums\BaseShowStatusEnum;
 use App\Models\Service;
 use App\Transformers\Admin\ServiceTransformer;
+use Illuminate\Support\Facades\Cache;
 
 class ServiceService
 {
@@ -46,6 +47,7 @@ class ServiceService
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
             $error_no = 500;
         }
+        Cache::forget('home_page_services');
         return [
             'response_data'=>$response_data, 
             'error_no'=>$error_no
@@ -69,6 +71,7 @@ class ServiceService
             $response_data['message'] = $e->getMessage(); #__('custom.something_wrong');
             $error_no = 500;
         }
+        Cache::forget('home_page_services');
         return [
             'response_data'=>$response_data, 
             'error_no'=>$error_no
@@ -90,6 +93,7 @@ class ServiceService
             $respnse_data['message'] = _('custom.smth_wrong');
             $error_no = 500;
         }
+        Cache::forget('home_page_services');
         return [
             'response_data'=>$respnse_data, 
             'error_no'=>$error_no

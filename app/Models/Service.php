@@ -27,7 +27,7 @@ class Service extends Model implements TranslatableContract
         'category',
     ];
 
-    public $translatedAttributes = ['name', 'details', 'slug'];
+    public $translatedAttributes = ['name', 'details' , 'slug'];
 
 
 

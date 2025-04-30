@@ -81,6 +81,9 @@ $('#service-create-update-modal').on('show.bs.modal', function (e) {
         document.getElementById('image-input-wrapper').style.backgroundImage = "url(" + btn.getAttribute('data-image') + ")";
         $('#name_ar').val(btn.getAttribute('data-name-ar'));
         $('#name_en').val(btn.getAttribute('data-name-en'));
+        $('#slug_ar').val(btn.getAttribute('data-slug-ar'));
+        $('#slug_en').val(btn.getAttribute('data-slug-en'));
+        $('#icon').val(btn.getAttribute('data-icon'));
         $('#category_id').val(btn.getAttribute('data-category-id'));
         $('#status').val(btn.getAttribute('data-status'));
         $('#details_ar').text(btn.getAttribute('data-details-ar'));
