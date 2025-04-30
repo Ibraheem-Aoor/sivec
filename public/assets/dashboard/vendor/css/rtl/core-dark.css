@@ -62,10 +62,12 @@
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 47, 51, 73;
   --bs-font-sans-serif: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --bs-font-alexandria: font-family: "Alexandria", sans-serif;
   --bs-font-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-root-font-size: 16px;
-  --bs-body-font-family: var(--bs-font-sans-serif);
+  /* --bs-body-font-family: var(--bs-font-sans-serif); */
+  --bs-body-font-family: var(--bs-font-alexandria);
   --bs-body-font-size: 0.9375rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.375;
@@ -133,9 +135,9 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-body-font-family);
+  font-family:"Alexandria", sans-serif;
   font-size: var(--bs-body-font-size);
-  font-weight: var(--bs-body-font-weight);
+  font-weight: 300;
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);

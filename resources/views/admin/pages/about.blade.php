@@ -114,12 +114,12 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="">{{ __('custom.about_image_1') }}: </label> <span
-                                        class="text-danger">480*565</span>
+                                        class="text-danger  mb-4">480*565</span>
                                     <div class="col-sm-12">
                                         <div class="avatar-picture">
                                             <div class="image-input image-input-outline" id="imgUserProfile">
                                                 <div class="image-input-wrapper_first" id="image-input-wrapper_first"
-                                                    style="background-image: url('{{ $page_settings_ar['about_image_1'] ? asset('uploads/about/' . $page_settings_ar['about_image_1']) : asset('admin_assets/dist/img/image_placeholder.jpg') }}');">
+                                                    style="background-image: url('@if(isset($page_settings_ar['about_image_1'])) {{ asset('uploads/about/' . $page_settings_ar['about_image_1']) }} @else  {{ asset('admin_assets/dist/img/image_placeholder.jpg')  }} @endif');">
                                                 </div>
 
                                                 <label class="btn">
@@ -145,12 +145,12 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="">{{ __('custom.about_image_2') }}: </label><span
-                                        class="text-danger">425*300</span>
+                                        class="text-danger mb-2">425*300</span>
                                     <div class="col-sm-12">
                                         <div class="avatar-picture">
                                             <div class="image-input image-input-outline" id="imgUserProfile">
                                                 <div class="image-input-wrapper_second" id="image-input-wrapper_second"
-                                                    style="background-image: url('{{ $page_settings_ar['about_image_2'] ? asset('uploads/about/' . $page_settings_ar['about_image_2']) : asset('admin_assets/dist/img/image_placeholder.jpg') }}');">
+                                                    style="background-image: url('@if(isset($page_settings_ar['about_image_2'])) {{ asset('uploads/about/' . $page_settings_ar['about_image_2']) }} @else  {{ asset('admin_assets/dist/img/image_placeholder.jpg')  }} @endif');">
                                                 </div>
 
                                                 <label class="btn">

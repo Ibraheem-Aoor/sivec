@@ -5,8 +5,10 @@
 
 <!-- Core CSS -->
 
-<link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/css/rtl/core.css" class="template-customizer-core-css" />
-<link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+<link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/css/rtl/core.css"
+    class="template-customizer-core-css" />
+<link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/css/rtl/theme-default.css"
+    class="template-customizer-theme-css" />
 
 <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/css/demo.css" />
 
@@ -18,15 +20,17 @@
 <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/libs/apex-charts/apex-charts.css" />
 <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/libs/swiper/swiper.css" />
 <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
-<link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
-<link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+<link rel="stylesheet"
+    href="{{ asset('assets/dashboard') }}/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+<link rel="stylesheet"
+    href="{{ asset('assets/dashboard') }}/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
 
 <!-- Page CSS -->
 <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/css/pages/cards-advance.css" />
 
 {{-- Toastr --}}
 <link rel="stylesheet" href="{{ asset('assets/dashboard/css/toastr.min.css') }}">
-    
+
 <link rel="stylesheet" href="{{ asset('assets/dashboard/file-input/css/fileinput.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/dashboard/summernote/summernote-bs4.min.css') }}">
 
@@ -110,12 +114,13 @@
     td {
         font-size: 14px !important;
     }
-    .toast-error{
+
+    .toast-error {
         background-color: #ff4c51 !important;
     }
 
-    .toast-success{
-        background-color: #24b364  !important;
+    .toast-success {
+        background-color: #24b364 !important;
     }
 
     

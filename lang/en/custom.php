@@ -254,6 +254,21 @@ return [
     'checklist_features_en' => 'Checklist Features In English',
 
     'meta_keywords' => 'Engineering consultancy for commercial projects in the UAE, Best engineering consultancy office in Sharjah, Engineering consultancy in Dubai, Sivec for engineering consultancy',
+    'welcome_login_page' => 'Welcome to',
+    'email_placeholder' => 'Enter Your Email Address',
+    'password' => 'Password',
+    'login' => 'Login',
+
+    'my_profile' => 'My Profile',
+    'logout' => 'Logout',
+    'save_changes' => 'Save Changes',
+    'cancel' => 'Cancel',
+    'change_password' => 'Change Password',
+    'old_password' => 'Old Password',
+    'new_password' => 'New Password',
+    'new_password_confirmation' => 'New Password Confirmation',
+    'old_password_is_wrong' => 'Old Password Is Wrong',
+
 
 
 ];

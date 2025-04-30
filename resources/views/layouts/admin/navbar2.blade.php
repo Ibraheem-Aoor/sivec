@@ -93,6 +93,59 @@
                 </li>
                 <!-- / Style Switcher-->
 
+                <!-- User -->
+                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                  <a
+                    class="nav-link dropdown-toggle hide-arrow p-0"
+                    href="javascript:void(0);"
+                    data-bs-toggle="dropdown">
+                    <div class="avatar avatar-online">
+                      <img src="{{ asset('assets/dashboard') }}/img/avatars/1.png" alt class="rounded-circle" />
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <a class="dropdown-item mt-0" href="pages-account-settings-account.html">
+                        <div class="d-flex align-items-center">
+                          <div class="flex-shrink-0 me-2">
+                            <div class="avatar avatar-online">
+                              <img src="{{ asset('assets/dashboard') }}/img/avatars/1.png" alt class="rounded-circle" />
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <h6 class="mb-0">{{ auth()->user()->name }}</h6>
+                            
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider my-1 mx-n2"></div>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{ route('admin.profile.index') }}">
+                        <i class="ti ti-user me-3 ti-md"></i><span class="align-middle">{{ __('custom.my_profile') }}</span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="d-grid px-2 pt-2 pb-1">
+                        {{-- <a href="#" onclick="document.getElementById('myForm').submit(); return false;" type="submit"
+                        class="btn btn-primary post-btn">{{ __('blog.create_post') }}</a> --}}
+                        <form id="formAuthentication" action="{{ route('logout') }}" method="POST" class="d-grid">
+                          @csrf
+                        </form>
+                          <a onclick="document.getElementById('formAuthentication').submit(); return false;" class="btn btn-sm btn-danger d-flex" href="" target="_blank">
+                            <small class="align-middle">{{ __('custom.logout') }}</small>
+                            <i class="ti ti-logout ms-2 ti-14px"></i>
+                          </a>
+                        
+                        
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <!--/ User -->
+
                 <!-- Quick links  -->
                 {{-- <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown">
                   <a

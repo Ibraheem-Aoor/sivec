@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\JobPositionController;
 use App\Http\Controllers\Admin\JobTitleController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProjectCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProjectTypeAndStyleController;
@@ -39,6 +40,11 @@ Route::group(['prefix' => 'backoffice'], function () {
     ########## START AUTH ADMIN #############
     Route::group(['middleware' => 'auth', 'as' => 'admin.'], function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+        // Admin Profile Settings
+        Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
+        Route::put('profile/update', [ProfileController::class, 'update'])->name('profile.update');
+        Route::put('profile/change-password', [ProfileController::class, 'changePassword'])->name('profile.change_password');
 
         // Site Contact Messages
         Route::get('contacts', [DashboardController::class, 'contacts'])->name('contact.index');
