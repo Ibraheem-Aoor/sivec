@@ -105,9 +105,9 @@ $('#job-position-create-update-modal').on('show.bs.modal', function (e) {
  */
 function addNewRequirmeent(btn, value = '') {
     var html = `<div class="col-sm-12">
-                    <div class="form-group d-flex">
+                    <div class="form-group d-flex my-2">
                         ✔️ &nbsp; &nbsp;
-                        <input required type="text" name="requirements[]" class="form-control d-flex" value=${value}> &nbsp;
+                        <input required type="text" name="requirements[]" class="form-control d-flex " value=${value}> &nbsp;
                         <button type="button" class="add_feature btn-xs btn-primary" onclick="addNewRequirmeent($(this));"><i
                                 class="fa fa-plus"></i></button>&nbsp;
                         <button type="button" class="deleteRequirment btn-xs btn-danger" onclick="deleteRequirment($(this));"><i class="fa fa-trash"></i></button>
@@ -120,7 +120,7 @@ function addNewRequirmeent(btn, value = '') {
 
 function addNewRequirementsForModal(container, value = '') {
     var html = `<div class="col-sm-12">
-    <div class="form-group d-flex">
+    <div class="form-group d-flex my-2">
         ✔️ &nbsp; &nbsp;
         <input required type="text" name="requirements[]" class="form-control d-flex" value=${value}> &nbsp;
         <button type="button" class="add_feature btn-xs btn-primary" onclick="addNewRequirmeent($(this));"><i

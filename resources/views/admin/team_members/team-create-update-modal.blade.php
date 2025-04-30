@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-3">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">{{ __('custom.name_ar') }}</label>
@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-3">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">{{ __('custom.title_position_ar') }}</label>
@@ -67,7 +67,7 @@
                             </div>
 
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-3">
 
                             <div class="col-sm-4">
                                 <div class="form-group">
@@ -93,7 +93,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-3">
                             {{-- <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="address">{{ __('custom.address_ar') }}</label>
@@ -107,7 +107,7 @@
                                 </div>
                             </div> --}}
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-3">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="instagram">{{ __('custom.instagram') }}</label>
@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-3">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="facebook">{{ __('custom.facebook') }}</label>
@@ -135,7 +135,7 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="row mb-2">
+                        {{-- <div class="row my-3">
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="cover_letter">{{ __('custom.cover_letter_ar') }}</label>
@@ -143,7 +143,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-3">
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="cover_letter">{{ __('custom.cover_letter_en') }}</label>
@@ -151,7 +151,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-3">
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="personal_details">{{ __('custom.personal_details_ar') }}</label>
@@ -159,7 +159,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-3">
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="personal_details">{{ __('custom.personal_details_en') }}</label>

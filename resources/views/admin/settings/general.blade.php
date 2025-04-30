@@ -1,4 +1,7 @@
 @extends('layouts.admin.app')
+@section('title')
+    {{ __('custom.dashboard.settings') }}
+@endsection
 @push('css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
@@ -102,7 +105,7 @@
                 <!-- /.card-header -->
                 <div class="card-body table-responsive">
                     <form action="{{ route('admin.settings.general.update') }}" method="POST">
-                        <div class="row">
+                        <div class="row mb-5">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="">{{ __('custom.main_address') }}</label>
@@ -118,7 +121,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-5">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="">{{ __('custom.phone_2') }}</label>
@@ -134,7 +137,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-5">
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="">{{ __('custom.company_email') }}</label>
@@ -143,7 +146,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-5">
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="">{{ __('custom.short_description') }}</label>
@@ -152,7 +155,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-5">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="">{{ __('custom.facebook') }}</label>
@@ -168,7 +171,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-5">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="">{{ __('custom.twitter') }}</label>
@@ -184,7 +187,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-5">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="">{{ __('custom.snapchat') }}</label>
@@ -199,6 +202,10 @@
                                         value="{{ @$general_settings['youtube'] }}">
                                 </div>
                             </div>
+                            
+                        </div>
+                        <div class="row mb-5">
+                            
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="">{{ __('custom.tiktok') }}</label>
@@ -207,7 +214,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-5">
                             <div class="col-sm-12 mt-2">
                                 <button class="btn btn-outline-success">{{ __('custom.submit') }}</button>
                             </div>

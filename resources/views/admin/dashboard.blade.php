@@ -1,4 +1,7 @@
 @extends('layouts.admin.app')
+@section('title')
+    {{ __('custom.dashboard.dashboard') }}
+@endsection
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">

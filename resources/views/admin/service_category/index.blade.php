@@ -1,4 +1,7 @@
 @extends('layouts.admin.app')
+@section('title')
+    {{ __('custom.dashboard.service_category') }}
+@endsection
 @push('css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">

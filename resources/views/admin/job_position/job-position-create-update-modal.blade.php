@@ -10,7 +10,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="container">
-                        <div class="row mb-2">
+                        <div class="row mb-4">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">{{ __('custom.title_position') }}</label>
@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-4">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">{{ __('custom.salary') }}</label>
@@ -55,13 +55,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-4">
                             <div class="col-sm-12">
                                 <label for="description">{{ __('custom.description') }}</label>
                                 <textarea name="description" id="description" cols="30" rows="6" class="form-control"></textarea>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row mt-4">
                             <div class="col-sm-12">
                                 <label for="">{{ __('custom.requirements') }}</label>
                                 <div>
@@ -71,9 +71,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-2" id="requirment-container">
+                    <div class="row my-4" id="requirment-container">
                         <div class="col-sm-12" >
-                            <div class="form-group d-flex">
+                            <div class="form-group d-flex my-2">
                                 ✔️ &nbsp; &nbsp;
                                 <input required type="text" name="requirements[]" value="" class="form-control d-flex">
                                 &nbsp;

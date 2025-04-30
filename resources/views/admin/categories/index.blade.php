@@ -3,6 +3,9 @@
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
 @endpush
+@section('title')
+    {{ __('blog.categories') }}
+@endsection
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="p-2">

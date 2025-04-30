@@ -14,11 +14,11 @@
             <form id="createCategoryForm" action="{{ route('admin.categories.store') }}" method="POST">
               @csrf
                 <div class="modal-body">
-                    <div class="form-group">
+                    <div class="form-group my-4">
                         <label for="title_ar">{{ __('blog.title_ar') }}</label>
                         <input type="text" class="form-control" id="title_ar" name="title_ar">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group my-4">
                         <label for="title_en">{{ __('blog.title_en') }}</label>
                         <input type="text" class="form-control" id="title_en" name="title_en">
                     </div>

@@ -110,9 +110,11 @@ class HomeController extends Controller
         return view('site.services', $data);
     }
 
-    public function serviceDetails($id)
+    public function serviceDetails($slug)
     {
-        $data['service'] = Service::query()->find(decrypt($id));
+        $data['service'] = Service::whereHas('translations', function ($query) use ($slug) {
+            $query->where('slug', $slug);
+        })->first();
         $data['page_title'] = "{$data['service']->name}";
         $data['meta_desc'] = $this->meta_desc;
         $data['related_services'] = $data['service']->getRleatedServices();

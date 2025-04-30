@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-4">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="name">{{ __('custom.name_ar') }}</label>
@@ -50,7 +50,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        {{-- <div class="row my-4">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="slug">{{ __('custom.slug_ar') }}</label>
+                                    <input type="text" name="slug_ar" id="slug_ar" class="form-control ar-only">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="slug">{{ __('custom.slug_en') }}</label>
+                                    <input type="text" name="slug_en" id="slug_en" class="form-control en-only">
+                                </div>
+                            </div>
+                        </div> --}}
+                        <div class="row my-4">
                             <div class="col-sm-6">
                                 <label for="category_id">{{ __('custom.category') }}</label>
                                 <select name="category_id" id="category_id" class="form-control">
@@ -62,12 +76,20 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
+                                    <label for="icon">{{ __('custom.icon') }}</label>
+                                    <input type="text" name="icon" id="icon" class="form-control en-only">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <div class="col-sm-12">
+                                <div class="form-group">
                                     <label for="pdf">{{ __('custom.pdf') }}</label>
                                     <input type="file" name="pdf" id="pdf" class="form-control">
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-4">
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="status">{{ __('custom.detials_ar') }}</label>
@@ -75,7 +97,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row my-4">
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="status">{{ __('custom.detials_en') }}</label>

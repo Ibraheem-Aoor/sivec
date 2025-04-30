@@ -17,11 +17,11 @@
           @csrf
           @method('put')
             <div class="modal-body">
-                <div class="form-group">
+                <div class="form-group my-4">
                     <label for="title_ar">{{ __('blog.title_ar') }}</label>
                     <input value="{{ $tag->translate('ar')->title }}" type="text" class="form-control" id="title_ar" name="title_ar">
                 </div>
-                <div class="form-group">
+                <div class="form-group my-4">
                     <label for="title_en">{{ __('blog.title_en') }}</label>
                     <input value="{{ $tag->translate('en')->title }}" type="text" class="form-control" id="title_en" name="title_en">
                 </div>

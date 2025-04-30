@@ -16,7 +16,7 @@
                                     <div class="services-count"></div>
                                     <p class="service-description">{{Str::limit($service->details , 70 , '...')}}</p>
                                     <div class="services-link">
-                                        <a class="text-btn" href="{{route('site.service.details' , encrypt($service->id))}}">{{__('custom.site.read_more')}}</a>
+                                        <a class="text-btn" href="{{route('site.service.details' , $service->slug )}}">{{__('custom.site.read_more')}}</a>
                                     </div>
                                     <div class="service-inner-obj"></div>
                                 </div>
