@@ -255,5 +255,8 @@ return [
 
     'meta_keywords' => 'Engineering consultancy for commercial projects in the UAE, Best engineering consultancy office in Sharjah, Engineering consultancy in Dubai, Sivec for engineering consultancy',
 
-
+        'our_projects_home' => 'Our Projects',
+    'our_outstanding_home' => 'Our Outstanding',
+    'latest_projects_home' => 'Latest Projects',
+    'works' => 'Works',
 ];

@@ -4,7 +4,6 @@
 @section('content')
 
 
-
     <!-- Home Slider Start -->
 
     <section class="home_banner_01 @if (app()->getLocale() == 'ar') home_banner_rtl @endif">
@@ -230,13 +229,15 @@
                         <figure class="about-image1 js-tilt d-none d-md-block d-lg-block d-xl-block">
                             @if (@$about_page_settings['about_image_2'])
                                 <img loading="lazy" class="img-full"
-                                    src="{{ asset('uploads/about/'.$about_page_settings['about_image_2']) }}" alt="about image-2">
+                                    src="{{ asset('uploads/about/' . $about_page_settings['about_image_2']) }}"
+                                    alt="about image-2">
                             @endif
                         </figure>
                         <figure class="about-image2">
                             @if (@$about_page_settings['about_image_1'])
                                 <img loading="lazy" class="img-full"
-                                    src="{{ asset('uploads/about/'.$about_page_settings['about_image_1']) }}" alt="about image-1">
+                                    src="{{ asset('uploads/about/' . $about_page_settings['about_image_1']) }}"
+                                    alt="about image-1">
                             @endif
                         </figure>
                     </div>
@@ -381,6 +382,10 @@
         </div>
     </section>
     <!-- Service Section Title Area End -->
+
+
+
+
     <!-- Service Section Area Start -->
     <section class="service-section-style1 bg-no-repeat bg-cover bg-pos-cb mb-5"
         data-background="{{ asset('user_assets/images/bg/abs-bg7.webp?v=1.0') }}">
@@ -396,8 +401,7 @@
                                     <div class="services-count"></div>
                                     <p class="service-description">{{ Str::limit($service->details, 70, '...') }}</p>
                                     <div class="services-link">
-                                        <a class="text-btn"
-                                            href="{{ route('site.service.details', $service->slug) }}">
+                                        <a class="text-btn" href="{{ route('site.service.details', $service->slug) }}">
                                             {{ __('custom.site.read_more') }}
                                         </a>
                                     </div>
@@ -407,7 +411,7 @@
                         </div>
                     @endforeach
                 </div>
-                {{-- <div class="row mrt-110">
+                <div class="row mrt-110">
                     <div class="col-xl-12">
                         <div class="before-after-slider1">
                             <!-- The before image is first -->
@@ -416,7 +420,7 @@
                             <img src="https://via.placeholder.com/1320x600" alt="img1">
                         </div>
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
     </section>
@@ -431,6 +435,71 @@
 
 
 
+
+    <section class="bg-secondary-color bg-no-repeat bg-cover bg-pos-cb pdt-105" data-background="images/bg/abs-bg3.png"
+        data-overlay-dark="4" style="background-image: url(&quot;images/bg/abs-bg3.png&quot;);">
+        <div class="section-title mrb-60 mrb-md-15 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms"
+            style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+            <div class="container">
+                <div class="row align-items-end">
+                    <div class="col-xl-8 col-lg-7 col-md-12">
+                        <div class="title-box-center">
+                            <h5 class="side-line-left text-primary-color mrb-10">{{ __('custom.our_projects_home') }}</h5>
+                            <h2 class="text-white mrb-md-40 mrb-sm-30">
+                                {{ __('custom.our_outstanding_home') }} <br>
+                                <span class="text-primary-color">{{ __('custom.latest_projects_home') }}</span> &amp; {{ __('custom.works') }}
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-5 col-md-12 text-lg-end">
+                        <p class="text-white mrb-0 mrb-md-40"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="project-item-style1-wrapper mrr--300">
+                            <div class="owl-carousel projects_5col owl-loaded owl-drag">
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage"
+                                        style="">
+                                        @foreach ($images as $image)
+                                            <div class="owl-item cloned" style="width: 311.2px; margin-right: 10px;">
+                                                <div class="project-item-style1">
+                                                    <div class="project-item-thumb">
+                                                        <img class="img-full"
+                                                            src="{{ asset('storage/'.$images->first()->image) }}"
+                                                            alt="">
+                                                        <div class="project-item-link-icon">
+                                                            <a href="{{ route('site.project_details' , $image->id) }}"><i
+                                                                    class="base-icon-next"></i></a>
+                                                        </div>
+                                                        <div class="project-item-details">
+                                                            <h6 class="project-item-category">{{ $image->name }}</h6>
+                                                            <h4 class="project-item-title"><a
+                                                                    href="page-project-details.html">{{ $image->category->name }}</a></h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i
+                                            class="base-icon-left-chevron"></i></button><button type="button"
+                                        role="presentation" class="owl-next"><i
+                                            class="base-icon-right-chevron"></i></button></div>
+                                <div class="owl-dots disabled"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Offer Section Start -->
     <section class="bg-secondary-color bg-no-repeat bg-cover bg-pos-cb pdt-110 pdb-85"
@@ -511,3 +580,329 @@
         });
     </script>
 @endpush
+
+
+
+{{-- <section class="bg-secondary-color bg-no-repeat bg-cover bg-pos-cb pdt-105" data-background="images/bg/abs-bg3.png"
+        data-overlay-dark="4" style="background-image: url(&quot;images/bg/abs-bg3.png&quot;);">
+        <div class="section-title mrb-60 mrb-md-15 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms"
+            style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+            <div class="container">
+                <div class="row align-items-end">
+                    <div class="col-xl-8 col-lg-7 col-md-12">
+                        <div class="title-box-center">
+                            <h5 class="side-line-left text-primary-color mrb-10">Our Projects</h5>
+                            <h2 class="text-white mrb-md-40 mrb-sm-30">
+                                Our Outstanding <br>
+                                <span class="text-primary-color">Latest Proejcts</span> &amp; Works
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-5 col-md-12 text-lg-end">
+                        <p class="text-white mrb-0 mrb-md-40">Lorem ipsum dolor sit amet consectetur adipiscing augue curae
+                            duis pellentesque proin, quam faucibus accumsan feugiat donec aliquet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="project-item-style1-wrapper mrr--300">
+                            <div class="owl-carousel projects_5col owl-loaded owl-drag">
+
+
+
+
+
+
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage"
+                                        style="transform: translate3d(-1606px, 0px, 0px); transition: 0.25s; width: 5140px;">
+                                        <div class="owl-item cloned" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_02.jpg"
+                                                        alt="">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Modern</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-project-details.html">Architecture</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item cloned" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_03.jpg"
+                                                        alt="">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Decor</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-single-project-item">Decoration Art</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item cloned" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_04.jpg"
+                                                        alt="">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Design</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-single-project-item">Modern Kitchen</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item cloned" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_05.jpg"
+                                                        alt="">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Modern</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-project-details.html">Architecture</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item cloned" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_06.jpg"
+                                                        alt="">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Modern</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-project-details.html">Architecture</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item active" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_01.jpg"
+                                                        alt="">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Interior</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-single-project-item">Interior work</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item active" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_02.jpg"
+                                                        alt="">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Modern</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-project-details.html">Architecture</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item active" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_03.jpg"
+                                                        alt="" data-first-enter-image="true">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Decor</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-single-project-item">Decoration Art</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item active" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_04.jpg"
+                                                        alt="">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Design</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-single-project-item">Modern Kitchen</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item active" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_05.jpg"
+                                                        alt="">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Modern</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-project-details.html">Architecture</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item active" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_06.jpg"
+                                                        alt="">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Modern</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-project-details.html">Architecture</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item cloned" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_01.jpg"
+                                                        alt="">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Interior</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-single-project-item">Interior work</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item cloned" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_02.jpg"
+                                                        alt="">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Modern</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-project-details.html">Architecture</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item cloned" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_03.jpg"
+                                                        alt="">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Decor</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-single-project-item">Decoration Art</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item cloned" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_04.jpg"
+                                                        alt="">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Design</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-single-project-item">Modern Kitchen</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item cloned" style="width: 311.2px; margin-right: 10px;">
+                                            <div class="project-item-style1">
+                                                <div class="project-item-thumb">
+                                                    <img class="img-full" src="images/projects/project_05.jpg"
+                                                        alt="">
+                                                    <div class="project-item-link-icon">
+                                                        <a href="page-project-details.html"><i
+                                                                class="base-icon-next"></i></a>
+                                                    </div>
+                                                    <div class="project-item-details">
+                                                        <h6 class="project-item-category">Modern</h6>
+                                                        <h4 class="project-item-title"><a
+                                                                href="page-project-details.html">Architecture</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i
+                                            class="base-icon-left-chevron"></i></button><button type="button"
+                                        role="presentation" class="owl-next"><i
+                                            class="base-icon-right-chevron"></i></button></div>
+                                <div class="owl-dots disabled"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> --}}

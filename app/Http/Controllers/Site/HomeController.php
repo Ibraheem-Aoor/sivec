@@ -49,11 +49,7 @@ class HomeController extends Controller
     }
 
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+    
     public function home()
     {
         $data['services'] = $this->services;
@@ -61,6 +57,7 @@ class HomeController extends Controller
         $data['meta_desc'] = $this->meta_desc;
         $data['projects'] = collect([]);#Project::query()->get(); #$this->setHomeProjects();
         $data['about_page_settings'] = getPageSettings('about');
+        $data['images'] = Project::with('category')->inRandomOrder()->paginate(20);
         return view('site.home', $data);
     }
 
@@ -225,6 +222,7 @@ class HomeController extends Controller
         foreach ($addres_titles as $address) {
             array_push($data['addresses'], ['title' => $address, 'value' => @$addres_values[$i++]]);
         }
+
         return view('site.branches', $data);
     }
     ####### End Branches #####
