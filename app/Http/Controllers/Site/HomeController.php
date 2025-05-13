@@ -29,12 +29,12 @@ class HomeController extends Controller
 {
 
     public $services,
-    $contact_page_settings,
-    $about_page_settings,
-    $site_settings,
-    $branches_page_settings,
-    $image_categories,
-    $meta_desc;
+        $contact_page_settings,
+        $about_page_settings,
+        $site_settings,
+        $branches_page_settings,
+        $image_categories,
+        $meta_desc;
 
     public function __construct(CacheService $cacheService, Request $request)
     {
@@ -49,15 +49,18 @@ class HomeController extends Controller
     }
 
 
-    
+
     public function home()
     {
         $data['services'] = $this->services;
         $data['page_title'] = __('custom.site.sivec') . ' - ' . __('custom.site.Engineering Consulting');
         $data['meta_desc'] = $this->meta_desc;
-        $data['projects'] = collect([]);#Project::query()->get(); #$this->setHomeProjects();
+        $data['projects'] = collect([]); #Project::query()->get(); #$this->setHomeProjects();
         $data['about_page_settings'] = getPageSettings('about');
-        $data['images'] = Project::with('category')->inRandomOrder()->paginate(20);
+        $data['images'] = Project::with(['translations', 'category.translations'])
+            ->inRandomOrder()
+            ->limit(20)
+            ->get();
         return view('site.home', $data);
     }
 
@@ -119,11 +122,11 @@ class HomeController extends Controller
     }
     public function servicePdf($slug)
     {
-        $data['service'] = Service::query()->whereHas('translations' , function ($query) use ($slug) {
+        $data['service'] = Service::query()->whereHas('translations', function ($query) use ($slug) {
             $query->where('slug', $slug);
         })->firstOrFail();
         $pdf = $data['service']->pdf;
-        return Storage::disk('uploads')->download("uploads/services/".$pdf);
+        return Storage::disk('uploads')->download("uploads/services/" . $pdf);
     }
 
     ####### END  Services #####
@@ -162,8 +165,7 @@ class HomeController extends Controller
     ####### Start Jobs #####
     public function jobs()
     {
-        $data['jobs'] = JobPosition::query()->
-            whereStatus(1)->paginate(50);
+        $data['jobs'] = JobPosition::query()->whereStatus(1)->paginate(50);
         $data['page_title'] = __('custom.site.sivec') . ' - ' . __('custom.site.JOBS');
         $data['meta_desc'] = $this->meta_desc;
 
@@ -279,7 +281,7 @@ class HomeController extends Controller
         $data['page_title'] = __('custom.site.sivec') . ' - ' . __('custom.site.DESINGS');
         " - {$category->getFullTitle()}";
         $data['meta_desc'] = $this->meta_desc;
-            $data['page_settings'] = BusinessSetting::query()->wherePage('about')->pluck('value', 'key');
+        $data['page_settings'] = BusinessSetting::query()->wherePage('about')->pluck('value', 'key');
         $data['images'] = Image::query()->where('image_category_id', $category->id)->latest()->paginate(20);
         $data['is_interior_caetegory'] = $category->parent_id == 9;
         $data['footer_disabled'] = true;
@@ -312,9 +314,8 @@ class HomeController extends Controller
         //     dd('DONE ALREADY');
         // }
         $db_category = ImageCategory::query()->find($id);
-        if($db_category->parent_id != null)
-        {
-            $path = 'gallery/' . $db_category->parent_id .'/'.$id;
+        if ($db_category->parent_id != null) {
+            $path = 'gallery/' . $db_category->parent_id . '/' . $id;
         }
         if (!isset($db_category)) {
             ImageCategory::query()->create([
@@ -340,8 +341,4 @@ class HomeController extends Controller
         }
         dd('Done');
     }
-
-
-
-
 }
