@@ -57,10 +57,7 @@ class HomeController extends Controller
         $data['meta_desc'] = $this->meta_desc;
         $data['projects'] = collect([]); #Project::query()->get(); #$this->setHomeProjects();
         $data['about_page_settings'] = getPageSettings('about');
-        $data['images'] = Project::with(['translations', 'category.translations'])
-            ->inRandomOrder()
-            ->limit(20)
-            ->get();
+        // $data['images'] = Image::query()->latest()->paginate(20);;
         return view('site.home', $data);
     }
 

@@ -436,7 +436,7 @@
 
 
 
-    <section class="bg-secondary-color bg-no-repeat bg-cover bg-pos-cb pdt-105" data-background="images/bg/abs-bg3.png"
+    {{-- <section class="bg-secondary-color bg-no-repeat bg-cover bg-pos-cb pdt-105" data-background="images/bg/abs-bg3.png"
         data-overlay-dark="4" style="background-image: url(&quot;images/bg/abs-bg3.png&quot;);">
         <div class="section-title mrb-60 mrb-md-15 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms"
             style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
@@ -471,16 +471,14 @@
                                                 <div class="project-item-style1">
                                                     <div class="project-item-thumb">
                                                         <img class="img-full"
-                                                            src="{{ asset('storage/'.$images->first()->image) }}"
+                                                            src="{{$image->getUrl() }}"
                                                             alt="">
                                                         <div class="project-item-link-icon">
-                                                            <a href="{{ route('site.project_details' , $image->id) }}"><i
-                                                                    class="base-icon-next"></i></a>
+                                                            <span><i
+                                                                    class="base-icon-next"></i></span>
                                                         </div>
                                                         <div class="project-item-details">
-                                                            <h6 class="project-item-category">{{ $image->name }}</h6>
-                                                            <h4 class="project-item-title"><a
-                                                                    href="page-project-details.html">{{ $image->category->name }}</a></h4>
+                                                            <h6 class="project-item-category">{{ $image->category->name }}</h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -499,7 +497,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Offer Section Start -->
     <section class="bg-secondary-color bg-no-repeat bg-cover bg-pos-cb pdt-110 pdb-85"

@@ -1,98 +1,148 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+
+<html lang="en" class="light-style layout-wide customizer-hide" dir="ltr" data-theme="theme-default"
+    data-assets-path="{{ asset('assets/dashboard') }}/" data-template="horizontal-menu-template" data-style="light">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIVEC- Backoffice</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('admin_assets/plugins/fontawesome-free/css/all.min.css') }}">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="{{ asset('admin_assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('admin_assets/dist/css/adminlte.min.css') }}">
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <title>Login Basic - Pages | Vuexy - Bootstrap Admin Template</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/dashboard') }}/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&ampdisplay=swap"
+        rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/fonts/tabler-icons.css" />
+    <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/fonts/flag-icons.css" />
+
+    <!-- Core CSS -->
+
+    <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/css/rtl/core.css"
+        class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/css/rtl/theme-default.css"
+        class="template-customizer-theme-css" />
+
+    <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/libs/node-waves/node-waves.css" />
+
+    <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/libs/typeahead-js/typeahead.css" />
+    <!-- Vendor -->
+    <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/libs/@form-validation/form-validation.css" />
+
+    <!-- Page CSS -->
+    <!-- Page -->
+    <link rel="stylesheet" href="{{ asset('assets/dashboard') }}/vendor/css/pages/page-auth.css" />
+
+    <!-- Helpers -->
+    <script src="{{ asset('assets/dashboard') }}/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="{{ asset('assets/dashboard') }}/vendor/js/template-customizer.js"></script>
+
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="{{ asset('assets/dashboard') }}/js/config.js"></script>
 </head>
 
-<body class="hold-transition register-page">
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="#"><b>SEVIC</b></a>
-        </div>
-        <!-- /.login-logo -->
-        <div class="card">
-            <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+<body>
+    <!-- Content -->
 
-                <form action="{{ route('login') }}" method="POST">
-                    @csrf
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control" name="email" placeholder="Email"
-                            value="{{ old('email') }}">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
-                        @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="password" class="form-control" name="password" placeholder="Password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    <div class="row">
-                        <div class="col-8">
-                            {{-- <div class="icheck-primary">
-                                <input type="checkbox" id="remember" name="remember"
-                                    {{ old('remember') ? 'checked' : '' }}>
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div> --}}
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                </form>
+    <div class="container-xxl">
+        <div class="authentication-wrapper authentication-basic container-p-y">
+            <div class="authentication-inner py-6">
+                <!-- Login -->
 
-                {{-- <p class="mb-1">
-                    <a href="#">I forgot my password</a>
-                </p>
-                <p class="mb-0">
-                    <a href="register.html" class="text-center">Register a new membership</a>
-                </p> --}}
+                <div class="card">
+                    <div class="card-body">
+                        <div class="app-brand demo mb-5 d-flex justify-content-center">
+                            <a class="brand-link" style="background">
+                                <img width="50px" src="{{ asset('user_assets/images/logo/white_logo.webp?v=1.0') }}"
+                                    alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                                <span class="brand-text font-weight-light text-bold ">SEVIC</span>
+                            </a>
+                        </div>
+                        <h4 class="mb-1">Welcome to SIVEC! 👋</h4>
+
+                        <form id="formAuthentication" class="mb-4" action="{{ route('login') }}" method="POST">
+                            @csrf
+                            <div class="mb-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input value="{{ old('email') }}" type="text" class="form-control" id="email"
+                                    name="email" placeholder="Enter your Email" autofocus />
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-6 form-password-toggle">
+                                <label class="form-label" for="password">Password</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="password" id="password" class="form-control" name="password"
+                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                        aria-describedby="password" />
+                                    <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <button class="btn btn-primary d-grid w-100" type="submit">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /Register -->
             </div>
-            <!-- /.login-card-body -->
         </div>
     </div>
-    <!-- /.register-box -->
 
-    <!-- jQuery -->
-    <script src="{{ asset('admin_assets/plugins/jquery/jquery.min.js') }}"></script>
-    <!-- Bootstrap 4 -->
-    <script src="{{ asset('admin_assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- / Content -->
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+
+    <script src="{{ asset('assets/dashboard') }}/vendor/libs/jquery/jquery.js"></script>
+    <script src="{{ asset('assets/dashboard') }}/vendor/libs/popper/popper.js"></script>
+    <script src="{{ asset('assets/dashboard') }}/vendor/js/bootstrap.js"></script>
+    <script src="{{ asset('assets/dashboard') }}/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="{{ asset('assets/dashboard') }}/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="{{ asset('assets/dashboard') }}/vendor/libs/hammer/hammer.js"></script>
+    <script src="{{ asset('assets/dashboard') }}/vendor/libs/i18n/i18n.js"></script>
+    <script src="{{ asset('assets/dashboard') }}/vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="{{ asset('assets/dashboard') }}/vendor/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="{{ asset('assets/dashboard') }}/vendor/libs/@form-validation/popular.js"></script>
+    <script src="{{ asset('assets/dashboard') }}/vendor/libs/@form-validation/bootstrap5.js"></script>
+    <script src="{{ asset('assets/dashboard') }}/vendor/libs/@form-validation/auto-focus.js"></script>
+
+    <!-- Main JS -->
+    <script src="{{ asset('assets/dashboard') }}/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="{{ asset('assets/dashboard') }}/js/pages-auth.js"></script>
 </body>
 
 </html>
