@@ -17,7 +17,6 @@ class ImageCategory extends Model
 
     protected $with = [
         'translations',
-        'subCategories',
     ];
 
     protected $fillable = [
